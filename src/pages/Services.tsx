@@ -1,4 +1,5 @@
 import { useState } from "react";
+import servicesHeroImg from "@/assets/services-hero.jpg";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -142,8 +143,17 @@ const Services = () => {
   return (
     <div className="min-h-screen bg-background">
       {/* Hero Section */}
-      <section className="section-padding bg-gradient-to-br from-primary/5 to-accent/5">
-        <div className="container-max text-center">
+      <section className="relative min-h-[70vh] flex items-center justify-center overflow-hidden">
+        <div className="absolute inset-0 z-0">
+          <img 
+            src={servicesHeroImg} 
+            alt="AI Services and Solutions" 
+            className="w-full h-full object-cover opacity-20"
+          />
+          <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-transparent to-accent/20"></div>
+        </div>
+        
+        <div className="container-max text-center relative z-10">
           <h1 className="text-4xl md:text-6xl font-bold mb-6 gradient-text">
             AI-Powered Services
           </h1>

@@ -18,6 +18,17 @@ const AnimatedStats = ({ stats, className = "" }: AnimatedStatsProps) => {
   const statsRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY < 100) {
+        setCounts(stats.map(() => 0));
+        setIsVisible(false);
+        setTimeout(() => {
+          setIsVisible(true);
+          animateStats();
+        }, 100);
+      }
+    };
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting && !isVisible) {
@@ -32,7 +43,11 @@ const AnimatedStats = ({ stats, className = "" }: AnimatedStatsProps) => {
       observer.observe(statsRef.current);
     }
 
-    return () => observer.disconnect();
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      observer.disconnect();
+      window.removeEventListener('scroll', handleScroll);
+    };
   }, [isVisible]);
 
   const animateStats = () => {

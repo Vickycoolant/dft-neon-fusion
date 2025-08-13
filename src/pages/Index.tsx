@@ -11,6 +11,9 @@ import cloudSolutionsImg from "@/assets/cloud-solutions.jpg";
 import aiWorkflowInputImg from "@/assets/ai-workflow-input.jpg";
 import aiWorkflowAnalysisImg from "@/assets/ai-workflow-analysis.jpg";
 import aiWorkflowOutputImg from "@/assets/ai-workflow-output.jpg";
+import bankingIndustryImg from "@/assets/banking-industry.jpg";
+import financeIndustryImg from "@/assets/finance-industry.jpg";
+import insuranceIndustryImg from "@/assets/insurance-industry.jpg";
 import AnimatedStats from "@/components/AnimatedStats";
 import FloatingAIElements from "@/components/FloatingAIElements";
 import PartnersCarousel from "@/components/PartnersCarousel";
@@ -68,10 +71,10 @@ const Index = () => {
       </section>
 
       {/* DFT Solutions Section */}
-      <section className="section-padding bg-gradient-to-br from-primary/5 to-accent/5">
+      <section className="section-padding">
         <div className="container-max">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-5xl font-bold mb-4 gradient-text">
+            <h2 className="text-3xl md:text-5xl font-bold mb-4 text-primary">
               DFT Solutions
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
@@ -80,106 +83,249 @@ const Index = () => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <Card className="neon-border group hover:shadow-lg transition-all duration-300">
-              <CardHeader className="text-center">
-                <div className="w-20 h-20 mx-auto mb-4 rounded-lg overflow-hidden">
-                  <img 
-                    src={documentAnalysisImg} 
-                    alt="Document Analysis"
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
-                  />
-                </div>
-                <CardTitle className="text-xl font-semibold">Document Analysis</CardTitle>
-                <CardDescription>
-                  AI-powered document processing for automated credit underwriting
+            <Card className="group hover:shadow-lg transition-all duration-300 border-gray-200">
+              <div className="aspect-video w-full overflow-hidden rounded-t-lg">
+                <img 
+                  src={documentAnalysisImg} 
+                  alt="Document Analysis"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                />
+              </div>
+              <CardHeader>
+                <CardTitle className="text-xl font-semibold text-primary">Document Analysis</CardTitle>
+                <CardDescription className="text-base">
+                  AI-powered document processing for automated credit underwriting. 
+                  Advanced OCR and NLP technologies extract and validate key information 
+                  from financial documents with 99% accuracy.
                 </CardDescription>
               </CardHeader>
+              <CardContent>
+                <Button variant="ghost" size="sm" className="p-0 h-auto text-primary">
+                  Learn More <ArrowRight className="ml-1 h-3 w-3" />
+                </Button>
+              </CardContent>
             </Card>
 
-            <Card className="neon-border group hover:shadow-lg transition-all duration-300">
-              <CardHeader className="text-center">
-                <div className="w-20 h-20 mx-auto mb-4 rounded-lg overflow-hidden">
-                  <img 
-                    src={bankStatementImg} 
-                    alt="Bank Statement Analysis"
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
-                  />
-                </div>
-                <CardTitle className="text-xl font-semibold">Bank Statement Analysis</CardTitle>
-                <CardDescription>
-                  Digitize and analyze bank statements with AI insights
+            <Card className="group hover:shadow-lg transition-all duration-300 border-gray-200">
+              <div className="aspect-video w-full overflow-hidden rounded-t-lg">
+                <img 
+                  src={bankStatementImg} 
+                  alt="Bank Statement Analysis"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                />
+              </div>
+              <CardHeader>
+                <CardTitle className="text-xl font-semibold text-primary">Bank Statement Analysis</CardTitle>
+                <CardDescription className="text-base">
+                  Digitize and analyze bank statements with AI insights. 
+                  Real-time transaction categorization, fraud detection, and 
+                  financial behavior analysis for instant credit decisions.
                 </CardDescription>
               </CardHeader>
+              <CardContent>
+                <Button variant="ghost" size="sm" className="p-0 h-auto text-primary">
+                  Learn More <ArrowRight className="ml-1 h-3 w-3" />
+                </Button>
+              </CardContent>
             </Card>
 
-            <Card className="neon-border group hover:shadow-lg transition-all duration-300">
-              <CardHeader className="text-center">
-                <div className="w-20 h-20 mx-auto mb-4 rounded-lg overflow-hidden">
-                  <img 
-                    src={analyticsImg} 
-                    alt="Data Analytics"
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
-                  />
-                </div>
-                <CardTitle className="text-xl font-semibold">Predictive Analytics</CardTitle>
-                <CardDescription>
-                  AI-driven forecasting and recommendation systems
+            <Card className="group hover:shadow-lg transition-all duration-300 border-gray-200">
+              <div className="aspect-video w-full overflow-hidden rounded-t-lg">
+                <img 
+                  src={analyticsImg} 
+                  alt="Predictive Analytics"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                />
+              </div>
+              <CardHeader>
+                <CardTitle className="text-xl font-semibold text-primary">Predictive Analytics</CardTitle>
+                <CardDescription className="text-base">
+                  AI-driven forecasting and recommendation systems. 
+                  Machine learning models predict market trends, customer behavior, 
+                  and risk patterns with industry-leading precision.
                 </CardDescription>
               </CardHeader>
+              <CardContent>
+                <Button variant="ghost" size="sm" className="p-0 h-auto text-primary">
+                  Learn More <ArrowRight className="ml-1 h-3 w-3" />
+                </Button>
+              </CardContent>
             </Card>
 
-            <Card className="neon-border group hover:shadow-lg transition-all duration-300">
-              <CardHeader className="text-center">
-                <div className="w-20 h-20 mx-auto mb-4 rounded-lg overflow-hidden">
-                  <img 
-                    src={cybersecurityImg} 
-                    alt="Cybersecurity"
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
-                  />
-                </div>
-                <CardTitle className="text-xl font-semibold">Cybersecurity</CardTitle>
-                <CardDescription>
-                  AI-enhanced digital forensics and security solutions
+            <Card className="group hover:shadow-lg transition-all duration-300 border-gray-200">
+              <div className="aspect-video w-full overflow-hidden rounded-t-lg">
+                <img 
+                  src={cybersecurityImg} 
+                  alt="Cybersecurity Solutions"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                />
+              </div>
+              <CardHeader>
+                <CardTitle className="text-xl font-semibold text-primary">Cybersecurity Solutions</CardTitle>
+                <CardDescription className="text-base">
+                  AI-enhanced digital forensics and security solutions. 
+                  Advanced threat detection, incident response, and 
+                  comprehensive protection for financial institutions.
                 </CardDescription>
               </CardHeader>
+              <CardContent>
+                <Button variant="ghost" size="sm" className="p-0 h-auto text-primary">
+                  Learn More <ArrowRight className="ml-1 h-3 w-3" />
+                </Button>
+              </CardContent>
             </Card>
 
-            <Card className="neon-border group hover:shadow-lg transition-all duration-300">
-              <CardHeader className="text-center">
-                <div className="w-20 h-20 mx-auto mb-4 rounded-lg overflow-hidden">
-                  <img 
-                    src={cloudSolutionsImg} 
-                    alt="Cloud Solutions"
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
-                  />
-                </div>
-                <CardTitle className="text-xl font-semibold">Cloud Solutions</CardTitle>
-                <CardDescription>
-                  AI-optimized cloud infrastructure and management
+            <Card className="group hover:shadow-lg transition-all duration-300 border-gray-200">
+              <div className="aspect-video w-full overflow-hidden rounded-t-lg">
+                <img 
+                  src={cloudSolutionsImg} 
+                  alt="Cloud Solutions"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                />
+              </div>
+              <CardHeader>
+                <CardTitle className="text-xl font-semibold text-primary">Cloud Solutions</CardTitle>
+                <CardDescription className="text-base">
+                  AI-optimized cloud infrastructure and management. 
+                  Scalable, secure cloud architectures designed specifically 
+                  for financial services and compliance requirements.
                 </CardDescription>
               </CardHeader>
+              <CardContent>
+                <Button variant="ghost" size="sm" className="p-0 h-auto text-primary">
+                  Learn More <ArrowRight className="ml-1 h-3 w-3" />
+                </Button>
+              </CardContent>
             </Card>
 
-            <Card className="neon-border group hover:shadow-lg transition-all duration-300">
-              <CardHeader className="text-center">
-                <div className="w-20 h-20 mx-auto mb-4 rounded-lg overflow-hidden">
-                  <img 
-                    src={analyticsImg} 
-                    alt="Custom Development"
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
-                  />
-                </div>
-                <CardTitle className="text-xl font-semibold">Custom Development</CardTitle>
-                <CardDescription>
-                  Tailored AI-integrated software solutions
+            <Card className="group hover:shadow-lg transition-all duration-300 border-gray-200">
+              <div className="aspect-video w-full overflow-hidden rounded-t-lg">
+                <img 
+                  src={analyticsImg} 
+                  alt="Custom Development"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                />
+              </div>
+              <CardHeader>
+                <CardTitle className="text-xl font-semibold text-primary">Custom Development</CardTitle>
+                <CardDescription className="text-base">
+                  Tailored AI-integrated software solutions. 
+                  Bespoke fintech applications built with cutting-edge AI 
+                  technologies to meet your specific business requirements.
                 </CardDescription>
               </CardHeader>
+              <CardContent>
+                <Button variant="ghost" size="sm" className="p-0 h-auto text-primary">
+                  Learn More <ArrowRight className="ml-1 h-3 w-3" />
+                </Button>
+              </CardContent>
             </Card>
           </div>
 
           <div className="text-center mt-12">
-            <Button variant="outline" size="lg" className="neon-border">
+            <Button variant="outline" size="lg" className="border-gray-300">
               View All Services
+              <ArrowRight className="ml-2 h-4 w-4" />
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* Industries We Serve Section */}
+      <section className="section-padding bg-gradient-to-br from-primary/5 to-accent/5">
+        <div className="container-max">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-5xl font-bold mb-4 text-primary">
+              Industries We Serve
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              Specialized AI solutions tailored for Banking, Finance, and Insurance sectors
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <Card className="group hover:shadow-lg transition-all duration-300 border-gray-200">
+              <div className="aspect-video w-full overflow-hidden rounded-t-lg">
+                <img 
+                  src={bankingIndustryImg} 
+                  alt="Banking Industry"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                />
+              </div>
+              <CardHeader>
+                <div className="flex items-center mb-3">
+                  <Building2 className="w-6 h-6 text-primary mr-2" />
+                  <CardTitle className="text-xl font-semibold text-primary">Banking & Financial Services</CardTitle>
+                </div>
+                <CardDescription className="text-base">
+                  Comprehensive AI-powered solutions for modern banking operations. 
+                  From automated credit underwriting to real-time fraud detection, 
+                  transforming traditional banking processes.
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <Button variant="ghost" size="sm" className="p-0 h-auto text-primary">
+                  Explore Banking Solutions <ArrowRight className="ml-1 h-3 w-3" />
+                </Button>
+              </CardContent>
+            </Card>
+
+            <Card className="group hover:shadow-lg transition-all duration-300 border-gray-200">
+              <div className="aspect-video w-full overflow-hidden rounded-t-lg">
+                <img 
+                  src={financeIndustryImg} 
+                  alt="Finance Industry"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                />
+              </div>
+              <CardHeader>
+                <div className="flex items-center mb-3">
+                  <TrendingUp className="w-6 h-6 text-primary mr-2" />
+                  <CardTitle className="text-xl font-semibold text-primary">Finance & Investment</CardTitle>
+                </div>
+                <CardDescription className="text-base">
+                  Advanced analytics and AI solutions for investment and financial planning. 
+                  Sophisticated tools for portfolio optimization, market analysis, 
+                  and risk management.
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <Button variant="ghost" size="sm" className="p-0 h-auto text-primary">
+                  Explore Finance Solutions <ArrowRight className="ml-1 h-3 w-3" />
+                </Button>
+              </CardContent>
+            </Card>
+
+            <Card className="group hover:shadow-lg transition-all duration-300 border-gray-200">
+              <div className="aspect-video w-full overflow-hidden rounded-t-lg">
+                <img 
+                  src={insuranceIndustryImg} 
+                  alt="Insurance Industry"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                />
+              </div>
+              <CardHeader>
+                <div className="flex items-center mb-3">
+                  <Shield className="w-6 h-6 text-primary mr-2" />
+                  <CardTitle className="text-xl font-semibold text-primary">Insurance & Risk Management</CardTitle>
+                </div>
+                <CardDescription className="text-base">
+                  Intelligent insurance solutions powered by machine learning and AI. 
+                  From claims processing to risk assessment, enhancing efficiency 
+                  and customer satisfaction.
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <Button variant="ghost" size="sm" className="p-0 h-auto text-primary">
+                  Explore Insurance Solutions <ArrowRight className="ml-1 h-3 w-3" />
+                </Button>
+              </CardContent>
+            </Card>
+          </div>
+
+          <div className="text-center mt-12">
+            <Button variant="outline" size="lg" className="border-gray-300">
+              View All Industries
               <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
           </div>
@@ -392,12 +538,12 @@ const Index = () => {
                 image: aiWorkflowAnalysisImg
               }
             ].map((update, index) => (
-              <Card key={index} className="neon-border group hover:shadow-lg transition-all duration-300">
+              <Card key={index} className="group hover:shadow-lg transition-all duration-300 border-gray-200">
                 <div className="aspect-video w-full overflow-hidden rounded-t-lg">
                   <img 
                     src={update.image} 
                     alt={update.title}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                   />
                 </div>
                 <CardHeader>
@@ -415,9 +561,9 @@ const Index = () => {
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <Button variant="ghost" size="sm" className="p-0 h-auto group">
+                  <Button variant="ghost" size="sm" className="p-0 h-auto text-primary">
                     Read More 
-                    <ArrowRight className="ml-1 h-3 w-3 group-hover:translate-x-1 transition-transform" />
+                    <ArrowRight className="ml-1 h-3 w-3" />
                   </Button>
                 </CardContent>
               </Card>
