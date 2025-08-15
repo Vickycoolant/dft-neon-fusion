@@ -476,111 +476,123 @@ const Index = () => {
         </div>
       </section>
 
-{/* The DFT Advantage section */}
-    import { motion } from "framer-motion";
+import { motion } from "framer-motion";
 
-export default function StatsDiamond() {
+const FloatingElement = ({ delay }) => (
+  <motion.div
+    className="absolute w-3 h-3 rounded-full"
+    style={{
+      background: `radial-gradient(circle, rgba(65,105,225,0.8), transparent)`,
+    }}
+    animate={{
+      y: ["0%", "-50%", "0%"],
+      opacity: [0, 1, 0],
+      scale: [0.5, 1.2, 0.5],
+    }}
+    transition={{
+      duration: 6,
+      delay,
+      repeat: Infinity,
+      ease: "easeInOut",
+    }}
+  />
+);
+
+export default function AdvantageSection() {
   return (
-    <div className="relative flex flex-col md:flex-row items-center justify-between px-10 py-20 bg-white overflow-hidden">
-      {/* Floating AI Elements */}
-      {Array.from({ length: 10 }).map((_, i) => (
-        <motion.div
-          key={i}
-          className="absolute rounded-full opacity-50 blur-xl"
-          style={{
-            width: Math.random() * 50 + 20,
-            height: Math.random() * 50 + 20,
-            top: `${Math.random() * 100}%`,
-            left: `${Math.random() * 100}%`,
-            backgroundColor: [
-              "rgba(65,105,225,0.6)", // Royal Blue
-              "rgba(138,43,226,0.6)", // Violet
-              "rgba(148,0,211,0.6)", // Purple
-              "rgba(144,238,144,0.6)", // Light Green
-              "rgba(57,255,20,0.6)", // Neon Green
-            ][Math.floor(Math.random() * 5)],
-          }}
-          animate={{ opacity: [0, 1, 0] }}
-          transition={{
-            duration: Math.random() * 5 + 3,
-            repeat: Infinity,
-            delay: Math.random() * 2,
-          }}
-        />
+    <section className="relative w-full py-20 bg-white overflow-hidden">
+      {/* Floating AI elements */}
+      {[...Array(10)].map((_, i) => (
+        <FloatingElement key={i} delay={i * 0.5} />
       ))}
 
-      {/* Left Section - Text */}
-      <div className="relative z-10 md:w-1/2 mb-10 md:mb-0">
-        <h2 className="text-4xl font-bold text-gray-900 mb-4">
-          Experience 99.9999% Quality
-        </h2>
-        <p className="text-lg text-gray-700 leading-relaxed">
-          Our AI-driven solutions deliver six nines of quality, ensuring 
-          world-class reliability, precision, and performance. 
-          Trusted by organizations that demand excellence, 
-          our platform brings intelligence to every decision.
-        </p>
-      </div>
+      {/* Heading */}
+      <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 text-[#4169E1]">
+        The DFT Advantage
+      </h2>
 
-      {/* Right Section - Diamond Stats */}
-      <div className="relative z-10 md:w-1/2 flex items-center justify-center">
-        <div className="relative w-72 h-72 flex items-center justify-center">
-          {/* Top Tile */}
-          <motion.div
-            className="absolute w-32 h-32 flex items-center justify-center text-white text-xl font-bold shadow-lg"
-            style={{
-              background: "linear-gradient(135deg, #4169E1, #1E3A8A)", // Royal Blue
-              transform: "rotate(45deg)",
-              top: "-40%",
-            }}
-            whileHover={{ scale: 1.1 }}
-          >
-            AI
-          </motion.div>
+      <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-12">
+        {/* Text Section */}
+        <div className="flex-1 text-gray-700 text-lg leading-relaxed">
+          <p className="mb-6">
+            DFT Consult is redefining technology adoption with AI-powered
+            solutions designed to deliver **99.9999% quality and reliability**.
+          </p>
+          <p className="mb-6">
+            Our approach ensures seamless integration, operational efficiency,
+            and unmatched accuracy across industries.
+          </p>
+        </div>
 
-          {/* Right Tile */}
-          <motion.div
-            className="absolute w-32 h-32 flex items-center justify-center text-white text-xl font-bold shadow-lg"
-            style={{
-              background: "linear-gradient(135deg, #8A2BE2, #6D28D9)", // Violet
-              transform: "rotate(45deg)",
-              right: "-40%",
-            }}
-            whileHover={{ scale: 1.1 }}
-          >
-            99.9999
-          </motion.div>
+        {/* Visual Section */}
+        <div className="flex-1 relative flex items-center justify-center">
+          <div className="relative w-80 h-80">
+            {/* Top Tile */}
+            <motion.div
+              className="absolute w-32 h-32 flex items-center justify-center text-white font-bold text-xl rounded-lg"
+              style={{
+                top: 0,
+                left: "50%",
+                transform: "translate(-50%, -50%) rotate(45deg)",
+                background:
+                  "linear-gradient(135deg, rgba(65,105,225,1), rgba(65,105,225,0.6))",
+              }}
+              whileHover={{ scale: 1.05 }}
+            >
+              <div className="-rotate-45">99.9999% Quality</div>
+            </motion.div>
 
-          {/* Bottom Tile */}
-          <motion.div
-            className="absolute w-32 h-32 flex items-center justify-center text-white text-xl font-bold shadow-lg"
-            style={{
-              background: "linear-gradient(135deg, #9400D3, #4C1D95)", // Purple
-              transform: "rotate(45deg)",
-              bottom: "-40%",
-            }}
-            whileHover={{ scale: 1.1 }}
-          >
-            Secure
-          </motion.div>
+            {/* Right Tile */}
+            <motion.div
+              className="absolute w-32 h-32 flex items-center justify-center text-white font-bold text-xl rounded-lg"
+              style={{
+                top: "50%",
+                left: "100%",
+                transform: "translate(-50%, -50%) rotate(45deg)",
+                background:
+                  "linear-gradient(135deg, rgba(148,0,211,1), rgba(148,0,211,0.6))",
+              }}
+              whileHover={{ scale: 1.05 }}
+            >
+              <div className="-rotate-45">AI Innovation</div>
+            </motion.div>
 
-          {/* Left Tile */}
-          <motion.div
-            className="absolute w-32 h-32 flex items-center justify-center text-white text-xl font-bold shadow-lg"
-            style={{
-              background: "linear-gradient(135deg, #16A34A, #15803D)", // Light Green
-              transform: "rotate(45deg)",
-              left: "-40%",
-            }}
-            whileHover={{ scale: 1.1 }}
-          >
-            Fast
-          </motion.div>
+            {/* Bottom Tile */}
+            <motion.div
+              className="absolute w-32 h-32 flex items-center justify-center text-white font-bold text-xl rounded-lg"
+              style={{
+                top: "100%",
+                left: "50%",
+                transform: "translate(-50%, -50%) rotate(45deg)",
+                background:
+                  "linear-gradient(135deg, rgba(0,255,127,1), rgba(0,255,127,0.6))",
+              }}
+              whileHover={{ scale: 1.05 }}
+            >
+              <div className="-rotate-45">Scalability</div>
+            </motion.div>
+
+            {/* Left Tile */}
+            <motion.div
+              className="absolute w-32 h-32 flex items-center justify-center text-white font-bold text-xl rounded-lg"
+              style={{
+                top: "50%",
+                left: 0,
+                transform: "translate(-50%, -50%) rotate(45deg)",
+                background:
+                  "linear-gradient(135deg, rgba(138,43,226,1), rgba(138,43,226,0.6))",
+              }}
+              whileHover={{ scale: 1.05 }}
+            >
+              <div className="-rotate-45">Reliability</div>
+            </motion.div>
+          </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 }
+
 
 
 
