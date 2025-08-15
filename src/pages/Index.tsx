@@ -476,7 +476,7 @@ const Index = () => {
         </div>
       </section>
 
-  {/* Advantage Section */}
+ {/* Advantage Section */}
 <section className="relative w-full py-24 bg-white overflow-hidden">
   <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 text-[#4169E1]">
     The DFT Advantage
@@ -511,8 +511,8 @@ const Index = () => {
           key={`hollow-${i}`}
           className="absolute rounded-full border-2 opacity-20"
           style={{
-            width: `${60 + i * 30}px`,
-            height: `${60 + i * 30}px`,
+            width: `${80 + i * 40}px`,
+            height: `${80 + i * 40}px`,
             borderColor: ["#4169E1", "#9400D3", "#8A2BE2"][i % 3],
             top: `${Math.random() * 80}%`,
             left: `${Math.random() * 80}%`,
@@ -524,7 +524,7 @@ const Index = () => {
       <div className="relative w-96 h-96">
         {/* Top Square */}
         <div
-          className="absolute w-40 h-40 flex items-center justify-center text-center text-white font-bold text-xl rounded-lg hover:scale-105 transition-transform"
+          className="absolute w-48 h-48 flex items-center justify-center text-center text-white font-bold text-xl rounded-lg hover:scale-105 transition-transform"
           style={{
             top: 0,
             left: "50%",
@@ -537,7 +537,7 @@ const Index = () => {
 
         {/* Right Square */}
         <div
-          className="absolute w-40 h-40 flex items-center justify-center text-center text-white font-bold text-xl rounded-lg hover:scale-105 transition-transform"
+          className="absolute w-48 h-48 flex items-center justify-center text-center text-white font-bold text-xl rounded-lg hover:scale-105 transition-transform"
           style={{
             top: "50%",
             left: "100%",
@@ -550,7 +550,7 @@ const Index = () => {
 
         {/* Bottom Square */}
         <div
-          className="absolute w-40 h-40 flex items-center justify-center text-center text-white font-bold text-xl rounded-lg hover:scale-105 transition-transform"
+          className="absolute w-48 h-48 flex items-center justify-center text-center text-white font-bold text-xl rounded-lg hover:scale-105 transition-transform"
           style={{
             top: "100%",
             left: "50%",
@@ -563,7 +563,7 @@ const Index = () => {
 
         {/* Left Square */}
         <div
-          className="absolute w-40 h-40 flex items-center justify-center text-center text-white font-bold text-xl rounded-lg hover:scale-105 transition-transform"
+          className="absolute w-48 h-48 flex items-center justify-center text-center text-white font-bold text-xl rounded-lg hover:scale-105 transition-transform"
           style={{
             top: "50%",
             left: 0,
@@ -586,6 +586,7 @@ const Index = () => {
     }
   `}</style>
 </section>
+
 
 
 
