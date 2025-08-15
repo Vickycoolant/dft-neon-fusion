@@ -476,88 +476,112 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Stats Section with AI floating elements */}
-<section className="relative section-padding bg-gradient-to-br from-background via-muted/20 to-background overflow-hidden">
-  <div className="container-max text-center">
+{/* The DFT Advantage section */}
+    import { motion } from "framer-motion";
 
-    {/* Floating AI Themed Elements */}
-    <div className="absolute inset-0 pointer-events-none">
+export default function StatsDiamond() {
+  return (
+    <div className="relative flex flex-col md:flex-row items-center justify-between px-10 py-20 bg-white overflow-hidden">
+      {/* Floating AI Elements */}
       {Array.from({ length: 10 }).map((_, i) => (
-        <div
+        <motion.div
           key={i}
-          className={`absolute w-${Math.floor(Math.random() * 10) + 3} h-${Math.floor(
-            Math.random() * 10
-          ) + 3} rounded-full opacity-60 animate-pulse`}
+          className="absolute rounded-full opacity-50 blur-xl"
           style={{
+            width: Math.random() * 50 + 20,
+            height: Math.random() * 50 + 20,
             top: `${Math.random() * 100}%`,
             left: `${Math.random() * 100}%`,
-            background: [
-              "rgba(65,105,225,0.4)", // Royal Blue
-              "rgba(148,0,211,0.4)", // Violet
-              "rgba(138,43,226,0.4)", // Purple
-              "rgba(144,238,144,0.4)", // Light Green
-              "rgba(0,255,255,0.4)", // Neon hint
-            ][i % 5],
-            animation: `floatAnim ${6 + Math.random() * 6}s ease-in-out infinite alternate`,
+            backgroundColor: [
+              "rgba(65,105,225,0.6)", // Royal Blue
+              "rgba(138,43,226,0.6)", // Violet
+              "rgba(148,0,211,0.6)", // Purple
+              "rgba(144,238,144,0.6)", // Light Green
+              "rgba(57,255,20,0.6)", // Neon Green
+            ][Math.floor(Math.random() * 5)],
           }}
-        ></div>
+          animate={{ opacity: [0, 1, 0] }}
+          transition={{
+            duration: Math.random() * 5 + 3,
+            repeat: Infinity,
+            delay: Math.random() * 2,
+          }}
+        />
       ))}
+
+      {/* Left Section - Text */}
+      <div className="relative z-10 md:w-1/2 mb-10 md:mb-0">
+        <h2 className="text-4xl font-bold text-gray-900 mb-4">
+          Experience 99.9999% Quality
+        </h2>
+        <p className="text-lg text-gray-700 leading-relaxed">
+          Our AI-driven solutions deliver six nines of quality, ensuring 
+          world-class reliability, precision, and performance. 
+          Trusted by organizations that demand excellence, 
+          our platform brings intelligence to every decision.
+        </p>
+      </div>
+
+      {/* Right Section - Diamond Stats */}
+      <div className="relative z-10 md:w-1/2 flex items-center justify-center">
+        <div className="relative w-72 h-72 flex items-center justify-center">
+          {/* Top Tile */}
+          <motion.div
+            className="absolute w-32 h-32 flex items-center justify-center text-white text-xl font-bold shadow-lg"
+            style={{
+              background: "linear-gradient(135deg, #4169E1, #1E3A8A)", // Royal Blue
+              transform: "rotate(45deg)",
+              top: "-40%",
+            }}
+            whileHover={{ scale: 1.1 }}
+          >
+            AI
+          </motion.div>
+
+          {/* Right Tile */}
+          <motion.div
+            className="absolute w-32 h-32 flex items-center justify-center text-white text-xl font-bold shadow-lg"
+            style={{
+              background: "linear-gradient(135deg, #8A2BE2, #6D28D9)", // Violet
+              transform: "rotate(45deg)",
+              right: "-40%",
+            }}
+            whileHover={{ scale: 1.1 }}
+          >
+            99.9999
+          </motion.div>
+
+          {/* Bottom Tile */}
+          <motion.div
+            className="absolute w-32 h-32 flex items-center justify-center text-white text-xl font-bold shadow-lg"
+            style={{
+              background: "linear-gradient(135deg, #9400D3, #4C1D95)", // Purple
+              transform: "rotate(45deg)",
+              bottom: "-40%",
+            }}
+            whileHover={{ scale: 1.1 }}
+          >
+            Secure
+          </motion.div>
+
+          {/* Left Tile */}
+          <motion.div
+            className="absolute w-32 h-32 flex items-center justify-center text-white text-xl font-bold shadow-lg"
+            style={{
+              background: "linear-gradient(135deg, #16A34A, #15803D)", // Light Green
+              transform: "rotate(45deg)",
+              left: "-40%",
+            }}
+            whileHover={{ scale: 1.1 }}
+          >
+            Fast
+          </motion.div>
+        </div>
+      </div>
     </div>
+  );
+}
 
-    {/* Stats Tiles in Diamond Shape */}
-    <div className="relative flex justify-center items-center min-h-[350px]">
-      <div className="absolute">
-        {/* Top tile */}
-        <div className="transform -translate-y-40 bg-gradient-to-br from-royalblue/80 to-royalblue/40 text-white p-8 rounded-2xl shadow-lg">
-          <h3 className="text-4xl font-bold">150+</h3>
-          <p className="text-sm mt-2">AI Solutions Deployed</p>
-        </div>
-      </div>
-
-      <div className="absolute">
-        {/* Right tile */}
-        <div className="transform translate-x-40 bg-gradient-to-br from-violet-600/80 to-violet-400/40 text-white p-8 rounded-2xl shadow-lg">
-          <h3 className="text-4xl font-bold">95%</h3>
-          <p className="text-sm mt-2">Client Satisfaction</p>
-        </div>
-      </div>
-
-      <div className="absolute">
-        {/* Bottom tile */}
-        <div className="transform translate-y-40 bg-gradient-to-br from-purple-600/80 to-purple-400/40 text-white p-8 rounded-2xl shadow-lg">
-          <h3 className="text-4xl font-bold">12+</h3>
-          <p className="text-sm mt-2">Industry Partners</p>
-        </div>
-      </div>
-
-      <div className="absolute">
-        {/* Left tile */}
-        <div className="transform -translate-x-40 bg-gradient-to-br from-green-400/80 to-green-200/40 text-white p-8 rounded-2xl shadow-lg">
-          <h3 className="text-4xl font-bold">20+</h3>
-          <p className="text-sm mt-2">Years Combined Expertise</p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  {/* Floating animation keyframes */}
-  <style jsx>{`
-    @keyframes floatAnim {
-      0% {
-        transform: translateY(0px) scale(1);
-        opacity: 0.6;
-      }
-      50% {
-        transform: translateY(-20px) scale(1.1);
-        opacity: 1;
-      }
-      100% {
-        transform: translateY(10px) scale(0.95);
-        opacity: 0.6;
-      }
-    }
-  `}</style>
-</section>
 
 
       {/* Partners Section */}
