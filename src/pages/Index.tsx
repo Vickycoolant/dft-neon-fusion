@@ -476,30 +476,30 @@ const Index = () => {
         </div>
       </section>
 
- {/* Advantage Section */}
+{/* Advantage Section */}
 <section className="relative w-full py-24 bg-white overflow-hidden">
   <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 text-[#4169E1]">
     The DFT Advantage
   </h2>
 
   <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-start justify-between gap-12">
-    {/* Left Text Section with ticks */}
+    {/* Left Text Section with color-coded ticks and bold text */}
     <div className="flex-1 text-gray-700 text-lg leading-relaxed pl-6 space-y-6">
       <p className="flex items-start gap-2">
         <span className="text-[#4169E1] font-bold">✔</span>
-        <strong>99.9999% Quality:</strong> Our AI solutions guarantee the highest reliability and precision in data handling and analytics, ensuring top-tier service for clients.
+        <strong className="text-[#4169E1]">99.9999% Quality:</strong> Our AI solutions guarantee the highest reliability and precision and assurance in data handling and analytics, ensuring top-tier service for Our clients.
       </p>
       <p className="flex items-start gap-2">
         <span className="text-[#9400D3] font-bold">✔</span>
-        <strong>AI Innovation:</strong> Constantly innovating, we implement cutting-edge AI technologies that give businesses a competitive advantage.
+        <strong className="text-[#9400D3]">AI Innovation:</strong> Constantly innovating, we implement cutting-edge AI technologies that give businesses a competitive advantage.
       </p>
       <p className="flex items-start gap-2">
         <span className="text-[#00FF7F] font-bold">✔</span>
-        <strong>Scalability:</strong> Our solutions are designed to grow seamlessly with your business, accommodating increasing data and operational complexity.
+        <strong className="text-[#00FF7F]">Scalability:</strong> Our solutions are designed to grow seamlessly with your business, accommodating increasing data and operational complexity.
       </p>
       <p className="flex items-start gap-2">
         <span className="text-[#8A2BE2] font-bold">✔</span>
-        <strong>Reliability:</strong> With robust architecture and vigilant monitoring, we ensure uninterrupted service and consistent performance.
+        <strong className="text-[#8A2BE2]">Reliability:</strong> With robust architecture and vigilant monitoring, we ensure uninterrupted service and consistent performance.
       </p>
     </div>
 
