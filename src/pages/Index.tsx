@@ -18,6 +18,7 @@ import dashboardAnalyticsImg from "@/assets/dashboard-analytics.jpg";
 import AnimatedStats from "@/components/AnimatedStats";
 import FloatingAIElements from "@/components/FloatingAIElements";
 import PartnersCarousel from "@/components/PartnersCarousel";
+import AnimatedDashboard from "@/components/AnimatedDashboard";
 
 const Index = () => {
   const statsData = [
@@ -77,15 +78,7 @@ const Index = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             {/* Left side - Dashboard illustration */}
             <div className="relative">
-              <div className="absolute inset-0 bg-gradient-to-br from-gray-100/50 to-gray-200/50 rounded-3xl transform rotate-3"></div>
-              <div className="relative bg-white rounded-2xl shadow-2xl p-8">
-                <img 
-                  src={dashboardAnalyticsImg} 
-                  alt="Digital Analytics Dashboard"
-                  className="w-full h-auto rounded-xl"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-background/20 via-transparent to-transparent rounded-2xl"></div>
-              </div>
+              <AnimatedDashboard />
               
               {/* Floating abstract wave shapes */}
               <div className="absolute -top-8 -left-8 w-32 h-32 bg-gradient-to-br from-gray-200/40 to-gray-300/40 rounded-full blur-xl"></div>
