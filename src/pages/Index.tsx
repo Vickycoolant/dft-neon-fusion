@@ -1,4 +1,3 @@
-import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -477,115 +476,114 @@ const Index = () => {
         </div>
       </section>
 
-    {/* ✅ Advantage Section */}
-      <section className="relative w-full py-20 bg-white overflow-hidden">
-        {/* Floating AI elements */}
-        {[...Array(10)].map((_, i) => (
-          <motion.div
-            key={i}
-            className="absolute w-3 h-3 bg-[#4169E1] rounded-full opacity-60"
-            style={{
-              top: `${Math.random() * 100}%`,
-              left: `${Math.random() * 100}%`,
-            }}
-            animate={{
-              y: [0, -20, 0],
-              opacity: [0.6, 1, 0.6],
-            }}
-            transition={{
-              duration: 3,
-              delay: i * 0.5,
-              repeat: Infinity,
-              ease: "easeInOut",
-            }}
-          />
-        ))}
+    {/* Advantage Section */}
+<section className="relative w-full py-20 bg-white overflow-hidden">
+  {/* Floating AI elements */}
+  {[...Array(10)].map((_, i) => (
+    <div
+      key={i}
+      className="absolute w-3 h-3 bg-[#4169E1] rounded-full opacity-60 animate-float"
+      style={{
+        top: `${Math.random() * 100}%`,
+        left: `${Math.random() * 100}%`,
+        animationDelay: `${i * 0.5}s`,
+      }}
+    />
+  ))}
 
-        {/* Heading */}
-        <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 text-[#4169E1]">
-          The DFT Advantage
-        </h2>
+  {/* Heading */}
+  <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 text-[#4169E1]">
+    The DFT Advantage
+  </h2>
 
-        <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-12">
-          {/* Text Section */}
-          <div className="flex-1 text-gray-700 text-lg leading-relaxed">
-            <p className="mb-6">
-              DFT Consult is redefining technology adoption with AI-powered
-              solutions designed to deliver{" "}
-              <strong>99.9999% quality and reliability</strong>.
-            </p>
-            <p className="mb-6">
-              Our approach ensures seamless integration, operational efficiency,
-              and unmatched accuracy across industries.
-            </p>
-          </div>
+  <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-12">
+    {/* Text Section */}
+    <div className="flex-1 text-gray-700 text-lg leading-relaxed">
+      <p className="mb-6">
+        DFT Consult is redefining technology adoption with AI-powered
+        solutions designed to deliver <strong>99.9999% quality and reliability</strong>.
+      </p>
+      <p className="mb-6">
+        Our approach ensures seamless integration, operational efficiency,
+        and unmatched accuracy across industries.
+      </p>
+    </div>
 
-          {/* Visual Section */}
-          <div className="flex-1 relative flex items-center justify-center">
-            <div className="relative w-80 h-80">
-              {/* Top Tile */}
-              <motion.div
-                className="absolute w-32 h-32 flex items-center justify-center text-white font-bold text-xl rounded-lg"
-                style={{
-                  top: 0,
-                  left: "50%",
-                  transform: "translate(-50%, -50%) rotate(45deg)",
-                  background:
-                    "linear-gradient(135deg, rgba(65,105,225,1), rgba(65,105,225,0.6))",
-                }}
-                whileHover={{ scale: 1.05 }}
-              >
-                <div className="-rotate-45">99.9999% Quality</div>
-              </motion.div>
-
-              {/* Right Tile */}
-              <motion.div
-                className="absolute w-32 h-32 flex items-center justify-center text-white font-bold text-xl rounded-lg"
-                style={{
-                  top: "50%",
-                  left: "100%",
-                  transform: "translate(-50%, -50%) rotate(45deg)",
-                  background:
-                    "linear-gradient(135deg, rgba(148,0,211,1), rgba(148,0,211,0.6))",
-                }}
-                whileHover={{ scale: 1.05 }}
-              >
-                <div className="-rotate-45">AI Innovation</div>
-              </motion.div>
-
-              {/* Bottom Tile */}
-              <motion.div
-                className="absolute w-32 h-32 flex items-center justify-center text-white font-bold text-xl rounded-lg"
-                style={{
-                  top: "100%",
-                  left: "50%",
-                  transform: "translate(-50%, -50%) rotate(45deg)",
-                  background:
-                    "linear-gradient(135deg, rgba(0,255,127,1), rgba(0,255,127,0.6))",
-                }}
-                whileHover={{ scale: 1.05 }}
-              >
-                <div className="-rotate-45">Scalability</div>
-              </motion.div>
-
-              {/* Left Tile */}
-              <motion.div
-                className="absolute w-32 h-32 flex items-center justify-center text-white font-bold text-xl rounded-lg"
-                style={{
-                  top: "50%",
-                  left: 0,
-                  transform: "translate(-50%, -50%) rotate(45deg)",
-                  background:
-                    "linear-gradient(135deg, rgba(138,43,226,1), rgba(138,43,226,0.6))",
-                }}
-                whileHover={{ scale: 1.05 }}
-              >
-                <div className="-rotate-45">Reliability</div>
-              </motion.div>
-            </div>
-          </div>
+    {/* Visual Section */}
+    <div className="flex-1 relative flex items-center justify-center">
+      <div className="relative w-80 h-80">
+        {/* Top Tile */}
+        <div
+          className="absolute w-32 h-32 flex items-center justify-center text-white font-bold text-xl rounded-lg hover:scale-105 transition-transform"
+          style={{
+            top: 0,
+            left: "50%",
+            transform: "translate(-50%, -50%) rotate(45deg)",
+            background:
+              "linear-gradient(135deg, rgba(65,105,225,1), rgba(65,105,225,0.6))",
+          }}
+        >
+          <div className="-rotate-45">99.9999% Quality</div>
         </div>
-      </section>
+
+        {/* Right Tile */}
+        <div
+          className="absolute w-32 h-32 flex items-center justify-center text-white font-bold text-xl rounded-lg hover:scale-105 transition-transform"
+          style={{
+            top: "50%",
+            left: "100%",
+            transform: "translate(-50%, -50%) rotate(45deg)",
+            background:
+              "linear-gradient(135deg, rgba(148,0,211,1), rgba(148,0,211,0.6))",
+          }}
+        >
+          <div className="-rotate-45">AI Innovation</div>
+        </div>
+
+        {/* Bottom Tile */}
+        <div
+          className="absolute w-32 h-32 flex items-center justify-center text-white font-bold text-xl rounded-lg hover:scale-105 transition-transform"
+          style={{
+            top: "100%",
+            left: "50%",
+            transform: "translate(-50%, -50%) rotate(45deg)",
+            background:
+              "linear-gradient(135deg, rgba(0,255,127,1), rgba(0,255,127,0.6))",
+          }}
+        >
+          <div className="-rotate-45">Scalability</div>
+        </div>
+
+        {/* Left Tile */}
+        <div
+          className="absolute w-32 h-32 flex items-center justify-center text-white font-bold text-xl rounded-lg hover:scale-105 transition-transform"
+          style={{
+            top: "50%",
+            left: 0,
+            transform: "translate(-50%, -50%) rotate(45deg)",
+            background:
+              "linear-gradient(135deg, rgba(138,43,226,1), rgba(138,43,226,0.6))",
+          }}
+        >
+          <div className="-rotate-45">Reliability</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  {/* Floating animation keyframes */}
+  <style jsx>{`
+    @keyframes float {
+      0% { transform: translateY(0px); opacity: 0.6; }
+      50% { transform: translateY(-20px); opacity: 1; }
+      100% { transform: translateY(0px); opacity: 0.6; }
+    }
+    .animate-float {
+      animation: float 3s ease-in-out infinite;
+    }
+  `}</style>
+</section>
+
 
       {/* Partners Section */}
       <section className="section-padding bg-gradient-to-br from-primary/5 to-accent/5">
