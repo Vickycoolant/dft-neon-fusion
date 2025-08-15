@@ -476,90 +476,89 @@ const Index = () => {
         </div>
       </section>
 
-      {/* The DFT Advantage Section */}
-      <section className="section-padding">
-        <div className="container-max">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-5xl font-bold mb-4 gradient-text-neon">
-              The DFT Advantage
-            </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Why leading financial institutions choose DFT Consult for their AI transformation
-            </p>
-          </div>
+      {/* Stats Section with AI floating elements */}
+<section className="relative section-padding bg-gradient-to-br from-background via-muted/20 to-background overflow-hidden">
+  <div className="container-max text-center">
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div className="space-y-8">
-              <div className="flex items-start space-x-4">
-                <div className="w-12 h-12 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center neon-glow">
-                  <Brain className="w-6 h-6 text-white" />
-                </div>
-                <div>
-                  <h3 className="text-xl font-semibold mb-2">Advanced AI Technology</h3>
-                  <p className="text-muted-foreground">
-                    Cutting-edge machine learning algorithms with 98% accuracy in financial data analysis
-                  </p>
-                </div>
-              </div>
+    {/* Floating AI Themed Elements */}
+    <div className="absolute inset-0 pointer-events-none">
+      {Array.from({ length: 10 }).map((_, i) => (
+        <div
+          key={i}
+          className={`absolute w-${Math.floor(Math.random() * 10) + 3} h-${Math.floor(
+            Math.random() * 10
+          ) + 3} rounded-full opacity-60 animate-pulse`}
+          style={{
+            top: `${Math.random() * 100}%`,
+            left: `${Math.random() * 100}%`,
+            background: [
+              "rgba(65,105,225,0.4)", // Royal Blue
+              "rgba(148,0,211,0.4)", // Violet
+              "rgba(138,43,226,0.4)", // Purple
+              "rgba(144,238,144,0.4)", // Light Green
+              "rgba(0,255,255,0.4)", // Neon hint
+            ][i % 5],
+            animation: `floatAnim ${6 + Math.random() * 6}s ease-in-out infinite alternate`,
+          }}
+        ></div>
+      ))}
+    </div>
 
-              <div className="flex items-start space-x-4">
-                <div className="w-12 h-12 rounded-full bg-gradient-to-br from-accent to-primary flex items-center justify-center neon-glow">
-                  <Users className="w-6 h-6 text-white" />
-                </div>
-                <div>
-                  <h3 className="text-xl font-semibold mb-2">Strategic Partnerships</h3>
-                  <p className="text-muted-foreground">
-                    Collaborations with 50+ leading financial institutions and technology providers
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex items-start space-x-4">
-                <div className="w-12 h-12 rounded-full bg-gradient-to-br from-primary-glow to-accent-glow flex items-center justify-center neon-glow">
-                  <Target className="w-6 h-6 text-white" />
-                </div>
-                <div>
-                  <h3 className="text-xl font-semibold mb-2">Proven Accuracy</h3>
-                  <p className="text-muted-foreground">
-                    Industry-leading precision with consistent 98% accuracy across all AI models
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex items-start space-x-4">
-                <div className="w-12 h-12 rounded-full bg-gradient-to-br from-accent-glow to-primary-glow flex items-center justify-center neon-glow">
-                  <Award className="w-6 h-6 text-white" />
-                </div>
-                <div>
-                  <h3 className="text-xl font-semibold mb-2">Success Track Record</h3>
-                  <p className="text-muted-foreground">
-                    15+ years of experience with 500+ successful project implementations
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <div className="grid grid-cols-2 gap-6">
-              <Card className="neon-border text-center p-6">
-                <div className="text-4xl font-bold text-primary mb-2">98%</div>
-                <div className="text-sm text-muted-foreground">AI Accuracy</div>
-              </Card>
-              <Card className="neon-border text-center p-6">
-                <div className="text-4xl font-bold text-accent mb-2">50+</div>
-                <div className="text-sm text-muted-foreground">Partners</div>
-              </Card>
-              <Card className="neon-border text-center p-6">
-                <div className="text-4xl font-bold text-primary-glow mb-2">500+</div>
-                <div className="text-sm text-muted-foreground">Projects</div>
-              </Card>
-              <Card className="neon-border text-center p-6">
-                <div className="text-4xl font-bold text-accent-glow mb-2">15+</div>
-                <div className="text-sm text-muted-foreground">Years Experience</div>
-              </Card>
-            </div>
-          </div>
+    {/* Stats Tiles in Diamond Shape */}
+    <div className="relative flex justify-center items-center min-h-[350px]">
+      <div className="absolute">
+        {/* Top tile */}
+        <div className="transform -translate-y-40 bg-gradient-to-br from-royalblue/80 to-royalblue/40 text-white p-8 rounded-2xl shadow-lg">
+          <h3 className="text-4xl font-bold">150+</h3>
+          <p className="text-sm mt-2">AI Solutions Deployed</p>
         </div>
-      </section>
+      </div>
+
+      <div className="absolute">
+        {/* Right tile */}
+        <div className="transform translate-x-40 bg-gradient-to-br from-violet-600/80 to-violet-400/40 text-white p-8 rounded-2xl shadow-lg">
+          <h3 className="text-4xl font-bold">95%</h3>
+          <p className="text-sm mt-2">Client Satisfaction</p>
+        </div>
+      </div>
+
+      <div className="absolute">
+        {/* Bottom tile */}
+        <div className="transform translate-y-40 bg-gradient-to-br from-purple-600/80 to-purple-400/40 text-white p-8 rounded-2xl shadow-lg">
+          <h3 className="text-4xl font-bold">12+</h3>
+          <p className="text-sm mt-2">Industry Partners</p>
+        </div>
+      </div>
+
+      <div className="absolute">
+        {/* Left tile */}
+        <div className="transform -translate-x-40 bg-gradient-to-br from-green-400/80 to-green-200/40 text-white p-8 rounded-2xl shadow-lg">
+          <h3 className="text-4xl font-bold">20+</h3>
+          <p className="text-sm mt-2">Years Combined Expertise</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  {/* Floating animation keyframes */}
+  <style jsx>{`
+    @keyframes floatAnim {
+      0% {
+        transform: translateY(0px) scale(1);
+        opacity: 0.6;
+      }
+      50% {
+        transform: translateY(-20px) scale(1.1);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(10px) scale(0.95);
+        opacity: 0.6;
+      }
+    }
+  `}</style>
+</section>
+
 
       {/* Partners Section */}
       <section className="section-padding bg-gradient-to-br from-primary/5 to-accent/5">
