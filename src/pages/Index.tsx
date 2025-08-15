@@ -21,28 +21,6 @@ import FloatingAIElements from "@/components/FloatingAIElements";
 import PartnersCarousel from "@/components/PartnersCarousel";
 import AnimatedDashboard from "@/components/AnimatedDashboard";
 
-// Floating animation element
-const FloatingElement = ({ delay }) => (
-  <motion.div
-    className="absolute w-3 h-3 rounded-full"
-    style={{
-      background: `radial-gradient(circle, rgba(65,105,225,0.8), transparent)`,
-    }}
-    animate={{
-      y: ["0%", "-50%", "0%"],
-      opacity: [0, 1, 0],
-      scale: [0.5, 1.2, 0.5],
-    }}
-    transition={{
-      duration: 6,
-      delay,
-      repeat: Infinity,
-      ease: "easeInOut",
-    }}
-  />
-);
-
-
 const Index = () => {
   const statsData = [
     { value: 15, label: "Years Experience", suffix: "+" },
@@ -525,7 +503,24 @@ const FloatingElement = ({ delay }) => (
 <section className="relative w-full py-20 bg-white overflow-hidden">
   {/* Floating AI elements */}
   {[...Array(10)].map((_, i) => (
-    <FloatingElement key={i} delay={i * 0.5} />
+    <motion.div
+      key={i}
+      className="absolute w-3 h-3 bg-[#4169E1] rounded-full opacity-60"
+      style={{
+        top: `${Math.random() * 100}%`,
+        left: `${Math.random() * 100}%`,
+      }}
+      animate={{
+        y: [0, -20, 0],
+        opacity: [0.6, 1, 0.6],
+      }}
+      transition={{
+        duration: 3,
+        delay: i * 0.5,
+        repeat: Infinity,
+        ease: "easeInOut",
+      }}
+    />
   ))}
 
   {/* Heading */}
@@ -612,6 +607,7 @@ const FloatingElement = ({ delay }) => (
     </div>
   </div>
 </section>
+
 
 
 
