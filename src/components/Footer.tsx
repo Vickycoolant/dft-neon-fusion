@@ -1,6 +1,5 @@
 import { MapPin, Phone, Mail, Facebook, Twitter, Linkedin, Instagram } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import dftLogo from "@/assets/dft-logo.png";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -30,8 +29,10 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
           {/* Company Info */}
           <div className="space-y-4">
-            <div className="flex items-center space-x-3">
-              <img src={dftLogo} alt="DFT Consult" className="w-12 h-7 object-contain" />
+            <div className="flex items-center space-x-2">
+              <div className="w-8 h-8 bg-gradient-to-br from-primary to-accent rounded-lg flex items-center justify-center">
+                <span className="text-white font-bold text-sm">DFT</span>
+              </div>
               <h3 className="text-xl font-bold text-white">DFT Consult</h3>
             </div>
             <p className="text-gray-300 text-sm leading-relaxed">

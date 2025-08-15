@@ -36,27 +36,10 @@ const FloatingAIElements = () => {
         <div className="w-3 h-3 bg-accent rounded-full animate-pulse delay-400" />
       </div>
       <div className="absolute top-1/2 left-1/3">
-        <div className="w-1 h-1 bg-primary/60 rounded-full animate-pulse delay-600" />
+        <div className="w-1 h-1 bg-primary-glow rounded-full animate-pulse delay-600" />
       </div>
       <div className="absolute bottom-1/3 right-1/4">
-        <div className="w-2 h-2 bg-accent/60 rounded-full animate-pulse delay-800" />
-      </div>
-      
-      {/* Additional Background Elements */}
-      <div className="absolute top-16 left-1/2">
-        <div className="w-1 h-8 bg-primary/20 rounded-full animate-bounce delay-1000" />
-      </div>
-      <div className="absolute bottom-24 left-1/3">
-        <div className="w-6 h-1 bg-accent/20 rounded-full animate-pulse delay-1200" />
-      </div>
-      <div className="absolute top-2/3 right-20">
-        <div className="w-4 h-4 border-2 border-primary/30 rounded-full animate-spin slow-spin" />
-      </div>
-      <div className="absolute bottom-40 right-1/3">
-        <div className="w-2 h-2 bg-gradient-to-r from-primary to-accent rounded-full animate-ping delay-1400" />
-      </div>
-      <div className="absolute top-1/3 left-16">
-        <div className="w-3 h-3 border border-accent/40 rounded animate-pulse delay-1600" />
+        <div className="w-2 h-2 bg-accent-glow rounded-full animate-pulse delay-800" />
       </div>
     </div>
   );
