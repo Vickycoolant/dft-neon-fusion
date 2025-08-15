@@ -532,7 +532,7 @@ const Index = () => {
             background: "linear-gradient(135deg, rgba(65,105,225,1), rgba(65,105,225,0.6))",
           }}
         >
-          <div className="-rotate-45">99.9999% Quality</div>
+          <div className="-rotate-45">99.9999% Quality Assurance</div>
         </div>
 
         {/* Right Square */}
