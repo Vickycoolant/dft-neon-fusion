@@ -476,59 +476,55 @@ const Index = () => {
         </div>
       </section>
 
-   {/* Advantage Section */}
+  {/* Advantage Section */}
 <section className="relative w-full py-24 bg-white overflow-hidden">
-  {/* Large and medium floating circles in the background (faded) */}
-  {[...Array(5)].map((_, i) => (
-    <div
-      key={`large-${i}`}
-      className="absolute rounded-full opacity-10"
-      style={{
-        width: `${60 + i * 20}px`,
-        height: `${60 + i * 20}px`,
-        background: ["#4169E1", "#9400D3", "#8A2BE2"][i % 3],
-        top: `${Math.random() * 90}%`,
-        left: `${Math.random() * 90}%`,
-        animation: `float ${6 + i * 2}s ease-in-out infinite alternate`,
-      }}
-    />
-  ))}
-
-  {[...Array(7)].map((_, i) => (
-    <div
-      key={`medium-${i}`}
-      className="absolute rounded-full opacity-10"
-      style={{
-        width: `${20 + i * 10}px`,
-        height: `${20 + i * 10}px`,
-        background: ["#4169E1", "#9400D3", "#8A2BE2"][i % 3],
-        top: `${Math.random() * 100}%`,
-        left: `${Math.random() * 100}%`,
-        animation: `float ${4 + i}s ease-in-out infinite alternate`,
-      }}
-    />
-  ))}
-
-  {/* Heading */}
   <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 text-[#4169E1]">
     The DFT Advantage
   </h2>
 
   <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-start justify-between gap-12">
-    {/* Left Text Section with padding */}
+    {/* Left Text Section with ticks */}
     <div className="flex-1 text-gray-700 text-lg leading-relaxed pl-6 space-y-6">
-      <p><strong>99.9999% Quality:</strong> Our AI solutions guarantee the highest reliability and precision in data handling and analytics, ensuring top-tier service for clients.</p>
-      <p><strong>AI Innovation:</strong> Constantly innovating, we implement cutting-edge AI technologies that give businesses a competitive advantage.</p>
-      <p><strong>Scalability:</strong> Our solutions are designed to grow seamlessly with your business, accommodating increasing data and operational complexity.</p>
-      <p><strong>Reliability:</strong> With robust architecture and vigilant monitoring, we ensure uninterrupted service and consistent performance.</p>
+      <p className="flex items-start gap-2">
+        <span className="text-[#4169E1] font-bold">✔</span>
+        <strong>99.9999% Quality:</strong> Our AI solutions guarantee the highest reliability and precision in data handling and analytics, ensuring top-tier service for clients.
+      </p>
+      <p className="flex items-start gap-2">
+        <span className="text-[#9400D3] font-bold">✔</span>
+        <strong>AI Innovation:</strong> Constantly innovating, we implement cutting-edge AI technologies that give businesses a competitive advantage.
+      </p>
+      <p className="flex items-start gap-2">
+        <span className="text-[#00FF7F] font-bold">✔</span>
+        <strong>Scalability:</strong> Our solutions are designed to grow seamlessly with your business, accommodating increasing data and operational complexity.
+      </p>
+      <p className="flex items-start gap-2">
+        <span className="text-[#8A2BE2] font-bold">✔</span>
+        <strong>Reliability:</strong> With robust architecture and vigilant monitoring, we ensure uninterrupted service and consistent performance.
+      </p>
     </div>
 
-    {/* Visual Section: Diamond shaped squares */}
+    {/* Visual Section: Diamond shaped bigger squares */}
     <div className="flex-1 relative flex items-center justify-center">
-      <div className="relative w-80 h-80">
+      {/* Faded hollow circles in background (visual side only) */}
+      {[...Array(5)].map((_, i) => (
+        <div
+          key={`hollow-${i}`}
+          className="absolute rounded-full border-2 opacity-20"
+          style={{
+            width: `${60 + i * 30}px`,
+            height: `${60 + i * 30}px`,
+            borderColor: ["#4169E1", "#9400D3", "#8A2BE2"][i % 3],
+            top: `${Math.random() * 80}%`,
+            left: `${Math.random() * 80}%`,
+            animation: `float ${6 + i * 2}s ease-in-out infinite alternate`,
+          }}
+        />
+      ))}
+
+      <div className="relative w-96 h-96">
         {/* Top Square */}
         <div
-          className="absolute w-32 h-32 flex items-center justify-center text-center text-white font-bold text-xl rounded-lg hover:scale-105 transition-transform"
+          className="absolute w-40 h-40 flex items-center justify-center text-center text-white font-bold text-xl rounded-lg hover:scale-105 transition-transform"
           style={{
             top: 0,
             left: "50%",
@@ -541,7 +537,7 @@ const Index = () => {
 
         {/* Right Square */}
         <div
-          className="absolute w-32 h-32 flex items-center justify-center text-center text-white font-bold text-xl rounded-lg hover:scale-105 transition-transform"
+          className="absolute w-40 h-40 flex items-center justify-center text-center text-white font-bold text-xl rounded-lg hover:scale-105 transition-transform"
           style={{
             top: "50%",
             left: "100%",
@@ -554,7 +550,7 @@ const Index = () => {
 
         {/* Bottom Square */}
         <div
-          className="absolute w-32 h-32 flex items-center justify-center text-center text-white font-bold text-xl rounded-lg hover:scale-105 transition-transform"
+          className="absolute w-40 h-40 flex items-center justify-center text-center text-white font-bold text-xl rounded-lg hover:scale-105 transition-transform"
           style={{
             top: "100%",
             left: "50%",
@@ -567,7 +563,7 @@ const Index = () => {
 
         {/* Left Square */}
         <div
-          className="absolute w-32 h-32 flex items-center justify-center text-center text-white font-bold text-xl rounded-lg hover:scale-105 transition-transform"
+          className="absolute w-40 h-40 flex items-center justify-center text-center text-white font-bold text-xl rounded-lg hover:scale-105 transition-transform"
           style={{
             top: "50%",
             left: 0,
@@ -584,12 +580,13 @@ const Index = () => {
   {/* Floating animation keyframes */}
   <style jsx>{`
     @keyframes float {
-      0% { transform: translateY(0px); opacity: 0.6; }
-      50% { transform: translateY(-20px); opacity: 1; }
-      100% { transform: translateY(0px); opacity: 0.6; }
+      0% { transform: translateY(0px); opacity: 0.4; }
+      50% { transform: translateY(-15px); opacity: 0.6; }
+      100% { transform: translateY(0px); opacity: 0.4; }
     }
   `}</style>
 </section>
+
 
 
       {/* Partners Section */}
