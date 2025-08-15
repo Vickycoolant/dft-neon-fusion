@@ -72,72 +72,78 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Company Introduction Section */}
-      <section className="section-padding bg-gradient-to-br from-background via-muted/20 to-background">
-        <div className="container-max">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            {/* Left side - Dashboard illustration */}
-            <div className="relative">
-              <AnimatedDashboard />
-              
-              {/* Floating abstract wave shapes */}
-              <div className="absolute -top-8 -left-8 w-32 h-32 bg-gradient-to-br from-gray-200/40 to-gray-300/40 rounded-full blur-xl"></div>
-              <div className="absolute -bottom-12 -right-12 w-40 h-40 bg-gradient-to-br from-gray-100/40 to-gray-200/40 rounded-full blur-xl"></div>
-            </div>
+     {/* Company Introduction Section */}
+<section className="relative section-padding bg-gradient-to-br from-background via-muted/20 to-background">
+  <div className="container-max text-center">
+    {/* Centered headline */}
+    <h2 className="text-4xl md:text-6xl font-bold mb-10 text-primary">
+      Your Strategic Partner in AI-Powered Solutions
+    </h2>
 
-            {/* Right side - Company introduction */}
-            <div className="space-y-8">
-              <div>
-                <h2 className="text-3xl md:text-4xl font-bold mb-6 text-primary">
-                  Your Strategic Partner in AI-Powered Solutions
-                </h2>
-                <div className="prose prose-lg max-w-none text-muted-foreground leading-relaxed">
-                  <p className="mb-6">
-                    DFT Consult is a leading technology and advisory firm delivering AI-powered solutions 
-                    to the banking, finance, and insurance industries. We partner with international 
-                    companies such as <span className="text-primary font-semibold">Perfios</span> — an Indian top-tier technology leader — 
-                    to provide intelligent automation tools that transform complex financial data into 
-                    instant, accurate insights.
-                  </p>
-                  <p className="mb-6">
-                    Our expertise spans automated credit underwriting, insurance decision-making, and 
-                    risk management, as well as the development of tailored software solutions to meet 
-                    diverse client needs. With a strong focus on streamlining processes and enhancing 
-                    decision accuracy, we empower financial institutions to make smarter, faster, and 
-                    more reliable business choices.
-                  </p>
-                  <p>
-                    DFT Consult's approach combines deep industry knowledge with innovative technology, 
-                    ensuring clients stay ahead in a competitive and rapidly evolving market.
-                  </p>
-                </div>
-              </div>
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+      {/* Left side - Dashboard illustration */}
+      <div className="relative">
+        <AnimatedDashboard />
+        
+        {/* Floating abstract wave shapes */}
+        <div className="absolute -top-8 -left-8 w-32 h-32 bg-gradient-to-br from-gray-200/40 to-gray-300/40 rounded-full blur-xl"></div>
+        <div className="absolute -bottom-12 -right-12 w-40 h-40 bg-gradient-to-br from-gray-100/40 to-gray-200/40 rounded-full blur-xl"></div>
+      </div>
 
-              <div className="flex flex-wrap gap-4">
-                <div className="flex items-center space-x-3 bg-white/80 rounded-lg px-4 py-3 shadow-sm border border-gray-100">
-                  <Building2 className="w-6 h-6 text-primary" />
-                  <span className="text-sm font-medium text-muted-foreground">Banking Solutions</span>
-                </div>
-                <div className="flex items-center space-x-3 bg-white/80 rounded-lg px-4 py-3 shadow-sm border border-gray-100">
-                  <TrendingUp className="w-6 h-6 text-primary" />
-                  <span className="text-sm font-medium text-muted-foreground">Financial Analytics</span>
-                </div>
-                <div className="flex items-center space-x-3 bg-white/80 rounded-lg px-4 py-3 shadow-sm border border-gray-100">
-                  <Shield className="w-6 h-6 text-primary" />
-                  <span className="text-sm font-medium text-muted-foreground">Insurance Tech</span>
-                </div>
-              </div>
+      {/* Right side - Company introduction */}
+      <div className="space-y-8 text-left">
+        <div className="prose prose-lg max-w-none text-muted-foreground leading-relaxed">
+          <p className="mb-6">
+            DFT Consult is a leading technology and advisory firm delivering AI-powered solutions 
+            to the banking, finance, and insurance industries. We partner with international 
+            companies such as <span className="text-primary font-semibold">Perfios</span> — an Indian top-tier technology leader — 
+            to provide intelligent automation tools that transform complex financial data into 
+            instant, accurate insights.
+          </p>
+          <p className="mb-6">
+            Our expertise spans automated credit underwriting, insurance decision-making, and 
+            risk management, as well as the development of tailored software solutions to meet 
+            diverse client needs. With a strong focus on streamlining processes and enhancing 
+            decision accuracy, we empower financial institutions to make smarter, faster, and 
+            more reliable business choices.
+          </p>
+          <p>
+            DFT Consult's approach combines deep industry knowledge with innovative technology, 
+            ensuring clients stay ahead in a competitive and rapidly evolving market.
+          </p>
+        </div>
 
-              <div className="pt-4">
-                <Button variant="outline" size="lg" className="border-primary/20">
-                  Learn More About Our Approach
-                  <ArrowRight className="ml-2 h-4 w-4" />
-                </Button>
-              </div>
-            </div>
+        {/* Feature badges */}
+        <div className="flex flex-wrap gap-4">
+          <div className="flex items-center space-x-3 bg-white/80 rounded-lg px-4 py-3 shadow-sm border border-gray-100">
+            <Building2 className="w-6 h-6 text-primary" />
+            <span className="text-sm font-medium text-muted-foreground">Banking Solutions</span>
+          </div>
+          <div className="flex items-center space-x-3 bg-white/80 rounded-lg px-4 py-3 shadow-sm border border-gray-100">
+            <TrendingUp className="w-6 h-6 text-primary" />
+            <span className="text-sm font-medium text-muted-foreground">Financial Analytics</span>
+          </div>
+          <div className="flex items-center space-x-3 bg-white/80 rounded-lg px-4 py-3 shadow-sm border border-gray-100">
+            <Shield className="w-6 h-6 text-primary" />
+            <span className="text-sm font-medium text-muted-foreground">Insurance Tech</span>
           </div>
         </div>
-      </section>
+      </div>
+    </div>
+
+    {/* Centered CTA button */}
+    <div className="pt-10 flex justify-center">
+      <Button 
+        size="lg" 
+        className="bg-blue-600 hover:bg-blue-700 text-white transition-transform transform hover:scale-105"
+      >
+        Learn More About Our Approach
+        <ArrowRight className="ml-2 h-4 w-4" />
+      </Button>
+    </div>
+  </div>
+</section>
+
 
       {/* DFT Solutions Section */}
       <section className="section-padding">
