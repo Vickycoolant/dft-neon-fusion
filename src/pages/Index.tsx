@@ -477,16 +477,34 @@ const Index = () => {
       </section>
 
     {/* Advantage Section */}
-<section className="relative w-full py-20 bg-white overflow-hidden">
-  {/* Floating AI elements */}
-  {[...Array(10)].map((_, i) => (
+<section className="relative w-full py-24 bg-white overflow-hidden">
+  {/* Large and medium floating circles in the background */}
+  {[...Array(5)].map((_, i) => (
     <div
-      key={i}
-      className="absolute w-3 h-3 bg-[#4169E1] rounded-full opacity-60 animate-float"
+      key={`large-${i}`}
+      className="absolute rounded-full opacity-30"
       style={{
+        width: `${60 + i * 20}px`,
+        height: `${60 + i * 20}px`,
+        background: ["#4169E1", "#9400D3", "#8A2BE2"][i % 3],
+        top: `${Math.random() * 90}%`,
+        left: `${Math.random() * 90}%`,
+        animation: `float ${6 + i * 2}s ease-in-out infinite alternate`,
+      }}
+    />
+  ))}
+
+  {[...Array(7)].map((_, i) => (
+    <div
+      key={`medium-${i}`}
+      className="absolute rounded-full opacity-20"
+      style={{
+        width: `${20 + i * 10}px`,
+        height: `${20 + i * 10}px`,
+        background: ["#4169E1", "#9400D3", "#8A2BE2"][i % 3],
         top: `${Math.random() * 100}%`,
         left: `${Math.random() * 100}%`,
-        animationDelay: `${i * 0.5}s`,
+        animation: `float ${4 + i}s ease-in-out infinite alternate`,
       }}
     />
   ))}
@@ -496,73 +514,57 @@ const Index = () => {
     The DFT Advantage
   </h2>
 
-  <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-12">
-    {/* Text Section */}
-    <div className="flex-1 text-gray-700 text-lg leading-relaxed">
-      <p className="mb-6">
-        DFT Consult is redefining technology adoption with AI-powered
-        solutions designed to deliver <strong>99.9999% quality and reliability</strong>.
-      </p>
-      <p className="mb-6">
-        Our approach ensures seamless integration, operational efficiency,
-        and unmatched accuracy across industries.
-      </p>
+  <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-start justify-between gap-12">
+    {/* Text Section describing each square */}
+    <div className="flex-1 text-gray-700 text-lg leading-relaxed space-y-6">
+      <p><strong>99.9999% Quality:</strong> Our AI solutions guarantee the highest reliability Delivering the 6 9S of quality and precision in data handling and analytics, ensuring top-tier service for Our clients.</p>
+      <p><strong>AI Innovation:</strong> Constantly innovating, we implement cutting-edge AI technologies that give businesses a competitive advantage.</p>
+      <p><strong>Scalability:</strong> Our solutions are designed to grow seamlessly with your business, accommodating increasing data and operational complexity.</p>
+      <p><strong>Reliability:</strong> With robust architecture and vigilant monitoring, we ensure uninterrupted service and consistent performance.</p>
     </div>
 
-    {/* Visual Section */}
+    {/* Visual Section: four bigger compact squares */}
     <div className="flex-1 relative flex items-center justify-center">
-      <div className="relative w-80 h-80">
-        {/* Top Tile */}
+      <div className="relative w-96 h-96 flex flex-wrap gap-[3mm]">
+        {/* Blue Square */}
         <div
-          className="absolute w-32 h-32 flex items-center justify-center text-white font-bold text-xl rounded-lg hover:scale-105 transition-transform"
+          className="w-44 h-44 flex items-center justify-center text-center text-white font-bold text-xl rounded-lg hover:scale-105 transition-transform"
           style={{
-            top: 0,
-            left: "50%",
-            transform: "translate(-50%, -50%) rotate(45deg)",
-            background:
-              "linear-gradient(135deg, rgba(65,105,225,1), rgba(65,105,225,0.6))",
+            background: "linear-gradient(135deg, rgba(65,105,225,1), rgba(65,105,225,0.6))",
+            transform: "rotate(45deg)",
           }}
         >
-          <div className="-rotate-45">99.9999% Quality</div>
+          <div className="-rotate-45">99.9999% Quality Assurance</div>
         </div>
 
-        {/* Right Tile */}
+        {/* Violet Square */}
         <div
-          className="absolute w-32 h-32 flex items-center justify-center text-white font-bold text-xl rounded-lg hover:scale-105 transition-transform"
+          className="w-44 h-44 flex items-center justify-center text-center text-white font-bold text-xl rounded-lg hover:scale-105 transition-transform"
           style={{
-            top: "50%",
-            left: "100%",
-            transform: "translate(-50%, -50%) rotate(45deg)",
-            background:
-              "linear-gradient(135deg, rgba(148,0,211,1), rgba(148,0,211,0.6))",
+            background: "linear-gradient(135deg, rgba(148,0,211,1), rgba(148,0,211,0.6))",
+            transform: "rotate(45deg)",
           }}
         >
           <div className="-rotate-45">AI Innovation</div>
         </div>
 
-        {/* Bottom Tile */}
+        {/* Green Square */}
         <div
-          className="absolute w-32 h-32 flex items-center justify-center text-white font-bold text-xl rounded-lg hover:scale-105 transition-transform"
+          className="w-44 h-44 flex items-center justify-center text-center text-white font-bold text-xl rounded-lg hover:scale-105 transition-transform"
           style={{
-            top: "100%",
-            left: "50%",
-            transform: "translate(-50%, -50%) rotate(45deg)",
-            background:
-              "linear-gradient(135deg, rgba(0,255,127,1), rgba(0,255,127,0.6))",
+            background: "linear-gradient(135deg, rgba(0,255,127,1), rgba(0,255,127,0.6))",
+            transform: "rotate(45deg)",
           }}
         >
           <div className="-rotate-45">Scalability</div>
         </div>
 
-        {/* Left Tile */}
+        {/* Purple Square */}
         <div
-          className="absolute w-32 h-32 flex items-center justify-center text-white font-bold text-xl rounded-lg hover:scale-105 transition-transform"
+          className="w-44 h-44 flex items-center justify-center text-center text-white font-bold text-xl rounded-lg hover:scale-105 transition-transform"
           style={{
-            top: "50%",
-            left: 0,
-            transform: "translate(-50%, -50%) rotate(45deg)",
-            background:
-              "linear-gradient(135deg, rgba(138,43,226,1), rgba(138,43,226,0.6))",
+            background: "linear-gradient(135deg, rgba(138,43,226,1), rgba(138,43,226,0.6))",
+            transform: "rotate(45deg)",
           }}
         >
           <div className="-rotate-45">Reliability</div>
@@ -578,11 +580,9 @@ const Index = () => {
       50% { transform: translateY(-20px); opacity: 1; }
       100% { transform: translateY(0px); opacity: 0.6; }
     }
-    .animate-float {
-      animation: float 3s ease-in-out infinite;
-    }
   `}</style>
 </section>
+
 
 
       {/* Partners Section */}
