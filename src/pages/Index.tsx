@@ -23,8 +23,8 @@ import AnimatedDashboard from "@/components/AnimatedDashboard";
 const Index = () => {
   const statsData = [
     { value: 15, label: "Years Experience", suffix: "+" },
-    { value: 500, label: "Projects Delivered", suffix: "+" },
-    { value: 98, label: "Accuracy Rate", suffix: "%" },
+    { value: 120, label: "Projects Delivered", suffix: "+" },
+    { value: 99, label: "Accuracy Rate", suffix: "%" },
     { value: 50, label: "Enterprise Clients", suffix: "+" }
   ];
 
