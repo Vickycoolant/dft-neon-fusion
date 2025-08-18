@@ -2,7 +2,9 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Building2, Shield, CreditCard, TrendingUp, Users, Globe, AlertTriangle, CheckCircle } from "lucide-react";
-import bankingChallengesImg from "@/assets/banking-challenges.jpg";
+import bankingHeroImg from "@/assets/banking-hero.jpg";
+import financeIndustryImg from "@/assets/finance-industry.jpg";
+import insuranceIndustryImg from "@/assets/insurance-industry.jpg";
 import industryHeroImg from "@/assets/finance-hero.jpg";
 
 const Industry = () => {
@@ -239,32 +241,26 @@ const Industry = () => {
                       </div>
                     )}
 
-                    <Button variant="hero" size="lg" className="w-full sm:w-auto">
-                      Explore {industry.title} Solutions
-                    </Button>
+                    <div className="flex justify-center">
+                      <Button variant="hero" size="lg" className="w-full sm:w-auto">
+                        Explore {industry.title} Solutions
+                      </Button>
+                    </div>
                   </div>
 
                   {/* Image */}
                   <div className={`${isEven ? '' : 'lg:col-start-1'} animate-slide-up`}>
-                    {industry.id === 'banking' ? (
-                      <div className="rounded-lg overflow-hidden shadow-lg">
-                        <img 
-                          src={bankingChallengesImg} 
-                          alt="Banking Industry Challenges and Solutions"
-                          className="w-full h-full object-cover"
-                        />
-                      </div>
-                    ) : (
-                      <Card className="neon-border overflow-hidden">
-                        <div className="aspect-video bg-gradient-to-br from-primary/20 via-accent/20 to-primary/10 flex items-center justify-center">
-                          <div className="text-center">
-                            <IconComponent className="w-24 h-24 text-primary/60 mx-auto mb-4" />
-                            <h3 className="text-2xl font-bold text-primary/80">{industry.title}</h3>
-                            <p className="text-muted-foreground mt-2">Industry Visualization</p>
-                          </div>
-                        </div>
-                      </Card>
-                    )}
+                    <div className="rounded-lg overflow-hidden shadow-lg neon-border">
+                      <img 
+                        src={
+                          industry.id === 'banking' ? bankingHeroImg :
+                          industry.id === 'finance' ? financeIndustryImg :
+                          insuranceIndustryImg
+                        }
+                        alt={`${industry.title} Professional Services`}
+                        className="w-full h-96 object-cover hover:scale-105 transition-transform duration-300"
+                      />
+                    </div>
                   </div>
                 </div>
               </div>
