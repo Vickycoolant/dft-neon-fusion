@@ -1,316 +1,411 @@
 import { useState } from "react";
-import servicesHeroImg from "@/assets/services-hero.jpg";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
+import heroImg from "@/assets/dft-solutions-hero.jpg";
+import dataIntelligenceImg from "@/assets/data-intelligence.jpg";
+import forensicsRiskImg from "@/assets/forensics-risk.jpg";
+import techSolutionsImg from "@/assets/tech-solutions.jpg";
+import decisionIntelligenceImg from "@/assets/decision-intelligence.jpg";
+import trainingCapacityImg from "@/assets/training-capacity.jpg";
+import securityComplianceImg from "@/assets/security-compliance.jpg";
+import aiAutomationImg from "@/assets/ai-automation.jpg";
+import africanFintechImg from "@/assets/african-fintech.jpg";
 import { 
-  FileText, 
-  CreditCard, 
-  Calculator, 
-  Receipt, 
-  Building2, 
+  Database, 
   Shield, 
-  Cloud, 
-  TrendingUp,
-  Users,
-  BarChart3,
-  Search,
-  Lock
+  Code, 
+  TrendingUp, 
+  GraduationCap,
+  ChevronRight,
+  Phone,
+  Mail
 } from "lucide-react";
 
 const Services = () => {
-  const [expandedService, setExpandedService] = useState<string | null>(null);
+  const [hoveredCard, setHoveredCard] = useState<string | null>(null);
 
-  const serviceCategories = [
+  const solutionCategories = [
     {
-      title: "AI-Powered Document Analysis",
-      description: "Automate document processing with advanced AI technology",
-      color: "from-primary to-accent",
+      id: "data-intelligence",
+      title: "Data Intelligence",
+      summary: "Harness financial documents and analytics for smarter decisions.",
+      image: dataIntelligenceImg,
+      icon: Database,
       services: [
-        {
-          id: "doc-analyzer",
-          name: "Document Analyser",
-          icon: FileText,
-          description: "Digitise and analyse documents to automate credit underwriting using advanced AI algorithms.",
-          fullDescription: "Our Document Analyser leverages cutting-edge artificial intelligence to transform traditional document processing. The system automatically extracts, validates, and categorizes information from various document types, enabling faster credit underwriting decisions while maintaining accuracy and compliance standards."
-        },
-        {
-          id: "bsa",
-          name: "Bank Statement Analyser (BSA)",
-          icon: CreditCard,
-          description: "Digitise and analyse bank statements for faster credit underwriting with AI-powered insights.",
-          fullDescription: "The Bank Statement Analyser utilizes machine learning algorithms to process bank statements automatically, extracting key financial patterns, cash flow analysis, and risk indicators. This AI-driven solution reduces processing time from hours to minutes while providing comprehensive financial insights."
-        },
-        {
-          id: "itr-analyzer",
-          name: "ITR Analyser",
-          icon: Calculator,
-          description: "Automated ITR & AIS analysis for accurate financial assessments using AI technology.",
-          fullDescription: "Our ITR Analyser employs sophisticated AI models to process Income Tax Returns and Annual Information Statements, providing detailed financial analysis, risk assessment, and creditworthiness evaluation with unprecedented accuracy and speed."
-        },
-        {
-          id: "gst-analyzer",
-          name: "GST Analyser",
-          icon: Receipt,
-          description: "Real-time GST data extraction & analysis for smarter credit decisioning with AI insights.",
-          fullDescription: "The GST Analyser combines real-time data processing with advanced AI analytics to evaluate business performance through GST filings, providing comprehensive insights into business stability, revenue patterns, and credit risk assessment."
-        }
+        "Bank Statement Analysis",
+        "GST / ITR Analysis", 
+        "Payslip & Credit Card Statement Analysis",
+        "Financial Statement Analysis",
+        "Predictive & Prescriptive Analytics",
+        "Customer Segmentation & Benchmarking"
       ]
     },
     {
-      title: "Technology Solutions",
-      description: "Comprehensive technology services for modern businesses",
-      color: "from-accent to-primary",
+      id: "forensics-risk",
+      title: "Forensics & Risk Management",
+      summary: "Detect fraud, investigate misconduct, and protect digital assets.",
+      image: forensicsRiskImg,
+      icon: Shield,
       services: [
-        {
-          id: "insurtech",
-          name: "Insurtech Solutions",
-          icon: Shield,
-          description: "AI-powered insurance technology solutions for modern insurance companies.",
-          fullDescription: "Our Insurtech solutions integrate artificial intelligence with insurance operations, providing automated claim processing, risk assessment, fraud detection, and customer experience enhancement through advanced machine learning algorithms."
-        },
-        {
-          id: "custom-software",
-          name: "Custom Software Development",
-          icon: Building2,
-          description: "Tailored software solutions with AI integration for your business needs.",
-          fullDescription: "We develop bespoke software solutions incorporating AI and machine learning capabilities, designed to address specific business challenges while ensuring scalability, security, and optimal performance."
-        },
-        {
-          id: "cloud-solutions",
-          name: "Cloud Solutions",
-          icon: Cloud,
-          description: "Secure cloud infrastructure with AI-powered optimization and management.",
-          fullDescription: "Our cloud solutions leverage AI for intelligent resource management, automated scaling, and predictive maintenance, ensuring optimal performance while reducing costs and enhancing security."
-        }
+        "Digital Forensics & Cyber Incident Response",
+        "Financial Investigations & Litigation Support",
+        "Employee Misconduct & IP Protection",
+        "Fraud Detection (tamper, behavioral, deepfake)",
+        "Health Insurance Fraud Detection",
+        "AML / PEP / UBO Compliance Screening"
       ]
     },
     {
-      title: "Data Analytics & AI",
-      description: "Advanced analytics powered by artificial intelligence",
-      color: "from-primary/80 to-accent/80",
+      id: "technology-solutions",
+      title: "Technology Solutions", 
+      summary: "Deploy cutting-edge software, cloud, and embedded finance tools.",
+      image: techSolutionsImg,
+      icon: Code,
       services: [
-        {
-          id: "data-exploration",
-          name: "Data Exploration & Profiling",
-          icon: Search,
-          description: "AI-driven data discovery and profiling for actionable business insights.",
-          fullDescription: "Utilize advanced AI algorithms to explore and profile your data, uncovering hidden patterns, quality issues, and opportunities for optimization through automated analysis and intelligent recommendations."
-        },
-        {
-          id: "predictive-analytics",
-          name: "Predictive & Prescriptive Analytics",
-          icon: TrendingUp,
-          description: "AI-powered forecasting and recommendation systems for strategic decisions.",
-          fullDescription: "Our AI-powered analytics platform provides predictive modeling and prescriptive recommendations, enabling data-driven decision making through machine learning algorithms and advanced statistical analysis."
-        },
-        {
-          id: "customer-segmentation",
-          name: "Customer Segmentation",
-          icon: Users,
-          description: "AI-based customer segmentation for targeted marketing and service delivery.",
-          fullDescription: "Leverage artificial intelligence to segment customers based on behavior, preferences, and value, enabling personalized experiences and optimized marketing strategies through advanced clustering algorithms."
-        }
+        "Insurtech & Embedded Finance (PCG, FIU++, FIP++)",
+        "Open Finance APIs & Consent Management",
+        "Custom Software Development",
+        "Data Management & Cloud Solutions",
+        "Cybersecurity Solutions",
+        "IT Infrastructure & Emerging Technologies"
       ]
     },
     {
-      title: "Digital Forensics & Security",
-      description: "Comprehensive security and investigation services",
-      color: "from-accent/60 to-primary/60",
+      id: "decision-intelligence",
+      title: "Decision Intelligence & Credit Insights",
+      summary: "Automate credit assessments and gain 360° customer insights.",
+      image: decisionIntelligenceImg,
+      icon: TrendingUp,
       services: [
-        {
-          id: "digital-forensics",
-          name: "Digital Forensics",
-          icon: Lock,
-          description: "AI-enhanced digital investigation and evidence analysis services.",
-          fullDescription: "Our digital forensics team employs AI-powered tools for comprehensive investigation, evidence collection, and analysis, ensuring thorough and accurate results for legal and compliance requirements."
-        },
-        {
-          id: "cybersecurity",
-          name: "Cybersecurity Solutions",
-          icon: Shield,
-          description: "AI-driven cybersecurity solutions for threat detection and prevention.",
-          fullDescription: "Implement advanced AI-based cybersecurity measures including real-time threat detection, automated response systems, and predictive security analytics to protect your digital assets."
-        }
+        "Automated Credit Assessment (CAM)",
+        "Personal Finance Management (PFM)",
+        "LeadGen (SME/MSME lead generation)",
+        "Garner (Collections Optimization)",
+        "Nexus AI & Credit Assist (GenAI underwriting)",
+        "Business & Customer Due Diligence Reports"
       ]
     }
   ];
 
-  const toggleExpand = (serviceId: string) => {
-    setExpandedService(expandedService === serviceId ? null : serviceId);
+  const trustValues = [
+    {
+      title: "Security & Compliance First",
+      description: "Bank-grade security protocols and regulatory compliance ensure your data remains protected while meeting all financial industry standards.",
+      image: securityComplianceImg
+    },
+    {
+      title: "AI-Powered Automation",
+      description: "Strategic partnership with Perfios enables cutting-edge AI automation that transforms complex financial data into instant, actionable insights.",
+      image: aiAutomationImg
+    },
+    {
+      title: "Tailored for African FinTech Ecosystem",
+      description: "Deep understanding of African financial markets, regulatory requirements, and local business practices drives our solution development.",
+      image: africanFintechImg
+    }
+  ];
+
+  const useCases = [
+    {
+      title: "Digital Lending",
+      subtitle: "Automated Credit Assessment",
+      description: "AI-powered credit scoring and risk assessment for faster, more accurate lending decisions with reduced manual processing time.",
+      category: "Banking"
+    },
+    {
+      title: "Insurance",
+      subtitle: "Fraud Detection & Claims Automation", 
+      description: "Advanced fraud detection algorithms and automated claims processing that reduce false positives and speed up legitimate claim settlements.",
+      category: "Insurance"
+    },
+    {
+      title: "Banking",
+      subtitle: "Onboarding & AML/KYC Compliance",
+      description: "Streamlined customer onboarding with automated identity verification, risk screening, and compliance reporting for regulatory requirements.",
+      category: "Banking"
+    }
+  ];
+
+  const scrollToCategories = () => {
+    document.getElementById('solution-categories')?.scrollIntoView({ 
+      behavior: 'smooth' 
+    });
   };
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="relative min-h-[70vh] flex items-center justify-center overflow-hidden">
+      <section className="relative min-h-[80vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img 
-            src={servicesHeroImg} 
-            alt="AI Services and Solutions" 
-            className="w-full h-full object-cover opacity-20"
+            src={heroImg} 
+            alt="AI-powered solutions for finance" 
+            className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-transparent to-accent/20"></div>
+          <div className="absolute inset-0 bg-white/70"></div>
         </div>
         
-        <div className="container-max text-center relative z-10">
-          <h1 className="text-4xl md:text-6xl font-bold mb-6 gradient-text">
-            AI-Powered Services
+        <div className="max-w-7xl mx-auto px-6 text-center relative z-10">
+          <h1 className="text-5xl md:text-7xl font-bold mb-8 text-gray-900">
+            Transforming Finance Through{" "}
+            <span className="text-[#4169E1]">Data, Forensics & FinTech</span>{" "}
+            Innovation
           </h1>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
-            Transforming financial technology with cutting-edge AI solutions. 
-            From document analysis to predictive analytics, we deliver intelligent automation 
-            that drives efficiency and accuracy.
+          <p className="text-xl md:text-2xl text-gray-700 max-w-4xl mx-auto mb-10 leading-relaxed">
+            We deliver AI-powered data insights, robust risk management, and embedded 
+            finance platforms to empower financial institutions and businesses.
           </p>
-          <Badge variant="outline" className="neon-border text-lg p-2">
-            🤖 Powered by Artificial Intelligence
-          </Badge>
+          <Button 
+            onClick={scrollToCategories}
+            className="bg-[#4169E1] hover:bg-[#4169E1]/90 text-white px-8 py-4 text-lg rounded-lg font-semibold"
+          >
+            Explore Our Solutions
+            <ChevronRight className="ml-2 w-5 h-5" />
+          </Button>
         </div>
       </section>
 
-      {/* Services Showcase */}
-      <section className="section-padding">
-        <div className="container-max">
+      {/* Solutions Categories */}
+      <section id="solution-categories" className="py-20 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 gradient-text-neon">
-              Our Service Portfolio
+            <h2 className="text-4xl md:text-5xl font-bold text-[#4169E1] mb-6">
+              DFT Solutions
             </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Comprehensive AI-driven solutions designed for the modern financial industry
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Comprehensive AI-driven solutions designed for the modern financial ecosystem
             </p>
           </div>
 
-          {serviceCategories.map((category, categoryIndex) => (
-            <div key={category.title} className="mb-16">
-              <div className="text-center mb-8">
-                <h3 className="text-2xl md:text-3xl font-bold mb-2">
-                  <span className={`bg-gradient-to-r ${category.color} bg-clip-text text-transparent`}>
-                    {category.title}
-                  </span>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {solutionCategories.map((category) => {
+              const IconComponent = category.icon;
+              const isHovered = hoveredCard === category.id;
+              
+              return (
+                <Card 
+                  key={category.id}
+                  className={`bg-white border-0 shadow-md transition-all duration-300 overflow-hidden ${
+                    isHovered ? 'shadow-xl transform -translate-y-2' : ''
+                  }`}
+                  onMouseEnter={() => setHoveredCard(category.id)}
+                  onMouseLeave={() => setHoveredCard(null)}
+                >
+                  <div className="aspect-video w-full overflow-hidden">
+                    <img 
+                      src={category.image} 
+                      alt={category.title}
+                      className={`w-full h-full object-cover transition-transform duration-300 ${
+                        isHovered ? 'scale-105' : ''
+                      }`}
+                    />
+                  </div>
+                  <CardHeader className="pb-4">
+                    <div className="flex items-center gap-3 mb-3">
+                      <div className="w-10 h-10 bg-[#4169E1]/10 rounded-lg flex items-center justify-center">
+                        <IconComponent className="w-5 h-5 text-[#4169E1]" />
+                      </div>
+                      <CardTitle className="text-xl font-bold text-[#4169E1]">
+                        {category.title}
+                      </CardTitle>
+                    </div>
+                    <CardDescription className="text-gray-600 text-base">
+                      {category.summary}
+                    </CardDescription>
+                  </CardHeader>
+                  <CardContent className="pt-0">
+                    <ul className="space-y-2 mb-6">
+                      {category.services.map((service, index) => (
+                        <li key={index} className="flex items-center gap-2 text-sm text-gray-600">
+                          <div className="w-1.5 h-1.5 bg-[#4169E1] rounded-full flex-shrink-0"></div>
+                          {service}
+                        </li>
+                      ))}
+                    </ul>
+                    <Button 
+                      variant="outline" 
+                      className="w-full border-[#4169E1] text-[#4169E1] hover:bg-[#4169E1] hover:text-white"
+                    >
+                      Learn More
+                      <ChevronRight className="ml-2 w-4 h-4" />
+                    </Button>
+                  </CardContent>
+                </Card>
+              );
+            })}
+            
+            {/* Training & Capacity Building Card */}
+            <Card 
+              className={`bg-white border-0 shadow-md transition-all duration-300 overflow-hidden md:col-span-2 ${
+                hoveredCard === 'training' ? 'shadow-xl transform -translate-y-2' : ''
+              }`}
+              onMouseEnter={() => setHoveredCard('training')}
+              onMouseLeave={() => setHoveredCard(null)}
+            >
+              <div className="flex flex-col md:flex-row">
+                <div className="md:w-1/3 aspect-video md:aspect-auto overflow-hidden">
+                  <img 
+                    src={trainingCapacityImg} 
+                    alt="Training & Capacity Building"
+                    className={`w-full h-full object-cover transition-transform duration-300 ${
+                      hoveredCard === 'training' ? 'scale-105' : ''
+                    }`}
+                  />
+                </div>
+                <div className="md:w-2/3 p-6">
+                  <div className="flex items-center gap-3 mb-3">
+                    <div className="w-10 h-10 bg-[#4169E1]/10 rounded-lg flex items-center justify-center">
+                      <GraduationCap className="w-5 h-5 text-[#4169E1]" />
+                    </div>
+                    <h3 className="text-xl font-bold text-[#4169E1]">
+                      Training & Capacity Building
+                    </h3>
+                  </div>
+                  <p className="text-gray-600 text-base mb-4">
+                    Upskill teams in fintech, fraud detection, and data-driven innovation.
+                  </p>
+                  <ul className="grid grid-cols-1 md:grid-cols-2 gap-2 mb-6">
+                    {[
+                      "FinTech Innovation Workshops",
+                      "Fraud & Risk Management Training", 
+                      "Data Analytics for Decision Makers",
+                      "(Mark as Coming Soon if not yet active)"
+                    ].map((service, index) => (
+                      <li key={index} className="flex items-center gap-2 text-sm text-gray-600">
+                        <div className="w-1.5 h-1.5 bg-[#4169E1] rounded-full flex-shrink-0"></div>
+                        {service}
+                      </li>
+                    ))}
+                  </ul>
+                  <Button 
+                    variant="outline" 
+                    className="border-[#4169E1] text-[#4169E1] hover:bg-[#4169E1] hover:text-white"
+                  >
+                    Learn More
+                    <ChevronRight className="ml-2 w-4 h-4" />
+                  </Button>
+                </div>
+              </div>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Trust / Value Section */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold text-[#4169E1] mb-6">
+              Why Choose DFT
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Built on trust, powered by innovation, designed for your success
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {trustValues.map((value, index) => (
+              <div key={index} className="text-center group">
+                <div className="aspect-square w-full max-w-sm mx-auto mb-6 overflow-hidden rounded-2xl">
+                  <img 
+                    src={value.image} 
+                    alt={value.title}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
+                </div>
+                <h3 className="text-xl font-bold text-[#4169E1] mb-4">
+                  {value.title}
                 </h3>
-                <p className="text-muted-foreground">{category.description}</p>
+                <p className="text-gray-600 leading-relaxed">
+                  {value.description}
+                </p>
               </div>
-
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {category.services.map((service) => {
-                  const IconComponent = service.icon;
-                  const isExpanded = expandedService === service.id;
-
-                  return (
-                    <Card key={service.id} className="neon-border group hover:shadow-lg transition-all duration-300">
-                      <CardHeader className="text-center">
-                        <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center neon-glow">
-                          <IconComponent className="w-8 h-8 text-primary" />
-                        </div>
-                        <CardTitle className="text-lg font-semibold">
-                          {service.name}
-                        </CardTitle>
-                        <CardDescription className="text-sm">
-                          {service.description}
-                        </CardDescription>
-                      </CardHeader>
-                      <CardContent>
-                        {isExpanded && (
-                          <div className="mt-4 p-4 bg-secondary/50 rounded-lg animate-fade-in">
-                            <p className="text-sm text-foreground leading-relaxed">
-                              {service.fullDescription}
-                            </p>
-                          </div>
-                        )}
-                        <Button
-                          variant="outline"
-                          size="sm"
-                          onClick={() => toggleExpand(service.id)}
-                          className="w-full mt-4 neon-border"
-                        >
-                          {isExpanded ? "Show Less" : "Learn More"}
-                        </Button>
-                      </CardContent>
-                    </Card>
-                  );
-                })}
-              </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </section>
 
-      {/* AI Showcase Section */}
-      <section className="section-padding bg-gradient-to-br from-accent/5 to-primary/5">
-        <div className="container-max">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 gradient-text">
-              AI Technology Workflow
+      {/* Use Cases / Case Studies Section */}
+      <section className="py-20 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold text-[#4169E1] mb-6">
+              Real-World Applications
             </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              See how our AI-powered solutions transform your data into actionable insights
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              See how our solutions transform financial workflows across industries
             </p>
           </div>
 
-          <div className="flex flex-col md:flex-row items-center justify-center space-y-8 md:space-y-0 md:space-x-8">
-            <div className="flex flex-col items-center">
-              <div className="w-24 h-24 rounded-full bg-gradient-to-br from-primary to-primary-glow flex items-center justify-center neon-glow mb-4">
-                <FileText className="w-12 h-12 text-white" />
-              </div>
-              <h3 className="text-xl font-semibold mb-2">Input</h3>
-              <p className="text-center text-muted-foreground">
-                Raw documents,<br />statements & data
-              </p>
-            </div>
-
-            <div className="flex items-center">
-              <div className="w-16 h-1 bg-gradient-to-r from-primary to-accent rounded-full"></div>
-            </div>
-
-            <div className="flex flex-col items-center">
-              <div className="w-24 h-24 rounded-full bg-gradient-to-br from-accent to-accent-glow flex items-center justify-center neon-glow mb-4">
-                <BarChart3 className="w-12 h-12 text-white" />
-              </div>
-              <h3 className="text-xl font-semibold mb-2">AI Analysis</h3>
-              <p className="text-center text-muted-foreground">
-                Machine learning<br />processing & insights
-              </p>
-            </div>
-
-            <div className="flex items-center">
-              <div className="w-16 h-1 bg-gradient-to-r from-accent to-primary rounded-full"></div>
-            </div>
-
-            <div className="flex flex-col items-center">
-              <div className="w-24 h-24 rounded-full bg-gradient-to-br from-primary-glow to-accent-glow flex items-center justify-center neon-glow mb-4">
-                <TrendingUp className="w-12 h-12 text-white" />
-              </div>
-              <h3 className="text-xl font-semibold mb-2">Output</h3>
-              <p className="text-center text-muted-foreground">
-                Intelligent reports<br />& recommendations
-              </p>
-            </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {useCases.map((useCase, index) => (
+              <Card key={index} className="bg-white border-0 shadow-md hover:shadow-xl transition-all duration-300 group">
+                <CardHeader>
+                  <div className="mb-2">
+                    <span className="text-xs font-semibold text-[#4169E1] bg-[#4169E1]/10 px-2 py-1 rounded-full">
+                      {useCase.category}
+                    </span>
+                  </div>
+                  <CardTitle className="text-xl font-bold text-gray-900 group-hover:text-[#4169E1] transition-colors">
+                    {useCase.title}
+                  </CardTitle>
+                  <CardDescription className="text-[#4169E1] font-semibold">
+                    {useCase.subtitle}
+                  </CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-gray-600 leading-relaxed">
+                    {useCase.description}
+                  </p>
+                </CardContent>
+              </Card>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="section-padding">
-        <div className="container-max text-center">
-          <div className="max-w-3xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6 gradient-text-neon">
-              Ready to Transform Your Business?
-            </h2>
-            <p className="text-lg text-muted-foreground mb-8">
-              Discover how our AI-powered solutions can streamline your operations 
-              and provide competitive advantages in today's digital landscape.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button variant="hero" size="lg">
-                Schedule Consultation
-              </Button>
-              <Button variant="outline" size="lg" className="neon-border">
-                View Case Studies
-              </Button>
-            </div>
+      {/* Closing CTA Section */}
+      <section className="py-20 bg-[#4169E1]">
+        <div className="max-w-4xl mx-auto px-6 text-center">
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+            Ready to transform your financial workflows?
+          </h2>
+          <p className="text-xl text-blue-100 mb-10 leading-relaxed">
+            Join leading financial institutions who trust DFT Consult to drive their digital transformation.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Button 
+              className="bg-white text-[#4169E1] hover:bg-gray-100 px-8 py-4 text-lg font-semibold rounded-lg"
+            >
+              <Phone className="mr-2 w-5 h-5" />
+              Book a Consultation
+            </Button>
+            <Button 
+              variant="outline" 
+              className="border-white text-white hover:bg-white hover:text-[#4169E1] px-8 py-4 text-lg font-semibold rounded-lg"
+            >
+              <Mail className="mr-2 w-5 h-5" />
+              Contact Us
+            </Button>
           </div>
         </div>
       </section>
+
+      {/* Sticky Navigation Styles */}
+      <style>{`
+        html {
+          scroll-behavior: smooth;
+        }
+        
+        .hover-lift {
+          transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .hover-lift:hover {
+          transform: translateY(-8px);
+          box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+      `}</style>
     </div>
   );
 };

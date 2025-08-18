@@ -578,7 +578,7 @@ const Index = () => {
   </div>
 
   {/* Floating animation keyframes */}
-  <style jsx>{`
+  <style>{`
     @keyframes float {
       0% { transform: translateY(0px); opacity: 0.4; }
       50% { transform: translateY(-15px); opacity: 0.6; }

@@ -95,7 +95,7 @@ const PartnersCarousel = () => {
       </div>
 
       {/* Tailwind keyframes + hover pause */}
-      <style jsx>{`
+      <style>{`
         @keyframes marquee {
           0% {
             transform: translateX(0%);
