@@ -197,57 +197,7 @@ const Industry = () => {
                       ))}
                     </div>
 
-                    {/* Banking Challenges & Solutions */}
-                    {industry.id === 'banking' && (
-                      <div className="mb-8">
-                        <h3 className="text-xl font-semibold mb-6 text-primary">Challenges & Our Solutions</h3>
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                          {/* Challenges */}
-                          <div>
-                            <h4 className="text-lg font-medium mb-4 text-muted-foreground">Industry Challenges</h4>
-                            <div className="space-y-3">
-                              {industry.challenges?.map((challenge, idx) => (
-                                <Card key={idx} className="p-4 bg-red-50 border-red-200">
-                                  <div className="flex items-start space-x-3">
-                                    <AlertTriangle className="w-5 h-5 text-red-500 mt-0.5 flex-shrink-0" />
-                                    <div>
-                                      <h5 className="font-medium text-red-800">{challenge.title}</h5>
-                                      <p className="text-sm text-red-600 mt-1">{challenge.description}</p>
-                                    </div>
-                                  </div>
-                                </Card>
-                              ))}
-                            </div>
-                          </div>
-                          
-                          {/* Solutions */}
-                          <div>
-                            <h4 className="text-lg font-medium mb-4 text-muted-foreground">DFT Solutions</h4>
-                            <div className="space-y-3">
-                              {industry.solutions?.map((solution, idx) => (
-                                <Card key={idx} className="p-4 bg-green-50 border-green-200">
-                                  <div className="flex items-start space-x-3">
-                                    <CheckCircle className="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" />
-                                    <div>
-                                      <h5 className="font-medium text-green-800">{solution.title}</h5>
-                                      <p className="text-sm text-green-600 mt-1">{solution.description}</p>
-                                    </div>
-                                  </div>
-                                </Card>
-                              ))}
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    )}
-
-                    <div className="flex justify-center">
-                      <Button variant="hero" size="lg" className="w-full sm:w-auto">
-                        Explore {industry.title} Solutions
-                      </Button>
-                    </div>
-                  </div>
-
+                 
                   {/* Image */}
                   <div className={`${isEven ? '' : 'lg:col-start-1'} animate-slide-up`}>
                     <div className="rounded-lg overflow-hidden shadow-lg neon-border">
