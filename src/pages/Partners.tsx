@@ -38,21 +38,25 @@ const Partners = () => {
       partners: [
         {
           name: "Perfios Software Solutions",
+          logo: "PS",
           description: "Leading Indian fintech company providing real-time data aggregation and analytics for financial institutions across global markets.",
           specialty: "Data Analytics & Bank Statement Analysis"
         },
         {
           name: "Microsoft Azure",
+          logo: "MS",
           description: "Cloud computing platform providing scalable AI services and secure infrastructure for our enterprise solutions.",
           specialty: "Cloud Infrastructure & AI Services"
         },
         {
           name: "AWS FinTech Accelerator",
+          logo: "AWS",
           description: "Amazon Web Services partnership enabling rapid deployment and scaling of financial technology solutions.",
           specialty: "Cloud Computing & DevOps"
         },
         {
           name: "NVIDIA AI Enterprise",
+          logo: "NV",
           description: "Advanced GPU computing solutions for machine learning model training and real-time AI inference processing.",
           specialty: "AI Computing & Machine Learning"
         }
@@ -68,21 +72,25 @@ const Partners = () => {
       partners: [
         {
           name: "Jubilee Insurance",
+          logo: "JI",
           description: "Leading East African insurance provider partnering with us on digital transformation and automated claims processing solutions.",
           specialty: "Insurance Technology & Claims Automation"
         },
         {
           name: "Equity Bank Group",
+          logo: "EB",
           description: "Pan-African financial services provider collaborating on digital lending and customer onboarding solutions.",
           specialty: "Digital Banking & Fintech Innovation"
         },
         {
           name: "KCB Group",
+          logo: "KCB",
           description: "Regional banking leader working with us on AI-powered credit scoring and risk management solutions.",
           specialty: "Credit Assessment & Risk Management"
         },
         {
           name: "Centum Investment",
+          logo: "CI",
           description: "Leading investment company partnering on alternative credit scoring and SME financing solutions.",
           specialty: "Investment Finance & Credit Solutions"
         }
@@ -98,21 +106,25 @@ const Partners = () => {
       partners: [
         {
           name: "Central Bank of Kenya (CBK)",
+          logo: "CBK",
           description: "Regulatory partnership ensuring all fintech solutions comply with banking regulations and data protection standards.",
           specialty: "Regulatory Compliance & Banking Standards"
         },
         {
           name: "PwC East Africa",
+          logo: "PwC",
           description: "Global consulting firm providing regulatory guidance and compliance frameworks for financial technology solutions.",
           specialty: "Regulatory Advisory & Compliance"
         },
         {
           name: "Deloitte Africa",
+          logo: "DL",
           description: "Strategic consulting partner helping navigate complex regulatory environments and market entry strategies.",
           specialty: "Strategic Consulting & Market Intelligence"
         },
         {
           name: "KPMG Kenya",
+          logo: "KP",
           description: "Professional services firm supporting audit, compliance, and risk management frameworks for financial institutions.",
           specialty: "Audit, Risk & Compliance Advisory"
         }
@@ -128,21 +140,25 @@ const Partners = () => {
       partners: [
         {
           name: "Taimos Technologies Ltd",
+          logo: "TT",
           description: "Local technology partner specializing in custom software development and innovative fintech solutions for African markets.",
           specialty: "Custom Software Development & Integration"
         },
         {
           name: "University of Nairobi - School of Computing",
+          logo: "UoN",
           description: "Academic partnership for AI research, talent development, and innovative fintech solution development.",
           specialty: "AI Research & Talent Development"
         },
         {
           name: "iHub Nairobi",
+          logo: "iH",
           description: "Innovation hub connecting us with emerging startups and fostering collaborative technology development in East Africa.",
           specialty: "Startup Innovation & Tech Ecosystem"
         },
         {
           name: "CIPIT - Centre for Intellectual Property",
+          logo: "CIP",
           description: "Research center partnership for intellectual property protection and technology transfer in financial innovation.",
           specialty: "IP Protection & Technology Transfer"
         }
@@ -229,75 +245,71 @@ const Partners = () => {
         </div>
       </section>
 
-      {/* Partner Categories */}
-      <section className="section-padding">
-        <div className="container-max">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 gradient-text">
-              Partnership Categories
-            </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Our diverse partner ecosystem spans technology, finance, advisory, and innovation sectors, 
-              creating a comprehensive support network for delivering exceptional solutions.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-            {partnerCategories.map((category, index) => {
-              const IconComponent = category.icon;
-              
-              return (
-                <Card key={category.id} className="group hover:shadow-xl transition-all duration-300 neon-border overflow-hidden">
-                  {/* Category Header */}
-                  <div className="relative h-48">
-                    <img 
-                      src={category.image} 
-                      alt={category.title}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-                    <div className="absolute bottom-4 left-4 text-white">
-                      <div className="flex items-center mb-2">
-                        <IconComponent className="w-6 h-6 mr-2" />
-                        <h3 className="text-xl font-bold">{category.title}</h3>
-                      </div>
-                      <p className="text-sm text-gray-200">{category.subtitle}</p>
-                    </div>
+      {/* Partner Categories - Each category as separate section */}
+      {partnerCategories.map((category, categoryIndex) => {
+        const IconComponent = category.icon;
+        
+        return (
+          <section key={category.id} className={`section-padding ${categoryIndex % 2 === 1 ? 'bg-gradient-to-br from-accent/5 to-primary/5' : ''}`}>
+            <div className="container-max">
+              {/* Category Header */}
+              <div className="text-center mb-12">
+                <div className="flex items-center justify-center mb-4">
+                  <div className="w-16 h-16 rounded-full bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center mr-4 neon-glow">
+                    <IconComponent className="w-8 h-8 text-primary" />
                   </div>
+                  <div className="text-left">
+                    <h2 className="text-3xl md:text-4xl font-bold gradient-text">
+                      {category.title}
+                    </h2>
+                    <p className="text-lg text-primary font-medium">{category.subtitle}</p>
+                  </div>
+                </div>
+                <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+                  {category.description}
+                </p>
+              </div>
 
-                  <CardHeader>
-                    <CardDescription className="text-base leading-relaxed">
-                      {category.description}
-                    </CardDescription>
-                  </CardHeader>
-
-                  <CardContent className="space-y-4">
-                    {category.partners.map((partner, idx) => (
-                      <div key={idx} className="border-l-4 border-primary/30 pl-4 py-2">
-                        <h4 className="font-semibold text-foreground mb-1">{partner.name}</h4>
-                        <p className="text-sm text-muted-foreground mb-2">{partner.description}</p>
-                        <Badge variant="outline" className="text-xs">
+              {/* Partner Tiles Grid */}
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+                {category.partners.map((partner, idx) => (
+                  <Card key={idx} className="group hover:shadow-xl transition-all duration-300 neon-border overflow-hidden bg-white/50 backdrop-blur-sm">
+                    <CardHeader className="pb-3">
+                      <div className="flex flex-col items-center text-center">
+                        <div className="w-16 h-16 rounded-full bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center mb-3 neon-glow">
+                          <span className="font-bold text-primary text-lg">{partner.logo}</span>
+                        </div>
+                        <CardTitle className="text-lg mb-2 group-hover:text-primary transition-colors">
+                          {partner.name}
+                        </CardTitle>
+                        <Badge variant="outline" className="text-xs mb-3">
                           {partner.specialty}
                         </Badge>
                       </div>
-                    ))}
-                    
-                    <div className="pt-4">
-                      <Button variant="outline" className="w-full group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
-                        Learn More About This Partnership
-                        <ArrowRight className="w-4 h-4 ml-2" />
-                      </Button>
-                    </div>
-                  </CardContent>
-                </Card>
-              );
-            })}
-          </div>
-        </div>
-      </section>
+                    </CardHeader>
+                    <CardContent className="pt-0">
+                      <CardDescription className="text-sm leading-relaxed text-center">
+                        {partner.description}
+                      </CardDescription>
+                    </CardContent>
+                  </Card>
+                ))}
+              </div>
+
+              {/* Category CTA */}
+              <div className="text-center">
+                <Button variant="outline" className="group hover:bg-primary hover:text-primary-foreground transition-colors">
+                  Learn More About {category.title}
+                  <ArrowRight className="w-4 h-4 ml-2" />
+                </Button>
+              </div>
+            </div>
+          </section>
+        );
+      })}
 
       {/* Client Testimonials */}
-      <section className="section-padding bg-gradient-to-br from-accent/5 to-primary/5">
+      <section className="section-padding bg-gradient-to-br from-accent/10 to-primary/10">
         <div className="container-max">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold mb-4 gradient-text">
@@ -319,7 +331,7 @@ const Partners = () => {
             <CarouselContent>
               {testimonials.map((testimonial, index) => (
                 <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
-                  <Card className="h-full bg-white/50 backdrop-blur-sm neon-border hover:shadow-lg transition-all duration-300">
+                  <Card className="h-full bg-white/70 backdrop-blur-sm neon-border hover:shadow-lg transition-all duration-300">
                     <CardHeader className="pb-2">
                       <div className="flex items-center mb-3">
                         <div className="w-12 h-12 rounded-full bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center mr-3">
