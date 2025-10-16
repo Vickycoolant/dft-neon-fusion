@@ -27,7 +27,7 @@ const Navigation = () => {
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-3">
             <img src={dftLogo} alt="DFT Consult" className="h-8 w-auto object-contain" />
-            <span className="text-xl font-bold gradient-text">DFT Consult</span>
+            <span className="text-xl font-bold gradient-text"> Consult</span>
           </Link>
 
           {/* Desktop Navigation */}
