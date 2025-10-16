@@ -1,6 +1,6 @@
 import { MapPin, Phone, Mail, Facebook, Twitter, Linkedin, Instagram } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import dftLogo from "@/assets/dft-logo.png";
+import dftLogo from "@/assets/dft-logo-new.png";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -31,8 +31,8 @@ const Footer = () => {
           {/* Company Info */}
           <div className="space-y-4">
             <div className="flex items-center space-x-3">
-              <img src={dftLogo} alt="DFT Consult" className="w-12 h-7 object-contain" />
-              <h3 className="text-xl font-bold text-white">DFT Consult</h3>
+              <img src={dftLogo} alt="DFT Consult" className="h-10 w-auto object-contain" />
+              <h3 className="text-xl font-bold text-white">Consult</h3>
             </div>
             <p className="text-gray-300 text-sm leading-relaxed">
               Leading AI-powered fintech solutions provider with 15+ years of experience. 

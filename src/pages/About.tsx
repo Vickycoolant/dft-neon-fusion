@@ -2,130 +2,80 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { 
-  Users, 
   Target, 
-  Heart, 
-  Lightbulb, 
+  Eye, 
   Shield, 
-  Award,
-  ArrowRight,
-  Calendar,
-  CheckCircle,
+  Lightbulb, 
+  Users, 
   Globe,
+  ArrowRight,
+  CheckCircle,
   TrendingUp,
-  Mail,
-  Phone,
-  MapPin
+  Zap
 } from "lucide-react";
 import aboutHeroImg from "@/assets/about-hero.jpg";
-import leader1Img from "@/assets/leader-1.jpg";
-import leader2Img from "@/assets/leader-2.jpg";
-import leader3Img from "@/assets/leader-3.jpg";
+import dataIntelligenceImg from "@/assets/data-intelligence.jpg";
+import forensicsRiskImg from "@/assets/forensics-risk.jpg";
+import techSolutionsImg from "@/assets/tech-solutions.jpg";
+import leader1 from "@/assets/leader-1.jpg";
+import leader2 from "@/assets/leader-2.jpg";
+import leader3 from "@/assets/leader-3.jpg";
 
 const About = () => {
-  const milestones = [
-    {
-      year: "2009",
-      title: "Company Founded",
-      description: "Established DFT Consult with a vision to transform financial services through technology innovation."
-    },
-    {
-      year: "2012",
-      title: "First Major Banking Partnership",
-      description: "Secured our first major contract with a leading regional bank, establishing our credibility in the financial sector."
-    },
-    {
-      year: "2015",
-      title: "AI Integration Launch",
-      description: "Pioneered the integration of artificial intelligence in financial document analysis and risk assessment."
-    },
-    {
-      year: "2018",
-      title: "International Expansion",
-      description: "Formed strategic partnerships with global technology providers, including Perfios Software Solutions."
-    },
-    {
-      year: "2021",
-      title: "Insurance Automation",
-      description: "Expanded services to include comprehensive insurance automation and claims processing solutions."
-    },
-    {
-      year: "2024",
-      title: "Market Leadership",
-      description: "Recognized as a leading provider of AI-powered financial solutions across East Africa."
-    },
-    {
-      year: "2025",
-      title: "Future Vision",
-      description: "Continuing innovation with advanced AI models and expanded regional presence."
-    }
-  ];
-
-  const values = [
+  const coreValues = [
     {
       icon: Shield,
       title: "Integrity",
-      description: "We maintain the highest standards of honesty and transparency in all our business dealings."
+      description: "Upholding the highest ethical standards in every interaction, ensuring trust and transparency."
     },
     {
       icon: Lightbulb,
-      title: "Innovation", 
-      description: "We continuously push boundaries to develop cutting-edge solutions that transform the financial landscape."
+      title: "Innovation",
+      description: "Continuously pushing boundaries with cutting-edge AI and technology solutions."
     },
     {
       icon: Users,
       title: "Client-Centricity",
-      description: "Our clients' success drives everything we do. We deliver solutions tailored to their unique needs."
-    },
-    {
-      icon: Award,
-      title: "Excellence",
-      description: "We strive for excellence in every project, ensuring quality and reliability in all our deliverables."
-    },
-    {
-      icon: Heart,
-      title: "Collaboration",
-      description: "We believe in the power of partnerships and work closely with clients and partners to achieve mutual success."
+      description: "Delivering tailored solutions that address specific client challenges and drive measurable results."
     }
   ];
 
   const services = [
     {
-      title: "Automated Credit Underwriting",
-      description: "AI-powered systems that analyze creditworthiness with 99% accuracy, reducing processing time from days to minutes."
+      title: "Data Intelligence & Analytics",
+      description: "Advanced AI-powered document analysis, predictive analytics, and customer segmentation for data-driven financial decisions.",
+      image: dataIntelligenceImg
     },
     {
-      title: "Insurance Decision-Making",
-      description: "Intelligent automation for claims processing, fraud detection, and policy underwriting in the insurance sector."
+      title: "Digital Forensics & Risk Management",
+      description: "Comprehensive fraud detection, AML/KYC compliance, and cybersecurity solutions to protect financial assets.",
+      image: forensicsRiskImg
     },
     {
-      title: "Risk Management Solutions",
-      description: "Advanced analytics and AI models for comprehensive risk assessment and management across financial institutions."
-    },
-    {
-      title: "Tailored Software Solutions",
-      description: "Custom-built applications and integrations designed specifically for banking, finance, and insurance operations."
+      title: "Technology & Embedded Finance",
+      description: "Custom software development, cloud solutions, and insurtech platforms for seamless digital transformation.",
+      image: techSolutionsImg
     }
   ];
 
   const leaders = [
     {
-      name: "David K. Mwangi",
-      position: "Chief Executive Officer & Founder",
-      image: leader1Img,
-      description: "With over 20 years of experience in financial technology and business strategy, David leads our vision of transforming African financial services through AI innovation. He holds an MBA in Finance and has been instrumental in establishing key partnerships with global technology providers."
+      name: "Dr. James Mwangi",
+      position: "Chief Executive Officer & Co-Founder",
+      image: leader1,
+      description: "With 20+ years in financial technology, Dr. Mwangi leads DFT's strategic vision. Former CTO at a leading African bank, he holds a PhD in Computer Science and has published extensively on AI applications in finance."
     },
     {
-      name: "Sarah N. Kimani",
+      name: "Sarah Wanjiku",
       position: "Chief Technology Officer",
-      image: leader2Img,
-      description: "Sarah brings 15+ years of expertise in AI and machine learning to drive our technical innovation. She holds a PhD in Computer Science and has published extensively on AI applications in financial services. Under her leadership, our technology stack has revolutionized credit scoring across multiple markets."
+      image: leader2,
+      description: "Sarah brings 15+ years of experience in AI and machine learning. Previously at Microsoft Azure AI, she specializes in building scalable fintech solutions and holds multiple patents in fraud detection algorithms."
     },
     {
-      name: "Michael O. Wanjiku",
-      position: "Head of Business Development",
-      image: leader3Img,
-      description: "Michael oversees our strategic partnerships and market expansion initiatives. With a background in international business and 12 years in fintech, he has been key in establishing our partnerships with Perfios and other global technology leaders, expanding our reach across East Africa."
+      name: "Michael Ochieng",
+      position: "Chief Operations Officer",
+      image: leader3,
+      description: "Michael has 18+ years managing large-scale financial operations across East Africa. Former Regional Director at Equity Bank, he ensures seamless delivery of DFT's solutions to clients."
     }
   ];
 
@@ -133,196 +83,186 @@ const About = () => {
     { name: "Jubilee Insurance", logo: "JI" },
     { name: "Equity Bank", logo: "EB" },
     { name: "KCB Group", logo: "KCB" },
-    { name: "Centum Investment", logo: "CI" },
-    { name: "Britam Insurance", logo: "BI" },
-    { name: "Diamond Trust Bank", logo: "DTB" },
-    { name: "Cooperative Bank", logo: "CB" },
-    { name: "NCBA Group", logo: "NCBA" }
+    { name: "Britam", logo: "BT" },
+    { name: "Centum", logo: "CI" },
+    { name: "DTB", logo: "DTB" }
   ];
 
   return (
-    <div className="min-h-screen bg-background">
-      {/* Hero Section - Company Overview */}
-      <section className="relative min-h-[80vh] flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 z-0">
-          <img 
-            src={aboutHeroImg} 
-            alt="DFT Consult - Your Strategic Partner in AI-Powered Financial Solutions" 
-            className="w-full h-full object-cover opacity-30"
-          />
-          <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-transparent to-accent/20"></div>
-        </div>
-        
-        <div className="container-max text-center relative z-10">
-          <Badge variant="outline" className="neon-border mb-6">
-            <Award className="w-4 h-4 mr-2" />
-            15+ Years of Excellence
-          </Badge>
-          <h1 className="text-4xl md:text-6xl font-bold mb-6 gradient-text">
-            Your Strategic Partner in<br />AI-Powered Financial Solutions
-          </h1>
-          <p className="text-xl text-muted-foreground max-w-4xl mx-auto mb-8 leading-relaxed">
-            For over 15 years, DFT Consult has been at the forefront of financial technology innovation, 
-            delivering intelligent, reliable solutions that empower banks, insurance companies, and financial institutions 
-            across Africa. Through strategic partnerships with global leaders like <span className="text-primary font-semibold">Perfios</span> 
-            and cutting-edge AI technology, we transform how financial services operate.
-          </p>
-          <div className="flex flex-wrap justify-center gap-4 mb-8">
-            <Badge variant="secondary" className="text-sm">🏆 Trusted by Leading Banks</Badge>
-            <Badge variant="secondary" className="text-sm">🤖 AI-Powered Solutions</Badge>
-            <Badge variant="secondary" className="text-sm">🌍 International Partnerships</Badge>
-            <Badge variant="secondary" className="text-sm">🚀 15+ Years Experience</Badge>
-          </div>
-          <Button variant="hero" size="lg">
-            <ArrowRight className="w-5 h-5 mr-2" />
-            Discover Our Solutions
-          </Button>
-        </div>
-      </section>
-
-      {/* Company Journey */}
-      <section className="section-padding">
-        <div className="container-max">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 gradient-text">
-              Our Journey of Innovation
-            </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              From a vision in 2009 to becoming East Africa's leading AI-powered financial solutions provider, 
-              our journey reflects consistent growth and adaptation to technological advances.
-            </p>
-          </div>
-
-          <div className="relative">
-            <div className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-primary to-accent opacity-30"></div>
-            
-            <div className="space-y-12">
-              {milestones.map((milestone, index) => (
-                <div key={index} className={`flex items-center ${index % 2 === 0 ? 'justify-start' : 'justify-end'}`}>
-                  <Card className={`w-full max-w-lg neon-border hover:shadow-lg transition-all duration-300 ${index % 2 === 0 ? 'mr-8' : 'ml-8'}`}>
-                    <CardHeader>
-                      <div className="flex items-center mb-2">
-                        <div className="w-12 h-12 rounded-full bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center mr-4 neon-glow">
-                          <Calendar className="w-6 h-6 text-primary" />
-                        </div>
-                        <div>
-                          <Badge variant="outline" className="mb-1">{milestone.year}</Badge>
-                          <CardTitle className="text-lg">{milestone.title}</CardTitle>
-                        </div>
-                      </div>
-                    </CardHeader>
-                    <CardContent>
-                      <CardDescription className="text-base">
-                        {milestone.description}
-                      </CardDescription>
-                    </CardContent>
-                  </Card>
-                  
-                  <div className="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 rounded-full bg-primary neon-glow"></div>
+    <div className="min-h-screen bg-white">
+      {/* Brief Company Description with Image */}
+      <section className="py-20 bg-gradient-to-br from-gray-50 to-white">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div className="space-y-6">
+              <Badge className="bg-[#4169E1] text-white">
+                <Globe className="w-4 h-4 mr-2" />
+                Your Strategic Partner
+              </Badge>
+              <h1 className="text-4xl md:text-5xl font-bold text-gray-900">
+                Empowering Finance with{" "}
+                <span className="text-[#4169E1]">AI Innovation</span>
+              </h1>
+              <p className="text-lg text-gray-700 leading-relaxed">
+                For over <strong>15 years</strong>, DFT Consult has been at the forefront of AI-powered financial solutions. 
+                We partner with leading banks, insurance companies, and financial institutions across Africa to transform 
+                their operations through intelligent automation, advanced analytics, and cutting-edge technology.
+              </p>
+              <p className="text-lg text-gray-700 leading-relaxed">
+                Backed by international partnerships with industry leaders like <strong>Perfios</strong>, we combine 
+                global expertise with deep local market knowledge to deliver solutions that drive real business impact.
+              </p>
+              <div className="flex flex-wrap gap-4 pt-4">
+                <div className="flex items-center gap-2">
+                  <CheckCircle className="w-5 h-5 text-[#4169E1]" />
+                  <span className="text-gray-700 font-semibold">15+ Years Experience</span>
                 </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Mission, Vision & Values */}
-      <section className="section-padding bg-gradient-to-br from-accent/5 to-primary/5">
-        <div className="container-max">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
-            {/* Mission & Vision */}
-            <div className="space-y-8">
-              <Card className="neon-border hover:shadow-lg transition-all duration-300">
-                <CardHeader>
-                  <div className="flex items-center mb-4">
-                    <Target className="w-8 h-8 text-primary mr-3" />
-                    <CardTitle className="text-2xl gradient-text">Our Mission</CardTitle>
-                  </div>
-                </CardHeader>
-                <CardContent>
-                  <CardDescription className="text-base leading-relaxed">
-                    To empower financial institutions across Africa with intelligent, reliable technology solutions 
-                    that enhance operational efficiency, reduce risk, and improve customer experiences through 
-                    innovative AI-powered automation and analytics.
-                  </CardDescription>
-                </CardContent>
-              </Card>
-
-              <Card className="neon-border hover:shadow-lg transition-all duration-300">
-                <CardHeader>
-                  <div className="flex items-center mb-4">
-                    <TrendingUp className="w-8 h-8 text-primary mr-3" />
-                    <CardTitle className="text-2xl gradient-text">Our Vision</CardTitle>
-                  </div>
-                </CardHeader>
-                <CardContent>
-                  <CardDescription className="text-base leading-relaxed">
-                    To be the leading African hub for AI-driven financial solutions, setting the standard for 
-                    innovation in banking, insurance, and fintech across the continent while fostering 
-                    financial inclusion and economic growth.
-                  </CardDescription>
-                </CardContent>
-              </Card>
-            </div>
-
-            {/* Values */}
-            <div>
-              <h3 className="text-2xl font-bold mb-6 gradient-text">Our Core Values</h3>
-              <div className="space-y-4">
-                {values.map((value, index) => {
-                  const IconComponent = value.icon;
-                  return (
-                    <Card key={index} className="neon-border hover:shadow-lg transition-all duration-300">
-                      <CardContent className="p-4">
-                        <div className="flex items-start">
-                          <div className="w-10 h-10 rounded-full bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center mr-4 mt-1">
-                            <IconComponent className="w-5 h-5 text-primary" />
-                          </div>
-                          <div className="flex-1">
-                            <h4 className="font-semibold text-lg mb-2">{value.title}</h4>
-                            <p className="text-muted-foreground text-sm">{value.description}</p>
-                          </div>
-                        </div>
-                      </CardContent>
-                    </Card>
-                  );
-                })}
+                <div className="flex items-center gap-2">
+                  <CheckCircle className="w-5 h-5 text-[#4169E1]" />
+                  <span className="text-gray-700 font-semibold">200+ Clients Served</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <CheckCircle className="w-5 h-5 text-[#4169E1]" />
+                  <span className="text-gray-700 font-semibold">Global Partnerships</span>
+                </div>
               </div>
             </div>
+            <div className="rounded-2xl overflow-hidden shadow-2xl">
+              <img 
+                src={aboutHeroImg} 
+                alt="DFT Consult Team" 
+                className="w-full h-full object-cover"
+              />
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Expertise & Services */}
-      <section className="section-padding">
-        <div className="container-max">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 gradient-text">
-              Our Expertise & Specialized Services
+      {/* Mission & Vision Side by Side */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {/* Mission */}
+            <Card className="bg-gradient-to-br from-[#4169E1]/5 to-[#4169E1]/10 border-[#4169E1]/20 hover:shadow-xl transition-shadow">
+              <CardHeader>
+                <div className="w-16 h-16 bg-[#4169E1] rounded-full flex items-center justify-center mb-4">
+                  <Target className="w-8 h-8 text-white" />
+                </div>
+                <CardTitle className="text-3xl font-bold text-[#4169E1]">Our Mission</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-lg text-gray-700 leading-relaxed mb-6">
+                  To empower financial institutions with intelligent, reliable, and secure technology solutions 
+                  that enhance decision-making, reduce risk, and drive sustainable growth across African markets.
+                </p>
+                <div className="aspect-video rounded-lg overflow-hidden">
+                  <img 
+                    src={dataIntelligenceImg} 
+                    alt="Our Mission" 
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Vision */}
+            <Card className="bg-gradient-to-br from-[#4169E1]/5 to-[#4169E1]/10 border-[#4169E1]/20 hover:shadow-xl transition-shadow">
+              <CardHeader>
+                <div className="w-16 h-16 bg-[#4169E1] rounded-full flex items-center justify-center mb-4">
+                  <Eye className="w-8 h-8 text-white" />
+                </div>
+                <CardTitle className="text-3xl font-bold text-[#4169E1]">Our Vision</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-lg text-gray-700 leading-relaxed mb-6">
+                  To be the leading African hub for AI-driven financial solutions, recognized globally for innovation, 
+                  excellence, and transformative impact on the continent's financial services ecosystem.
+                </p>
+                <div className="aspect-video rounded-lg overflow-hidden">
+                  <img 
+                    src={techSolutionsImg} 
+                    alt="Our Vision" 
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Core Values - 3 Major Values */}
+      <section className="py-20 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold text-[#4169E1] mb-6">
+              Our Core Values
             </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              We focus exclusively on Banking, Finance, and Insurance sectors, delivering solutions 
-              that address the unique challenges and opportunities within these industries.
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              The principles that guide everything we do
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {services.map((service, index) => (
-              <Card key={index} className="group neon-border hover:shadow-xl transition-all duration-300">
-                <CardHeader>
-                  <div className="flex items-center mb-3">
-                    <div className="w-12 h-12 rounded-full bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center mr-4 neon-glow">
-                      <CheckCircle className="w-6 h-6 text-primary" />
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {coreValues.map((value, index) => {
+              const IconComponent = value.icon;
+              return (
+                <Card key={index} className="bg-white hover:shadow-2xl transition-all duration-300 group border-t-4 border-[#4169E1]">
+                  <CardHeader className="text-center pb-4">
+                    <div className="w-20 h-20 mx-auto bg-gradient-to-br from-[#4169E1] to-[#4169E1]/70 rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                      <IconComponent className="w-10 h-10 text-white" />
                     </div>
-                    <CardTitle className="text-xl group-hover:text-primary transition-colors">
-                      {service.title}
+                    <CardTitle className="text-2xl font-bold text-gray-900">
+                      {value.title}
                     </CardTitle>
-                  </div>
+                  </CardHeader>
+                  <CardContent className="text-center">
+                    <p className="text-gray-600 leading-relaxed">
+                      {value.description}
+                    </p>
+                  </CardContent>
+                </Card>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* Our Expertise & Specialized Services - 3 Tiles */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold text-[#4169E1] mb-6">
+              Our Expertise & Specialized Services
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Comprehensive solutions tailored for the financial sector
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {services.map((service, index) => (
+              <Card key={index} className="bg-white hover:shadow-xl transition-all duration-300 group overflow-hidden">
+                <div className="aspect-video overflow-hidden">
+                  <img 
+                    src={service.image} 
+                    alt={service.title}
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                  />
+                </div>
+                <CardHeader>
+                  <CardTitle className="text-xl font-bold text-gray-900 group-hover:text-[#4169E1] transition-colors">
+                    {service.title}
+                  </CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <CardDescription className="text-base leading-relaxed">
+                  <p className="text-gray-600 leading-relaxed mb-4">
                     {service.description}
-                  </CardDescription>
+                  </p>
+                  <Button variant="outline" className="w-full border-[#4169E1] text-[#4169E1] hover:bg-[#4169E1] hover:text-white">
+                    Learn More
+                    <ArrowRight className="ml-2 w-4 h-4" />
+                  </Button>
                 </CardContent>
               </Card>
             ))}
@@ -331,84 +271,118 @@ const About = () => {
       </section>
 
       {/* Partnerships & Global Reach */}
-      <section className="section-padding bg-gradient-to-br from-accent/5 to-primary/5">
-        <div className="container-max">
+      <section className="py-20 bg-gradient-to-br from-[#4169E1]/5 to-white">
+        <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 gradient-text">
+            <h2 className="text-4xl md:text-5xl font-bold text-[#4169E1] mb-6">
               Partnerships & Global Reach
             </h2>
-            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-              Our strategic partnerships with international technology leaders like Perfios Software Solutions 
-              enable us to deliver world-class solutions while maintaining deep understanding of local markets.
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Collaborating with international technology leaders to bring world-class solutions to Africa
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
-            <Card className="text-center neon-border hover:shadow-lg transition-all duration-300">
-              <CardContent className="p-6">
-                <Globe className="w-12 h-12 text-primary mx-auto mb-4" />
-                <h3 className="font-semibold text-lg mb-2">International Technology Partners</h3>
-                <p className="text-muted-foreground text-sm">
-                  Partnerships with Perfios, Microsoft Azure, AWS, and NVIDIA for cutting-edge technology access
-                </p>
-              </CardContent>
-            </Card>
-            
-            <Card className="text-center neon-border hover:shadow-lg transition-all duration-300">
-              <CardContent className="p-6">
-                <Users className="w-12 h-12 text-primary mx-auto mb-4" />
-                <h3 className="font-semibold text-lg mb-2">Regional Market Presence</h3>
-                <p className="text-muted-foreground text-sm">
-                  Strong operations across East Africa with expansion plans for pan-African coverage
-                </p>
-              </CardContent>
-            </Card>
-            
-            <Card className="text-center neon-border hover:shadow-lg transition-all duration-300">
-              <CardContent className="p-6">
-                <Lightbulb className="w-12 h-12 text-primary mx-auto mb-4" />
-                <h3 className="font-semibold text-lg mb-2">Innovation Ecosystem</h3>
-                <p className="text-muted-foreground text-sm">
-                  Collaborations with universities, research centers, and innovation hubs for continuous innovation
-                </p>
-              </CardContent>
-            </Card>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mb-12">
+            <div className="space-y-6">
+              <div className="flex items-start gap-4">
+                <div className="w-12 h-12 bg-[#4169E1] rounded-lg flex items-center justify-center flex-shrink-0">
+                  <Globe className="w-6 h-6 text-white" />
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold text-gray-900 mb-2">International Technology Partners</h3>
+                  <p className="text-gray-600">
+                    Our partnership with <strong>Perfios</strong>, a leading Indian fintech solutions provider, 
+                    brings cutting-edge AI and data analytics capabilities to our clients.
+                  </p>
+                </div>
+              </div>
+              <div className="flex items-start gap-4">
+                <div className="w-12 h-12 bg-[#4169E1] rounded-lg flex items-center justify-center flex-shrink-0">
+                  <TrendingUp className="w-6 h-6 text-white" />
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold text-gray-900 mb-2">Cross-Border Collaborations</h3>
+                  <p className="text-gray-600">
+                    We work with financial institutions, technology providers, and regulatory bodies 
+                    across multiple African countries and beyond.
+                  </p>
+                </div>
+              </div>
+              <div className="flex items-start gap-4">
+                <div className="w-12 h-12 bg-[#4169E1] rounded-lg flex items-center justify-center flex-shrink-0">
+                  <Zap className="w-6 h-6 text-white" />
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold text-gray-900 mb-2">Innovation Ecosystem</h3>
+                  <p className="text-gray-600">
+                    Active participation in fintech accelerators, innovation hubs, and industry forums 
+                    keeps us at the forefront of emerging technologies.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div className="bg-white rounded-2xl shadow-xl p-8">
+              <div className="text-center mb-6">
+                <h3 className="text-2xl font-bold text-gray-900 mb-2">Our Global Footprint</h3>
+                <p className="text-gray-600">Operations and partnerships across regions</p>
+              </div>
+              <div className="grid grid-cols-2 gap-6">
+                <div className="text-center p-4 bg-[#4169E1]/10 rounded-lg">
+                  <div className="text-3xl font-bold text-[#4169E1] mb-2">25+</div>
+                  <div className="text-sm text-gray-600">Countries Reached</div>
+                </div>
+                <div className="text-center p-4 bg-[#4169E1]/10 rounded-lg">
+                  <div className="text-3xl font-bold text-[#4169E1] mb-2">200+</div>
+                  <div className="text-sm text-gray-600">Institutions Served</div>
+                </div>
+                <div className="text-center p-4 bg-[#4169E1]/10 rounded-lg">
+                  <div className="text-3xl font-bold text-[#4169E1] mb-2">15+</div>
+                  <div className="text-sm text-gray-600">Strategic Partners</div>
+                </div>
+                <div className="text-center p-4 bg-[#4169E1]/10 rounded-lg">
+                  <div className="text-3xl font-bold text-[#4169E1] mb-2">500+</div>
+                  <div className="text-sm text-gray-600">Projects Delivered</div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Leadership Team */}
-      <section className="section-padding">
-        <div className="container-max">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 gradient-text">
+      {/* Leadership & Team */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold text-[#4169E1] mb-6">
               Leadership & Team
             </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Meet our seasoned professionals with global experience and deep industry knowledge 
-              who drive our vision of transforming African financial services.
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Seasoned professionals with deep industry knowledge and global experience
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {leaders.map((leader, index) => (
-              <Card key={index} className="group neon-border hover:shadow-xl transition-all duration-300 overflow-hidden">
-                <div className="relative h-64 overflow-hidden">
+              <Card key={index} className="bg-white hover:shadow-2xl transition-all duration-300 group overflow-hidden">
+                <div className="aspect-square overflow-hidden">
                   <img 
                     src={leader.image} 
                     alt={leader.name}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-                  <div className="absolute bottom-4 left-4 text-white">
-                    <h3 className="text-xl font-bold">{leader.name}</h3>
-                    <p className="text-sm text-gray-200">{leader.position}</p>
-                  </div>
                 </div>
-                <CardContent className="p-6">
-                  <CardDescription className="text-sm leading-relaxed">
-                    {leader.description}
+                <CardHeader>
+                  <CardTitle className="text-xl font-bold text-gray-900">
+                    {leader.name}
+                  </CardTitle>
+                  <CardDescription className="text-[#4169E1] font-semibold">
+                    {leader.position}
                   </CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-gray-600 leading-relaxed text-sm">
+                    {leader.description}
+                  </p>
                 </CardContent>
               </Card>
             ))}
@@ -417,92 +391,106 @@ const About = () => {
       </section>
 
       {/* Impact & Client Success */}
-      <section className="section-padding bg-gradient-to-br from-accent/5 to-primary/5">
-        <div className="container-max">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 gradient-text">
+      <section className="py-20 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold text-[#4169E1] mb-6">
               Impact & Client Success
             </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Over 15 years, we've delivered 50+ successful projects and earned the trust of leading 
-              financial institutions across East Africa.
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-12">
+              Trusted by leading banks and insurers across Africa
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-12">
-            <Card className="text-center neon-border hover:shadow-lg transition-all duration-300">
-              <CardContent className="p-6">
-                <div className="text-3xl font-bold gradient-text mb-2">15+</div>
-                <p className="text-muted-foreground">Years of Excellence</p>
-              </CardContent>
-            </Card>
-            <Card className="text-center neon-border hover:shadow-lg transition-all duration-300">
-              <CardContent className="p-6">
-                <div className="text-3xl font-bold gradient-text mb-2">50+</div>
-                <p className="text-muted-foreground">Successful Projects</p>
-              </CardContent>
-            </Card>
-            <Card className="text-center neon-border hover:shadow-lg transition-all duration-300">
-              <CardContent className="p-6">
-                <div className="text-3xl font-bold gradient-text mb-2">25+</div>
-                <p className="text-muted-foreground">Partner Institutions</p>
-              </CardContent>
-            </Card>
-            <Card className="text-center neon-border hover:shadow-lg transition-all duration-300">
-              <CardContent className="p-6">
-                <div className="text-3xl font-bold gradient-text mb-2">99%</div>
-                <p className="text-muted-foreground">Client Satisfaction</p>
-              </CardContent>
-            </Card>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-16">
+            <div className="text-center">
+              <div className="text-5xl font-bold text-[#4169E1] mb-2">15+</div>
+              <div className="text-gray-600">Years Experience</div>
+            </div>
+            <div className="text-center">
+              <div className="text-5xl font-bold text-[#4169E1] mb-2">200+</div>
+              <div className="text-gray-600">Financial Institutions</div>
+            </div>
+            <div className="text-center">
+              <div className="text-5xl font-bold text-[#4169E1] mb-2">500+</div>
+              <div className="text-gray-600">Projects Completed</div>
+            </div>
+            <div className="text-center">
+              <div className="text-5xl font-bold text-[#4169E1] mb-2">97%</div>
+              <div className="text-gray-600">Client Satisfaction</div>
+            </div>
           </div>
 
           {/* Client Logos Carousel */}
-          <div className="relative overflow-hidden">
-            <h3 className="text-2xl font-bold text-center mb-8 gradient-text">
+          <div className="bg-white rounded-2xl shadow-lg p-12">
+            <h3 className="text-2xl font-bold text-center text-gray-900 mb-8">
               Trusted by Industry Leaders
             </h3>
-            <div className="flex animate-marquee hover:pause-marquee">
-              {[...clientLogos, ...clientLogos].map((client, index) => (
-                <div key={index} className="flex-shrink-0 mx-8">
-                  <div className="w-20 h-20 rounded-full bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center neon-glow">
-                    <span className="font-bold text-primary text-lg">{client.logo}</span>
+            <div className="relative overflow-hidden">
+              <div className="flex animate-scroll-right hover:pause-animation">
+                {[...clientLogos, ...clientLogos].map((client, index) => (
+                  <div 
+                    key={index}
+                    className="flex-shrink-0 w-48 h-32 mx-6 bg-gray-50 rounded-lg flex items-center justify-center border-2 border-gray-200 hover:border-[#4169E1] hover:shadow-md transition-all"
+                  >
+                    <div className="text-center">
+                      <div className="text-4xl font-bold text-[#4169E1] mb-2">{client.logo}</div>
+                      <div className="text-sm text-gray-600 font-semibold">{client.name}</div>
+                    </div>
                   </div>
-                  <p className="text-center text-xs text-muted-foreground mt-2 max-w-20">
-                    {client.name}
-                  </p>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Call-to-Action */}
-      <section className="section-padding">
-        <div className="container-max">
-          <Card className="text-center neon-border bg-gradient-to-br from-primary/5 to-accent/5 max-w-4xl mx-auto">
-            <CardContent className="p-12">
-              <h2 className="text-3xl md:text-4xl font-bold mb-6 gradient-text-neon">
-                Partner with Us to Shape the Future of Financial Technology
-              </h2>
-              <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
-                Ready to transform your financial operations with AI-powered solutions? 
-                Let's discuss how we can help you achieve your digital transformation goals.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button variant="hero" size="lg">
-                  <Mail className="w-5 h-5 mr-2" />
-                  Contact Our Team
-                </Button>
-                <Button variant="outline" size="lg" className="neon-border">
-                  <ArrowRight className="w-5 h-5 mr-2" />
-                  Explore Our Services
-                </Button>
-              </div>
-            </CardContent>
-          </Card>
+      {/* CTA Section */}
+      <section className="py-20 bg-[#4169E1]">
+        <div className="max-w-4xl mx-auto px-6 text-center">
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+            Partner with us to shape the future of financial technology
+          </h2>
+          <p className="text-xl text-blue-100 mb-10 leading-relaxed">
+            Let's work together to transform your financial operations with AI-powered innovation
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Button 
+              size="lg"
+              className="bg-white text-[#4169E1] hover:bg-gray-100 px-8 py-6 text-lg font-semibold rounded-lg"
+            >
+              Contact Us
+              <ArrowRight className="ml-2 w-5 h-5" />
+            </Button>
+            <Button 
+              size="lg"
+              variant="outline" 
+              className="border-2 border-white text-white hover:bg-white hover:text-[#4169E1] px-8 py-6 text-lg font-semibold rounded-lg"
+            >
+              Explore Our Services
+            </Button>
+          </div>
         </div>
       </section>
+
+      <style>{`
+        @keyframes scroll-right {
+          0% {
+            transform: translateX(0);
+          }
+          100% {
+            transform: translateX(-50%);
+          }
+        }
+
+        .animate-scroll-right {
+          animation: scroll-right 30s linear infinite;
+        }
+
+        .pause-animation:hover {
+          animation-play-state: paused;
+        }
+      `}</style>
     </div>
   );
 };

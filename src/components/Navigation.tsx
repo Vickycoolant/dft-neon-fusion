@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
-import dftLogo from "@/assets/dft-logo.png";
+import dftLogo from "@/assets/dft-logo-new.png";
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -11,7 +11,7 @@ const Navigation = () => {
   const navItems = [
     { name: "Home", path: "/" },
     { name: "DFT Solutions", path: "/services" },
-    { name: "Industries", path: "/industry" },
+    { name: "Expert Sectors", path: "/industry" },
     { name: "Partners", path: "/partners" },
     { name: "About Us", path: "/about" },
     { name: "Events & Updates", path: "/events" },
@@ -26,8 +26,8 @@ const Navigation = () => {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-3">
-            <img src={dftLogo} alt="DFT Consult" className="w-10 h-6 object-contain" />
-            <span className="text-xl font-bold gradient-text">DFT Consult</span>
+            <img src={dftLogo} alt="DFT Consult" className="h-8 w-auto object-contain" />
+            <span className="text-xl font-bold gradient-text"> Consult</span>
           </Link>
 
           {/* Desktop Navigation */}
