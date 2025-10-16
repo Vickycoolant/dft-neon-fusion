@@ -32,7 +32,7 @@ const Footer = () => {
           <div className="space-y-4">
             <div className="flex items-center space-x-3">
               <img src={dftLogo} alt="DFT Consult" className="h-10 w-auto object-contain" />
-              <h3 className="text-xl font-bold text-white">DFT Consult</h3>
+              <h3 className="text-xl font-bold text-white">Consult</h3>
             </div>
             <p className="text-gray-300 text-sm leading-relaxed">
               Leading AI-powered fintech solutions provider with 15+ years of experience. 
