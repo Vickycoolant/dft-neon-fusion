@@ -128,8 +128,8 @@ const Industry = () => {
             <Globe className="w-4 h-4 mr-2" />
             Industry Expertise
           </Badge>
-          <h1 className="text-4xl md:text-6xl font-bold mb-6 text-[#4169E1]">
-            Sectors We Serve
+          <h1 className="text-4xl md:text-6xl font-bold mb-6 gradient-text">
+            Industries We Serve
           </h1>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
             Delivering specialized AI-powered solutions across Banking, Finance, and Insurance sectors. 
@@ -161,7 +161,7 @@ const Industry = () => {
                         <IconComponent className="w-8 h-8 text-primary" />
                       </div>
                       <div>
-                        <h2 className="text-3xl md:text-4xl font-bold text-[#4169E1]">
+                        <h2 className="text-3xl md:text-4xl font-bold gradient-text-neon">
                           {industry.title}
                         </h2>
                         <p className="text-lg text-muted-foreground mt-1">
@@ -190,8 +190,8 @@ const Industry = () => {
                     {/* Stats */}
                     <div className="grid grid-cols-3 gap-4 mb-6">
                       {industry.stats.map((stat, idx) => (
-                        <div key={idx} className="text-center p-4 rounded-lg bg-secondary/50 border border-[#4169E1]/30">
-                          <div className="text-2xl font-bold text-[#4169E1]">{stat.value}</div>
+                        <div key={idx} className="text-center p-4 rounded-lg bg-secondary/50 neon-border">
+                          <div className="text-2xl font-bold gradient-text">{stat.value}</div>
                           <div className="text-xs text-muted-foreground">{stat.label}</div>
                         </div>
                       ))}
@@ -231,7 +231,7 @@ const Industry = () => {
       <section className="section-padding bg-gradient-to-br from-accent/5 to-primary/5">
         <div className="container-max">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-[#4169E1]">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 gradient-text">
               Proven Industry Experience
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
@@ -276,7 +276,7 @@ const Industry = () => {
                   <div className={`w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-br ${item.gradient} flex items-center justify-center shadow-lg`}>
                     <span className="text-2xl">{item.icon}</span>
                   </div>
-                  <CardTitle className="text-4xl font-bold text-[#4169E1] mb-2">
+                  <CardTitle className="text-4xl font-bold gradient-text mb-2">
                     {item.value}
                   </CardTitle>
                   <CardDescription className="text-lg font-semibold text-foreground">
@@ -298,7 +298,7 @@ const Industry = () => {
       <section className="section-padding">
         <div className="container-max text-center">
           <div className="max-w-3xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6 text-[#4169E1]">
+            <h2 className="text-3xl md:text-4xl font-bold mb-6 gradient-text-neon">
               Ready to Transform Your Industry Operations?
             </h2>
             <p className="text-lg text-muted-foreground mb-8">
