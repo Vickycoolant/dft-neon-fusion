@@ -232,7 +232,7 @@ const Partners = () => {
           <h1 className="text-4xl md:text-6xl font-bold mb-6 gradient-text">
             Our Valued Partners
           </h1>
-          <p className="text-xl text-muted-foreground max-w-4xl mx-auto mb-8">
+          <p className="text-xl text-gray-900 max-w-4xl mx-auto mb-8">
             We believe in the power of collaboration. Our strategic partnerships with industry leaders like <span className="text-primary font-semibold">Perfios</span> - 
             a renowned Indian fintech solutions provider - and other global technology innovators enable us to deliver 
             world-class AI-powered financial solutions tailored for African markets.
