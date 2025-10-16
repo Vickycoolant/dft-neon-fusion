@@ -157,67 +157,21 @@ const Index = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <Card className="group hover:shadow-lg transition-all duration-300 border-gray-200">
-              <div className="aspect-video w-full overflow-hidden rounded-t-lg">
-                <img 
-                  src={documentAnalysisImg} 
-                  alt="Document Analysis"
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                />
-              </div>
-              <CardHeader>
-                <CardTitle className="text-xl font-semibold text-primary">Document Analysis</CardTitle>
-                <CardDescription className="text-base">
-                  AI-powered document processing for automated credit underwriting. 
-                  Advanced OCR and NLP technologies extract and validate key information 
-                  from financial documents with 99% accuracy.
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <Button variant="ghost" size="sm" className="p-0 h-auto text-primary">
-                  Learn More <ArrowRight className="ml-1 h-3 w-3" />
-                </Button>
-              </CardContent>
-            </Card>
-
-            <Card className="group hover:shadow-lg transition-all duration-300 border-gray-200">
-              <div className="aspect-video w-full overflow-hidden rounded-t-lg">
-                <img 
-                  src={bankStatementImg} 
-                  alt="Bank Statement Analysis"
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                />
-              </div>
-              <CardHeader>
-                <CardTitle className="text-xl font-semibold text-primary">Bank Statement Analysis</CardTitle>
-                <CardDescription className="text-base">
-                  Digitize and analyze bank statements with AI insights. 
-                  Real-time transaction categorization, fraud detection, and 
-                  financial behavior analysis for instant credit decisions.
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <Button variant="ghost" size="sm" className="p-0 h-auto text-primary">
-                  Learn More <ArrowRight className="ml-1 h-3 w-3" />
-                </Button>
-              </CardContent>
-            </Card>
-
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <Card className="group hover:shadow-lg transition-all duration-300 border-gray-200">
               <div className="aspect-video w-full overflow-hidden rounded-t-lg">
                 <img 
                   src={analyticsImg} 
-                  alt="Predictive Analytics"
+                  alt="Data Analysis"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                 />
               </div>
               <CardHeader>
-                <CardTitle className="text-xl font-semibold text-primary">Predictive Analytics</CardTitle>
+                <CardTitle className="text-xl font-semibold text-primary">Data Analysis</CardTitle>
                 <CardDescription className="text-base">
-                  AI-driven forecasting and recommendation systems. 
-                  Machine learning models predict market trends, customer behavior, 
-                  and risk patterns with industry-leading precision.
+                  AI-driven data analytics and forecasting systems. 
+                  Machine learning models that predict market trends, analyze customer behavior, 
+                  and identify risk patterns with industry-leading precision.
                 </CardDescription>
               </CardHeader>
               <CardContent>
@@ -231,16 +185,16 @@ const Index = () => {
               <div className="aspect-video w-full overflow-hidden rounded-t-lg">
                 <img 
                   src={cybersecurityImg} 
-                  alt="Cybersecurity Solutions"
+                  alt="Digital Forensics"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                 />
               </div>
               <CardHeader>
-                <CardTitle className="text-xl font-semibold text-primary">Cybersecurity Solutions</CardTitle>
+                <CardTitle className="text-xl font-semibold text-primary">Digital Forensics</CardTitle>
                 <CardDescription className="text-base">
                   AI-enhanced digital forensics and security solutions. 
-                  Advanced threat detection, incident response, and 
-                  comprehensive protection for financial institutions.
+                  Advanced threat detection, incident response, fraud investigation, and 
+                  comprehensive cybersecurity protection for financial institutions.
                 </CardDescription>
               </CardHeader>
               <CardContent>
@@ -254,39 +208,16 @@ const Index = () => {
               <div className="aspect-video w-full overflow-hidden rounded-t-lg">
                 <img 
                   src={cloudSolutionsImg} 
-                  alt="Cloud Solutions"
+                  alt="Technology Consulting"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                 />
               </div>
               <CardHeader>
-                <CardTitle className="text-xl font-semibold text-primary">Cloud Solutions</CardTitle>
+                <CardTitle className="text-xl font-semibold text-primary">Technology Consulting</CardTitle>
                 <CardDescription className="text-base">
-                  AI-optimized cloud infrastructure and management. 
-                  Scalable, secure cloud architectures designed specifically 
-                  for financial services and compliance requirements.
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <Button variant="ghost" size="sm" className="p-0 h-auto text-primary">
-                  Learn More <ArrowRight className="ml-1 h-3 w-3" />
-                </Button>
-              </CardContent>
-            </Card>
-
-            <Card className="group hover:shadow-lg transition-all duration-300 border-gray-200">
-              <div className="aspect-video w-full overflow-hidden rounded-t-lg">
-                <img 
-                  src={analyticsImg} 
-                  alt="Custom Development"
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                />
-              </div>
-              <CardHeader>
-                <CardTitle className="text-xl font-semibold text-primary">Custom Development</CardTitle>
-                <CardDescription className="text-base">
-                  Tailored AI-integrated software solutions. 
-                  Bespoke fintech applications built with cutting-edge AI 
-                  technologies to meet your specific business requirements.
+                  Strategic technology consulting and custom AI solutions. 
+                  Expert guidance on digital transformation, system integration, and 
+                  bespoke fintech applications tailored to your business needs.
                 </CardDescription>
               </CardHeader>
               <CardContent>
@@ -594,7 +525,7 @@ const Index = () => {
       <section className="section-padding bg-gradient-to-br from-primary/5 to-accent/5">
         <div className="container-max">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-5xl font-bold mb-4 gradient-text-neon">
+            <h2 className="text-3xl md:text-5xl font-bold mb-4 gradient-text">
               Our Strategic Partners
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
