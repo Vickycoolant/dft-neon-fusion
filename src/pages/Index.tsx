@@ -19,6 +19,7 @@ import AnimatedStats from "@/components/AnimatedStats";
 import FloatingAIElements from "@/components/FloatingAIElements";
 import PartnersCarousel from "@/components/PartnersCarousel";
 import AnimatedDashboard from "@/components/AnimatedDashboard";
+import FAQSection from "@/components/FAQSection";
 
 const Index = () => {
   const statsData = [
@@ -26,6 +27,33 @@ const Index = () => {
     { value: 300, label: "Projects Delivered", suffix: "+" },
     { value: 99, label: "Accuracy Rate", suffix: "%" },
     { value: 50, label: "Enterprise Clients", suffix: "+" }
+  ];
+
+  const homeFAQs = [
+    {
+      question: "What services does DFT Consult provide?",
+      answer: "DFT Consult offers three major service categories: Data Analysis (AI-driven analytics and forecasting), Digital Forensics (security solutions and fraud detection), and Technology Consulting (strategic guidance and custom AI solutions for fintech applications)."
+    },
+    {
+      question: "Which industries does DFT Consult specialize in?",
+      answer: "We specialize in the Banking & Financial Services, Finance & Investment, and Insurance & Risk Management sectors. Our AI-powered solutions are specifically tailored for these industries to enhance operations, reduce risk, and improve decision-making."
+    },
+    {
+      question: "How does DFT Consult's AI technology work?",
+      answer: "Our AI workflow follows three stages: Input (raw documents and financial data), AI Analysis (advanced machine learning algorithms process and extract insights), and Output (comprehensive reports, risk assessments, credit scores, and actionable recommendations)."
+    },
+    {
+      question: "What makes DFT Consult's solutions reliable?",
+      answer: "We guarantee 99.9999% quality assurance in data handling and analytics. Our solutions are built on cutting-edge AI innovation, designed for scalability to grow with your business, and backed by robust architecture for uninterrupted, consistent performance."
+    },
+    {
+      question: "Can DFT Consult integrate with our existing systems?",
+      answer: "Yes, our solutions are designed for seamless integration with existing systems. We work with cloud platforms like Microsoft Azure and AWS, and our technology consulting services include custom API development and system integration tailored to your specific infrastructure."
+    },
+    {
+      question: "How can we get started with DFT Consult?",
+      answer: "Simply schedule a consultation with our team. We'll discuss your specific business needs, demonstrate relevant solutions, and create a customized implementation plan. Contact us through our website or reach out to our business development team directly."
+    }
   ];
 
   return (
@@ -607,11 +635,14 @@ const Index = () => {
         </div>
       </section>
 
+      {/* FAQ Section */}
+      <FAQSection faqs={homeFAQs} variant="home" />
+
       {/* CTA Section */}
       <section className="section-padding bg-gradient-to-br from-accent/5 to-primary/5">
         <div className="container-max text-center">
           <div className="max-w-3xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6 gradient-text-neon">
+            <h2 className="text-3xl md:text-4xl font-bold mb-6 text-[#4169E1]">
               Ready to Transform Your Business?
             </h2>
             <p className="text-lg text-muted-foreground mb-8">

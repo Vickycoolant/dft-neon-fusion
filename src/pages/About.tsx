@@ -20,6 +20,7 @@ import techSolutionsImg from "@/assets/tech-solutions.jpg";
 import leader1 from "@/assets/leader-1.jpg";
 import leader2 from "@/assets/leader-2.jpg";
 import leader3 from "@/assets/leader-3.jpg";
+import FAQSection from "@/components/FAQSection";
 
 const About = () => {
   const coreValues = [
@@ -88,8 +89,62 @@ const About = () => {
     { name: "DTB", logo: "DTB" }
   ];
 
+  const aboutFAQs = [
+    {
+      question: "What is DFT Consult's main area of expertise?",
+      answer: "DFT Consult specializes in AI-powered solutions for the financial sector, including banking, finance, and insurance. We offer data intelligence & analytics, digital forensics & risk management, and technology & embedded finance solutions tailored for African markets."
+    },
+    {
+      question: "How long has DFT Consult been in business?",
+      answer: "We have over 15 years of experience delivering cutting-edge AI and fintech solutions to financial institutions across Africa. Our team has served 200+ clients and completed 500+ projects."
+    },
+    {
+      question: "Who are DFT Consult's strategic partners?",
+      answer: "We partner with international technology leaders like Perfios, a leading Indian fintech solutions provider, bringing global expertise combined with deep local market knowledge to deliver world-class solutions."
+    },
+    {
+      question: "What industries does DFT Consult serve?",
+      answer: "We primarily serve the banking, finance, and insurance sectors, working with leading institutions across Africa to transform their operations through intelligent automation, advanced analytics, and cutting-edge technology."
+    },
+    {
+      question: "What makes DFT Consult different from other fintech consultants?",
+      answer: "Our unique combination of 15+ years of local market expertise, international partnerships with technology leaders, and focus on AI-driven innovation sets us apart. We deliver solutions that are both globally informed and locally relevant."
+    },
+    {
+      question: "How can my organization partner with DFT Consult?",
+      answer: "You can reach out through our contact page to schedule a consultation. We'll discuss your specific needs and how our AI-powered solutions can help transform your operations and drive measurable business impact."
+    }
+  ];
+
   return (
     <div className="min-h-screen bg-white">
+      {/* Hero Section */}
+      <section className="relative min-h-[60vh] flex items-center justify-center overflow-hidden">
+        <div className="absolute inset-0 z-0">
+          <img 
+            src={aboutHeroImg} 
+            alt="DFT Consult - Empowering Finance with AI" 
+            className="w-full h-full object-cover opacity-30"
+          />
+          <div className="absolute inset-0 bg-gradient-to-br from-[#4169E1]/20 via-transparent to-[#4169E1]/10"></div>
+        </div>
+        
+        <div className="max-w-4xl mx-auto px-6 text-center relative z-10">
+          <Badge className="bg-[#4169E1] text-white mb-6">
+            <Globe className="w-4 h-4 mr-2" />
+            About DFT Consult
+          </Badge>
+          <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
+            Empowering Finance with{" "}
+            <span className="text-[#4169E1]">AI Innovation</span>
+          </h1>
+          <p className="text-xl text-gray-700 leading-relaxed max-w-3xl mx-auto">
+            For over 15 years, we've been at the forefront of AI-powered financial solutions, 
+            partnering with leading institutions across Africa to drive digital transformation and innovation.
+          </p>
+        </div>
+      </section>
+
       {/* Brief Company Description with Image */}
       <section className="py-20 bg-gradient-to-br from-gray-50 to-white">
         <div className="max-w-7xl mx-auto px-6">
@@ -155,7 +210,7 @@ const About = () => {
                   To empower financial institutions with intelligent, reliable, and secure technology solutions 
                   that enhance decision-making, reduce risk, and drive sustainable growth across African markets.
                 </p>
-                <div className="aspect-video rounded-lg overflow-hidden">
+                <div className="h-48 rounded-lg overflow-hidden">
                   <img 
                     src={dataIntelligenceImg} 
                     alt="Our Mission" 
@@ -178,7 +233,7 @@ const About = () => {
                   To be the leading African hub for AI-driven financial solutions, recognized globally for innovation, 
                   excellence, and transformative impact on the continent's financial services ecosystem.
                 </p>
-                <div className="aspect-video rounded-lg overflow-hidden">
+                <div className="h-48 rounded-lg overflow-hidden">
                   <img 
                     src={techSolutionsImg} 
                     alt="Our Vision" 
@@ -191,8 +246,8 @@ const About = () => {
         </div>
       </section>
 
-      {/* Core Values - 3 Major Values */}
-      <section className="py-20 bg-gray-50">
+      {/* Core Values - Carousel */}
+      <section className="py-20 bg-gray-50 overflow-hidden">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-[#4169E1] mb-6">
@@ -203,27 +258,29 @@ const About = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {coreValues.map((value, index) => {
-              const IconComponent = value.icon;
-              return (
-                <Card key={index} className="bg-white hover:shadow-2xl transition-all duration-300 group border-t-4 border-[#4169E1]">
-                  <CardHeader className="text-center pb-4">
-                    <div className="w-20 h-20 mx-auto bg-gradient-to-br from-[#4169E1] to-[#4169E1]/70 rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                      <IconComponent className="w-10 h-10 text-white" />
-                    </div>
-                    <CardTitle className="text-2xl font-bold text-gray-900">
-                      {value.title}
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent className="text-center">
-                    <p className="text-gray-600 leading-relaxed">
-                      {value.description}
-                    </p>
-                  </CardContent>
-                </Card>
-              );
-            })}
+          <div className="relative">
+            <div className="flex animate-scroll-left hover:pause-animation gap-8">
+              {[...coreValues, ...coreValues, ...coreValues].map((value, index) => {
+                const IconComponent = value.icon;
+                return (
+                  <Card key={index} className="flex-shrink-0 w-96 bg-white hover:shadow-2xl transition-all duration-300 group border-t-4 border-[#4169E1]">
+                    <CardHeader className="text-center pb-4">
+                      <div className="w-20 h-20 mx-auto bg-gradient-to-br from-[#4169E1] to-[#4169E1]/70 rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                        <IconComponent className="w-10 h-10 text-white" />
+                      </div>
+                      <CardTitle className="text-2xl font-bold text-gray-900">
+                        {value.title}
+                      </CardTitle>
+                    </CardHeader>
+                    <CardContent className="text-center">
+                      <p className="text-gray-600 leading-relaxed">
+                        {value.description}
+                      </p>
+                    </CardContent>
+                  </Card>
+                );
+              })}
+            </div>
           </div>
         </div>
       </section>
@@ -428,14 +485,16 @@ const About = () => {
             </h3>
             <div className="relative overflow-hidden">
               <div className="flex animate-scroll-right hover:pause-animation">
-                {[...clientLogos, ...clientLogos].map((client, index) => (
+                {[...clientLogos, ...clientLogos, ...clientLogos].map((client, index) => (
                   <div 
                     key={index}
-                    className="flex-shrink-0 w-48 h-32 mx-6 bg-gray-50 rounded-lg flex items-center justify-center border-2 border-gray-200 hover:border-[#4169E1] hover:shadow-md transition-all"
+                    className="flex-shrink-0 w-48 h-32 mx-6 bg-white rounded-lg flex items-center justify-center border-2 border-[#4169E1]/20 hover:border-[#4169E1] hover:shadow-lg transition-all group"
                   >
                     <div className="text-center">
-                      <div className="text-4xl font-bold text-[#4169E1] mb-2">{client.logo}</div>
-                      <div className="text-sm text-gray-600 font-semibold">{client.name}</div>
+                      <div className="w-16 h-16 mx-auto mb-2 rounded-full bg-gradient-to-br from-[#4169E1] to-[#4169E1]/70 flex items-center justify-center group-hover:scale-110 transition-transform">
+                        <span className="text-2xl font-bold text-white">{client.logo}</span>
+                      </div>
+                      <div className="text-sm text-gray-700 font-semibold">{client.name}</div>
                     </div>
                   </div>
                 ))}
@@ -473,6 +532,9 @@ const About = () => {
         </div>
       </section>
 
+      {/* FAQ Section */}
+      <FAQSection faqs={aboutFAQs} variant="about" />
+
       <style>{`
         @keyframes scroll-right {
           0% {
@@ -483,8 +545,21 @@ const About = () => {
           }
         }
 
+        @keyframes scroll-left {
+          0% {
+            transform: translateX(-33.33%);
+          }
+          100% {
+            transform: translateX(-66.66%);
+          }
+        }
+
         .animate-scroll-right {
-          animation: scroll-right 30s linear infinite;
+          animation: scroll-right 40s linear infinite;
+        }
+
+        .animate-scroll-left {
+          animation: scroll-left 50s linear infinite;
         }
 
         .pause-animation:hover {
