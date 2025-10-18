@@ -21,6 +21,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
+import Autoplay from "embla-carousel-autoplay";
 import partnersHeroImg from "@/assets/partners-hero.jpg";
 import techPartnersImg from "@/assets/tech-partners.jpg";
 import financialPartnersImg from "@/assets/financial-partners.jpg";
@@ -402,6 +403,13 @@ const Partners = () => {
               align: "start",
               loop: true,
             }}
+            plugins={[
+              Autoplay({
+                delay: 3000,
+                stopOnInteraction: true,
+                stopOnMouseEnter: true,
+              }),
+            ]}
             className="w-full max-w-5xl mx-auto"
           >
             <CarouselContent>
