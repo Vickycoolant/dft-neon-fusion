@@ -2,6 +2,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Building2, Shield, CreditCard, TrendingUp, Users, Globe, AlertTriangle, CheckCircle } from "lucide-react";
+import { Link } from "react-router-dom";
 import bankingHeroImg from "@/assets/banking-hero.jpg";
 import financeIndustryImg from "@/assets/finance-industry.jpg";
 import insuranceIndustryImg from "@/assets/insurance-industry.jpg";
@@ -199,9 +200,11 @@ const Industry = () => {
                     
 
                     <div className="flex justify-center">
-                      <Button variant="hero" size="lg" className="w-full sm:w-auto">
-                        Explore {industry.title} Solutions
-                      </Button>
+                      <Link to="/services#data-intelligence">
+                        <Button variant="hero" size="lg" className="w-full sm:w-auto">
+                          Explore {industry.title} Solutions
+                        </Button>
+                      </Link>
                     </div>
                   </div>
 

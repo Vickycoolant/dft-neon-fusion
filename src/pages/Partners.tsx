@@ -301,7 +301,7 @@ const Partners = () => {
             className={`py-20 relative ${categoryIndex % 2 === 1 ? 'bg-gray-50' : 'bg-white'}`}
           >
             {categoryIndex % 2 === 1 && (
-              <div className="absolute inset-0 z-0 opacity-5">
+              <div className="absolute inset-0 z-0 opacity-15">
                 <img 
                   src={category.image} 
                   alt={category.title}
@@ -365,27 +365,13 @@ const Partners = () => {
                 ))}
               </div>
 
-              {/* Category CTA */}
-              <div className="text-center">
-                <Button className="group bg-[#4169E1] hover:bg-[#4169E1]/90 text-white">
-                  Learn More About {category.title}
-                  <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
-                </Button>
-              </div>
             </div>
           </section>
         );
       })}
 
       {/* Client Testimonials */}
-      <section className="py-20 relative overflow-hidden">
-        <div className="absolute inset-0 z-0 opacity-5">
-          <img 
-            src={partnersHeroImg}
-            alt="Background"
-            className="w-full h-full object-cover"
-          />
-        </div>
+      <section className="py-20 relative overflow-hidden bg-white">
         
         <div className="max-w-7xl mx-auto px-6 relative z-10">
           <div className="text-center mb-12">

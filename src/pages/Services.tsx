@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Link } from "react-router-dom";
 import heroImg from "@/assets/dft-solutions-hero.jpg";
 import dataIntelligenceImg from "@/assets/data-intelligence.jpg";
 import forensicsRiskImg from "@/assets/forensics-risk.jpg";
@@ -418,19 +419,23 @@ const Services = () => {
             Join leading financial institutions who trust DFT Consult to drive their digital transformation.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button 
-              className="bg-white text-[#4169E1] hover:bg-gray-100 px-8 py-4 text-lg font-semibold rounded-lg"
-            >
-              <Phone className="mr-2 w-5 h-5" />
-              Book a Consultation
-            </Button>
-            <Button 
-              variant="outline" 
-              className="border-white text-white hover:bg-white hover:text-[#4169E1] px-8 py-4 text-lg font-semibold rounded-lg"
-            >
-              <Mail className="mr-2 w-5 h-5" />
-              Contact Us
-            </Button>
+            <Link to="/contact">
+              <Button 
+                className="bg-white text-[#4169E1] hover:bg-gray-100 px-8 py-4 text-lg font-semibold rounded-lg"
+              >
+                <Phone className="mr-2 w-5 h-5" />
+                Book a Consultation
+              </Button>
+            </Link>
+            <Link to="/contact">
+              <Button 
+                variant="outline" 
+                className="border-white text-white hover:bg-white hover:text-[#4169E1] px-8 py-4 text-lg font-semibold rounded-lg"
+              >
+                <Mail className="mr-2 w-5 h-5" />
+                Contact Us
+              </Button>
+            </Link>
           </div>
         </div>
       </section>

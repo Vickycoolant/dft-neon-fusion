@@ -1,6 +1,7 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { Link } from "react-router-dom";
 import { 
   Target, 
   Eye, 
@@ -210,7 +211,7 @@ const About = () => {
                   To empower financial institutions with intelligent, reliable, and secure technology solutions 
                   that enhance decision-making, reduce risk, and drive sustainable growth across African markets.
                 </p>
-                <div className="h-48 rounded-lg overflow-hidden">
+                <div className="h-40 rounded-lg overflow-hidden">
                   <img 
                     src={dataIntelligenceImg} 
                     alt="Our Mission" 
@@ -233,9 +234,9 @@ const About = () => {
                   To be the leading African hub for AI-driven financial solutions, recognized globally for innovation, 
                   excellence, and transformative impact on the continent's financial services ecosystem.
                 </p>
-                <div className="h-48 rounded-lg overflow-hidden">
+                <div className="h-40 rounded-lg overflow-hidden">
                   <img 
-                    src={techSolutionsImg} 
+                    src={forensicsRiskImg} 
                     alt="Our Vision" 
                     className="w-full h-full object-cover"
                   />
@@ -259,12 +260,22 @@ const About = () => {
           </div>
 
           <div className="relative">
-            <div className="flex animate-scroll-left hover:pause-animation gap-8">
+            <div className="flex animate-scroll-left pause-animation gap-8">
               {[...coreValues, ...coreValues, ...coreValues].map((value, index) => {
                 const IconComponent = value.icon;
                 return (
-                  <Card key={index} className="flex-shrink-0 w-96 bg-white hover:shadow-2xl transition-all duration-300 group border-t-4 border-[#4169E1]">
-                    <CardHeader className="text-center pb-4">
+                  <Card 
+                    key={index} 
+                    className="flex-shrink-0 w-96 bg-white hover:shadow-2xl transition-all duration-300 group border-t-4 border-[#4169E1] relative overflow-hidden"
+                  >
+                    <div className="absolute inset-0 opacity-10">
+                      <img 
+                        src={index % 3 === 0 ? dataIntelligenceImg : index % 3 === 1 ? forensicsRiskImg : techSolutionsImg}
+                        alt={value.title}
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                    <CardHeader className="text-center pb-4 relative z-10">
                       <div className="w-20 h-20 mx-auto bg-gradient-to-br from-[#4169E1] to-[#4169E1]/70 rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                         <IconComponent className="w-10 h-10 text-white" />
                       </div>
@@ -272,7 +283,7 @@ const About = () => {
                         {value.title}
                       </CardTitle>
                     </CardHeader>
-                    <CardContent className="text-center">
+                    <CardContent className="text-center relative z-10">
                       <p className="text-gray-600 leading-relaxed">
                         {value.description}
                       </p>
@@ -316,10 +327,20 @@ const About = () => {
                   <p className="text-gray-600 leading-relaxed mb-4">
                     {service.description}
                   </p>
-                  <Button variant="outline" className="w-full border-[#4169E1] text-[#4169E1] hover:bg-[#4169E1] hover:text-white">
-                    Learn More
-                    <ArrowRight className="ml-2 w-4 h-4" />
-                  </Button>
+                  <Link 
+                    to={
+                      service.title.includes("Data Intelligence") 
+                        ? "/services#data-intelligence" 
+                        : service.title.includes("Digital Forensics") 
+                        ? "/services#forensics-risk" 
+                        : "/services#technology-solutions"
+                    }
+                  >
+                    <Button variant="outline" className="w-full border-[#4169E1] text-[#4169E1] hover:bg-[#4169E1] hover:text-white">
+                      Learn More
+                      <ArrowRight className="ml-2 w-4 h-4" />
+                    </Button>
+                  </Link>
                 </CardContent>
               </Card>
             ))}
@@ -484,17 +505,14 @@ const About = () => {
               Trusted by Industry Leaders
             </h3>
             <div className="relative overflow-hidden">
-              <div className="flex animate-scroll-right hover:pause-animation">
-                {[...clientLogos, ...clientLogos, ...clientLogos].map((client, index) => (
+              <div className="flex animate-marquee pause-marquee gap-8">
+                {[...clientLogos, ...clientLogos, ...clientLogos, ...clientLogos].map((client, index) => (
                   <div 
                     key={index}
-                    className="flex-shrink-0 w-48 h-32 mx-6 bg-white rounded-lg flex items-center justify-center border-2 border-[#4169E1]/20 hover:border-[#4169E1] hover:shadow-lg transition-all group"
+                    className="flex-shrink-0 flex items-center justify-center"
                   >
-                    <div className="text-center">
-                      <div className="w-16 h-16 mx-auto mb-2 rounded-full bg-gradient-to-br from-[#4169E1] to-[#4169E1]/70 flex items-center justify-center group-hover:scale-110 transition-transform">
-                        <span className="text-2xl font-bold text-white">{client.logo}</span>
-                      </div>
-                      <div className="text-sm text-gray-700 font-semibold">{client.name}</div>
+                    <div className="w-32 h-32 rounded-full bg-gradient-to-br from-[#4169E1] to-[#4169E1]/70 flex items-center justify-center shadow-lg hover:shadow-xl transition-shadow">
+                      <span className="text-2xl font-bold text-white">{client.logo}</span>
                     </div>
                   </div>
                 ))}

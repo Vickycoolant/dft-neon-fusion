@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { ArrowRight, TrendingUp, Shield, Users, Building2, FileText, BarChart3, Zap, Brain, Cpu, Target, Award } from "lucide-react";
+import { Link } from "react-router-dom";
 import heroImage from "@/assets/hero-ai-robot.jpg";
 import documentAnalysisImg from "@/assets/document-analysis.jpg";
 import bankStatementImg from "@/assets/bank-statement.jpg";
@@ -89,13 +90,17 @@ const Index = () => {
           </div>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button variant="hero" size="lg" className="group">
-              Explore Our Solutions
-              <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-            </Button>
-            <Button variant="outline" size="lg" className="neon-border">
-              Schedule Consultation
-            </Button>
+            <Link to="/services">
+              <Button variant="hero" size="lg" className="group">
+                Explore Our Solutions
+                <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+              </Button>
+            </Link>
+            <Link to="/contact">
+              <Button variant="outline" size="lg" className="neon-border">
+                Schedule Consultation
+              </Button>
+            </Link>
           </div>
         </div>
       </section>
@@ -161,13 +166,15 @@ const Index = () => {
 
     {/* Centered CTA button */}
     <div className="pt-10 flex justify-center">
-      <Button 
-        size="lg" 
-        className="bg-blue-600 hover:bg-blue-700 text-white transition-transform transform hover:scale-105"
-      >
-        Learn More About Our Approach
-        <ArrowRight className="ml-2 h-4 w-4" />
-      </Button>
+      <Link to="/about">
+        <Button 
+          size="lg" 
+          className="bg-blue-600 hover:bg-blue-700 text-white transition-transform transform hover:scale-105"
+        >
+          Learn More About Our Approach
+          <ArrowRight className="ml-2 h-4 w-4" />
+        </Button>
+      </Link>
     </div>
   </div>
 </section>
@@ -203,9 +210,11 @@ const Index = () => {
                 </CardDescription>
               </CardHeader>
               <CardContent>
-                <Button variant="ghost" size="sm" className="p-0 h-auto text-primary">
-                  Learn More <ArrowRight className="ml-1 h-3 w-3" />
-                </Button>
+                <Link to="/services#data-intelligence">
+                  <Button variant="ghost" size="sm" className="p-0 h-auto text-primary">
+                    Learn More <ArrowRight className="ml-1 h-3 w-3" />
+                  </Button>
+                </Link>
               </CardContent>
             </Card>
 
@@ -226,9 +235,11 @@ const Index = () => {
                 </CardDescription>
               </CardHeader>
               <CardContent>
-                <Button variant="ghost" size="sm" className="p-0 h-auto text-primary">
-                  Learn More <ArrowRight className="ml-1 h-3 w-3" />
-                </Button>
+                <Link to="/services#forensics-risk">
+                  <Button variant="ghost" size="sm" className="p-0 h-auto text-primary">
+                    Learn More <ArrowRight className="ml-1 h-3 w-3" />
+                  </Button>
+                </Link>
               </CardContent>
             </Card>
 
@@ -249,18 +260,22 @@ const Index = () => {
                 </CardDescription>
               </CardHeader>
               <CardContent>
-                <Button variant="ghost" size="sm" className="p-0 h-auto text-primary">
-                  Learn More <ArrowRight className="ml-1 h-3 w-3" />
-                </Button>
+                <Link to="/services#technology-solutions">
+                  <Button variant="ghost" size="sm" className="p-0 h-auto text-primary">
+                    Learn More <ArrowRight className="ml-1 h-3 w-3" />
+                  </Button>
+                </Link>
               </CardContent>
             </Card>
           </div>
 
           <div className="text-center mt-12">
-            <Button variant="outline" size="lg" className="border-gray-300">
-              View All Services
-              <ArrowRight className="ml-2 h-4 w-4" />
-            </Button>
+            <Link to="/services">
+              <Button variant="outline" size="lg" className="border-gray-300">
+                View All Services
+                <ArrowRight className="ml-2 h-4 w-4" />
+              </Button>
+            </Link>
           </div>
         </div>
       </section>
@@ -298,9 +313,11 @@ const Index = () => {
                 </CardDescription>
               </CardHeader>
               <CardContent>
-                <Button variant="ghost" size="sm" className="p-0 h-auto text-primary">
-                  Explore Banking Solutions <ArrowRight className="ml-1 h-3 w-3" />
-                </Button>
+                <Link to="/industry#banking">
+                  <Button variant="ghost" size="sm" className="p-0 h-auto text-primary">
+                    Explore Banking Solutions <ArrowRight className="ml-1 h-3 w-3" />
+                  </Button>
+                </Link>
               </CardContent>
             </Card>
 
@@ -324,9 +341,11 @@ const Index = () => {
                 </CardDescription>
               </CardHeader>
               <CardContent>
-                <Button variant="ghost" size="sm" className="p-0 h-auto text-primary">
-                  Explore Finance Solutions <ArrowRight className="ml-1 h-3 w-3" />
-                </Button>
+                <Link to="/industry#finance">
+                  <Button variant="ghost" size="sm" className="p-0 h-auto text-primary">
+                    Explore Finance Solutions <ArrowRight className="ml-1 h-3 w-3" />
+                  </Button>
+                </Link>
               </CardContent>
             </Card>
 
@@ -350,18 +369,22 @@ const Index = () => {
                 </CardDescription>
               </CardHeader>
               <CardContent>
-                <Button variant="ghost" size="sm" className="p-0 h-auto text-primary">
-                  Explore Insurance Solutions <ArrowRight className="ml-1 h-3 w-3" />
-                </Button>
+                <Link to="/industry#insurance">
+                  <Button variant="ghost" size="sm" className="p-0 h-auto text-primary">
+                    Explore Insurance Solutions <ArrowRight className="ml-1 h-3 w-3" />
+                  </Button>
+                </Link>
               </CardContent>
             </Card>
           </div>
 
           <div className="text-center mt-12">
-            <Button variant="outline" size="lg" className="border-gray-300">
-              View All Industries
-              <ArrowRight className="ml-2 h-4 w-4" />
-            </Button>
+            <Link to="/industry">
+              <Button variant="outline" size="lg" className="border-gray-300">
+                View All Industries
+                <ArrowRight className="ml-2 h-4 w-4" />
+              </Button>
+            </Link>
           </div>
         </div>
       </section>
@@ -650,9 +673,11 @@ const Index = () => {
               and provide competitive advantages in today's digital landscape.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button variant="hero" size="lg">
-                Schedule Consultation
-              </Button>
+              <Link to="/contact">
+                <Button variant="hero" size="lg">
+                  Schedule Consultation
+                </Button>
+              </Link>
               <Button variant="outline" size="lg" className="neon-border">
                 View Case Studies
               </Button>
