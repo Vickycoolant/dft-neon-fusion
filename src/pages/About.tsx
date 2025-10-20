@@ -21,6 +21,17 @@ import techSolutionsImg from "@/assets/tech-solutions.jpg";
 import leader1 from "@/assets/leader-1.jpg";
 import leader2 from "@/assets/leader-2.jpg";
 import leader3 from "@/assets/leader-3.jpg";
+import missionVision1 from "@/assets/mission-vision-1.jpg";
+import missionVision2 from "@/assets/mission-vision-2.jpg";
+import coreValueIntegrity from "@/assets/core-value-integrity.jpg";
+import coreValueInnovation from "@/assets/core-value-innovation.jpg";
+import coreValueClient from "@/assets/core-value-client.jpg";
+import logoJubilee from "@/assets/logo-jubilee.png";
+import logoEquity from "@/assets/logo-equity.png";
+import logoKcb from "@/assets/logo-kcb.png";
+import logoBritam from "@/assets/logo-britam.png";
+import logoCentum from "@/assets/logo-centum.png";
+import logoDtb from "@/assets/logo-dtb.png";
 import FAQSection from "@/components/FAQSection";
 
 const About = () => {
@@ -82,12 +93,12 @@ const About = () => {
   ];
 
   const clientLogos = [
-    { name: "Jubilee Insurance", logo: "JI" },
-    { name: "Equity Bank", logo: "EB" },
-    { name: "KCB Group", logo: "KCB" },
-    { name: "Britam", logo: "BT" },
-    { name: "Centum", logo: "CI" },
-    { name: "DTB", logo: "DTB" }
+    { name: "Jubilee Insurance", logo: logoJubilee },
+    { name: "Equity Bank", logo: logoEquity },
+    { name: "KCB Group", logo: logoKcb },
+    { name: "Britam", logo: logoBritam },
+    { name: "Centum", logo: logoCentum },
+    { name: "DTB", logo: logoDtb }
   ];
 
   const aboutFAQs = [
@@ -213,8 +224,8 @@ const About = () => {
                 </p>
                 <div className="h-40 rounded-lg overflow-hidden">
                   <img 
-                    src={dataIntelligenceImg} 
-                    alt="Our Mission" 
+                    src={missionVision1} 
+                    alt="Our Mission - Empowering Financial Institutions" 
                     className="w-full h-full object-cover"
                   />
                 </div>
@@ -236,8 +247,8 @@ const About = () => {
                 </p>
                 <div className="h-40 rounded-lg overflow-hidden">
                   <img 
-                    src={forensicsRiskImg} 
-                    alt="Our Vision" 
+                    src={missionVision2} 
+                    alt="Our Vision - Leading Innovation in Africa" 
                     className="w-full h-full object-cover"
                   />
                 </div>
@@ -263,6 +274,7 @@ const About = () => {
             <div className="flex animate-scroll-left pause-animation gap-8">
               {[...coreValues, ...coreValues, ...coreValues].map((value, index) => {
                 const IconComponent = value.icon;
+                const valueImages = [coreValueIntegrity, coreValueInnovation, coreValueClient];
                 return (
                   <Card 
                     key={index} 
@@ -270,7 +282,7 @@ const About = () => {
                   >
                     <div className="absolute inset-0 opacity-10">
                       <img 
-                        src={index % 3 === 0 ? dataIntelligenceImg : index % 3 === 1 ? forensicsRiskImg : techSolutionsImg}
+                        src={valueImages[index % 3]}
                         alt={value.title}
                         className="w-full h-full object-cover"
                       />
@@ -505,15 +517,20 @@ const About = () => {
               Trusted by Industry Leaders
             </h3>
             <div className="relative overflow-hidden">
-              <div className="flex animate-marquee pause-marquee gap-8">
+              <div className="flex animate-marquee pause-marquee gap-12 items-center">
                 {[...clientLogos, ...clientLogos, ...clientLogos, ...clientLogos].map((client, index) => (
                   <div 
                     key={index}
-                    className="flex-shrink-0 flex items-center justify-center"
+                    className="flex-shrink-0 flex flex-col items-center justify-center gap-3"
                   >
-                    <div className="w-32 h-32 rounded-full bg-gradient-to-br from-[#4169E1] to-[#4169E1]/70 flex items-center justify-center shadow-lg hover:shadow-xl transition-shadow">
-                      <span className="text-2xl font-bold text-white">{client.logo}</span>
+                    <div className="w-32 h-32 bg-white rounded-lg p-4 flex items-center justify-center shadow-md hover:shadow-xl transition-shadow">
+                      <img 
+                        src={client.logo} 
+                        alt={`${client.name} logo`}
+                        className="w-full h-full object-contain"
+                      />
                     </div>
+                    <p className="text-sm font-semibold text-gray-700 text-center">{client.name}</p>
                   </div>
                 ))}
               </div>
@@ -532,20 +549,24 @@ const About = () => {
             Let's work together to transform your financial operations with AI-powered innovation
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button 
-              size="lg"
-              className="bg-white text-[#4169E1] hover:bg-gray-100 px-8 py-6 text-lg font-semibold rounded-lg"
-            >
-              Contact Us
-              <ArrowRight className="ml-2 w-5 h-5" />
-            </Button>
-            <Button 
-              size="lg"
-              variant="outline" 
-              className="border-2 border-white text-white hover:bg-white hover:text-[#4169E1] px-8 py-6 text-lg font-semibold rounded-lg"
-            >
-              Explore Our Services
-            </Button>
+            <Link to="/contact">
+              <Button 
+                size="lg"
+                className="bg-white text-[#4169E1] hover:bg-gray-100 px-8 py-6 text-lg font-semibold rounded-lg"
+              >
+                Contact Us
+                <ArrowRight className="ml-2 w-5 h-5" />
+              </Button>
+            </Link>
+            <Link to="/services">
+              <Button 
+                size="lg"
+                variant="outline" 
+                className="border-2 border-white text-white hover:bg-white hover:text-[#4169E1] px-8 py-6 text-lg font-semibold rounded-lg"
+              >
+                Explore Our Services
+              </Button>
+            </Link>
           </div>
         </div>
       </section>

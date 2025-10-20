@@ -23,10 +23,10 @@ import {
 } from "@/components/ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
 import partnersHeroImg from "@/assets/partners-hero.jpg";
-import techPartnersImg from "@/assets/tech-partners.jpg";
-import financialPartnersImg from "@/assets/financial-partners.jpg";
-import advisoryPartnersImg from "@/assets/advisory-partners.jpg";
-import innovationPartnersImg from "@/assets/innovation-partners.jpg";
+import partnersTechnology from "@/assets/partners-technology.jpg";
+import partnersFinancial from "@/assets/partners-financial.jpg";
+import partnersAdvisory from "@/assets/partners-advisory.jpg";
+import partnersInnovation from "@/assets/partners-innovation.jpg";
 import FAQSection from "@/components/FAQSection";
 
 const Partners = () => {
@@ -37,35 +37,35 @@ const Partners = () => {
       subtitle: "Trusted Technology Leaders",
       description: "International software and AI firms providing cutting-edge tech tools, APIs, and automation solutions to enhance our service delivery.",
       icon: Cpu,
-      image: techPartnersImg,
+      image: partnersTechnology,
       partners: [
         {
           name: "Perfios Software Solutions",
           logo: "PS",
           description: "Leading Indian fintech company providing real-time data aggregation and analytics for financial institutions across global markets.",
           specialty: "Data Analytics & Bank Statement Analysis",
-          image: techPartnersImg
+          image: partnersTechnology
         },
         {
           name: "Microsoft Azure",
           logo: "MS",
           description: "Cloud computing platform providing scalable AI services and secure infrastructure for our enterprise solutions.",
           specialty: "Cloud Infrastructure & AI Services",
-          image: techPartnersImg
+          image: partnersTechnology
         },
         {
           name: "AWS FinTech Accelerator",
           logo: "AWS",
           description: "Amazon Web Services partnership enabling rapid deployment and scaling of financial technology solutions.",
           specialty: "Cloud Computing & DevOps",
-          image: techPartnersImg
+          image: partnersTechnology
         },
         {
           name: "NVIDIA AI Enterprise",
           logo: "NV",
           description: "Advanced GPU computing solutions for machine learning model training and real-time AI inference processing.",
           specialty: "AI Computing & Machine Learning",
-          image: techPartnersImg
+          image: partnersTechnology
         }
       ]
     },
@@ -75,35 +75,35 @@ const Partners = () => {
       subtitle: "Financial Sector Collaborators",
       description: "Banks, microfinance institutions, SACCOs, and insurance companies collaborating on innovative financial solutions.",
       icon: Building,
-      image: financialPartnersImg,
+      image: partnersFinancial,
       partners: [
         {
           name: "Jubilee Insurance",
           logo: "JI",
           description: "Leading East African insurance provider partnering with us on digital transformation and automated claims processing solutions.",
           specialty: "Insurance Technology & Claims Automation",
-          image: financialPartnersImg
+          image: partnersFinancial
         },
         {
           name: "Equity Bank Group",
           logo: "EB",
           description: "Pan-African financial services provider collaborating on digital lending and customer onboarding solutions.",
           specialty: "Digital Banking & Fintech Innovation",
-          image: financialPartnersImg
+          image: partnersFinancial
         },
         {
           name: "KCB Group",
           logo: "KCB",
           description: "Regional banking leader working with us on AI-powered credit scoring and risk management solutions.",
           specialty: "Credit Assessment & Risk Management",
-          image: financialPartnersImg
+          image: partnersFinancial
         },
         {
           name: "Centum Investment",
           logo: "CI",
           description: "Leading investment company partnering on alternative credit scoring and SME financing solutions.",
           specialty: "Investment Finance & Credit Solutions",
-          image: financialPartnersImg
+          image: partnersFinancial
         }
       ]
     },
@@ -113,35 +113,35 @@ const Partners = () => {
       subtitle: "Strategic Advisory Allies",
       description: "Consulting firms, compliance specialists, and industry regulators ensuring our solutions meet legal and market standards.",
       icon: Shield,
-      image: advisoryPartnersImg,
+      image: partnersAdvisory,
       partners: [
         {
           name: "Central Bank of Kenya (CBK)",
           logo: "CBK",
           description: "Regulatory partnership ensuring all fintech solutions comply with banking regulations and data protection standards.",
           specialty: "Regulatory Compliance & Banking Standards",
-          image: advisoryPartnersImg
+          image: partnersAdvisory
         },
         {
           name: "PwC East Africa",
           logo: "PwC",
           description: "Global consulting firm providing regulatory guidance and compliance frameworks for financial technology solutions.",
           specialty: "Regulatory Advisory & Compliance",
-          image: advisoryPartnersImg
+          image: partnersAdvisory
         },
         {
           name: "Deloitte Africa",
           logo: "DL",
           description: "Strategic consulting partner helping navigate complex regulatory environments and market entry strategies.",
           specialty: "Strategic Consulting & Market Intelligence",
-          image: advisoryPartnersImg
+          image: partnersAdvisory
         },
         {
           name: "KPMG Kenya",
           logo: "KP",
           description: "Professional services firm supporting audit, compliance, and risk management frameworks for financial institutions.",
           specialty: "Audit, Risk & Compliance Advisory",
-          image: advisoryPartnersImg
+          image: partnersAdvisory
         }
       ]
     },
@@ -151,35 +151,35 @@ const Partners = () => {
       subtitle: "Innovation & Research Partners",
       description: "Research institutions and startups driving innovation through AI research, pilot projects, and talent development.",
       icon: Lightbulb,
-      image: innovationPartnersImg,
+      image: partnersInnovation,
       partners: [
         {
           name: "Taimos Technologies Ltd",
           logo: "TT",
           description: "Local technology partner specializing in custom software development and innovative fintech solutions for African markets.",
           specialty: "Custom Software Development & Integration",
-          image: innovationPartnersImg
+          image: partnersInnovation
         },
         {
           name: "University of Nairobi - School of Computing",
           logo: "UoN",
           description: "Academic partnership for AI research, talent development, and innovative fintech solution development.",
           specialty: "AI Research & Talent Development",
-          image: innovationPartnersImg
+          image: partnersInnovation
         },
         {
           name: "iHub Nairobi",
           logo: "iH",
           description: "Innovation hub connecting us with emerging startups and fostering collaborative technology development in East Africa.",
           specialty: "Startup Innovation & Tech Ecosystem",
-          image: innovationPartnersImg
+          image: partnersInnovation
         },
         {
           name: "CIPIT - Centre for Intellectual Property",
           logo: "CIP",
           description: "Research center partnership for intellectual property protection and technology transfer in financial innovation.",
           specialty: "IP Protection & Technology Transfer",
-          image: innovationPartnersImg
+          image: partnersInnovation
         }
       ]
     }
@@ -333,18 +333,12 @@ const Partners = () => {
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
                 {category.partners.map((partner, idx) => (
                   <Card key={idx} className="group hover:shadow-xl transition-all duration-300 overflow-hidden bg-white border-[#4169E1]/20">
-                    <div className="h-32 overflow-hidden relative">
+                    <div className="h-32 overflow-hidden">
                       <img 
                         src={partner.image}
                         alt={partner.name}
-                        className="w-full h-full object-cover opacity-20 group-hover:opacity-30 transition-opacity"
+                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-br from-[#4169E1]/20 to-[#4169E1]/5"></div>
-                      <div className="absolute inset-0 flex items-center justify-center">
-                        <div className="w-16 h-16 rounded-full bg-gradient-to-br from-[#4169E1] to-[#4169E1]/70 flex items-center justify-center">
-                          <span className="font-bold text-white text-lg">{partner.logo}</span>
-                        </div>
-                      </div>
                     </div>
                     <CardHeader className="pb-3">
                       <div className="flex flex-col items-center text-center">
@@ -495,13 +489,10 @@ const Partners = () => {
             Join our ecosystem of innovative partners and unlock new opportunities in the rapidly evolving 
             fintech landscape. Let's build the future of financial services together.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex justify-center">
             <Button size="lg" className="bg-white text-[#4169E1] hover:bg-gray-100">
               <Handshake className="w-5 h-5 mr-2" />
               Explore Partnership Opportunities
-            </Button>
-            <Button size="lg" variant="outline" className="border-2 border-white text-white hover:bg-white hover:text-[#4169E1]">
-              Download Partnership Guide
             </Button>
           </div>
         </div>
