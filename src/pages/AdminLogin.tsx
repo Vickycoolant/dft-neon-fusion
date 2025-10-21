@@ -12,53 +12,72 @@ const AdminLogin = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
+  const [isSignUp, setIsSignUp] = useState(false);
   const navigate = useNavigate();
   const { toast } = useToast();
 
-  const handleLogin = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
 
     try {
-      const { data: authData, error: authError } = await supabase.auth.signInWithPassword({
-        email,
-        password,
-      });
-
-      if (authError) throw authError;
-
-      if (authData.user) {
-        // Check if user is admin
-        const { data: roleData, error: roleError } = await supabase
-          .from("user_roles")
-          .select("role")
-          .eq("user_id", authData.user.id)
-          .eq("role", "admin")
-          .maybeSingle();
-
-        if (roleError) throw roleError;
-
-        if (!roleData) {
-          await supabase.auth.signOut();
-          toast({
-            title: "Access Denied",
-            description: "You do not have admin privileges.",
-            variant: "destructive",
-          });
-          return;
-        }
-
-        toast({
-          title: "Login Successful",
-          description: "Welcome back, Admin!",
+      if (isSignUp) {
+        // Sign up
+        const { data: authData, error: authError } = await supabase.auth.signUp({
+          email,
+          password,
         });
 
-        navigate("/admin/dashboard");
+        if (authError) throw authError;
+
+        toast({
+          title: "Account Created",
+          description: "Your account has been created. Please contact an admin to assign privileges.",
+        });
+
+        setIsSignUp(false);
+      } else {
+        // Login
+        const { data: authData, error: authError } = await supabase.auth.signInWithPassword({
+          email,
+          password,
+        });
+
+        if (authError) throw authError;
+
+        if (authData.user) {
+          // Check if user is admin
+          const { data: roleData, error: roleError } = await supabase
+            .from("user_roles")
+            .select("role")
+            .eq("user_id", authData.user.id)
+            .eq("role", "admin")
+            .maybeSingle();
+
+          if (roleError) throw roleError;
+
+          if (!roleData) {
+            await supabase.auth.signOut();
+            toast({
+              title: "Access Denied",
+              description: "You do not have admin privileges.",
+              variant: "destructive",
+            });
+            return;
+          }
+
+          toast({
+            title: "Login Successful",
+            description: "Welcome back, Admin!",
+          });
+
+          navigate("/admin/dashboard");
+        }
       }
     } catch (error: any) {
       toast({
-        title: "Login Failed",
-        description: error.message || "Invalid credentials",
+        title: isSignUp ? "Sign Up Failed" : "Login Failed",
+        description: error.message || "An error occurred",
         variant: "destructive",
       });
     } finally {
@@ -73,13 +92,17 @@ const AdminLogin = () => {
           <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center">
             <Lock className="w-8 h-8 text-white" />
           </div>
-          <CardTitle className="text-2xl text-center">Admin Login</CardTitle>
+          <CardTitle className="text-2xl text-center">
+            {isSignUp ? "Admin Sign Up" : "Admin Login"}
+          </CardTitle>
           <CardDescription className="text-center">
-            Enter your credentials to access the admin dashboard
+            {isSignUp
+              ? "Create a new admin account"
+              : "Enter your credentials to access the admin dashboard"}
           </CardDescription>
         </CardHeader>
         <CardContent>
-          <form onSubmit={handleLogin} className="space-y-4">
+          <form onSubmit={handleSubmit} className="space-y-4">
             <div className="space-y-2">
               <Label htmlFor="email">Email</Label>
               <div className="relative">
@@ -111,8 +134,25 @@ const AdminLogin = () => {
               </div>
             </div>
             <Button type="submit" className="w-full" disabled={loading}>
-              {loading ? "Logging in..." : "Login"}
+              {loading
+                ? isSignUp
+                  ? "Signing up..."
+                  : "Logging in..."
+                : isSignUp
+                ? "Sign Up"
+                : "Login"}
             </Button>
+            <div className="text-center mt-4">
+              <button
+                type="button"
+                onClick={() => setIsSignUp(!isSignUp)}
+                className="text-sm text-primary hover:underline"
+              >
+                {isSignUp
+                  ? "Already have an account? Login"
+                  : "Need an account? Sign Up"}
+              </button>
+            </div>
           </form>
         </CardContent>
       </Card>
