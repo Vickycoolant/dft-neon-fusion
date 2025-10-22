@@ -2,7 +2,7 @@ import React from 'react';
 
 const AnimatedDashboard = () => {
   return (
-    <div className="relative w-[110%] h-[30rem] bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl overflow-hidden">
+    <div className="relative w-[100%] h-[30rem] bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl overflow-hidden">
       {/* Dashboard Container */}
       <div className="absolute inset-5 bg-white rounded-lg shadow-lg p-7">
         
