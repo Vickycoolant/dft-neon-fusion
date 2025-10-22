@@ -58,7 +58,7 @@ const Index = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background overflow-x-hidden">
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
@@ -459,12 +459,12 @@ const Index = () => {
       </section>
 
 {/* Advantage Section */}
-<section className="relative w-full py-24 bg-white overflow-hidden">
+<section className="relative w-full py-24 bg-white overflow-x-hidden">
   <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 text-[#4169E1]">
     The DFT Advantage
   </h2>
 
-  <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-start justify-between gap-12 px-4">
+  <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-start justify-between gap-12 px-4 overflow-x-hidden">
     {/* Left Text Section with color-coded ticks and bold text */}
     <div className="flex-1 text-gray-700 text-lg leading-relaxed pl-6 space-y-6">
       <p className="flex items-start gap-2">
@@ -486,7 +486,7 @@ const Index = () => {
     </div>
 
     {/* Visual Section: Diamond shaped bigger squares */}
-    <div className="flex-1 relative flex items-center justify-center min-h-[300px] md:min-h-[400px]">
+    <div className="flex-1 relative flex items-center justify-center min-h-[300px] md:min-h-[400px] overflow-hidden px-4">
       {/* Faded hollow circles in background (visual side only) */}
       {[...Array(5)].map((_, i) => (
         <div
@@ -503,10 +503,10 @@ const Index = () => {
         />
       ))}
 
-      <div className="relative w-64 h-64 md:w-96 md:h-96">
+      <div className="relative w-56 h-56 md:w-96 md:h-96 mx-auto">
         {/* Top Square */}
         <div
-          className="absolute w-32 h-32 md:w-48 md:h-48 flex items-center justify-center text-center text-white font-bold text-sm md:text-xl rounded-lg hover:scale-105 transition-transform"
+          className="absolute w-24 h-24 md:w-48 md:h-48 flex items-center justify-center text-center text-white font-bold text-xs md:text-xl rounded-lg hover:scale-105 transition-transform"
           style={{
             top: 0,
             left: "50%",
@@ -514,38 +514,38 @@ const Index = () => {
             background: "linear-gradient(135deg, rgba(65,105,225,1), rgba(65,105,225,0.6))",
           }}
         >
-          <div className="-rotate-45 px-2">99.9999% Quality Assurance</div>
+          <div className="-rotate-45 px-1 md:px-2">99.9999% Quality Assurance</div>
         </div>
 
         {/* Right Square */}
         <div
-          className="absolute w-32 h-32 md:w-48 md:h-48 flex items-center justify-center text-center text-white font-bold text-sm md:text-xl rounded-lg hover:scale-105 transition-transform"
+          className="absolute w-24 h-24 md:w-48 md:h-48 flex items-center justify-center text-center text-white font-bold text-xs md:text-xl rounded-lg hover:scale-105 transition-transform"
           style={{
             top: "50%",
-            left: "100%",
-            transform: "translate(-50%, -50%) rotate(45deg)",
+            right: 0,
+            transform: "translate(50%, -50%) rotate(45deg)",
             background: "linear-gradient(135deg, rgba(148,0,211,1), rgba(148,0,211,0.6))",
           }}
         >
-          <div className="-rotate-45 px-2">AI Innovation</div>
+          <div className="-rotate-45 px-1 md:px-2">AI Innovation</div>
         </div>
 
         {/* Bottom Square */}
         <div
-          className="absolute w-32 h-32 md:w-48 md:h-48 flex items-center justify-center text-center text-white font-bold text-sm md:text-xl rounded-lg hover:scale-105 transition-transform"
+          className="absolute w-24 h-24 md:w-48 md:h-48 flex items-center justify-center text-center text-white font-bold text-xs md:text-xl rounded-lg hover:scale-105 transition-transform"
           style={{
-            top: "100%",
+            bottom: 0,
             left: "50%",
-            transform: "translate(-50%, -50%) rotate(45deg)",
+            transform: "translate(-50%, 50%) rotate(45deg)",
             background: "linear-gradient(135deg, rgba(0,255,127,1), rgba(0,255,127,0.6))",
           }}
         >
-          <div className="-rotate-45 px-2">Scalability</div>
+          <div className="-rotate-45 px-1 md:px-2">Scalability</div>
         </div>
 
         {/* Left Square */}
         <div
-          className="absolute w-32 h-32 md:w-48 md:h-48 flex items-center justify-center text-center text-white font-bold text-sm md:text-xl rounded-lg hover:scale-105 transition-transform"
+          className="absolute w-24 h-24 md:w-48 md:h-48 flex items-center justify-center text-center text-white font-bold text-xs md:text-xl rounded-lg hover:scale-105 transition-transform"
           style={{
             top: "50%",
             left: 0,
@@ -553,7 +553,7 @@ const Index = () => {
             background: "linear-gradient(135deg, rgba(138,43,226,1), rgba(138,43,226,0.6))",
           }}
         >
-          <div className="-rotate-45 px-2">Reliability</div>
+          <div className="-rotate-45 px-1 md:px-2">Reliability</div>
         </div>
       </div>
     </div>
