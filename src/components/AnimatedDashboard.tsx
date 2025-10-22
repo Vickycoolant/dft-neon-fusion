@@ -73,8 +73,8 @@ const AnimatedDashboard = () => {
                 <div className="w-4 h-4 bg-white rounded-sm"></div>
               </div>
               <div>
-                <div className="text-sm text-gray-500">Revenue</div>
-                <div className="text-base font-semibold text-primary animate-pulse">$2.4M</div>
+                <div className="text-sm text-gray-500">Clients</div>
+                <div className="text-base font-semibold text-primary animate-pulse">600+</div>
               </div>
             </div>
           </div>
@@ -85,8 +85,8 @@ const AnimatedDashboard = () => {
                 <div className="w-3 h-4 bg-white rounded-sm"></div>
               </div>
               <div>
-                <div className="text-sm text-gray-500">Growth</div>
-                <div className="text-base font-semibold text-green-600 animate-pulse">+23%</div>
+                <div className="text-sm text-gray-500">Partners</div>
+                <div className="text-base font-semibold text-green-600 animate-pulse">15+</div>
               </div>
             </div>
           </div>
