@@ -91,7 +91,7 @@ const AnimatedDashboard = () => {
             </div>
           </div>
           
-          <div className="flex-1 bg-orange-50 rounded-lg p-4">
+          <div className="flex-1 bg-orange-50 rounded-lg p-4 hidden lg:block">
             <div className="flex items-center space-x-3">
               <div className="w-7 h-7 bg-orange-500 rounded flex items-center justify-center">
                 <div className="w-4 h-3 bg-white rounded-sm"></div>
