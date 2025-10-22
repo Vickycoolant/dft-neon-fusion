@@ -115,7 +115,7 @@ const Index = () => {
 
     <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
       {/* Left side - Dashboard illustration */}
-      <div className="relative hidden lg:block">
+      <div className="relative">
         <AnimatedDashboard />
         
         {/* Floating abstract wave shapes */}
