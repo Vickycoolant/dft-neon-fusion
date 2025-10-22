@@ -97,8 +97,8 @@ const AnimatedDashboard = () => {
                 <div className="w-4 h-3 bg-white rounded-sm"></div>
               </div>
               <div>
-                <div className="text-sm text-gray-500">Users</div>
-                <div className="text-base font-semibold text-orange-600 animate-pulse">847K</div>
+                <div className="text-sm text-gray-500">Experts</div>
+                <div className="text-base font-semibold text-orange-600 animate-pulse">60+</div>
               </div>
             </div>
           </div>
