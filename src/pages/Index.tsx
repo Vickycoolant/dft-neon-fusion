@@ -9,11 +9,11 @@ import bankStatementImg from "@/assets/bank-statement.jpg";
 import analyticsImg from "@/assets/analytics.jpg";
 import cybersecurityImg from "@/assets/cybersecurity.jpg";
 import cloudSolutionsImg from "@/assets/cloud-solutions.jpg";
-import aiWorkflowInputImg from "@/assets/ai-workflow-input.jpg";
+import aiWorkflowInputImg from "@/assets/image-9.jpg";
 import aiWorkflowAnalysisImg from "@/assets/ai-workflow-analysis.jpg";
 import aiWorkflowOutputImg from "@/assets/ai-workflow-output.jpg";
-import bankingIndustryImg from "@/assets/banking-industry.jpg";
-import financeIndustryImg from "@/assets/finance-industry.jpg";
+import bankingIndustryImg from "@/assets/image-3.jpg";
+import financeIndustryImg from "@/assets/image-10.jpg";
 import insuranceIndustryImg from "@/assets/insurance-industry.jpg";
 import dashboardAnalyticsImg from "@/assets/dashboard-analytics.jpg";
 import AnimatedStats from "@/components/AnimatedStats";
@@ -486,7 +486,7 @@ const Index = () => {
     </div>
 
     {/* Visual Section: Diamond shaped bigger squares */}
-    <div className="flex-1 relative flex items-center justify-center min-h-[300px] md:min-h-[400px] overflow-hidden px-4">
+    <div className="flex-1 relative flex items-center justify-center min-h-[400px] md:min-h-[500px] overflow-hidden px-4">
       {/* Faded hollow circles in background (visual side only) */}
       {[...Array(5)].map((_, i) => (
         <div
@@ -503,10 +503,10 @@ const Index = () => {
         />
       ))}
 
-      <div className="relative w-56 h-56 md:w-96 md:h-96 mx-auto">
+      <div className="relative w-64 h-64 md:w-[450px] md:h-[450px] mx-auto">
         {/* Top Square */}
         <div
-          className="absolute w-24 h-24 md:w-48 md:h-48 flex items-center justify-center text-center text-white font-bold text-xs md:text-xl rounded-lg hover:scale-105 transition-transform"
+          className="absolute w-28 h-28 md:w-52 md:h-52 flex items-center justify-center text-center text-white font-bold text-xs md:text-lg rounded-lg hover:scale-105 transition-transform"
           style={{
             top: 0,
             left: "50%",
@@ -514,12 +514,12 @@ const Index = () => {
             background: "linear-gradient(135deg, rgba(65,105,225,1), rgba(65,105,225,0.6))",
           }}
         >
-          <div className="-rotate-45 px-1 md:px-2">99.9999% Quality Assurance</div>
+          <div className="-rotate-45 px-2 md:px-4 leading-tight">99.9999% Quality Assurance</div>
         </div>
 
         {/* Right Square */}
         <div
-          className="absolute w-24 h-24 md:w-48 md:h-48 flex items-center justify-center text-center text-white font-bold text-xs md:text-xl rounded-lg hover:scale-105 transition-transform"
+          className="absolute w-28 h-28 md:w-52 md:h-52 flex items-center justify-center text-center text-white font-bold text-xs md:text-lg rounded-lg hover:scale-105 transition-transform"
           style={{
             top: "50%",
             right: 0,
@@ -527,12 +527,12 @@ const Index = () => {
             background: "linear-gradient(135deg, rgba(148,0,211,1), rgba(148,0,211,0.6))",
           }}
         >
-          <div className="-rotate-45 px-1 md:px-2">AI Innovation</div>
+          <div className="-rotate-45 px-2 md:px-4 leading-tight">AI Innovation</div>
         </div>
 
         {/* Bottom Square */}
         <div
-          className="absolute w-24 h-24 md:w-48 md:h-48 flex items-center justify-center text-center text-white font-bold text-xs md:text-xl rounded-lg hover:scale-105 transition-transform"
+          className="absolute w-28 h-28 md:w-52 md:h-52 flex items-center justify-center text-center text-white font-bold text-xs md:text-lg rounded-lg hover:scale-105 transition-transform"
           style={{
             bottom: 0,
             left: "50%",
@@ -540,12 +540,12 @@ const Index = () => {
             background: "linear-gradient(135deg, rgba(0,255,127,1), rgba(0,255,127,0.6))",
           }}
         >
-          <div className="-rotate-45 px-1 md:px-2">Scalability</div>
+          <div className="-rotate-45 px-2 md:px-4 leading-tight">Scalability</div>
         </div>
 
         {/* Left Square */}
         <div
-          className="absolute w-24 h-24 md:w-48 md:h-48 flex items-center justify-center text-center text-white font-bold text-xs md:text-xl rounded-lg hover:scale-105 transition-transform"
+          className="absolute w-28 h-28 md:w-52 md:h-52 flex items-center justify-center text-center text-white font-bold text-xs md:text-lg rounded-lg hover:scale-105 transition-transform"
           style={{
             top: "50%",
             left: 0,
@@ -553,7 +553,7 @@ const Index = () => {
             background: "linear-gradient(135deg, rgba(138,43,226,1), rgba(138,43,226,0.6))",
           }}
         >
-          <div className="-rotate-45 px-1 md:px-2">Reliability</div>
+          <div className="-rotate-45 px-2 md:px-4 leading-tight">Reliability</div>
         </div>
       </div>
     </div>

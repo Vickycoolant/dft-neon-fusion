@@ -3,8 +3,8 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Building2, Shield, CreditCard, TrendingUp, Users, Globe, AlertTriangle, CheckCircle } from "lucide-react";
 import { Link } from "react-router-dom";
-import bankingHeroImg from "@/assets/banking-hero.jpg";
-import financeIndustryImg from "@/assets/finance-industry.jpg";
+import bankingHeroImg from "@/assets/image-3.jpg";
+import financeIndustryImg from "@/assets/image-10.jpg";
 import insuranceIndustryImg from "@/assets/insurance-industry.jpg";
 import industryHeroImg from "@/assets/finance-hero.jpg";
 

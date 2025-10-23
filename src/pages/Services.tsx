@@ -13,6 +13,8 @@ import africanFintechImg from "@/assets/african-fintech.jpg";
 import bankStatementImg from "@/assets/bank-statement.jpg";
 import documentAnalysisImg from "@/assets/document-analysis.jpg";
 import analyticsImg from "@/assets/analytics.jpg";
+import predictiveAnalyticsImg from "@/assets/image-10.jpg";
+import customerSegmentationImg from "@/assets/image-9.jpg";
 import { 
   Database, 
   Shield, 
@@ -64,13 +66,13 @@ const Services = () => {
         {
           title: "Predictive Analytics",
           description: "Machine learning models that forecast customer behavior, payment likelihood, and business performance trends.",
-          image: analyticsImg,
+          image: predictiveAnalyticsImg,
           features: ["Churn prediction", "Default probability", "Revenue forecasting"]
         },
         {
           title: "Customer Segmentation",
           description: "Advanced clustering and profiling techniques to group customers for targeted marketing and personalized services.",
-          image: analyticsImg,
+          image: customerSegmentationImg,
           features: ["Behavioral segmentation", "Value-based grouping", "Persona creation"]
         }
       ]
