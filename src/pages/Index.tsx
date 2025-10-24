@@ -459,17 +459,17 @@ const Index = () => {
       </section>
 
 {/* Advantage Section */}
-<section className="relative w-full py-24 bg-white overflow-x-hidden">
+<section className="relative w-full py-24 bg-white">
   <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 text-[#4169E1]">
     The DFT Advantage
   </h2>
 
-  <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-start justify-between gap-12 px-4 overflow-x-hidden">
-    {/* Left Text Section with color-coded ticks and bold text */}
+  <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-start justify-between gap-12 px-4">
+    {/* Left Text Section */}
     <div className="flex-1 text-gray-700 text-lg leading-relaxed pl-6 space-y-6">
       <p className="flex items-start gap-2">
         <span className="text-[#4169E1] font-bold">✔</span>
-        <strong className="text-[#4169E1]">99.9999% Quality:</strong> Our AI solutions guarantee the highest reliability and precision and assurance in data handling and analytics, ensuring top-tier service for Our clients.
+        <strong className="text-[#4169E1]">99.9999% Quality:</strong> Our AI solutions guarantee the highest reliability and precision and assurance in data handling and analytics, ensuring top-tier service for our clients.
       </p>
       <p className="flex items-start gap-2">
         <span className="text-[#9400D3] font-bold">✔</span>
@@ -485,81 +485,82 @@ const Index = () => {
       </p>
     </div>
 
-    {/* Visual Section: Diamond shaped bigger squares */}
-    <div className="flex-1 relative flex items-center justify-center min-h-[400px] md:min-h-[500px] overflow-hidden px-4">
-      {/* Faded hollow circles in background (visual side only) */}
+    {/* Visual Section: Diamond layout */}
+    <div className="flex-1 relative flex items-center justify-center min-h-[450px] md:min-h-[550px] px-4">
+      {/* Decorative hollow circles */}
       {[...Array(5)].map((_, i) => (
         <div
-          key={`hollow-${i}`}
+          key={`circle-${i}`}
           className="absolute rounded-full border-2 opacity-20"
           style={{
-            width: `${80 + i * 40}px`,
-            height: `${80 + i * 40}px`,
+            width: `${100 + i * 40}px`,
+            height: `${100 + i * 40}px`,
             borderColor: ["#4169E1", "#9400D3", "#8A2BE2"][i % 3],
-            top: `${Math.random() * 80}%`,
-            left: `${Math.random() * 80}%`,
+            top: `${10 + i * 5}%`,
+            left: `${10 + i * 5}%`,
             animation: `float ${6 + i * 2}s ease-in-out infinite alternate`,
           }}
         />
       ))}
 
-      <div className="relative w-64 h-64 md:w-[450px] md:h-[450px] mx-auto">
-        {/* Top Square */}
+      <div className="relative w-72 h-72 md:w-[500px] md:h-[500px] mx-auto">
+        {/* Top Diamond */}
         <div
-          className="absolute w-28 h-28 md:w-52 md:h-52 flex items-center justify-center text-center text-white font-bold text-xs md:text-lg rounded-lg hover:scale-105 transition-transform"
+          className="absolute w-32 h-32 md:w-56 md:h-56 flex items-center justify-center text-center text-white font-bold text-sm md:text-lg rounded-lg hover:scale-105 transition-transform shadow-lg"
           style={{
-            top: 0,
+            top: "10%",
             left: "50%",
             transform: "translate(-50%, -50%) rotate(45deg)",
             background: "linear-gradient(135deg, rgba(65,105,225,1), rgba(65,105,225,0.6))",
+            zIndex: 10,
           }}
         >
-          <div className="-rotate-45 px-2 md:px-4 leading-tight">99.9999% Quality Assurance</div>
+          <div className="-rotate-45 px-2 md:px-4 leading-snug">99.9999% Quality Assurance</div>
         </div>
 
-        {/* Right Square */}
+        {/* Right Diamond */}
         <div
-          className="absolute w-28 h-28 md:w-52 md:h-52 flex items-center justify-center text-center text-white font-bold text-xs md:text-lg rounded-lg hover:scale-105 transition-transform"
+          className="absolute w-32 h-32 md:w-56 md:h-56 flex items-center justify-center text-center text-white font-bold text-sm md:text-lg rounded-lg hover:scale-105 transition-transform shadow-lg"
           style={{
             top: "50%",
-            right: 0,
+            right: "0%",
             transform: "translate(50%, -50%) rotate(45deg)",
             background: "linear-gradient(135deg, rgba(148,0,211,1), rgba(148,0,211,0.6))",
           }}
         >
-          <div className="-rotate-45 px-2 md:px-4 leading-tight">AI Innovation</div>
+          <div className="-rotate-45 px-2 md:px-4 leading-snug">AI Innovation</div>
         </div>
 
-        {/* Bottom Square */}
+        {/* Bottom Diamond */}
         <div
-          className="absolute w-28 h-28 md:w-52 md:h-52 flex items-center justify-center text-center text-white font-bold text-xs md:text-lg rounded-lg hover:scale-105 transition-transform"
+          className="absolute w-32 h-32 md:w-56 md:h-56 flex items-center justify-center text-center text-white font-bold text-sm md:text-lg rounded-lg hover:scale-105 transition-transform shadow-lg"
           style={{
-            bottom: 0,
+            bottom: "0%",
             left: "50%",
             transform: "translate(-50%, 50%) rotate(45deg)",
             background: "linear-gradient(135deg, rgba(0,255,127,1), rgba(0,255,127,0.6))",
           }}
         >
-          <div className="-rotate-45 px-2 md:px-4 leading-tight">Scalability</div>
+          <div className="-rotate-45 px-2 md:px-4 leading-snug">Scalability</div>
         </div>
 
-        {/* Left Square */}
+        {/* Left Diamond */}
         <div
-          className="absolute w-28 h-28 md:w-52 md:h-52 flex items-center justify-center text-center text-white font-bold text-xs md:text-lg rounded-lg hover:scale-105 transition-transform"
+          className="absolute w-32 h-32 md:w-56 md:h-56 flex items-center justify-center text-center text-white font-bold text-sm md:text-lg rounded-lg hover:scale-105 transition-transform shadow-lg"
           style={{
             top: "50%",
-            left: 0,
+            left: "0%",
             transform: "translate(-50%, -50%) rotate(45deg)",
             background: "linear-gradient(135deg, rgba(138,43,226,1), rgba(138,43,226,0.6))",
           }}
         >
-          <div className="-rotate-45 px-2 md:px-4 leading-tight">Reliability</div>
+          <div className="-rotate-45 px-2 md:px-4 leading-snug">Reliability</div>
         </div>
       </div>
     </div>
   </div>
 
-  {/* Floating animation keyframes */}
+  {/* Floating animation */}
   <style>{`
     @keyframes float {
       0% { transform: translateY(0px); opacity: 0.4; }
@@ -568,6 +569,7 @@ const Index = () => {
     }
   `}</style>
 </section>
+
 
 
 
