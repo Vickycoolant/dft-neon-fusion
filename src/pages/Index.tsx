@@ -679,9 +679,9 @@ const Index = () => {
                   Schedule Consultation
                 </Button>
               </Link>
-              <Button variant="outline" size="lg" className="neon-border">
+              {/* <Button variant="outline" size="lg" className="neon-border">
                 View Case Studies
-              </Button>
+              </Button> */}
             </div>
           </div>
         </div>
