@@ -122,15 +122,10 @@ const Footer = () => {
               © {currentYear} DFT Consult. All rights reserved.
             </p>
             <div className="flex space-x-6 text-sm">
-              <a href="/privacy" className="text-gray-400 hover:text-primary transition-colors">
-                Privacy Policy
+              <a href="https://taimostechnologies.co.ke/" className="text-gray-400 hover:text-primary transition-colors">
+                Site Developed By: Taimos Technologies
               </a>
-              <a href="/terms" className="text-gray-400 hover:text-primary transition-colors">
-                Terms of Service
-              </a>
-              <a href="/cookies" className="text-gray-400 hover:text-primary transition-colors">
-                Cookie Policy
-              </a>
+             
             </div>
           </div>
         </div>
