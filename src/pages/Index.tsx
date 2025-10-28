@@ -27,6 +27,7 @@ const Index = () => {
     { value: 15, label: "Years Experience", suffix: "+" },
     { value: 99, label: "Accuracy Rate", suffix: "%" },
     { value: 6, label: "Countries Reached", suffix: "+" },
+    { value: 100, label: "Reliability", suffix: "%" },
   ];
 
   const homeFAQs = [
