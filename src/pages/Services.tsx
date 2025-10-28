@@ -45,11 +45,11 @@ const Services = () => {
           image: bankStatementImg,
           features: ["Transaction categorization", "Income/expense analysis", "Fraud detection"]
         },
-        {
-          title: "GST / ITR Analysis",
-          description: "Automated analysis of GST returns and income tax filings to verify business authenticity and financial stability.",
-          image: documentAnalysisImg,
-          features: ["Compliance verification", "Revenue analysis", "Tax pattern detection"]
+       {
+          title: "Financial Statement Analysis",
+          description: "Deep dive into balance sheets, P&L statements, and cash flow statements for comprehensive business evaluation.",
+          image: customerSegmentationImg,
+          features: ["Ratio analysis", "Trend identification", "Financial health scoring"]
         },
         {
           title: "Payslip & Credit Card Analysis",
