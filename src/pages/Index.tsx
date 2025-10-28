@@ -373,7 +373,7 @@ const Index = () => {
       </p>
       <p className="flex items-start gap-2">
         <span className="text-[#9400D3] font-bold">✔</span>
-        <strong className="text-[#9400D3]">AI Innovation:</strong> Constantly innovating, we implement cutting-edge AI technologies that give businesses a competitive advantage.
+        <strong className="text-[#FFD400]">AI Innovation:</strong> Constantly innovating, we implement cutting-edge AI technologies that give businesses a competitive advantage.
       </p>
       <p className="flex items-start gap-2">
         <span className="text-[#00FF7F] font-bold">✔</span>
