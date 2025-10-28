@@ -26,6 +26,7 @@ const Index = () => {
   const statsData = [
     { value: 15, label: "Years Experience", suffix: "+" },
     { value: 99, label: "Accuracy Rate", suffix: "%" },
+    { value: 6, label: "Countries Reached", suffix: "+" },
   ];
 
   const homeFAQs = [
