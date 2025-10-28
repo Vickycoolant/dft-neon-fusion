@@ -377,7 +377,7 @@ const Index = () => {
       </p>
       <p className="flex items-start gap-2">
         <span className="text-[#00FF7F] font-bold">✔</span>
-        <strong className="text-[#00FF7F]">Scalability:</strong> Our solutions are designed to grow seamlessly with your business, accommodating increasing data and operational complexity.
+        <strong className="text-[#009739]">Scalability:</strong> Our solutions are designed to grow seamlessly with your business, accommodating increasing data and operational complexity.
       </p>
       <p className="flex items-start gap-2">
         <span className="text-[#8A2BE2] font-bold">✔</span>
