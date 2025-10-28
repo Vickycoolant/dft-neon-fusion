@@ -411,7 +411,7 @@ const Index = () => {
             top: 0,
             left: "50%",
             transform: "translate(-50%, -50%) rotate(45deg)",
-            background: "linear-gradient(135deg, rgba(65,105,225,1), rgba(65,105,225,0.6))",
+            background: "linear-gradient(135deg, rgba(0, 71, 186), rgba(0, 71, 186))",
           }}
         >
           <div className="-rotate-45 px-2 md:px-4 leading-tight">99.9999% Quality Assurance</div>
@@ -437,7 +437,7 @@ const Index = () => {
             bottom: 0,
             left: "50%",
             transform: "translate(-50%, 50%) rotate(45deg)",
-            background: "linear-gradient(135deg, rgba(0,255,127,1), rgba(0,255,127,0.6))",
+            background: "linear-gradient(135deg, rgba(0, 151, 57), rgba(0, 151, 57))",
           }}
         >
           <div className="-rotate-45 px-2 md:px-4 leading-tight">Scalability</div>
