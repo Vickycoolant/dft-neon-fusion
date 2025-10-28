@@ -127,23 +127,18 @@ const Index = () => {
       <div className="space-y-8 text-left">
         <div className="prose prose-lg max-w-none text-muted-foreground leading-relaxed">
           <p className="mb-6">
-            DFT Consult is a leading technology and advisory firm delivering AI-powered solutions 
-            to the banking, finance, and insurance industries. We partner with international 
-            companies such as <span className="text-primary font-semibold">Perfios</span> — an Indian top-tier technology leader — 
-            to provide intelligent automation tools that transform complex financial data into 
-            instant, accurate insights.
+           At DFT Consulting, we bridge the gap between global innovation and local impact. Working alongside our technology
+            partners — <span className="text-primary font-semibold">Perfios</span> and <span className="text-primary font-semibold">iNube</span> — we have
+           <span className="text-primary font-semibold"> we have localized world-class, AI-ready technology solutions</span> to meet the unique needs of the <span className="text-primary font-semibold"> East African BFSI market.
+            </span>
+
           </p>
           <p className="mb-6">
-            Our expertise spans automated credit underwriting, insurance decision-making, and 
-            risk management, as well as the development of tailored software solutions to meet 
-            diverse client needs. With a strong focus on streamlining processes and enhancing 
-            decision accuracy, we empower financial institutions to make smarter, faster, and 
-            more reliable business choices.
+            We go beyond technology reselling to deliver <span className="text-primary font-semibold">fit-for-purpose implementations</span> that align with business realities, 
+            shorten deployment timelines, and unlock <span className="text-primary font-semibold">tangible value</span>. With deep domain expertise in <span className="text-primary font-semibold">banking and insurance</span>, we 
+            ensure AI moves from <span className="text-primary font-semibold">boardroom buzzword to tangible business outcome</span> — because without DFT, even the best technology rarely delivers its full potential.
           </p>
-          <p>
-            DFT Consult's approach combines deep industry knowledge with innovative technology, 
-            ensuring clients stay ahead in a competitive and rapidly evolving market.
-          </p>
+         
         </div>
 
         {/* Feature badges */}
