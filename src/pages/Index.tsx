@@ -77,7 +77,7 @@ const Index = () => {
             🚀 AI-Powered Fintech Solutions
           </Badge>
           <h1 className="text-4xl md:text-7xl font-bold mb-6 gradient-text">
-            DFT Consult
+            DFT Group
           </h1>
           <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-3xl mx-auto">
             Transforming Financial Technology with Advanced AI Solutions. 
