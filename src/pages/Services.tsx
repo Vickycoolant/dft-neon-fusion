@@ -135,18 +135,7 @@ const Services = () => {
           image: techSolutionsImg,
           features: ["Policy management", "Claims processing", "Financial data exchange"]
         },
-        {
-          title: "Open Finance APIs",
-          description: "Secure API development for financial data sharing, consent management, and open banking compliance.",
-          image: techSolutionsImg,
-          features: ["API gateway", "OAuth 2.0", "Consent management"]
-        },
-        {
-          title: "Custom Software Development",
-          description: "Bespoke financial applications tailored to your specific business requirements and workflows.",
-          image: techSolutionsImg,
-          features: ["Full-stack development", "Integration services", "Legacy modernization"]
-        },
+        
         {
           title: "Data Management Solutions",
           description: "Comprehensive data warehousing, ETL pipelines, and master data management for financial institutions.",
@@ -159,12 +148,7 @@ const Services = () => {
           image: securityComplianceImg,
           features: ["Security audits", "Threat monitoring", "Incident response"]
         },
-        {
-          title: "Cloud Infrastructure",
-          description: "Cloud migration, DevOps automation, and infrastructure management on AWS, Azure, and GCP platforms.",
-          image: techSolutionsImg,
-          features: ["Cloud migration", "Auto-scaling", "Cost optimization"]
-        }
+       
       ]
     }
   ];
