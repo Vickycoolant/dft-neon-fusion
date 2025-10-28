@@ -480,64 +480,7 @@ const About = () => {
         </div>
       </section>
 
-      {/* Impact & Client Success */}
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-[#4169E1] mb-6">
-              Impact & Client Success
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-12">
-              Trusted by leading banks and insurers across Africa
-            </p>
-          </div>
-
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-16">
-            <div className="text-center">
-              <div className="text-5xl font-bold text-[#4169E1] mb-2">15+</div>
-              <div className="text-gray-600">Years Experience</div>
-            </div>
-            <div className="text-center">
-              <div className="text-5xl font-bold text-[#4169E1] mb-2">200+</div>
-              <div className="text-gray-600">Financial Institutions</div>
-            </div>
-            <div className="text-center">
-              <div className="text-5xl font-bold text-[#4169E1] mb-2">500+</div>
-              <div className="text-gray-600">Projects Completed</div>
-            </div>
-            <div className="text-center">
-              <div className="text-5xl font-bold text-[#4169E1] mb-2">97%</div>
-              <div className="text-gray-600">Client Satisfaction</div>
-            </div>
-          </div>
-
-          {/* Client Logos Carousel */}
-          <div className="bg-white rounded-2xl shadow-lg p-12">
-            <h3 className="text-2xl font-bold text-center text-gray-900 mb-8">
-              Trusted by Industry Leaders
-            </h3>
-            <div className="relative overflow-hidden">
-              <div className="flex animate-marquee pause-marquee gap-12 items-center">
-                {[...clientLogos, ...clientLogos, ...clientLogos, ...clientLogos].map((client, index) => (
-                  <div 
-                    key={index}
-                    className="flex-shrink-0 flex flex-col items-center justify-center gap-3"
-                  >
-                    <div className="w-32 h-32 bg-white rounded-lg p-4 flex items-center justify-center shadow-md hover:shadow-xl transition-shadow">
-                      <img 
-                        src={client.logo} 
-                        alt={`${client.name} logo`}
-                        className="w-full h-full object-contain"
-                      />
-                    </div>
-                    <p className="text-sm font-semibold text-gray-700 text-center">{client.name}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+     
 
       {/* CTA Section */}
       <section className="py-20 bg-[#4169E1]">
