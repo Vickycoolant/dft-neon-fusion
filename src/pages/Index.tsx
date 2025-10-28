@@ -25,7 +25,6 @@ import FAQSection from "@/components/FAQSection";
 const Index = () => {
   const statsData = [
     { value: 15, label: "Years Experience", suffix: "+" },
-    { value: 30, label: "Projects Delivered", suffix: "+" },
     { value: 99, label: "Accuracy Rate", suffix: "%" },
   ];
 
