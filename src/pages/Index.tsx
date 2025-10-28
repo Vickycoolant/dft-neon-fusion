@@ -90,19 +90,27 @@ const Index = () => {
           </div>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link to="/services">
-              <Button variant="hero" size="lg" className="group">
-                Explore Our Solutions
-                <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-              </Button>
-            </Link>
-            <Link to="/contact">
-              <Button variant="outline" size="lg" className="neon-border">
-                Schedule Consultation
-              </Button>
-            </Link>
-          </div>
-        </div>
+  <Link to="/services">
+    <Button 
+      variant="hero" 
+      size="lg" 
+      className="group bg-[#009739] hover:bg-[#007f30] text-white"
+    >
+      Explore Our Solutions
+      <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+    </Button>
+  </Link>
+
+  <Link to="/contact">
+    <Button 
+      variant="outline" 
+      size="lg" 
+      className="border-2 border-[#FFD400] text-[#FFD400] hover:bg-[#FFD400] hover:text-black"
+    >
+      Schedule Consultation
+    </Button>
+  </Link>
+</div>
       </section>
 
      {/* Company Introduction Section */}
