@@ -360,7 +360,7 @@ const Index = () => {
 
 {/* Advantage Section */}
 <section className="relative w-full py-24 bg-white overflow-x-hidden">
-  <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 text-[#4169E1]">
+  <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 text-#0047BA">
     The DFT Advantage
   </h2>
 
