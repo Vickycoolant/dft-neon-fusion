@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
-import dftLogo from "@/assets/dft-logo-new.png";
+import dftLogo from "@/assets/Screenshot_2025-10-28_183536-removebg-preview.png";
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
