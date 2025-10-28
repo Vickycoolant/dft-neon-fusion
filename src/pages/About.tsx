@@ -418,20 +418,20 @@ const About = () => {
               </div>
               <div className="grid grid-cols-2 gap-6">
                 <div className="text-center p-4 bg-[#4169E1]/10 rounded-lg">
-                  <div className="text-3xl font-bold text-[#4169E1] mb-2">25+</div>
+                  <div className="text-3xl font-bold text-[#4169E1] mb-2">6+</div>
                   <div className="text-sm text-gray-600">Countries Reached</div>
                 </div>
                 <div className="text-center p-4 bg-[#4169E1]/10 rounded-lg">
-                  <div className="text-3xl font-bold text-[#4169E1] mb-2">200+</div>
+                  <div className="text-3xl font-bold text-[#4169E1] mb-2">15+</div>
                   <div className="text-sm text-gray-600">Institutions Served</div>
                 </div>
                 <div className="text-center p-4 bg-[#4169E1]/10 rounded-lg">
-                  <div className="text-3xl font-bold text-[#4169E1] mb-2">15+</div>
+                  <div className="text-3xl font-bold text-[#4169E1] mb-2">4+</div>
                   <div className="text-sm text-gray-600">Strategic Partners</div>
                 </div>
                 <div className="text-center p-4 bg-[#4169E1]/10 rounded-lg">
-                  <div className="text-3xl font-bold text-[#4169E1] mb-2">500+</div>
-                  <div className="text-sm text-gray-600">Projects Delivered</div>
+                  <div className="text-3xl font-bold text-[#4169E1] mb-2">99.9999+</div>
+                  <div className="text-sm text-gray-600">Accuracy Rate</div>
                 </div>
               </div>
             </div>
