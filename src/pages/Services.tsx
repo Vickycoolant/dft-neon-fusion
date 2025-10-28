@@ -58,10 +58,10 @@ const Services = () => {
           features: ["Income verification", "Spending patterns", "Credit behavior analysis"]
         },
         {
-          title: "Financial Statement Analysis",
-          description: "Deep dive into balance sheets, P&L statements, and cash flow statements for comprehensive business evaluation.",
+          title: "Data Governance",
+          description: "AI-driven framework ensuring data accuracy, consistency, and compliance across financial systems.",
           image: documentAnalysisImg,
-          features: ["Ratio analysis", "Trend identification", "Financial health scoring"]
+          features: ["Data quality management", "Policy enforcement", "Regulatory compliance"]
         },
         {
           title: "Predictive Analytics",
