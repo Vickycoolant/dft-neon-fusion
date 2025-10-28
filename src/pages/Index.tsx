@@ -424,7 +424,7 @@ const Index = () => {
             top: "50%",
             right: 0,
             transform: "translate(50%, -50%) rotate(45deg)",
-            background: "linear-gradient(135deg, rgba(148,0,211,1), rgba(148,0,211,0.6))",
+            background: "linear-gradient(135deg, rgba(255, 212, 0), rgba(255, 212, 0))",
           }}
         >
           <div className="-rotate-45 px-2 md:px-4 leading-tight">AI Innovation</div>
