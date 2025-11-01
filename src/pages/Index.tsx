@@ -91,13 +91,13 @@ const Index = () => {
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link to="/services">
-              <Button variant="hero" size="lg" className="group">
+              <Button variant="success" size="lg" className="group">
                 Explore Our Solutions
                 <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
               </Button>
             </Link>
             <Link to="/contact">
-              <Button variant="outline" size="lg" className="neon-border">
+              <Button variant="warning" size="lg">
                 Schedule Consultation
               </Button>
             </Link>
@@ -128,8 +128,8 @@ const Index = () => {
         <div className="prose prose-lg max-w-none text-muted-foreground leading-relaxed">
           <p className="mb-6">
            At DFT Consulting, we bridge the gap between global innovation and local impact. Working alongside our technology
-            partners — <span className="text-primary font-semibold">Perfios</span> and <span className="text-primary font-semibold">iNube</span> — we have
-           <span className="text-primary font-semibold"> we have localized world-class, AI-ready technology solutions</span> to meet the unique needs of the <span className="text-primary font-semibold"> East African BFSI market.
+            partners — <span className="text-success font-semibold">Perfios</span> and <span className="text-success font-semibold">iNube</span> — we have
+           <span className="text-success font-semibold"> we have localized world-class, AI-ready technology solutions</span> to meet the unique needs of the <span className="text-success font-semibold"> East African BFSI market.
             </span>
 
           </p>
@@ -163,8 +163,9 @@ const Index = () => {
     <div className="pt-10 flex justify-center">
       <Link to="/about">
         <Button 
+          variant="warning"
           size="lg" 
-          className="bg-blue-600 hover:bg-blue-700 text-white transition-transform transform hover:scale-105"
+          className="transition-transform transform hover:scale-105"
         >
           Learn More About Our Approach
           <ArrowRight className="ml-2 h-4 w-4" />
@@ -317,14 +318,14 @@ const Index = () => {
             </div>
 
             <div className="flex flex-col items-center max-w-sm">
-              <div className="w-32 h-32 rounded-2xl overflow-hidden mb-6 neon-glow">
+              <div className="w-32 h-32 rounded-2xl overflow-hidden mb-6 bg-success/20 flex items-center justify-center">
                 <img 
                   src={aiWorkflowAnalysisImg} 
                   alt="AI Analysis"
                   className="w-full h-full object-cover"
                 />
               </div>
-              <h3 className="text-2xl font-semibold mb-3 gradient-text">AI Analysis</h3>
+              <h3 className="text-2xl font-semibold mb-3 text-success">AI Analysis</h3>
               <p className="text-center text-muted-foreground leading-relaxed">
                 Advanced machine learning algorithms process, validate, and extract 
                 meaningful patterns and insights
@@ -336,14 +337,14 @@ const Index = () => {
             </div>
 
             <div className="flex flex-col items-center max-w-sm">
-              <div className="w-32 h-32 rounded-2xl overflow-hidden mb-6 neon-glow">
+              <div className="w-32 h-32 rounded-2xl overflow-hidden mb-6 bg-warning/20 flex items-center justify-center">
                 <img 
                   src={aiWorkflowOutputImg} 
                   alt="Intelligent Output"
                   className="w-full h-full object-cover"
                 />
               </div>
-              <h3 className="text-2xl font-semibold mb-3 gradient-text">Output</h3>
+              <h3 className="text-2xl font-semibold mb-3 text-warning">Output</h3>
               <p className="text-center text-muted-foreground leading-relaxed">
                 Comprehensive reports, risk assessments, credit scores, and 
                 actionable business recommendations
@@ -481,7 +482,7 @@ const Index = () => {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link to="/contact">
-                <Button variant="hero" size="lg">
+                <Button variant="warning" size="lg">
                   Schedule Consultation
                 </Button>
               </Link>

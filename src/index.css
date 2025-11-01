@@ -37,6 +37,12 @@ All colors MUST be HSL.
     --accent-foreground: 0 0% 100%;
     --accent-glow: 260 100% 70%; /* Bright neon glow */
 
+    /* Secondary brand colors */
+    --success: 146 100% 30%;     /* Green #009739 */
+    --success-foreground: 0 0% 100%;
+    --warning: 48 100% 50%;      /* Yellow #FFD400 */
+    --warning-foreground: 0 0% 0%;
+
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 100%;
 

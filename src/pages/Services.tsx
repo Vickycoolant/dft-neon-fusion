@@ -228,7 +228,8 @@ const Services = () => {
           </p>
           <Button 
             onClick={scrollToCategories}
-            className="bg-[#4169E1] hover:bg-[#4169E1]/90 text-white px-8 py-4 text-lg rounded-lg font-semibold"
+            variant="warning"
+            size="lg"
           >
             Explore Our Solutions
             <ChevronRight className="ml-2 w-5 h-5" />
@@ -252,11 +253,19 @@ const Services = () => {
             <TabsList className="grid w-full max-w-4xl mx-auto grid-cols-3 mb-12 h-auto bg-white border border-gray-200">
               {solutionCategories.map((category) => {
                 const IconComponent = category.icon;
+                const isDigitalForensics = category.id === "forensics-risk";
+                const isTechSolutions = category.id === "technology-solutions";
                 return (
                   <TabsTrigger 
                     key={category.id} 
                     value={category.id}
-                    className="flex flex-col items-center gap-2 py-4 data-[state=active]:bg-[#4169E1] data-[state=active]:text-white"
+                    className={`flex flex-col items-center gap-2 py-4 ${
+                      isDigitalForensics 
+                        ? "data-[state=active]:bg-success data-[state=active]:text-white" 
+                        : isTechSolutions
+                        ? "data-[state=active]:bg-warning data-[state=active]:text-black"
+                        : "data-[state=active]:bg-[#4169E1] data-[state=active]:text-white"
+                    }`}
                   >
                     <IconComponent className="w-5 h-5" />
                     <span className="font-semibold text-sm">{category.title}</span>
@@ -396,18 +405,19 @@ const Services = () => {
       </section>
 
       {/* Closing CTA Section */}
-      <section className="py-20 bg-[#4169E1]">
+      <section className="py-20 bg-success">
         <div className="max-w-4xl mx-auto px-6 text-center">
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
             Ready to transform your financial workflows?
           </h2>
-          <p className="text-xl text-blue-100 mb-10 leading-relaxed">
+          <p className="text-xl text-white/90 mb-10 leading-relaxed">
             Join leading financial institutions who trust DFT Consult to drive their digital transformation.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link to="/contact">
               <Button 
-                className="bg-white text-[#4169E1] hover:bg-gray-100 px-8 py-4 text-lg font-semibold rounded-lg"
+                variant="warning"
+                size="lg"
               >
                 <Phone className="mr-2 w-5 h-5" />
                 Book a Consultation
@@ -415,8 +425,8 @@ const Services = () => {
             </Link>
             <Link to="/contact">
               <Button 
-                variant="outline" 
-                className="border-white text-white hover:bg-white hover:text-[#4169E1] px-8 py-4 text-lg font-semibold rounded-lg"
+                variant="warning"
+                size="lg"
               >
                 <Mail className="mr-2 w-5 h-5" />
                 Contact Us

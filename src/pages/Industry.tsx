@@ -191,8 +191,8 @@ const Industry = () => {
                     {/* Stats */}
                     <div className="grid grid-cols-3 gap-4 mb-6">
                       {industry.stats.map((stat, idx) => (
-                        <div key={idx} className="text-center p-4 rounded-lg bg-secondary/50 border border-[#4169E1]/30">
-                          <div className="text-2xl font-bold text-[#4169E1]">{stat.value}</div>
+                        <div key={idx} className="text-center p-4 rounded-lg bg-success/10 border border-success/30">
+                          <div className="text-2xl font-bold text-success">{stat.value}</div>
                           <div className="text-xs text-muted-foreground">{stat.label}</div>
                         </div>
                       ))}
@@ -201,7 +201,7 @@ const Industry = () => {
 
                     <div className="flex justify-center">
                       <Link to="/services#data-intelligence">
-                        <Button variant="hero" size="lg" className="w-full sm:w-auto">
+                        <Button variant="warning" size="lg" className="w-full sm:w-auto">
                           Explore {industry.title} Solutions
                         </Button>
                       </Link>
@@ -243,10 +243,10 @@ const Industry = () => {
               drive innovation in your financial services operations.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button variant="hero" size="lg">
+              <Button variant="success" size="lg">
                 Schedule Industry Consultation
               </Button>
-              <Button variant="outline" size="lg" className="neon-border">
+              <Button variant="warning" size="lg">
                 Download Industry Guide
               </Button>
             </div>

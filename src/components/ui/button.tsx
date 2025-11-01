@@ -21,6 +21,8 @@ const buttonVariants = cva(
         neon: "bg-accent text-accent-foreground neon-glow hover:shadow-[var(--shadow-neon-strong)] transition-all duration-300",
         hero: "bg-gradient-to-r from-primary to-accent text-white font-semibold neon-border hover:shadow-[var(--shadow-neon)] transition-all duration-300",
         professional: "bg-primary text-primary-foreground hover:bg-primary/90 shadow-[var(--shadow-elegant)]",
+        success: "bg-success text-success-foreground hover:bg-success/90",
+        warning: "bg-warning text-warning-foreground hover:bg-warning/90",
       },
       size: {
         default: "h-10 px-4 py-2",

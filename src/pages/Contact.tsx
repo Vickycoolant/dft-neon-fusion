@@ -53,25 +53,29 @@ const Contact = () => {
       icon: MapPin,
       title: "Office Address",
       details: ["DFT Consult Headquarters", "Westlands, Nairobi", "Kenya, East Africa"],
-      color: "from-primary to-accent"
+      bgColor: "bg-primary",
+      textColor: "text-white"
     },
     {
       icon: Phone,
       title: "Phone Numbers",
       details: ["+254 700 123 456", "+254 733 987 654", "24/7 Support Available"],
-      color: "from-accent to-primary"
+      bgColor: "bg-success",
+      textColor: "text-white"
     },
     {
       icon: Mail,
       title: "Email Addresses",
       details: ["info@dftconsult.com", "support@dftconsult.com", "partnerships@dftconsult.com"],
-      color: "from-primary-glow to-accent-glow"
+      bgColor: "bg-warning",
+      textColor: "text-black"
     },
     {
       icon: Clock,
       title: "Business Hours",
       details: ["Monday - Friday: 8:00 AM - 6:00 PM", "Saturday: 9:00 AM - 2:00 PM", "Sunday: Closed"],
-      color: "from-accent-glow to-primary-glow"
+      bgColor: "bg-accent",
+      textColor: "text-white"
     }
   ];
 
@@ -113,21 +117,21 @@ const Contact = () => {
             {contactInfo.map((info, index) => {
               const IconComponent = info.icon;
               return (
-                <Card key={index} className="neon-border text-center hover:shadow-lg transition-all duration-300">
+                <Card key={index} className={`${info.bgColor} text-center hover:shadow-lg transition-all duration-300 border-0`}>
                   <CardHeader>
-                    <div className={`w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-br ${info.color}/20 flex items-center justify-center neon-glow`}>
-                      <IconComponent className="w-8 h-8 text-primary" />
+                    <div className={`w-16 h-16 mx-auto mb-4 rounded-full bg-white/20 flex items-center justify-center`}>
+                      <IconComponent className={`w-8 h-8 ${info.textColor}`} />
                     </div>
-                    <CardTitle className="text-lg font-bold gradient-text-neon">
+                    <CardTitle className={`text-lg font-bold ${info.textColor}`}>
                       {info.title}
                     </CardTitle>
                   </CardHeader>
                   <CardContent>
                     <div className="space-y-1">
                       {info.details.map((detail, idx) => (
-                        <CardDescription key={idx} className="text-sm">
+                        <p key={idx} className={`text-sm ${info.textColor}`}>
                           {detail}
-                        </CardDescription>
+                        </p>
                       ))}
                     </div>
                   </CardContent>
@@ -153,9 +157,9 @@ const Contact = () => {
                 </p>
               </div>
 
-              <Card className="neon-border">
+              <Card className="border-success border-2">
                 <CardHeader>
-                  <CardTitle className="text-xl font-semibold">
+                  <CardTitle className="text-xl font-semibold text-warning">
                     Contact Form
                   </CardTitle>
                   <CardDescription>
@@ -231,7 +235,7 @@ const Contact = () => {
                       />
                     </div>
 
-                    <Button type="submit" variant="hero" size="lg" className="w-full">
+                    <Button type="submit" variant="success" size="lg" className="w-full">
                       <Send className="w-5 h-5 mr-2" />
                       Send Message
                     </Button>
@@ -243,7 +247,7 @@ const Contact = () => {
             {/* Map and Additional Info */}
             <div>
               <div className="mb-8">
-                <h2 className="text-3xl md:text-4xl font-bold mb-4 gradient-text-neon">
+                <h2 className="text-3xl md:text-4xl font-bold mb-4 text-warning">
                   Find Us
                 </h2>
                 <p className="text-lg text-muted-foreground">
@@ -252,9 +256,9 @@ const Contact = () => {
               </div>
 
               {/* Map Placeholder */}
-              <Card className="neon-border mb-8">
+              <Card className="border-success border-2 mb-8">
                 <CardHeader>
-                  <CardTitle className="text-lg font-semibold">
+                  <CardTitle className="text-lg font-semibold text-warning">
                     Our Location
                   </CardTitle>
                 </CardHeader>
@@ -270,9 +274,9 @@ const Contact = () => {
               </Card>
 
               {/* Social Media */}
-              <Card className="neon-border">
+              <Card className="border-success border-2">
                 <CardHeader>
-                  <CardTitle className="text-lg font-semibold gradient-text">
+                  <CardTitle className="text-lg font-semibold text-warning">
                     Connect With Us
                   </CardTitle>
                   <CardDescription>
@@ -307,22 +311,22 @@ const Contact = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="section-padding bg-gradient-to-br from-accent/5 to-primary/5">
+      <section className="section-padding bg-success">
         <div className="container-max text-center">
           <div className="max-w-3xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6 gradient-text-neon">
+            <h2 className="text-3xl md:text-4xl font-bold mb-6 text-white">
               Let's Build the Future Together
             </h2>
-            <p className="text-lg text-muted-foreground mb-8">
+            <p className="text-lg text-white/90 mb-8">
               Whether you're looking to implement AI-powered document analysis, 
               enhance your risk assessment capabilities, or explore digital transformation opportunities, 
               we're here to help you succeed.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button variant="hero" size="lg">
+              <Button variant="secondary" size="lg" className="bg-white text-success hover:bg-white/90">
                 Schedule a Consultation
               </Button>
-              <Button variant="outline" size="lg" className="neon-border">
+              <Button variant="warning" size="lg">
                 Request a Demo
               </Button>
             </div>

@@ -45,7 +45,7 @@ const Navigation = () => {
                 {item.name}
               </Link>
             ))}
-            <Button variant="hero" size="sm" asChild>
+            <Button variant="success" size="sm" asChild>
               <Link to="/contact">Get Started</Link>
             </Button>
           </div>
@@ -81,7 +81,7 @@ const Navigation = () => {
                 </Link>
               ))}
               <div className="px-3 py-2">
-                <Button variant="hero" size="sm" className="w-full" asChild>
+                <Button variant="success" size="sm" className="w-full" asChild>
                   <Link to="/contact" onClick={() => setIsOpen(false)}>
                     Get Started
                   </Link>

@@ -142,7 +142,7 @@ const About = () => {
         </div>
         
         <div className="max-w-4xl mx-auto px-6 text-center relative z-10">
-          <Badge className="bg-[#4169E1] text-white mb-6">
+          <Badge className="bg-warning text-black mb-6">
             <Globe className="w-4 h-4 mr-2" />
             About DFT Consult
           </Badge>
@@ -162,7 +162,7 @@ const About = () => {
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-6">
-              <Badge className="bg-[#4169E1] text-white">
+              <Badge className="bg-warning text-black">
                 <Globe className="w-4 h-4 mr-2" />
                 Your Strategic Partner
               </Badge>
@@ -210,9 +210,9 @@ const About = () => {
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {/* Mission */}
-            <Card className="bg-gradient-to-br from-[#4169E1]/5 to-[#4169E1]/10 border-[#4169E1]/20 hover:shadow-xl transition-shadow">
+            <Card className="bg-gradient-to-br from-[#4169E1]/5 to-[#4169E1]/10 border-success border-2 hover:shadow-xl transition-shadow">
               <CardHeader>
-                <div className="w-16 h-16 bg-[#4169E1] rounded-full flex items-center justify-center mb-4">
+                <div className="w-16 h-16 bg-success rounded-full flex items-center justify-center mb-4">
                   <Target className="w-8 h-8 text-white" />
                 </div>
                 <CardTitle className="text-3xl font-bold text-[#4169E1]">Our Mission</CardTitle>
@@ -233,10 +233,10 @@ const About = () => {
             </Card>
 
             {/* Vision */}
-            <Card className="bg-gradient-to-br from-[#4169E1]/5 to-[#4169E1]/10 border-[#4169E1]/20 hover:shadow-xl transition-shadow">
+            <Card className="bg-gradient-to-br from-[#4169E1]/5 to-[#4169E1]/10 border-success border-2 hover:shadow-xl transition-shadow">
               <CardHeader>
-                <div className="w-16 h-16 bg-[#4169E1] rounded-full flex items-center justify-center mb-4">
-                  <Eye className="w-8 h-8 text-white" />
+                <div className="w-16 h-16 bg-warning rounded-full flex items-center justify-center mb-4">
+                  <Eye className="w-8 h-8 text-black" />
                 </div>
                 <CardTitle className="text-3xl font-bold text-[#4169E1]">Our Vision</CardTitle>
               </CardHeader>
@@ -278,7 +278,7 @@ const About = () => {
                 return (
                   <Card 
                     key={index} 
-                    className="flex-shrink-0 w-96 bg-white hover:shadow-2xl transition-all duration-300 group border-t-4 border-[#4169E1] relative overflow-hidden"
+                    className="flex-shrink-0 w-96 bg-white hover:shadow-2xl transition-all duration-300 group border-success border-2 relative overflow-hidden"
                   >
                     <div className="absolute inset-0 opacity-10">
                       <img 
@@ -387,7 +387,7 @@ const About = () => {
                 </div>
               </div>
               <div className="flex items-start gap-4">
-                <div className="w-12 h-12 bg-[#4169E1] rounded-lg flex items-center justify-center flex-shrink-0">
+                <div className="w-12 h-12 bg-success rounded-lg flex items-center justify-center flex-shrink-0">
                   <TrendingUp className="w-6 h-6 text-white" />
                 </div>
                 <div>
@@ -399,8 +399,8 @@ const About = () => {
                 </div>
               </div>
               <div className="flex items-start gap-4">
-                <div className="w-12 h-12 bg-[#4169E1] rounded-lg flex items-center justify-center flex-shrink-0">
-                  <Zap className="w-6 h-6 text-white" />
+                <div className="w-12 h-12 bg-warning rounded-lg flex items-center justify-center flex-shrink-0">
+                  <Zap className="w-6 h-6 text-black" />
                 </div>
                 <div>
                   <h3 className="text-xl font-bold text-gray-900 mb-2">Innovation Ecosystem</h3>
@@ -417,20 +417,20 @@ const About = () => {
                 <p className="text-gray-600">Operations and partnerships across regions</p>
               </div>
               <div className="grid grid-cols-2 gap-6">
-                <div className="text-center p-4 bg-[#4169E1]/10 rounded-lg">
-                  <div className="text-3xl font-bold text-[#4169E1] mb-2">6+</div>
+                <div className="text-center p-4 bg-warning/20 rounded-lg">
+                  <div className="text-3xl font-bold text-warning mb-2">6+</div>
                   <div className="text-sm text-gray-600">Countries Reached</div>
                 </div>
                 <div className="text-center p-4 bg-[#4169E1]/10 rounded-lg">
                   <div className="text-3xl font-bold text-[#4169E1] mb-2">15+</div>
                   <div className="text-sm text-gray-600">Institutions Served</div>
                 </div>
-                <div className="text-center p-4 bg-[#4169E1]/10 rounded-lg">
-                  <div className="text-3xl font-bold text-[#4169E1] mb-2">4+</div>
+                <div className="text-center p-4 bg-success/10 rounded-lg">
+                  <div className="text-3xl font-bold text-success mb-2">4+</div>
                   <div className="text-sm text-gray-600">Strategic Partners</div>
                 </div>
-                <div className="text-center p-4 bg-[#4169E1]/10 rounded-lg">
-                  <div className="text-3xl font-bold text-[#4169E1] mb-2">99.9999+</div>
+                <div className="text-center p-4 bg-accent/10 rounded-lg">
+                  <div className="text-3xl font-bold text-accent mb-2">99.9999+</div>
                   <div className="text-sm text-gray-600">Accuracy Rate</div>
                 </div>
               </div>
@@ -483,19 +483,20 @@ const About = () => {
      
 
       {/* CTA Section */}
-      <section className="py-20 bg-[#4169E1]">
+      <section className="py-20 bg-success">
         <div className="max-w-4xl mx-auto px-6 text-center">
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
             Partner with us to shape the future of financial technology
           </h2>
-          <p className="text-xl text-blue-100 mb-10 leading-relaxed">
+          <p className="text-xl text-white/90 mb-10 leading-relaxed">
             Let's work together to transform your financial operations with AI-powered innovation
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link to="/contact">
               <Button 
                 size="lg"
-                className="bg-white text-[#4169E1] hover:bg-gray-100 px-8 py-6 text-lg font-semibold rounded-lg"
+                variant="secondary"
+                className="bg-white text-success hover:bg-white/90"
               >
                 Contact Us
                 <ArrowRight className="ml-2 w-5 h-5" />
@@ -504,8 +505,7 @@ const About = () => {
             <Link to="/services">
               <Button 
                 size="lg"
-                variant="outline" 
-                className="border-2 border-white text-white hover:bg-white hover:text-[#4169E1] px-8 py-6 text-lg font-semibold rounded-lg"
+                variant="warning"
               >
                 Explore Our Services
               </Button>
