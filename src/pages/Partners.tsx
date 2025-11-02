@@ -3,257 +3,50 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { 
   Handshake, 
-  Cpu, 
-  Building, 
-  Lightbulb, 
   ArrowRight, 
-  Star, 
   Globe,
   Shield,
   Zap,
   TrendingUp,
-  Users
+  Users,
+  CheckCircle,
+  Star,
+  Building2,
+  Brain,
+  FileText,
+  Lock,
+  BarChart3
 } from "lucide-react";
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from "@/components/ui/carousel";
-import Autoplay from "embla-carousel-autoplay";
 import partnersHeroImg from "@/assets/partners-hero.jpg";
-import partnersTechnology from "@/assets/partners-technology.jpg";
-import partnersFinancial from "@/assets/partners-financial.jpg";
-import partnersAdvisory from "@/assets/partners-advisory.jpg";
-import partnersInnovation from "@/assets/partners-innovation.jpg";
+import logoPerfios from "@/assets/logo-perfios.jpg";
 import FAQSection from "@/components/FAQSection";
+import PartnersCarousel from "@/components/PartnersCarousel";
 
 const Partners = () => {
-  const partnerCategories = [
-    {
-      id: "technology",
-      title: "Technology Partners",
-      subtitle: "Trusted Technology Leaders",
-      description: "International software and AI firms providing cutting-edge tech tools, APIs, and automation solutions to enhance our service delivery.",
-      icon: Cpu,
-      image: partnersTechnology,
-      partners: [
-        {
-          name: "Perfios Software Solutions",
-          logo: "PS",
-          description: "Leading Indian fintech company providing real-time data aggregation and analytics for financial institutions across global markets.",
-          specialty: "Data Analytics & Bank Statement Analysis",
-          image: partnersTechnology
-        },
-        {
-          name: "Microsoft Azure",
-          logo: "MS",
-          description: "Cloud computing platform providing scalable AI services and secure infrastructure for our enterprise solutions.",
-          specialty: "Cloud Infrastructure & AI Services",
-          image: partnersTechnology
-        },
-        {
-          name: "AWS FinTech Accelerator",
-          logo: "AWS",
-          description: "Amazon Web Services partnership enabling rapid deployment and scaling of financial technology solutions.",
-          specialty: "Cloud Computing & DevOps",
-          image: partnersTechnology
-        },
-        {
-          name: "NVIDIA AI Enterprise",
-          logo: "NV",
-          description: "Advanced GPU computing solutions for machine learning model training and real-time AI inference processing.",
-          specialty: "AI Computing & Machine Learning",
-          image: partnersTechnology
-        }
-      ]
-    },
-    {
-      id: "financial",
-      title: "Financial & Industry Partners",
-      subtitle: "Financial Sector Collaborators",
-      description: "Banks, microfinance institutions, SACCOs, and insurance companies collaborating on innovative financial solutions.",
-      icon: Building,
-      image: partnersFinancial,
-      partners: [
-        {
-          name: "Jubilee Insurance",
-          logo: "JI",
-          description: "Leading East African insurance provider partnering with us on digital transformation and automated claims processing solutions.",
-          specialty: "Insurance Technology & Claims Automation",
-          image: partnersFinancial
-        },
-        {
-          name: "Equity Bank Group",
-          logo: "EB",
-          description: "Pan-African financial services provider collaborating on digital lending and customer onboarding solutions.",
-          specialty: "Digital Banking & Fintech Innovation",
-          image: partnersFinancial
-        },
-        {
-          name: "KCB Group",
-          logo: "KCB",
-          description: "Regional banking leader working with us on AI-powered credit scoring and risk management solutions.",
-          specialty: "Credit Assessment & Risk Management",
-          image: partnersFinancial
-        },
-        {
-          name: "Centum Investment",
-          logo: "CI",
-          description: "Leading investment company partnering on alternative credit scoring and SME financing solutions.",
-          specialty: "Investment Finance & Credit Solutions",
-          image: partnersFinancial
-        }
-      ]
-    },
-    {
-      id: "advisory",
-      title: "Strategic Advisory Partners",
-      subtitle: "Strategic Advisory Allies",
-      description: "Consulting firms, compliance specialists, and industry regulators ensuring our solutions meet legal and market standards.",
-      icon: Shield,
-      image: partnersAdvisory,
-      partners: [
-        {
-          name: "Central Bank of Kenya (CBK)",
-          logo: "CBK",
-          description: "Regulatory partnership ensuring all fintech solutions comply with banking regulations and data protection standards.",
-          specialty: "Regulatory Compliance & Banking Standards",
-          image: partnersAdvisory
-        },
-        {
-          name: "PwC East Africa",
-          logo: "PwC",
-          description: "Global consulting firm providing regulatory guidance and compliance frameworks for financial technology solutions.",
-          specialty: "Regulatory Advisory & Compliance",
-          image: partnersAdvisory
-        },
-        {
-          name: "Deloitte Africa",
-          logo: "DL",
-          description: "Strategic consulting partner helping navigate complex regulatory environments and market entry strategies.",
-          specialty: "Strategic Consulting & Market Intelligence",
-          image: partnersAdvisory
-        },
-        {
-          name: "KPMG Kenya",
-          logo: "KP",
-          description: "Professional services firm supporting audit, compliance, and risk management frameworks for financial institutions.",
-          specialty: "Audit, Risk & Compliance Advisory",
-          image: partnersAdvisory
-        }
-      ]
-    },
-    {
-      id: "innovation",
-      title: "Development & Innovation Partners",
-      subtitle: "Innovation & Research Partners",
-      description: "Research institutions and startups driving innovation through AI research, pilot projects, and talent development.",
-      icon: Lightbulb,
-      image: partnersInnovation,
-      partners: [
-        {
-          name: "Taimos Technologies Ltd",
-          logo: "TT",
-          description: "Local technology partner specializing in custom software development and innovative fintech solutions for African markets.",
-          specialty: "Custom Software Development & Integration",
-          image: partnersInnovation
-        },
-        {
-          name: "University of Nairobi - School of Computing",
-          logo: "UoN",
-          description: "Academic partnership for AI research, talent development, and innovative fintech solution development.",
-          specialty: "AI Research & Talent Development",
-          image: partnersInnovation
-        },
-        {
-          name: "iHub Nairobi",
-          logo: "iH",
-          description: "Innovation hub connecting us with emerging startups and fostering collaborative technology development in East Africa.",
-          specialty: "Startup Innovation & Tech Ecosystem",
-          image: partnersInnovation
-        },
-        {
-          name: "CIPIT - Centre for Intellectual Property",
-          logo: "CIP",
-          description: "Research center partnership for intellectual property protection and technology transfer in financial innovation.",
-          specialty: "IP Protection & Technology Transfer",
-          image: partnersInnovation
-        }
-      ]
-    }
-  ];
-
-  const testimonials = [
-    {
-      company: "Jubilee Insurance",
-      logo: "JI",
-      feedback: "DFT Consult transformed our claims processing with AI automation. Processing time reduced by 85% while maintaining 99% accuracy.",
-      author: "Sarah Mwangi",
-      position: "Head of Digital Innovation"
-    },
-    {
-      company: "Equity Bank",
-      logo: "EB", 
-      feedback: "Their credit scoring solutions helped us expand lending to underbanked populations with 40% improved risk assessment accuracy.",
-      author: "James Kimani",
-      position: "Chief Technology Officer"
-    },
-    {
-      company: "KCB Group",
-      logo: "KCB",
-      feedback: "The AI-powered document analysis reduced our loan application processing time from days to minutes. Exceptional results.",
-      author: "Grace Wanjiku",
-      position: "Head of Digital Banking"
-    },
-    {
-      company: "Centum Investment",
-      logo: "CI",
-      feedback: "DFT's alternative credit scoring opened new market segments for us. Their solutions are both innovative and practical.",
-      author: "Michael Ochieng",
-      position: "Investment Director"
-    },
-    {
-      company: "Britam Insurance",
-      logo: "BI",
-      feedback: "Outstanding fraud detection capabilities. We've seen a 92% reduction in fraudulent claims since implementing their AI solutions.",
-      author: "Patricia Muthoni", 
-      position: "Risk Management Director"
-    },
-    {
-      company: "Diamond Trust Bank",
-      logo: "DTB",
-      feedback: "Their API integration made our digital transformation seamless. Customer onboarding improved dramatically with their solutions.",
-      author: "Robert Kuria",
-      position: "Head of Operations"
-    }
-  ];
-
   const partnersFAQs = [
     {
-      question: "How can my organization become a partner of DFT Consult?",
-      answer: "We're always open to strategic partnerships. Contact us through our partnership inquiry form or reach out directly to our business development team. We'll schedule a consultation to discuss potential collaboration opportunities that align with both our missions."
+      question: "How does DFT Consult's partnership with Perfios benefit East African businesses?",
+      answer: "Through our partnership with Perfios, we bring world-class AI-powered financial document analysis to East Africa. This means faster loan approvals, automated bank statement analysis, and enhanced fraud detection - all tailored for the African market. Businesses can now access enterprise-grade fintech solutions without the complexity of international implementations."
     },
     {
-      question: "What types of partnerships does DFT Consult offer?",
-      answer: "We offer various partnership models including technology partnerships (integration and API partnerships), financial sector collaborations, strategic advisory partnerships, and innovation & research partnerships with academic institutions and startups."
+      question: "What makes iNube Solutions valuable for the African insurance market?",
+      answer: "iNube's low-code/no-code insurance platform allows African insurers to digitally transform rapidly without extensive technical resources. Their proven solutions for life, general, crop, health, and motor insurance are adapted by DFT for local regulatory requirements, enabling insurers to compete globally while serving local markets effectively."
     },
     {
-      question: "Who is Perfios and what is their relationship with DFT Consult?",
-      answer: "Perfios is a leading Indian fintech solutions provider specializing in real-time data aggregation and analytics. Our strategic partnership with Perfios enables us to deliver world-class bank statement analysis and financial data intelligence solutions to African markets."
+      question: "Does DFT provide local support for these international solutions?",
+      answer: "Absolutely! As an authorized reseller and implementation partner, we provide full local support including consultation, implementation, customization, training, and ongoing technical support. We bridge the gap between global technology and local business needs, ensuring seamless integration with existing systems."
     },
     {
-      question: "Does DFT Consult work with international partners?",
-      answer: "Yes, we maintain strategic partnerships with global technology leaders including Microsoft Azure, AWS, and NVIDIA, as well as international consulting firms like PwC, Deloitte, and KPMG to bring world-class solutions to African markets."
+      question: "Can small and medium enterprises access these solutions?",
+      answer: "Yes! One of our key missions is democratizing access to world-class fintech solutions. We've structured flexible pricing and implementation models specifically designed for SMEs in Kenya and East Africa, making enterprise-grade AI technology accessible to businesses of all sizes."
     },
     {
-      question: "What benefits do partners receive when working with DFT Consult?",
-      answer: "Partners gain access to our extensive network across African financial institutions, benefit from our deep local market expertise, collaborative innovation opportunities, and the ability to scale solutions across multiple markets through our established relationships."
+      question: "How does DFT ensure these solutions comply with local regulations?",
+      answer: "We work closely with regulatory bodies like the Central Bank of Kenya and Insurance Regulatory Authority to ensure all solutions meet local compliance requirements. Our team customizes international solutions to align with East African regulatory frameworks, data protection laws, and industry standards."
     },
     {
-      question: "Can startups partner with DFT Consult?",
-      answer: "Absolutely! We actively partner with innovation hubs like iHub Nairobi and work with emerging startups through our Development & Innovation Partners program. We're committed to fostering the fintech ecosystem and supporting innovative solutions."
+      question: "What kind of ROI can businesses expect from these solutions?",
+      answer: "Our clients typically see 60-85% reduction in document processing time, 40-70% improvement in fraud detection, and significant cost savings in operational expenses. The exact ROI varies by industry and implementation scope, but we provide detailed projections during consultation."
     }
   ];
 
@@ -264,235 +57,491 @@ const Partners = () => {
         <div className="absolute inset-0 z-0">
           <img 
             src={partnersHeroImg} 
-            alt="Strategic Partnership Collaboration" 
+            alt="Global Technology Partnership" 
             className="w-full h-full object-cover opacity-20"
           />
-          <div className="absolute inset-0 bg-gradient-to-br from-[#4169E1]/30 via-transparent to-[#4169E1]/20"></div>
+          <div className="absolute inset-0 bg-gradient-to-br from-primary/30 via-transparent to-primary/20"></div>
         </div>
         
         <div className="max-w-6xl mx-auto px-6 text-center relative z-10">
-          <Badge className="bg-[#4169E1] text-white mb-6">
-            <Handshake className="w-4 h-4 mr-2" />
-            Strategic Partnerships
+          <Badge className="bg-success text-white mb-6 text-base px-6 py-2">
+            <Handshake className="w-5 h-5 mr-2" />
+            Strategic Global Partnerships
           </Badge>
-          <h1 className="text-4xl md:text-6xl font-bold mb-6 text-[#4169E1]">
-            Our Valued Partners
+          <h1 className="text-4xl md:text-6xl font-bold mb-6 text-primary">
+            Bringing World-Class AI Technology to Africa
           </h1>
           <p className="text-xl text-gray-900 max-w-4xl mx-auto mb-8 leading-relaxed">
-            We believe in the power of collaboration. Our strategic partnerships with industry leaders like <span className="text-[#4169E1] font-semibold">Perfios</span> - 
-            a renowned Indian fintech solutions provider - and other global technology innovators enable us to deliver 
-            world-class AI-powered financial solutions tailored for African markets.
+            DFT Consult partners with <span className="text-success font-semibold">global technology leaders</span> to deliver 
+            cutting-edge AI and insurance solutions to businesses across Kenya and East Africa. Through our strategic partnerships 
+            with <span className="text-primary font-semibold">Perfios</span> and <span className="text-primary font-semibold">iNube Solutions</span>, 
+            we empower African financial institutions and insurers with enterprise-grade technology that drives digital transformation.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
-            <Badge variant="secondary" className="text-sm bg-[#4169E1]/10 text-[#4169E1]">🤝 Strategic Alliances</Badge>
-            <Badge variant="secondary" className="text-sm bg-[#4169E1]/10 text-[#4169E1]">🚀 Innovation Partners</Badge>
-            <Badge variant="secondary" className="text-sm bg-[#4169E1]/10 text-[#4169E1]">🌍 Global Reach</Badge>
+            <Badge variant="secondary" className="text-sm bg-success/10 text-success border-success/30">
+              <Globe className="w-4 h-4 mr-2" />
+              Global Technology
+            </Badge>
+            <Badge variant="secondary" className="text-sm bg-primary/10 text-primary border-primary/30">
+              <Users className="w-4 h-4 mr-2" />
+              Local Expertise
+            </Badge>
+            <Badge variant="secondary" className="text-sm bg-warning/20 text-warning border-warning/40">
+              <Zap className="w-4 h-4 mr-2" />
+              Proven Solutions
+            </Badge>
           </div>
         </div>
       </section>
 
-      {/* Partner Categories - Each category as separate section */}
-      {partnerCategories.map((category, categoryIndex) => {
-        const IconComponent = category.icon;
-        
-        return (
-          <section 
-            key={category.id} 
-            className={`py-20 relative ${categoryIndex % 2 === 1 ? 'bg-gray-50' : 'bg-white'}`}
-          >
-            {categoryIndex % 2 === 1 && (
-              <div className="absolute inset-0 z-0 opacity-15">
-                <img 
-                  src={category.image} 
-                  alt={category.title}
-                  className="w-full h-full object-cover"
-                />
-              </div>
-            )}
-            
-            <div className="max-w-7xl mx-auto px-6 relative z-10">
-              {/* Category Header */}
-              <div className="text-center mb-12">
-                <div className="flex items-center justify-center mb-4">
-                  <div className="w-16 h-16 rounded-full bg-[#4169E1] flex items-center justify-center mr-4">
-                    <IconComponent className="w-8 h-8 text-white" />
-                  </div>
-                  <div className="text-left">
-                    <h2 className="text-3xl md:text-4xl font-bold text-[#4169E1]">
-                      {category.title}
-                    </h2>
-                    <p className="text-lg text-gray-700 font-medium">{category.subtitle}</p>
-                  </div>
-                </div>
-                <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-                  {category.description}
-                </p>
-              </div>
-
-              {/* Partner Tiles Grid */}
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-                {category.partners.map((partner, idx) => (
-                  <Card key={idx} className="group hover:shadow-xl transition-all duration-300 overflow-hidden bg-white border-[#4169E1]/20">
-                    <div className="h-32 overflow-hidden">
-                      <img 
-                        src={partner.image}
-                        alt={partner.name}
-                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
-                      />
-                    </div>
-                    <CardHeader className="pb-3">
-                      <div className="flex flex-col items-center text-center">
-                        <CardTitle className="text-lg mb-2 group-hover:text-[#4169E1] transition-colors">
-                          {partner.name}
-                        </CardTitle>
-                        <Badge variant="outline" className="text-xs mb-3 border-[#4169E1]/30">
-                          {partner.specialty}
-                        </Badge>
-                      </div>
-                    </CardHeader>
-                    <CardContent className="pt-0">
-                      <CardDescription className="text-sm leading-relaxed text-center">
-                        {partner.description}
-                      </CardDescription>
-                    </CardContent>
-                  </Card>
-                ))}
-              </div>
-
-            </div>
-          </section>
-        );
-      })}
-
-      {/* Client Testimonials */}
-      <section className="py-20 relative overflow-hidden bg-white">
-        
-        <div className="max-w-7xl mx-auto px-6 relative z-10">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-[#4169E1]">
-              What Our Clients Say
-            </h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Hear from leading financial institutions who have transformed their operations 
-              through our innovative AI-powered solutions.
-            </p>
-          </div>
-
-          <Carousel
-            opts={{
-              align: "start",
-              loop: true,
-            }}
-            plugins={[
-              Autoplay({
-                delay: 3000,
-                stopOnInteraction: true,
-                stopOnMouseEnter: true,
-              }),
-            ]}
-            className="w-full max-w-5xl mx-auto"
-          >
-            <CarouselContent>
-              {testimonials.map((testimonial, index) => (
-                <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
-                  <Card className="h-full bg-white border-[#4169E1]/20 hover:shadow-lg transition-all duration-300">
-                    <CardHeader className="pb-2">
-                      <div className="flex items-center mb-3">
-                        <div className="w-12 h-12 rounded-full bg-gradient-to-br from-[#4169E1] to-[#4169E1]/70 flex items-center justify-center mr-3">
-                          <span className="font-bold text-white">{testimonial.logo}</span>
-                        </div>
-                        <div>
-                          <CardTitle className="text-lg">{testimonial.company}</CardTitle>
-                          <div className="flex items-center">
-                            {[...Array(5)].map((_, i) => (
-                              <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
-                            ))}
-                          </div>
-                        </div>
-                      </div>
-                    </CardHeader>
-                    <CardContent className="pt-0">
-                      <p className="text-gray-600 text-sm mb-4 leading-relaxed">
-                        "{testimonial.feedback}"
-                      </p>
-                      <div className="border-t pt-3">
-                        <p className="font-semibold text-sm">{testimonial.author}</p>
-                        <p className="text-xs text-gray-500">{testimonial.position}</p>
-                      </div>
-                    </CardContent>
-                  </Card>
-                </CarouselItem>
-              ))}
-            </CarouselContent>
-            <CarouselPrevious />
-            <CarouselNext />
-          </Carousel>
-        </div>
-      </section>
-
-      {/* Partnership Benefits Section */}
-      <section className="py-20 bg-gradient-to-br from-[#4169E1]/5 to-white">
+      {/* Why These Partnerships Matter */}
+      <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-[#4169E1]">
-              Why Partner With Us
+            <Badge className="bg-warning text-black mb-4">
+              The DFT Advantage
+            </Badge>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-primary">
+              Why Our Partnerships Make a Difference
             </h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Join our ecosystem and unlock new opportunities in the fintech landscape
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+              We don't just resell technology - we bring global innovation to African markets with local expertise, 
+              implementation support, and customization for regional needs.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <Card className="text-center p-8 border-[#4169E1]/20 hover:shadow-lg transition-all">
-              <div className="w-16 h-16 rounded-full bg-[#4169E1] flex items-center justify-center mx-auto mb-6">
-                <Globe className="w-8 h-8 text-white" />
-              </div>
-              <h3 className="text-xl font-semibold mb-3 text-gray-900">Global Reach</h3>
-              <p className="text-gray-600">
-                Expand your market reach through our international network and partnerships across African markets
-              </p>
-            </Card>
-
-            <Card className="text-center p-8 border-[#4169E1]/20 hover:shadow-lg transition-all">
-              <div className="w-16 h-16 rounded-full bg-[#4169E1] flex items-center justify-center mx-auto mb-6">
-                <Zap className="w-8 h-8 text-white" />
-              </div>
-              <h3 className="text-xl font-semibold mb-3 text-gray-900">Innovation Edge</h3>
-              <p className="text-gray-600">
-                Access cutting-edge AI technology and innovation resources to stay ahead in the fintech space
-              </p>
-            </Card>
-
-            <Card className="text-center p-8 border-[#4169E1]/20 hover:shadow-lg transition-all">
-              <div className="w-16 h-16 rounded-full bg-[#4169E1] flex items-center justify-center mx-auto mb-6">
-                <Users className="w-8 h-8 text-white" />
-              </div>
-              <h3 className="text-xl font-semibold mb-3 text-gray-900">Collaborative Growth</h3>
-              <p className="text-gray-600">
-                Grow together through strategic collaboration, shared expertise, and mutual success
-              </p>
-            </Card>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {[
+              {
+                icon: Globe,
+                title: "Global Standards",
+                description: "Access to enterprise-grade solutions used by leading institutions worldwide",
+                color: "text-primary"
+              },
+              {
+                icon: Shield,
+                title: "Local Compliance",
+                description: "Full adaptation to East African regulatory requirements and data protection laws",
+                color: "text-success"
+              },
+              {
+                icon: Users,
+                title: "Expert Support",
+                description: "Dedicated local team for implementation, training, and ongoing technical assistance",
+                color: "text-accent"
+              },
+              {
+                icon: TrendingUp,
+                title: "Proven ROI",
+                description: "60-85% efficiency gains and significant cost savings for our clients",
+                color: "text-warning"
+              }
+            ].map((benefit, idx) => (
+              <Card key={idx} className="border-2 border-success/20 hover:shadow-lg transition-all duration-300">
+                <CardHeader>
+                  <div className={`w-16 h-16 rounded-full bg-${benefit.color.split('-')[1]}/10 flex items-center justify-center mb-4`}>
+                    <benefit.icon className={`w-8 h-8 ${benefit.color}`} />
+                  </div>
+                  <CardTitle className="text-xl">{benefit.title}</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <CardDescription className="text-base">
+                    {benefit.description}
+                  </CardDescription>
+                </CardContent>
+              </Card>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* FAQ Section */}
-      <FAQSection faqs={partnersFAQs} variant="home" />
+      {/* Partner 1: Perfios */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-12">
+            <div>
+              <Badge className="bg-success text-white mb-4">
+                Technology Partner
+              </Badge>
+              <h2 className="text-4xl md:text-5xl font-bold mb-6 text-primary">
+                Perfios Software Solutions
+              </h2>
+              <p className="text-lg text-gray-700 mb-6 leading-relaxed">
+                <span className="text-success font-semibold">Perfios</span> is a global leader in AI-powered financial data intelligence, 
+                operating across <span className="font-semibold">18+ countries</span> and serving banks, NBFCs, fintechs, and insurance companies worldwide. 
+                Their AI Operating System revolutionizes how financial institutions process applications, verify documents, and detect fraud.
+              </p>
+              <p className="text-lg text-gray-700 mb-6 leading-relaxed">
+                As DFT's strategic technology partner, Perfios enables us to bring world-class document analysis, bank statement processing, 
+                and AI-powered verification to East African financial institutions - solutions that previously required significant 
+                international investment and technical complexity.
+              </p>
+              <div className="flex flex-wrap gap-3 mb-6">
+                <Badge variant="outline" className="border-success text-success">
+                  <FileText className="w-4 h-4 mr-2" />
+                  Document Analysis
+                </Badge>
+                <Badge variant="outline" className="border-success text-success">
+                  <Brain className="w-4 h-4 mr-2" />
+                  AI-Powered Processing
+                </Badge>
+                <Badge variant="outline" className="border-success text-success">
+                  <Lock className="w-4 h-4 mr-2" />
+                  Fraud Detection
+                </Badge>
+                <Badge variant="outline" className="border-success text-success">
+                  <BarChart3 className="w-4 h-4 mr-2" />
+                  Real-Time Analytics
+                </Badge>
+              </div>
+            </div>
 
-      {/* Partnership CTA Section */}
-      <section className="py-20 bg-[#4169E1]">
-        <div className="max-w-4xl mx-auto px-6 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6 text-white">
-            Ready to Partner with Us?
+            <Card className="border-2 border-primary/20 overflow-hidden">
+              <div className="h-64 bg-gradient-to-br from-primary/10 to-success/10 flex items-center justify-center">
+                <img src={logoPerfios} alt="Perfios Logo" className="max-w-full max-h-full object-contain p-8" />
+              </div>
+              <CardContent className="p-8">
+                <div className="grid grid-cols-2 gap-6">
+                  <div>
+                    <div className="text-3xl font-bold text-success mb-2">18+</div>
+                    <div className="text-sm text-gray-600">Global Markets</div>
+                  </div>
+                  <div>
+                    <div className="text-3xl font-bold text-success mb-2">85%</div>
+                    <div className="text-sm text-gray-600">Faster Processing</div>
+                  </div>
+                  <div>
+                    <div className="text-3xl font-bold text-success mb-2">1000+</div>
+                    <div className="text-sm text-gray-600">Clients Worldwide</div>
+                  </div>
+                  <div>
+                    <div className="text-3xl font-bold text-success mb-2">99%</div>
+                    <div className="text-sm text-gray-600">Accuracy Rate</div>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+
+          {/* Perfios Solutions Grid */}
+          <div className="mb-12">
+            <h3 className="text-2xl font-bold mb-6 text-center text-primary">
+              Perfios Solutions Available Through DFT
+            </h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {[
+                {
+                  title: "Bank Statement Analyzer",
+                  description: "AI-powered analysis of bank statements for credit assessment, reducing manual review time by 85%",
+                  features: ["Automated Data Extraction", "Fraud Detection", "Credit Risk Assessment", "Multi-Bank Support"]
+                },
+                {
+                  title: "Document Analyzers",
+                  description: "Intelligent OCR and document processing for financial statements, tax returns, and compliance documents",
+                  features: ["Smart OCR", "Tamper Detection", "Auto-Classification", "Data Validation"]
+                },
+                {
+                  title: "KYC/KYB Solutions",
+                  description: "Comprehensive identity verification and business onboarding with AI-powered validation",
+                  features: ["Video KYC", "Liveness Detection", "Digital Signature", "Compliance Checks"]
+                },
+                {
+                  title: "Fraud Detection Suite",
+                  description: "Advanced AI models to detect document tampering, behavioral anomalies, and fraudulent patterns",
+                  features: ["Document Verification", "Behavior Analysis", "Risk Scoring", "Real-Time Alerts"]
+                },
+                {
+                  title: "Credit Assessment Module",
+                  description: "Automated CAM generation and underwriting support for faster loan decisions",
+                  features: ["Auto CAM Generation", "Risk Analytics", "Portfolio Insights", "Decision Support"]
+                },
+                {
+                  title: "Account Aggregator Integration",
+                  description: "Seamless connection to India's Account Aggregator framework with smart routing",
+                  features: ["FIU++ Integration", "Smart Routing", "Real-Time Data", "Consent Management"]
+                }
+              ].map((solution, idx) => (
+                <Card key={idx} className="border-2 border-success/20 hover:border-success hover:shadow-lg transition-all duration-300">
+                  <CardHeader>
+                    <CardTitle className="text-lg text-primary">{solution.title}</CardTitle>
+                    <CardDescription className="text-sm">
+                      {solution.description}
+                    </CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    <ul className="space-y-2">
+                      {solution.features.map((feature, fidx) => (
+                        <li key={fidx} className="flex items-start text-sm">
+                          <CheckCircle className="w-4 h-4 text-success mr-2 mt-0.5 flex-shrink-0" />
+                          <span>{feature}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Partner 2: iNube Solutions */}
+      <section className="py-20 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-12">
+            <Card className="border-2 border-primary/20 overflow-hidden order-2 lg:order-1">
+              <div className="h-64 bg-gradient-to-br from-primary/10 to-warning/10 flex items-center justify-center">
+                <div className="text-center p-8">
+                  <div className="text-5xl font-bold text-primary mb-4">iNube</div>
+                  <div className="text-xl text-gray-600">Insurance Tech. Simplified.</div>
+                </div>
+              </div>
+              <CardContent className="p-8">
+                <div className="grid grid-cols-2 gap-6">
+                  <div>
+                    <div className="text-3xl font-bold text-warning mb-2">25+</div>
+                    <div className="text-sm text-gray-600">Insurance Partners</div>
+                  </div>
+                  <div>
+                    <div className="text-3xl font-bold text-warning mb-2">800+</div>
+                    <div className="text-sm text-gray-600">Projects Delivered</div>
+                  </div>
+                  <div>
+                    <div className="text-3xl font-bold text-warning mb-2">300+</div>
+                    <div className="text-sm text-gray-600">Team Members</div>
+                  </div>
+                  <div>
+                    <div className="text-3xl font-bold text-warning mb-2">15+</div>
+                    <div className="text-sm text-gray-600">Countries Served</div>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+
+            <div className="order-1 lg:order-2">
+              <Badge className="bg-warning text-black mb-4">
+                Insurance Technology Partner
+              </Badge>
+              <h2 className="text-4xl md:text-5xl font-bold mb-6 text-primary">
+                iNube Solutions
+              </h2>
+              <p className="text-lg text-gray-700 mb-6 leading-relaxed">
+                <span className="text-warning font-semibold">iNube Solutions</span> is a pioneering insurance technology company 
+                that has revolutionized how insurers operate through their innovative <span className="font-semibold">Low Code / No Code</span> platform. 
+                With over <span className="font-semibold">800+ projects</span> and <span className="font-semibold">25+ insurance clients</span> globally, 
+                they deliver comprehensive insurance management systems that are both powerful and easy to implement.
+              </p>
+              <p className="text-lg text-gray-700 mb-6 leading-relaxed">
+                Through our partnership with iNube, DFT brings enterprise-grade insurance platforms to East African insurers, 
+                enabling rapid digital transformation without massive technical overhead. Their solutions are battle-tested across 
+                life, general, crop, health, motor, and travel insurance sectors.
+              </p>
+              <div className="flex flex-wrap gap-3 mb-6">
+                <Badge variant="outline" className="border-warning text-warning">
+                  <Building2 className="w-4 h-4 mr-2" />
+                  Full Suite Platform
+                </Badge>
+                <Badge variant="outline" className="border-warning text-warning">
+                  <Zap className="w-4 h-4 mr-2" />
+                  Low Code / No Code
+                </Badge>
+                <Badge variant="outline" className="border-warning text-warning">
+                  <Shield className="w-4 h-4 mr-2" />
+                  Compliance Ready
+                </Badge>
+                <Badge variant="outline" className="border-warning text-warning">
+                  <TrendingUp className="w-4 h-4 mr-2" />
+                  Rapid Deployment
+                </Badge>
+              </div>
+            </div>
+          </div>
+
+          {/* iNube Solutions Grid */}
+          <div className="mb-12">
+            <h3 className="text-2xl font-bold mb-6 text-center text-primary">
+              iNube Insurance Solutions Available Through DFT
+            </h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {[
+                {
+                  title: "Life Insurance Platform",
+                  description: "Complete policy administration system for individual and group life insurance products",
+                  features: ["Policy Management", "Premium Calculation", "Claims Processing", "Agent Portal"]
+                },
+                {
+                  title: "General Insurance System",
+                  description: "Comprehensive platform for property, casualty, and general insurance operations",
+                  features: ["Multi-Product Support", "Underwriting Engine", "Renewal Management", "Commission Tracking"]
+                },
+                {
+                  title: "Health Insurance Solution",
+                  description: "Specialized system for health insurance with network management and cashless processing",
+                  features: ["Network Hospital Management", "Pre-Authorization", "Cashless Claims", "TPA Integration"]
+                },
+                {
+                  title: "Motor Insurance Platform",
+                  description: "End-to-end motor insurance management with instant quotations and vehicle verification",
+                  features: ["Instant Quotes", "Vehicle Verification", "IDV Calculation", "Garage Management"]
+                },
+                {
+                  title: "Crop Insurance System",
+                  description: "Agricultural insurance platform with satellite integration and weather-based triggers",
+                  features: ["Satellite Integration", "Weather Data", "Crop Damage Assessment", "Farmer Portal"]
+                },
+                {
+                  title: "Travel Insurance Module",
+                  description: "Quick-issue travel insurance with global assistance and emergency response",
+                  features: ["Instant Issuance", "Global Coverage", "Emergency Assistance", "Multi-Currency Support"]
+                }
+              ].map((solution, idx) => (
+                <Card key={idx} className="border-2 border-warning/20 hover:border-warning hover:shadow-lg transition-all duration-300">
+                  <CardHeader>
+                    <CardTitle className="text-lg text-primary">{solution.title}</CardTitle>
+                    <CardDescription className="text-sm">
+                      {solution.description}
+                    </CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    <ul className="space-y-2">
+                      {solution.features.map((feature, fidx) => (
+                        <li key={fidx} className="flex items-start text-sm">
+                          <CheckCircle className="w-4 h-4 text-warning mr-2 mt-0.5 flex-shrink-0" />
+                          <span>{feature}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* How We Make It Work */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center mb-12">
+            <Badge className="bg-primary text-white mb-4">
+              Our Implementation Approach
+            </Badge>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-primary">
+              From Global Innovation to Local Impact
+            </h2>
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+              DFT doesn't just connect you with technology - we ensure successful implementation, 
+              adoption, and long-term value realization.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {[
+              {
+                step: "01",
+                title: "Consultation & Assessment",
+                description: "We analyze your specific needs, existing systems, and regulatory requirements",
+                color: "success"
+              },
+              {
+                step: "02",
+                title: "Solution Design",
+                description: "Custom configuration and integration planning aligned with your business processes",
+                color: "primary"
+              },
+              {
+                step: "03",
+                title: "Implementation & Training",
+                description: "Seamless deployment with comprehensive training for your team",
+                color: "warning"
+              },
+              {
+                step: "04",
+                title: "Support & Optimization",
+                description: "Ongoing technical support and continuous optimization for maximum ROI",
+                color: "accent"
+              }
+            ].map((phase, idx) => (
+              <Card key={idx} className="relative overflow-hidden border-2 border-success/20 hover:shadow-lg transition-all duration-300">
+                <div className={`absolute top-0 left-0 w-full h-2 bg-${phase.color}`}></div>
+                <CardHeader className="pt-8">
+                  <div className={`text-5xl font-bold text-${phase.color}/20 mb-2`}>
+                    {phase.step}
+                  </div>
+                  <CardTitle className="text-xl">{phase.title}</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <CardDescription className="text-base">
+                    {phase.description}
+                  </CardDescription>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Success Stories Carousel */}
+      <section className="py-20 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center mb-12">
+            <Badge className="bg-success text-white mb-4">
+              Client Success Stories
+            </Badge>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-primary">
+              Trusted by Leading Institutions
+            </h2>
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+              See how our partnership solutions are transforming financial services across East Africa
+            </p>
+          </div>
+
+          <PartnersCarousel />
+        </div>
+      </section>
+
+      {/* FAQs */}
+      <section className="py-20 bg-white">
+        <div className="max-w-4xl mx-auto px-6">
+          <div className="text-center mb-12">
+            <Badge className="bg-primary text-white mb-4">
+              Common Questions
+            </Badge>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-primary">
+              Partnership FAQs
+            </h2>
+          </div>
+          <FAQSection faqs={partnersFAQs} />
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-20 bg-success relative overflow-hidden">
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent"></div>
+        </div>
+        <div className="max-w-5xl mx-auto px-6 text-center relative z-10">
+          <h2 className="text-3xl md:text-5xl font-bold mb-6 text-white">
+            Ready to Access World-Class Technology?
           </h2>
-          <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto leading-relaxed">
-            Join our ecosystem of innovative partners and unlock new opportunities in the rapidly evolving 
-            fintech landscape. Let's build the future of financial services together.
+          <p className="text-xl text-white/90 mb-8 max-w-3xl mx-auto">
+            Let's discuss how Perfios and iNube solutions can transform your financial services operations. 
+            Schedule a consultation to explore the possibilities.
           </p>
-          <div className="flex justify-center">
-            <Button size="lg" className="bg-white text-[#4169E1] hover:bg-gray-100">
-              <Handshake className="w-5 h-5 mr-2" />
-              Explore Partnership Opportunities
+          <div className="flex flex-wrap justify-center gap-4">
+            <Button 
+              size="lg" 
+              variant="warning"
+              className="text-lg px-8 shadow-lg hover:shadow-xl transition-all duration-300"
+            >
+              Schedule Consultation
+              <ArrowRight className="ml-2 w-5 h-5" />
+            </Button>
+            <Button 
+              size="lg" 
+              className="bg-white text-success hover:bg-white/90 text-lg px-8 shadow-lg hover:shadow-xl transition-all duration-300"
+            >
+              View Solutions Demo
             </Button>
           </div>
         </div>
