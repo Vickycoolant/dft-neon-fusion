@@ -489,7 +489,7 @@ const About = () => {
                   <div className="text-sm text-gray-600">Strategic Partners</div>
                 </div>
                 <div className="text-center p-4 bg-accent/10 rounded-lg">
-                  <div className="text-3xl font-bold text-accent mb-2">99.9999+</div>
+                  <div className="text-3xl font-bold text-accent mb-2">99.99+</div>
                   <div className="text-sm text-gray-600">Accuracy Rate</div>
                 </div>
               </div>
