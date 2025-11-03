@@ -1,5 +1,6 @@
 import { MapPin, Phone, Mail, Facebook, Twitter, Linkedin, Instagram } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 import dftLogo from "@/assets/dft-logo-new.png";
 
 const Footer = () => {
@@ -61,12 +62,12 @@ const Footer = () => {
             <ul className="space-y-2">
               {quickLinks.map((link) => (
                 <li key={link.label}>
-                  <a 
-                    href={link.path}
+                  <Link 
+                    to={link.path}
                     className="text-gray-300 hover:text-primary transition-colors text-sm"
                   >
                     {link.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -97,9 +98,9 @@ const Footer = () => {
                 <MapPin className="w-4 h-4 text-primary mt-1 flex-shrink-0" />
                 <div>
                   <p className="text-gray-300 text-sm">
-                    Westlands Business District<br />
-                    Nairobi, Kenya<br />
-                    P.O. Box 12345-00100
+                    Manga House, 1st Floor<br />
+                    Kiambere Road<br />
+                    Nairobi, Kenya
                   </p>
                 </div>
               </div>

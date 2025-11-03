@@ -158,35 +158,59 @@ const About = () => {
       </section>
 
       {/* Who We Are Section */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-6">
+      <section className="py-20 bg-gradient-to-br from-gray-50 via-white to-success/5 relative overflow-hidden">
+        {/* Decorative elements */}
+        <div className="absolute inset-0 opacity-5">
+          <div className="absolute top-20 left-10 w-72 h-72 bg-success rounded-full blur-3xl"></div>
+          <div className="absolute bottom-20 right-10 w-96 h-96 bg-primary rounded-full blur-3xl"></div>
+        </div>
+        
+        <div className="max-w-7xl mx-auto px-6 relative z-10">
           <div className="max-w-5xl mx-auto">
-            <div className="text-center mb-12">
-              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+            <div className="text-center mb-16">
+              <div className="inline-block mb-4">
+                <span className="inline-block w-12 h-1 bg-success rounded-full mr-2"></span>
+                <span className="inline-block w-6 h-1 bg-success rounded-full mr-2"></span>
+                <span className="inline-block w-3 h-1 bg-success rounded-full"></span>
+              </div>
+              <h2 className="text-4xl md:text-5xl font-bold text-[#4169E1] mb-4">
                 Who We Are
               </h2>
+              <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+                Your Strategic Technology Consulting Partner in Financial Services
+              </p>
             </div>
             
-            <div className="space-y-6 text-lg text-gray-700 leading-relaxed">
-              <p>
-                At DFT Consulting LLP, we are more than a <span className="font-semibold text-success">technology reseller</span> — we are a <span className="font-semibold text-success">technology consulting firm</span> dedicated to helping <span className="font-semibold text-success">financial institutions</span> turn <span className="font-semibold text-success">innovation</span> into <span className="font-semibold text-success">measurable business value</span>.
-              </p>
-
-              <p>
-                Positioned strategically between <span className="font-semibold text-success">technology providers</span> and their <span className="font-semibold text-success">Banking, Financial Services, and Insurance (BFSI)</span> clients, we bridge the gap between great <span className="font-semibold text-success">technology</span> and real-world <span className="font-semibold text-success">business needs</span>. Our role is to ensure that every <span className="font-semibold text-success">solution</span> deployed is <span className="font-semibold text-success">fit-for-purpose</span>, aligned to <span className="font-semibold text-success">business goals</span>, and delivered within the shortest possible <span className="font-semibold text-success">implementation timelines</span>.
-              </p>
-
-              <p>
-                As <span className="font-semibold text-success">domain experts</span> within the <span className="font-semibold text-success">banking</span> and <span className="font-semibold text-success">insurance</span> sectors, we act as <span className="font-semibold text-success">agents of change</span> — guiding organizations through <span className="font-semibold text-success">digital transformation</span> journeys with clarity, discipline, and <span className="font-semibold text-success">measurable outcomes</span>.
-              </p>
-
-              <p>
-                We are trusted <span className="font-semibold text-success">AI partners</span>, translating <span className="font-semibold text-success">artificial intelligence</span> from a buzzword into <span className="font-semibold text-success">tangible business value</span>. Our consulting approach integrates <span className="font-semibold text-success">technology advisory</span>, <span className="font-semibold text-success">data-driven insights</span>, and <span className="font-semibold text-success">industry expertise</span> to help our clients deliver <span className="font-semibold text-success">faster decisions</span>, <span className="font-semibold text-success">lower risk</span>, and better <span className="font-semibold text-success">customer experiences</span>.
-              </p>
-
-              <p>
-                At DFT, we combine <span className="font-semibold text-success">strategic consulting</span>, <span className="font-semibold text-success">implementation oversight</span>, and <span className="font-semibold text-success">domain depth</span> to ensure <span className="font-semibold text-success">technology</span> works for you, not the other way around.
-              </p>
+            <div className="space-y-8">
+              <div className="bg-white rounded-2xl p-8 shadow-lg border border-success/20 hover:shadow-xl transition-all duration-300 hover:border-success/40">
+                <p className="text-lg leading-relaxed text-gray-700">
+                  At <span className="font-bold text-success">DFT Consulting LLP</span>, we are more than a <span className="font-semibold text-success">technology reseller</span> — we are a <span className="font-semibold text-success">technology consulting firm</span> dedicated to helping <span className="font-semibold text-success">financial institutions</span> turn <span className="font-semibold text-success">innovation</span> into <span className="font-semibold text-success">measurable business value</span>.
+                </p>
+              </div>
+              
+              <div className="bg-gradient-to-r from-success/5 to-transparent rounded-2xl p-8 border-l-4 border-success">
+                <p className="text-lg leading-relaxed text-gray-700">
+                  Positioned strategically between <span className="font-semibold text-success">technology providers</span> and their <span className="font-semibold text-success">Banking, Financial Services, and Insurance (BFSI)</span> clients, we bridge the gap between great technology and <span className="font-semibold text-success">real-world business needs</span>. Our role is to ensure that every solution deployed is <span className="font-semibold text-success">fit-for-purpose</span>, aligned to <span className="font-semibold text-success">business goals</span>, and delivered within the <span className="font-semibold text-success">shortest possible implementation timelines</span>.
+                </p>
+              </div>
+              
+              <div className="bg-white rounded-2xl p-8 shadow-lg border border-primary/20 hover:shadow-xl transition-all duration-300 hover:border-primary/40">
+                <p className="text-lg leading-relaxed text-gray-700">
+                  As <span className="font-semibold text-success">domain experts</span> within the banking and insurance sectors, we act as <span className="font-semibold text-success">agents of change</span> — guiding organizations through <span className="font-semibold text-success">digital transformation journeys</span> with clarity, discipline, and <span className="font-semibold text-success">measurable outcomes</span>.
+                </p>
+              </div>
+              
+              <div className="bg-gradient-to-l from-primary/5 to-transparent rounded-2xl p-8 border-r-4 border-primary">
+                <p className="text-lg leading-relaxed text-gray-700">
+                  We are <span className="font-semibold text-success">trusted AI partners</span>, translating <span className="font-semibold text-success">artificial intelligence</span> from a buzzword into <span className="font-semibold text-success">tangible business value</span>. Our consulting approach integrates <span className="font-semibold text-success">technology advisory</span>, <span className="font-semibold text-success">data-driven insights</span>, and <span className="font-semibold text-success">industry expertise</span> to help our clients deliver <span className="font-semibold text-success">faster decisions</span>, <span className="font-semibold text-success">lower risk</span>, and <span className="font-semibold text-success">better customer experiences</span>.
+                </p>
+              </div>
+              
+              <div className="bg-white rounded-2xl p-8 shadow-lg border border-success/20 hover:shadow-xl transition-all duration-300 hover:border-success/40 text-center">
+                <p className="text-lg leading-relaxed text-gray-700">
+                  At DFT, we combine <span className="font-semibold text-success">strategic consulting</span>, <span className="font-semibold text-success">implementation oversight</span>, and <span className="font-semibold text-success">domain depth</span> to ensure technology works for you, not the other way around.
+                </p>
+              </div>
             </div>
           </div>
         </div>

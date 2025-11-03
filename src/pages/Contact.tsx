@@ -52,7 +52,7 @@ const Contact = () => {
     {
       icon: MapPin,
       title: "Office Address",
-      details: ["DFT Consult Headquarters", "Westlands, Nairobi", "Kenya, East Africa"],
+      details: ["Manga House, 1st Floor", "Kiambere Road", "Nairobi, Kenya"],
       bgColor: "bg-primary",
       textColor: "text-white"
     },
@@ -247,7 +247,7 @@ const Contact = () => {
             {/* Map and Additional Info */}
             <div>
               <div className="mb-8">
-                <h2 className="text-3xl md:text-4xl font-bold mb-4 text-primary">
+                <h2 className="text-3xl md:text-4xl font-bold mb-4 text-[#4169E1]">
                   Find Us
                 </h2>
                 <p className="text-lg text-muted-foreground">
