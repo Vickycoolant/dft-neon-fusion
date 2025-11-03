@@ -232,18 +232,18 @@ const Industry = () => {
 
 
       {/* CTA Section */}
-      <section className="section-padding">
+      <section className="section-padding bg-success">
         <div className="container-max text-center">
           <div className="max-w-3xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6 text-[#4169E1]">
+            <h2 className="text-3xl md:text-4xl font-bold mb-6 text-white">
               Ready to Transform Your Industry Operations?
             </h2>
-            <p className="text-lg text-muted-foreground mb-8">
+            <p className="text-lg text-white/90 mb-8">
               Partner with DFT Consult to leverage cutting-edge AI technology and 
               drive innovation in your financial services operations.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button variant="success" size="lg">
+              <Button variant="secondary" size="lg" className="bg-white text-success hover:bg-white/90">
                 Schedule Industry Consultation
               </Button>
               <Button variant="warning" size="lg">

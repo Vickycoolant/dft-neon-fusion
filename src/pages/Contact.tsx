@@ -59,14 +59,14 @@ const Contact = () => {
     {
       icon: Phone,
       title: "Phone Numbers",
-      details: ["+254 700 123 456", "+254 733 987 654", "24/7 Support Available"],
+      details: ["+254-709-385-024", "24/7 Support Available"],
       bgColor: "bg-success",
       textColor: "text-white"
     },
     {
       icon: Mail,
       title: "Email Addresses",
-      details: ["info@dftconsult.com", "support@dftconsult.com", "partnerships@dftconsult.com"],
+      details: ["info@dftconsult.com", "simion.rutto@dftconsult.com"],
       bgColor: "bg-warning",
       textColor: "text-black"
     },
@@ -247,7 +247,7 @@ const Contact = () => {
             {/* Map and Additional Info */}
             <div>
               <div className="mb-8">
-                <h2 className="text-3xl md:text-4xl font-bold mb-4 text-warning">
+                <h2 className="text-3xl md:text-4xl font-bold mb-4 text-primary">
                   Find Us
                 </h2>
                 <p className="text-lg text-muted-foreground">

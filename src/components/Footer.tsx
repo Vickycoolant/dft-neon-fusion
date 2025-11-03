@@ -15,13 +15,13 @@ const Footer = () => {
   ];
 
   const quickLinks = [
-    "Home",
-    "Services", 
-    "Industry",
-    "Partners",
-    "About Us",
-    "Contact",
-    "Events & Updates"
+    { label: "Home", path: "/" },
+    { label: "Services", path: "/services" },
+    { label: "Industry", path: "/industry" },
+    { label: "Partners", path: "/partners" },
+    { label: "About Us", path: "/about" },
+    { label: "Contact", path: "/contact" },
+    { label: "Events & Updates", path: "/events-updates" }
   ];
 
   return (
@@ -60,12 +60,12 @@ const Footer = () => {
             <h4 className="text-lg font-semibold text-white">Quick Links</h4>
             <ul className="space-y-2">
               {quickLinks.map((link) => (
-                <li key={link}>
+                <li key={link.label}>
                   <a 
-                    href={`/${link.toLowerCase().replace(' ', '-').replace('&', '')}`}
+                    href={link.path}
                     className="text-gray-300 hover:text-primary transition-colors text-sm"
                   >
-                    {link}
+                    {link.label}
                   </a>
                 </li>
               ))}
@@ -105,11 +105,15 @@ const Footer = () => {
               </div>
               <div className="flex items-center space-x-3">
                 <Phone className="w-4 h-4 text-primary flex-shrink-0" />
-                <p className="text-gray-300 text-sm">+254 700 123 456</p>
+                <p className="text-gray-300 text-sm">+254-709-385-024</p>
               </div>
               <div className="flex items-center space-x-3">
                 <Mail className="w-4 h-4 text-primary flex-shrink-0" />
                 <p className="text-gray-300 text-sm">info@dftconsult.com</p>
+              </div>
+              <div className="flex items-center space-x-3">
+                <Mail className="w-4 h-4 text-primary flex-shrink-0" />
+                <p className="text-gray-300 text-sm">simion.rutto@dftconsult.com</p>
               </div>
             </div>
           </div>
