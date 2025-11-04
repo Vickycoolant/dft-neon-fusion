@@ -17,6 +17,9 @@ import {
   Linkedin,
   Instagram
 } from "lucide-react";
+import Navigation from "@/components/Navigation";
+import Footer from "@/components/Footer";
+import DFTMap from "@/components/GoogleMap";
 
 const Contact = () => {
   const { toast } = useToast();
@@ -88,6 +91,7 @@ const Contact = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <Navigation />
       {/* Hero Section */}
       <section className="section-padding bg-gradient-to-br from-primary/5 to-accent/5">
         <div className="container-max text-center">
@@ -255,20 +259,19 @@ const Contact = () => {
                 </p>
               </div>
 
-              {/* Map Placeholder */}
+              {/* Google Map */}
               <Card className="border-success border-2 mb-8">
                 <CardHeader>
                   <CardTitle className="text-lg font-semibold text-warning">
                     Our Location
                   </CardTitle>
+                  <CardDescription>
+                    Manga House, 1st Floor, Kiambere Road, Nairobi, Kenya
+                  </CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <div className="aspect-video bg-gradient-to-br from-primary/20 to-accent/20 rounded-lg flex items-center justify-center">
-                    <div className="text-center">
-                      <MapPin className="w-16 h-16 text-primary/60 mx-auto mb-4" />
-                      <h3 className="text-xl font-bold text-primary/80">Nairobi, Kenya</h3>
-                      <p className="text-muted-foreground mt-2">Interactive Map Coming Soon</p>
-                    </div>
+                  <div className="h-[400px] rounded-lg overflow-hidden">
+                    <DFTMap />
                   </div>
                 </CardContent>
               </Card>
@@ -333,6 +336,8 @@ const Contact = () => {
           </div>
         </div>
       </section>
+
+      <Footer />
     </div>
   );
 };
