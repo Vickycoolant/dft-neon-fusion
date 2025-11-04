@@ -17,9 +17,6 @@ import {
   Linkedin,
   Instagram
 } from "lucide-react";
-import Navigation from "@/components/Navigation";
-import Footer from "@/components/Footer";
-import DFTMap from "@/components/GoogleMap";
 
 const Contact = () => {
   const { toast } = useToast();
@@ -91,7 +88,6 @@ const Contact = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <Navigation />
       {/* Hero Section */}
       <section className="section-padding bg-gradient-to-br from-primary/5 to-accent/5">
         <div className="container-max text-center">
@@ -259,7 +255,7 @@ const Contact = () => {
                 </p>
               </div>
 
-              {/* Google Map */}
+              {/* Embedded Map */}
               <Card className="border-success border-2 mb-8">
                 <CardHeader>
                   <CardTitle className="text-lg font-semibold text-warning">
@@ -271,7 +267,16 @@ const Contact = () => {
                 </CardHeader>
                 <CardContent>
                   <div className="h-[400px] rounded-lg overflow-hidden">
-                    <DFTMap />
+                    <iframe
+                      title="DFT Consult Location"
+                      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.815765!2d36.8150!3d-1.2864!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMcKwMTcnMTEuMCJTIDM2wrA0OCc1NC4wIkU!5e0!3m2!1sen!2ske!4v1234567890"
+                      width="100%"
+                      height="100%"
+                      style={{ border: 0 }}
+                      allowFullScreen
+                      loading="lazy"
+                      referrerPolicy="no-referrer-when-downgrade"
+                    />
                   </div>
                 </CardContent>
               </Card>
@@ -336,8 +341,6 @@ const Contact = () => {
           </div>
         </div>
       </section>
-
-      <Footer />
     </div>
   );
 };
