@@ -244,9 +244,11 @@ const Industry = () => {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
              
-              <Button variant="secondary" size="lg" className="bg-white text-success hover:bg-white/90">
-                Schedule Industry Consultation
-              </Button>
+               <Link to="/contact">
+                <Button variant="warning" size="lg">
+                  Schedule Industry Consultation
+                </Button>
+              </Link>
             </div>
           </div>
         </div>
