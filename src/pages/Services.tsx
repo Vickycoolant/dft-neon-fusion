@@ -424,13 +424,7 @@ const Services = () => {
               </Button>
             </Link>
             <Link to="/contact">
-              <Button 
-                variant="warning"
-                size="lg"
-              >
-                <Mail className="mr-2 w-5 h-5" />
-                Contact Us
-              </Button>
+              
             </Link>
           </div>
         </div>
