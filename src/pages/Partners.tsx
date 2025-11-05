@@ -496,20 +496,7 @@ const Partners = () => {
             Schedule a consultation to explore the possibilities.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
-            <Button 
-              size="lg" 
-              variant="warning"
-              className="text-lg px-8 shadow-lg hover:shadow-xl transition-all duration-300"
-            >
-              Schedule Consultation
-              <ArrowRight className="ml-2 w-5 h-5" />
-            </Button>
-            <Button 
-              size="lg" 
-              className="bg-white text-success hover:bg-white/90 text-lg px-8 shadow-lg hover:shadow-xl transition-all duration-300"
-            >
-              View Solutions Demo
-            </Button>
+            
           </div>
         </div>
       </section>
