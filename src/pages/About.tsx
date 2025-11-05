@@ -18,9 +18,7 @@ import aboutHeroImg from "@/assets/image-3.jpg";
 import dataIntelligenceImg from "@/assets/image-10.jpg";
 import forensicsRiskImg from "@/assets/forensics-risk.jpg";
 import techSolutionsImg from "@/assets/image-3.jpg";
-import leader1 from "@/assets/leader-1.jpg";
-import leader2 from "@/assets/leader-2.jpg";
-import leader3 from "@/assets/leader-3.jpg";
+import simionRutto from "@/assets/simion-rutto.png";
 import missionVision1 from "@/assets/mission-vision-1.jpg";
 import missionVision2 from "@/assets/mission-vision-2.jpg";
 import coreValueIntegrity from "@/assets/core-value-integrity.jpg";
@@ -73,22 +71,23 @@ const About = () => {
 
   const leaders = [
     {
-      name: "Dr. James Mwangi",
-      position: "Chief Executive Officer & Co-Founder",
-      image: leader1,
-      description: "With 20+ years in financial technology, Dr. Mwangi leads DFT's strategic vision. Former CTO at a leading African bank, he holds a PhD in Computer Science and has published extensively on AI applications in finance."
-    },
-    {
-      name: "Sarah Wanjiku",
-      position: "Chief Technology Officer",
-      image: leader2,
-      description: "Sarah brings 15+ years of experience in AI and machine learning. Previously at Microsoft Azure AI, she specializes in building scalable fintech solutions and holds multiple patents in fraud detection algorithms."
-    },
-    {
-      name: "Michael Ochieng",
-      position: "Chief Operations Officer",
-      image: leader3,
-      description: "Michael has 18+ years managing large-scale financial operations across East Africa. Former Regional Director at Equity Bank, he ensures seamless delivery of DFT's solutions to clients."
+      name: "Simion Rutto",
+      position: "Founder & Managing Partner",
+      credentials: [
+        "Certified Fraud Examiner (CFE)",
+        "Certified Digital Forensics Expert",
+        "Certified Public Accountant (CPA)",
+        "Seasoned Internal Auditor",
+        "Risk Management Expert"
+      ],
+      image: simionRutto,
+      biography: "Simion Rutto is a cross-disciplinary leader in fraud risk management, forensic audit, digital forensics, data analytics, and corporate governance with 15+ years across the banking and insurance sectors (BFSI). A highly accomplished fraud fighter, his experience spans digital forensics, fraud investigation, data analytics, accounting, auditing, and general management.",
+      experience: "He has been responsible for enterprise fraud-risk programs across seven African countries—Kenya, Uganda, Tanzania, Rwanda, Malawi, South Sudan, and Mozambique—and is credited with leading investigations that delivered over USD 1M in annual cost savings. Simion regularly shares his insights at industry forums across Africa, inspiring practitioners and leaders alike.",
+      previousRoles: [
+        "Group Head of Forensics Services, Britam",
+        "Forensic Audit Lead, Britam (covering seven African markets)",
+        "Internal Auditor, The Co-operative Bank of Kenya (controls, AML compliance, risk modeling)"
+      ]
     }
   ];
 
@@ -498,41 +497,81 @@ const About = () => {
         </div>
       </section>
 
-      {/* Leadership & Team */}
-      <section className="py-20 bg-white">
+      {/* Our Leadership */}
+      <section className="py-20 bg-gradient-to-br from-gray-50 to-white">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-[#4169E1] mb-6">
-              Leadership & Team
+              Our Leadership
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Seasoned professionals with deep industry knowledge and global experience
+              Leading expertise in fraud risk management and forensic services
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="max-w-5xl mx-auto">
             {leaders.map((leader, index) => (
-              <Card key={index} className="bg-white hover:shadow-2xl transition-all duration-300 group overflow-hidden">
-                <div className="aspect-square overflow-hidden">
-                  <img 
-                    src={leader.image} 
-                    alt={leader.name}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
-                  />
+              <Card key={index} className="bg-white shadow-2xl border-2 border-[#4169E1]/20 overflow-hidden">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 p-8">
+                  {/* Profile Image */}
+                  <div className="md:col-span-1 flex justify-center items-start">
+                    <div className="w-full max-w-xs rounded-2xl overflow-hidden shadow-lg border-4 border-[#4169E1]/10">
+                      <img 
+                        src={leader.image} 
+                        alt={leader.name}
+                        className="w-full h-auto object-cover"
+                      />
+                    </div>
+                  </div>
+
+                  {/* Profile Details */}
+                  <div className="md:col-span-2 space-y-6">
+                    <div>
+                      <h3 className="text-3xl font-bold text-gray-900 mb-2">
+                        {leader.name}
+                      </h3>
+                      <p className="text-xl text-[#4169E1] font-semibold mb-4">
+                        {leader.position}
+                      </p>
+                      
+                      {/* Credentials */}
+                      <div className="mb-6">
+                        <h4 className="text-lg font-bold text-gray-900 mb-3">Credentials</h4>
+                        <div className="flex flex-wrap gap-2">
+                          {leader.credentials.map((credential, idx) => (
+                            <Badge key={idx} className="bg-success text-white px-3 py-1">
+                              {credential}
+                            </Badge>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Biography */}
+                    <div>
+                      <h4 className="text-lg font-bold text-gray-900 mb-3">Biography</h4>
+                      <p className="text-gray-700 leading-relaxed mb-4">
+                        {leader.biography}
+                      </p>
+                      <p className="text-gray-700 leading-relaxed">
+                        {leader.experience}
+                      </p>
+                    </div>
+
+                    {/* Previous Roles */}
+                    <div>
+                      <h4 className="text-lg font-bold text-gray-900 mb-3">Previous Roles</h4>
+                      <ul className="space-y-2">
+                        {leader.previousRoles.map((role, idx) => (
+                          <li key={idx} className="flex items-start gap-2">
+                            <CheckCircle className="w-5 h-5 text-[#4169E1] flex-shrink-0 mt-0.5" />
+                            <span className="text-gray-700">{role}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
                 </div>
-                <CardHeader>
-                  <CardTitle className="text-xl font-bold text-gray-900">
-                    {leader.name}
-                  </CardTitle>
-                  <CardDescription className="text-[#4169E1] font-semibold">
-                    {leader.position}
-                  </CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-gray-600 leading-relaxed text-sm">
-                    {leader.description}
-                  </p>
-                </CardContent>
               </Card>
             ))}
           </div>
