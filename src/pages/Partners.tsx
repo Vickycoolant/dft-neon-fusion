@@ -72,7 +72,7 @@ const Partners = () => {
             Bringing World-Class AI Technology to Africa
           </h1>
           <p className="text-xl text-gray-900 max-w-4xl mx-auto mb-8 leading-relaxed">
-            DFT Consult partners with <span className="text-success font-semibold">global technology leaders</span> to deliver 
+            DFT Group partners with <span className="text-success font-semibold">global technology leaders</span> to deliver 
             cutting-edge AI and insurance solutions to businesses across Kenya and East Africa. Through our strategic partnerships 
             with <span className="text-primary font-semibold">Perfios</span> and <span className="text-primary font-semibold">iNube Solutions</span>, 
             we empower African financial institutions and insurers with enterprise-grade technology that drives digital transformation.
