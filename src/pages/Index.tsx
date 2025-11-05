@@ -32,27 +32,27 @@ const Index = () => {
 
   const homeFAQs = [
     {
-      question: "What services does DFT Consult provide?",
+      question: "What services does DFT Group provide?",
       answer: "DFT Consult offers three major service categories: Data Analysis (AI-driven analytics and forecasting), Digital Forensics (security solutions and fraud detection), and Technology Consulting (strategic guidance and custom AI solutions for fintech applications)."
     },
     {
-      question: "Which industries does DFT Consult specialize in?",
+      question: "Which industries does DFT Droup specialize in?",
       answer: "We specialize in the Banking & Financial Services, Finance & Investment, and Insurance & Risk Management sectors. Our AI-powered solutions are specifically tailored for these industries to enhance operations, reduce risk, and improve decision-making."
     },
     {
-      question: "How does DFT Consult's AI technology work?",
+      question: "How does DFT Group's AI technology work?",
       answer: "Our AI workflow follows three stages: Input (raw documents and financial data), AI Analysis (advanced machine learning algorithms process and extract insights), and Output (comprehensive reports, risk assessments, credit scores, and actionable recommendations)."
     },
     {
-      question: "What makes DFT Consult's solutions reliable?",
+      question: "What makes DFT Group's solutions reliable?",
       answer: "We guarantee 99.9999% quality assurance in data handling and analytics. Our solutions are built on cutting-edge AI innovation, designed for scalability to grow with your business, and backed by robust architecture for uninterrupted, consistent performance."
     },
     {
-      question: "Can DFT Consult integrate with our existing systems?",
+      question: "Can DFT Group integrate with our existing systems?",
       answer: "Yes, our solutions are designed for seamless integration with existing systems. We work with cloud platforms like Microsoft Azure and AWS, and our technology consulting services include custom API development and system integration tailored to your specific infrastructure."
     },
     {
-      question: "How can we get started with DFT Consult?",
+      question: "How can we get started with DFT Group?",
       answer: "Simply schedule a consultation with our team. We'll discuss your specific business needs, demonstrate relevant solutions, and create a customized implementation plan. Contact us through our website or reach out to our business development team directly."
     }
   ];
