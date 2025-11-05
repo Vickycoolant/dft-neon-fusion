@@ -411,7 +411,7 @@ const Services = () => {
             Ready to transform your financial workflows?
           </h2>
           <p className="text-xl text-white/90 mb-10 leading-relaxed">
-            Join leading financial institutions who trust DFT Consult to drive their digital transformation.
+            Join leading financial institutions who trust DFT Group to drive their digital transformation.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link to="/contact">
