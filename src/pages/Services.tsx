@@ -417,12 +417,15 @@ const Services = () => {
             <Link to="/contact">
               <Button 
                 variant="warning"
-                size="lg"  >
+                size="lg"
+              >
                 <Phone className="mr-2 w-5 h-5" />
                 Book a Consultation
               </Button>
             </Link>
-           
+            <Link to="/contact">
+              
+            </Link>
           </div>
         </div>
       </section>
