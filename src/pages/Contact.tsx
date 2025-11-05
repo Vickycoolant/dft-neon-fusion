@@ -331,12 +331,7 @@ const Contact = () => {
               we're here to help you succeed.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button variant="secondary" size="lg" className="bg-white text-success hover:bg-white/90">
-                Schedule a Consultation
-              </Button>
-              <Button variant="warning" size="lg">
-                Request a Demo
-              </Button>
+              
             </div>
           </div>
         </div>
