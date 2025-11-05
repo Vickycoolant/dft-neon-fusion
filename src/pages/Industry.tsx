@@ -239,7 +239,7 @@ const Industry = () => {
               Ready to Transform Your Industry Operations?
             </h2>
             <p className="text-lg text-white/90 mb-8">
-              Partner with DFT Consult to leverage cutting-edge AI technology and 
+              Partner with DFT Group to leverage cutting-edge AI technology and 
               drive innovation in your financial services operations.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
