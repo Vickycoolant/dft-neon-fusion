@@ -127,7 +127,7 @@ const Index = () => {
       <div className="space-y-8 text-left">
         <div className="prose prose-lg max-w-none text-muted-foreground leading-relaxed">
           <p className="mb-6">
-           At DFT Consulting, we bridge the gap between global innovation and local impact. Working alongside our technology
+           DFT Group bridges the gap between global innovation and local impact. Working alongside our technology
             partners — <span className="text-success font-semibold">Perfios</span> and <span className="text-success font-semibold">iNube</span> — we have
            <span className="text-success font-semibold"> we have localized world-class, AI-ready technology solutions</span> to meet the unique needs of the <span className="text-success font-semibold"> East African BFSI market.
             </span>
