@@ -243,12 +243,11 @@ const Industry = () => {
               drive innovation in your financial services operations.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Link to="/contact">
               <Button variant="secondary" size="lg" className="bg-white text-success hover:bg-white/90">
                 Schedule Industry Consultation
               </Button>
-              <Button variant="warning" size="lg">
-                Download Industry Guide
-              </Button>
+             </link>
             </div>
           </div>
         </div>
