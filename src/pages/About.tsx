@@ -102,27 +102,27 @@ const About = () => {
 
   const aboutFAQs = [
     {
-      question: "What is DFT Consult's main area of expertise?",
-      answer: "DFT Consult specializes in AI-powered solutions for the financial sector, including banking, finance, and insurance. We offer data intelligence & analytics, digital forensics & risk management, and technology & embedded finance solutions tailored for African markets."
+      question: "What is DFT Group's main area of expertise?",
+      answer: "DFT Group specializes in AI-powered solutions for the financial sector, including banking, finance, and insurance. We offer data intelligence & analytics, digital forensics & risk management, and technology & embedded finance solutions tailored for African markets."
     },
     {
-      question: "How long has DFT Consult been in business?",
+      question: "How long has DFT Group been in business?",
       answer: "We have over 15 years of experience delivering cutting-edge AI and fintech solutions to financial institutions across Africa. Our team has served 200+ clients and completed 500+ projects."
     },
     {
-      question: "Who are DFT Consult's strategic partners?",
+      question: "Who are DFT Group's strategic partners?",
       answer: "We partner with international technology leaders like Perfios, a leading Indian fintech solutions provider, bringing global expertise combined with deep local market knowledge to deliver world-class solutions."
     },
     {
-      question: "What industries does DFT Consult serve?",
+      question: "What industries does DFT Group serve?",
       answer: "We primarily serve the banking, finance, and insurance sectors, working with leading institutions across Africa to transform their operations through intelligent automation, advanced analytics, and cutting-edge technology."
     },
     {
-      question: "What makes DFT Consult different from other fintech consultants?",
+      question: "What makes DFT Group different from other fintech consultants?",
       answer: "Our unique combination of 15+ years of local market expertise, international partnerships with technology leaders, and focus on AI-driven innovation sets us apart. We deliver solutions that are both globally informed and locally relevant."
     },
     {
-      question: "How can my organization partner with DFT Consult?",
+      question: "How can my organization partner with DFT Group?",
       answer: "You can reach out through our contact page to schedule a consultation. We'll discuss your specific needs and how our AI-powered solutions can help transform your operations and drive measurable business impact."
     }
   ];
@@ -143,7 +143,7 @@ const About = () => {
         <div className="max-w-4xl mx-auto px-6 text-center relative z-10">
           <Badge className="bg-warning text-black mb-6">
             <Globe className="w-4 h-4 mr-2" />
-            About DFT Consult
+            About DFT Group 
           </Badge>
           <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
             Empowering Finance with{" "}
@@ -183,7 +183,7 @@ const About = () => {
             <div className="space-y-8">
               <div className="bg-white rounded-2xl p-8 shadow-lg border border-success/20 hover:shadow-xl transition-all duration-300 hover:border-success/40">
                 <p className="text-lg leading-relaxed text-gray-700">
-                  At <span className="font-bold text-success">DFT Consulting LLP</span>, we are more than a <span className="font-semibold text-success">technology reseller</span> — we are a <span className="font-semibold text-success">technology consulting firm</span> dedicated to helping <span className="font-semibold text-success">financial institutions</span> turn <span className="font-semibold text-success">innovation</span> into <span className="font-semibold text-success">measurable business value</span>.
+                  At <span className="font-bold text-success">DFT Group</span>, we are more than a <span className="font-semibold text-success">technology reseller</span> — we are a <span className="font-semibold text-success">technology consulting firm</span> dedicated to helping <span className="font-semibold text-success">financial institutions</span> turn <span className="font-semibold text-success">innovation</span> into <span className="font-semibold text-success">measurable business value</span>.
                 </p>
               </div>
               
@@ -207,7 +207,7 @@ const About = () => {
               
               <div className="bg-white rounded-2xl p-8 shadow-lg border border-success/20 hover:shadow-xl transition-all duration-300 hover:border-success/40 text-center">
                 <p className="text-lg leading-relaxed text-gray-700">
-                  At DFT, we combine <span className="font-semibold text-success">strategic consulting</span>, <span className="font-semibold text-success">implementation oversight</span>, and <span className="font-semibold text-success">domain depth</span> to ensure technology works for you, not the other way around.
+                  At DFT Group, we combine <span className="font-semibold text-success">strategic consulting</span>, <span className="font-semibold text-success">implementation oversight</span>, and <span className="font-semibold text-success">domain depth</span> to ensure technology works for you, not the other way around.
                 </p>
               </div>
             </div>
@@ -229,7 +229,7 @@ const About = () => {
                 <span className="text-[#4169E1]">AI Innovation</span>
               </h1>
               <p className="text-lg text-gray-700 leading-relaxed">
-                For over <strong>15 years</strong>, DFT Consult has been at the forefront of AI-powered financial solutions. 
+                For over <strong>15 years</strong>, DFT Group has been at the forefront of AI-powered financial solutions. 
                 We partner with leading banks, insurance companies, and financial institutions across Africa to transform 
                 their operations through intelligent automation, advanced analytics, and cutting-edge technology.
               </p>
