@@ -539,6 +539,40 @@ const About = () => {
         </div>
       </section>
 
+     
+
+      {/* CTA Section */}
+      <section className="py-20 bg-success">
+        <div className="max-w-4xl mx-auto px-6 text-center">
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+            Partner with us to shape the future of financial technology
+          </h2>
+          <p className="text-xl text-white/90 mb-10 leading-relaxed">
+            Let's work together to transform your financial operations with AI-powered innovation
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link to="/contact">
+              <Button 
+                size="lg"
+                variant="secondary"
+                className="bg-white text-success hover:bg-white/90"
+              >
+                Contact Us
+                <ArrowRight className="ml-2 w-5 h-5" />
+              </Button>
+            </Link>
+            <Link to="/services">
+              <Button 
+                size="lg"
+                variant="warning"
+              >
+                Explore Our Services
+              </Button>
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* FAQ Section */}
       <FAQSection faqs={aboutFAQs} variant="about" />
 
@@ -574,37 +608,6 @@ const About = () => {
         }
       `}</style>
     </div>
-    {/* CTA Section */}
-      <section className="py-20 bg-success">
-        <div className="max-w-4xl mx-auto px-6 text-center">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-            Partner with us to shape the future of financial technology
-          </h2>
-          <p className="text-xl text-white/90 mb-10 leading-relaxed">
-            Let's work together to transform your financial operations with AI-powered innovation
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link to="/contact">
-              <Button 
-                size="lg"
-                variant="secondary"
-                className="bg-white text-success hover:bg-white/90"
-              >
-                Contact Us
-                <ArrowRight className="ml-2 w-5 h-5" />
-              </Button>
-            </Link>
-            <Link to="/services">
-              <Button 
-                size="lg"
-                variant="warning"
-              >
-                Explore Our Services
-              </Button>
-            </Link>
-          </div>
-        </div>
-      </section>
   );
 };
 
