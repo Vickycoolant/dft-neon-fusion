@@ -124,7 +124,7 @@ const Services = () => {
     },
     {
       id: "technology-solutions",
-      title: "Technology Solutions", 
+      title: "Tech Solutions", 
       summary: "Deploy cutting-edge software, cloud, and embedded finance tools.",
       image: techSolutionsImg,
       icon: Code,
