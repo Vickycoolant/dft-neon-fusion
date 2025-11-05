@@ -79,7 +79,7 @@ const Services = () => {
     },
     {
       id: "forensics-risk",
-      title: "Digital Forensics & Risk",
+      title: "Digital Forensics",
       summary: "Detect fraud, investigate misconduct, and protect digital assets.",
       image: forensicsRiskImg,
       icon: Shield,
