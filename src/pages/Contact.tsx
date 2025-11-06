@@ -36,7 +36,7 @@ const Contact = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     
-    // Prepare email content
+    // Prepare email content for Gmail
     const toEmail = "info@dftconsult.com";
     const ccEmail = "simion.rutto@dftconsult.com";
     const subject = encodeURIComponent(`Contact Form - ${formData.subject}`);
@@ -47,15 +47,13 @@ const Contact = () => {
       `Message:\n${formData.message}`
     );
     
-    // Open Gmail with pre-filled content
-    window.open(
-      `mailto:${toEmail}?cc=${ccEmail}&subject=${subject}&body=${body}`,
-      '_blank'
-    );
+    // Open Gmail compose with pre-filled content
+    const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${toEmail}&cc=${ccEmail}&su=${subject}&body=${body}`;
+    window.open(gmailUrl, '_blank');
     
     toast({
-      title: "Email Prepared!",
-      description: "Your email client has been opened. Review and click send to submit your message.",
+      title: "Gmail Opened!",
+      description: "Gmail has been opened with your message. Review and click send to submit.",
     });
     
     // Clear form
