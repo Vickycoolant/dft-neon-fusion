@@ -35,10 +35,30 @@ const Contact = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    
+    // Prepare email content
+    const toEmail = "info@dftconsult.com";
+    const ccEmail = "simion.rutto@dftconsult.com";
+    const subject = encodeURIComponent(`Contact Form - ${formData.subject}`);
+    const body = encodeURIComponent(
+      `Name: ${formData.name}\n` +
+      `Email: ${formData.email}\n` +
+      `Company: ${formData.company || 'N/A'}\n\n` +
+      `Message:\n${formData.message}`
+    );
+    
+    // Open Gmail with pre-filled content
+    window.open(
+      `mailto:${toEmail}?cc=${ccEmail}&subject=${subject}&body=${body}`,
+      '_blank'
+    );
+    
     toast({
-      title: "Message Sent!",
-      description: "Thank you for contacting us. We'll get back to you within 24 hours.",
+      title: "Email Prepared!",
+      description: "Your email client has been opened. Review and click send to submit your message.",
     });
+    
+    // Clear form
     setFormData({
       name: "",
       email: "",
