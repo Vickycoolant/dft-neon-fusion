@@ -76,8 +76,8 @@ const Contact = () => {
     },
     {
       icon: Phone,
-      title: "Phone Numbers",
-      details: ["+254-709-385-024", "24/7 Support Available"],
+      title: "Phone Number",
+      details: ["+254-720856170", "24/7 Support Available"],
       bgColor: "bg-success",
       textColor: "text-white"
     },
