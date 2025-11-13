@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
@@ -39,6 +40,7 @@ const categoryConfig = {
 };
 
 const EventsUpdates = () => {
+  const navigate = useNavigate();
   const [posts, setPosts] = useState<Post[]>([]);
   const [filteredPosts, setFilteredPosts] = useState<Post[]>([]);
   const [searchQuery, setSearchQuery] = useState("");
@@ -92,7 +94,10 @@ const EventsUpdates = () => {
     const Icon = config.icon;
 
     return (
-      <Card className="group overflow-hidden hover:shadow-lg transition-all duration-300 animate-fade-in">
+      <Card 
+        className="group overflow-hidden hover:shadow-lg transition-all duration-300 animate-fade-in cursor-pointer"
+        onClick={() => navigate(`/events/${post.id}`)}
+      >
         {post.image_url && (
           <div className="relative h-48 overflow-hidden">
             <img
@@ -117,6 +122,9 @@ const EventsUpdates = () => {
         </CardHeader>
         <CardContent>
           <p className="text-muted-foreground line-clamp-3">{post.description}</p>
+          <Button variant="link" className="mt-2 p-0 h-auto">
+            Read more →
+          </Button>
         </CardContent>
       </Card>
     );

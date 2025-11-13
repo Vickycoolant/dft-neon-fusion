@@ -11,6 +11,7 @@ import Partners from "./pages/Partners";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import EventsUpdates from "./pages/EventsUpdates";
+import EventDetail from "./pages/EventDetail";
 import AdminLogin from "./pages/AdminLogin";
 import AdminDashboard from "./pages/AdminDashboard";
 import NotFound from "./pages/NotFound";
@@ -36,6 +37,7 @@ const App = () => (
             <Route path="/partners" element={<Partners />} />
             <Route path="/about" element={<About />} />
             <Route path="/events" element={<EventsUpdates />} />
+            <Route path="/events/:id" element={<EventDetail />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/admin/login" element={<AdminLogin />} />
             <Route path="/admin/dashboard" element={<AdminDashboard />} />

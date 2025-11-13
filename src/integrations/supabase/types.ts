@@ -17,33 +17,39 @@ export type Database = {
       posts: {
         Row: {
           category: Database["public"]["Enums"]["post_category"]
+          content: string | null
           created_at: string
           created_by: string | null
           description: string
           id: string
           image_url: string | null
+          images: string[] | null
           scheduled_at: string | null
           title: string
           updated_at: string
         }
         Insert: {
           category: Database["public"]["Enums"]["post_category"]
+          content?: string | null
           created_at?: string
           created_by?: string | null
           description: string
           id?: string
           image_url?: string | null
+          images?: string[] | null
           scheduled_at?: string | null
           title: string
           updated_at?: string
         }
         Update: {
           category?: Database["public"]["Enums"]["post_category"]
+          content?: string | null
           created_at?: string
           created_by?: string | null
           description?: string
           id?: string
           image_url?: string | null
+          images?: string[] | null
           scheduled_at?: string | null
           title?: string
           updated_at?: string

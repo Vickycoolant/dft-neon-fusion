@@ -9,8 +9,10 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useToast } from "@/hooks/use-toast";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { LogOut, Plus, Pencil, Trash2, Upload } from "lucide-react";
+import { LogOut, Plus, Pencil, Trash2, X } from "lucide-react";
 import { format } from "date-fns";
+import ReactQuill from "react-quill";
+import "react-quill/dist/quill.snow.css";
 
 type PostCategory = "industry_insights" | "events" | "company_updates";
 
@@ -18,8 +20,10 @@ interface Post {
   id: string;
   title: string;
   description: string;
+  content: string | null;
   category: PostCategory;
   image_url: string | null;
+  images: string[] | null;
   created_at: string;
   updated_at: string;
 }
@@ -30,6 +34,16 @@ const categoryLabels: Record<PostCategory, string> = {
   company_updates: "Company Updates",
 };
 
+const quillModules = {
+  toolbar: [
+    [{ header: [1, 2, 3, false] }],
+    ["bold", "italic", "underline", "strike"],
+    [{ list: "ordered" }, { list: "bullet" }],
+    ["link"],
+    ["clean"],
+  ],
+};
+
 const AdminDashboard = () => {
   const [user, setUser] = useState<any>(null);
   const [posts, setPosts] = useState<Post[]>([]);
@@ -37,9 +51,11 @@ const AdminDashboard = () => {
   const [formData, setFormData] = useState({
     title: "",
     description: "",
+    content: "",
     category: "industry_insights" as PostCategory,
   });
-  const [imageFile, setImageFile] = useState<File | null>(null);
+  const [thumbnailFile, setThumbnailFile] = useState<File | null>(null);
+  const [additionalImageFiles, setAdditionalImageFiles] = useState<File[]>([]);
   const [editingPost, setEditingPost] = useState<Post | null>(null);
   const [submitting, setSubmitting] = useState(false);
   const navigate = useNavigate();
@@ -103,11 +119,20 @@ const AdminDashboard = () => {
     navigate("/admin/login");
   };
 
-  const handleImageUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleThumbnailUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (file) {
-      setImageFile(file);
+      setThumbnailFile(file);
     }
+  };
+
+  const handleAdditionalImagesUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const files = Array.from(e.target.files || []);
+    setAdditionalImageFiles((prev) => [...prev, ...files]);
+  };
+
+  const removeAdditionalImage = (index: number) => {
+    setAdditionalImageFiles((prev) => prev.filter((_, i) => i !== index));
   };
 
   const uploadImage = async (file: File): Promise<string> => {
@@ -115,7 +140,7 @@ const AdminDashboard = () => {
     const fileName = `${Math.random()}.${fileExt}`;
     const filePath = `${fileName}`;
 
-    const { error: uploadError, data } = await supabase.storage
+    const { error: uploadError } = await supabase.storage
       .from("post-images")
       .upload(filePath, file);
 
@@ -133,17 +158,26 @@ const AdminDashboard = () => {
     setSubmitting(true);
 
     try {
-      let imageUrl = editingPost?.image_url || null;
+      let thumbnailUrl = editingPost?.image_url || null;
+      let additionalImageUrls: string[] = editingPost?.images || [];
 
-      if (imageFile) {
-        imageUrl = await uploadImage(imageFile);
+      if (thumbnailFile) {
+        thumbnailUrl = await uploadImage(thumbnailFile);
+      }
+
+      if (additionalImageFiles.length > 0) {
+        const uploadPromises = additionalImageFiles.map((file) => uploadImage(file));
+        const newImageUrls = await Promise.all(uploadPromises);
+        additionalImageUrls = [...additionalImageUrls, ...newImageUrls];
       }
 
       const postData = {
         title: formData.title,
         description: formData.description,
+        content: formData.content,
         category: formData.category,
-        image_url: imageUrl,
+        image_url: thumbnailUrl,
+        images: additionalImageUrls,
         created_by: user.id,
       };
 
@@ -164,8 +198,9 @@ const AdminDashboard = () => {
         toast({ title: "Post created successfully!" });
       }
 
-      setFormData({ title: "", description: "", category: "industry_insights" });
-      setImageFile(null);
+      setFormData({ title: "", description: "", content: "", category: "industry_insights" });
+      setThumbnailFile(null);
+      setAdditionalImageFiles([]);
       setEditingPost(null);
       fetchPosts();
     } catch (error: any) {
@@ -184,6 +219,7 @@ const AdminDashboard = () => {
     setFormData({
       title: post.title,
       description: post.description,
+      content: post.content || "",
       category: post.category,
     });
   };
@@ -244,7 +280,7 @@ const AdminDashboard = () => {
                 </CardDescription>
               </CardHeader>
               <CardContent>
-                <form onSubmit={handleSubmit} className="space-y-4">
+                <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="space-y-2">
                     <Label htmlFor="title">Title</Label>
                     <Input
@@ -257,18 +293,36 @@ const AdminDashboard = () => {
                   </div>
 
                   <div className="space-y-2">
-                    <Label htmlFor="description">Description (max 500 characters)</Label>
+                    <Label htmlFor="description">Short Description (max 500 characters)</Label>
                     <Textarea
                       id="description"
                       value={formData.description}
                       onChange={(e) => setFormData({ ...formData, description: e.target.value })}
                       required
                       maxLength={500}
-                      rows={5}
+                      rows={3}
                       className="resize-none"
+                      placeholder="This will appear on the post card"
                     />
                     <p className="text-sm text-muted-foreground text-right">
                       {formData.description.length}/500
+                    </p>
+                  </div>
+
+                  <div className="space-y-2">
+                    <Label htmlFor="content">Full Article Content (Rich Text)</Label>
+                    <div className="border rounded-md">
+                      <ReactQuill
+                        theme="snow"
+                        value={formData.content}
+                        onChange={(value) => setFormData({ ...formData, content: value })}
+                        modules={quillModules}
+                        className="bg-background"
+                        placeholder="Write your full article here. You can add links, formatting, and more..."
+                      />
+                    </div>
+                    <p className="text-sm text-muted-foreground">
+                      Use the toolbar to format text and add links to external websites
                     </p>
                   </div>
 
@@ -294,26 +348,83 @@ const AdminDashboard = () => {
                   </div>
 
                   <div className="space-y-2">
-                    <Label htmlFor="image">Upload Image</Label>
-                    <div className="flex items-center gap-4">
-                      <Input
-                        id="image"
-                        type="file"
-                        accept="image/*"
-                        onChange={handleImageUpload}
-                        className="flex-1"
-                      />
-                      {imageFile && (
-                        <Button
-                          type="button"
-                          variant="outline"
-                          size="sm"
-                          onClick={() => setImageFile(null)}
-                        >
-                          Clear
-                        </Button>
-                      )}
-                    </div>
+                    <Label htmlFor="thumbnail">Thumbnail Image (Main Card Image)</Label>
+                    <Input
+                      id="thumbnail"
+                      type="file"
+                      accept="image/*"
+                      onChange={handleThumbnailUpload}
+                    />
+                    {thumbnailFile && (
+                      <p className="text-sm text-muted-foreground">
+                        Selected: {thumbnailFile.name}
+                      </p>
+                    )}
+                    {editingPost?.image_url && !thumbnailFile && (
+                      <div className="mt-2">
+                        <img
+                          src={editingPost.image_url}
+                          alt="Current thumbnail"
+                          className="w-32 h-32 object-cover rounded-md"
+                        />
+                        <p className="text-sm text-muted-foreground mt-1">Current thumbnail</p>
+                      </div>
+                    )}
+                  </div>
+
+                  <div className="space-y-2">
+                    <Label htmlFor="additionalImages">Additional Images (Multiple)</Label>
+                    <Input
+                      id="additionalImages"
+                      type="file"
+                      accept="image/*"
+                      multiple
+                      onChange={handleAdditionalImagesUpload}
+                    />
+                    {additionalImageFiles.length > 0 && (
+                      <div className="mt-2">
+                        <p className="text-sm text-muted-foreground mb-2">
+                          New images to upload: {additionalImageFiles.length}
+                        </p>
+                        <div className="flex flex-wrap gap-2">
+                          {additionalImageFiles.map((file, index) => (
+                            <div key={index} className="relative">
+                              <div className="w-20 h-20 bg-muted rounded-md flex items-center justify-center">
+                                <p className="text-xs text-center px-1 break-all">
+                                  {file.name}
+                                </p>
+                              </div>
+                              <Button
+                                type="button"
+                                variant="destructive"
+                                size="sm"
+                                className="absolute -top-2 -right-2 h-6 w-6 rounded-full p-0"
+                                onClick={() => removeAdditionalImage(index)}
+                              >
+                                <X className="h-3 w-3" />
+                              </Button>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+                    {editingPost?.images && editingPost.images.length > 0 && (
+                      <div className="mt-2">
+                        <p className="text-sm text-muted-foreground mb-2">
+                          Existing images: {editingPost.images.length}
+                        </p>
+                        <div className="flex flex-wrap gap-2">
+                          {editingPost.images.map((url, index) => (
+                            <img
+                              key={index}
+                              src={url}
+                              alt={`Additional ${index + 1}`}
+                              className="w-20 h-20 object-cover rounded-md"
+                            />
+                          ))}
+                        </div>
+                      </div>
+                    )}
                   </div>
 
                   <div className="flex gap-2">
@@ -326,8 +437,9 @@ const AdminDashboard = () => {
                         variant="outline"
                         onClick={() => {
                           setEditingPost(null);
-                          setFormData({ title: "", description: "", category: "industry_insights" });
-                          setImageFile(null);
+                          setFormData({ title: "", description: "", content: "", category: "industry_insights" });
+                          setThumbnailFile(null);
+                          setAdditionalImageFiles([]);
                         }}
                       >
                         Cancel
@@ -368,6 +480,11 @@ const AdminDashboard = () => {
                                 <p className="text-sm text-muted-foreground">
                                   {categoryLabels[post.category]} • {format(new Date(post.created_at), "MMM dd, yyyy")}
                                 </p>
+                                {post.images && post.images.length > 0 && (
+                                  <p className="text-xs text-muted-foreground mt-1">
+                                    {post.images.length} additional image{post.images.length > 1 ? 's' : ''}
+                                  </p>
+                                )}
                               </div>
                               <div className="flex gap-2">
                                 <Button
