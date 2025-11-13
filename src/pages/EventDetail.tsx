@@ -104,12 +104,12 @@ const EventDetail = () => {
         </Button>
 
         <div className="container-max">
-          {post.image_url && (
+            {post.image_url && (
             <div className="relative h-96 rounded-lg overflow-hidden mb-8">
               <img
                 src={post.image_url}
                 alt={post.title}
-                className="w-full h-full object-cover"
+                className="w-full h-full object-contain"
               />
               <Badge className={`absolute top-4 left-4 ${config.color}`}>
                 <Icon className="w-3 h-3 mr-1" />
@@ -135,10 +135,10 @@ const EventDetail = () => {
             {/* Rich Text Content */}
             {post.content && (
               <div
-                className="prose prose-lg max-w-none mb-8 
+                className="prose prose-lg max-w-none mb-8 break-words overflow-wrap-anywhere
                 prose-headings:text-foreground 
                 prose-p:text-muted-foreground
-                prose-a:text-primary hover:prose-a:text-primary/80
+                prose-a:text-primary hover:prose-a:text-primary/80 prose-a:break-all
                 prose-strong:text-foreground
                 prose-ul:text-muted-foreground
                 prose-ol:text-muted-foreground"
@@ -157,7 +157,7 @@ const EventDetail = () => {
                     <img
                       src={imageUrl}
                       alt={`${post.title} - Image ${index + 1}`}
-                      className="w-full h-full object-cover"
+                      className="w-full h-full object-contain"
                     />
                   </div>
                 ))}
