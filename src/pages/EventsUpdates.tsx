@@ -103,7 +103,7 @@ const EventsUpdates = () => {
             <img
               src={post.image_url}
               alt={post.title}
-              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+              className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300"
             />
             <Badge className={`absolute top-4 left-4 ${config.color}`}>
               <Icon className="w-3 h-3 mr-1" />
