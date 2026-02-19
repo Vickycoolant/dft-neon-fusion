@@ -14,6 +14,60 @@ export type Database = {
   }
   public: {
     Tables: {
+      hero_slides: {
+        Row: {
+          created_at: string
+          created_by: string | null
+          highlight_color: string
+          highlight_words: string | null
+          id: string
+          image_url: string
+          is_active: boolean
+          link_text: string | null
+          link_url: string | null
+          sort_order: number
+          subtitle: string | null
+          text_color: string
+          text_position: string
+          title: string
+          updated_at: string
+        }
+        Insert: {
+          created_at?: string
+          created_by?: string | null
+          highlight_color?: string
+          highlight_words?: string | null
+          id?: string
+          image_url: string
+          is_active?: boolean
+          link_text?: string | null
+          link_url?: string | null
+          sort_order?: number
+          subtitle?: string | null
+          text_color?: string
+          text_position?: string
+          title: string
+          updated_at?: string
+        }
+        Update: {
+          created_at?: string
+          created_by?: string | null
+          highlight_color?: string
+          highlight_words?: string | null
+          id?: string
+          image_url?: string
+          is_active?: boolean
+          link_text?: string | null
+          link_url?: string | null
+          sort_order?: number
+          subtitle?: string | null
+          text_color?: string
+          text_position?: string
+          title?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
       posts: {
         Row: {
           category: Database["public"]["Enums"]["post_category"]
