@@ -3,7 +3,6 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge";
 import { ArrowRight, TrendingUp, Shield, Users, Building2, FileText, BarChart3, Zap, Brain, Cpu, Target, Award } from "lucide-react";
 import { Link } from "react-router-dom";
-import heroImage from "@/assets/hero-ai-robot.jpg";
 import documentAnalysisImg from "@/assets/document-analysis.jpg";
 import bankStatementImg from "@/assets/bank-statement.jpg";
 import analyticsImg from "@/assets/analytics.jpg";
@@ -16,20 +15,12 @@ import bankingIndustryImg from "@/assets/image-3.jpg";
 import financeIndustryImg from "@/assets/image-10.jpg";
 import insuranceIndustryImg from "@/assets/insurance-industry.jpg";
 import dashboardAnalyticsImg from "@/assets/dashboard-analytics.jpg";
-import AnimatedStats from "@/components/AnimatedStats";
-import FloatingAIElements from "@/components/FloatingAIElements";
 import PartnersCarousel from "@/components/PartnersCarousel";
 import AnimatedDashboard from "@/components/AnimatedDashboard";
 import FAQSection from "@/components/FAQSection";
+import HeroSlider from "@/components/HeroSlider";
 
 const Index = () => {
-  const statsData = [
-    { value: 15, label: "Years Experience", suffix: "+" },
-    { value: 99, label: "Accuracy Rate", suffix: "%" },
-    { value: 6, label: "Countries Reached", suffix: "+" },
-    { value: 100, label: "Reliability", suffix: "%" },
-  ];
-
   const homeFAQs = [
     {
       question: "What services does DFT Group provide?",
@@ -60,50 +51,7 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background overflow-x-hidden">
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 z-0">
-          <img 
-            src={heroImage} 
-            alt="AI Technology Hero" 
-            className="w-full h-full object-cover opacity-20"
-          />
-          <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-transparent to-accent/20"></div>
-        </div>
-        
-        <FloatingAIElements />
-        
-        <div className="container-max text-center relative z-10">
-          <Badge variant="outline" className="neon-border mb-6 text-sm p-2">
-            🚀 AI-Powered Fintech Solutions
-          </Badge>
-          <h1 className="text-4xl md:text-7xl font-bold mb-6 gradient-text">
-            DFT Group
-          </h1>
-          <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-3xl mx-auto">
-            Transforming Financial Technology with Advanced AI Solutions. 
-            Over 15 years of experience in delivering cutting-edge fintech innovations.
-          </p>
-          
-          {/* Animated Statistics */}
-          <div className="mb-12 max-w-4xl mx-auto">
-            <AnimatedStats stats={statsData} />
-          </div>
-
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link to="/services#solution-categories">
-              <Button variant="success" size="lg" className="group">
-                Explore Our Solutions
-                <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-              </Button>
-            </Link>
-            <Link to="/contact">
-              <Button variant="warning" size="lg">
-                Schedule Consultation
-              </Button>
-            </Link>
-          </div>
-        </div>
-      </section>
+      <HeroSlider />
 
      {/* Company Introduction Section */}
 <section className="relative section-padding bg-gradient-to-br from-background via-muted/20 to-background">
