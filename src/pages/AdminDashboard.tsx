@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
+import type { Json } from "@/integrations/supabase/types";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -28,6 +29,15 @@ interface Post {
   updated_at: string;
 }
 
+interface LinkButton {
+  text: string;
+  url: string;
+  description: string;
+  position: string;
+  button_color: string;
+  description_color: string;
+}
+
 interface HeroSlide {
   id: string;
   title: string;
@@ -39,6 +49,9 @@ interface HeroSlide {
   highlight_color: string;
   link_url: string | null;
   link_text: string | null;
+  link_buttons: LinkButton[];
+  show_stats: boolean;
+  show_default_buttons: boolean;
   sort_order: number;
   is_active: boolean;
   created_at: string;
@@ -72,6 +85,15 @@ const quillModules = {
   ],
 };
 
+const emptyLinkButton: LinkButton = {
+  text: "",
+  url: "",
+  description: "",
+  position: "bottom-left",
+  button_color: "#10B981",
+  description_color: "#FFFFFF",
+};
+
 const AdminDashboard = () => {
   const [user, setUser] = useState<any>(null);
   const [posts, setPosts] = useState<Post[]>([]);
@@ -90,10 +112,11 @@ const AdminDashboard = () => {
     text_position: "center-left",
     text_color: "#FFFFFF",
     highlight_color: "#FFD700",
-    link_url: "",
-    link_text: "",
     sort_order: 0,
     is_active: true,
+    show_stats: true,
+    show_default_buttons: true,
+    link_buttons: [] as LinkButton[],
   });
   const [thumbnailFile, setThumbnailFile] = useState<File | null>(null);
   const [additionalImageFiles, setAdditionalImageFiles] = useState<File[]>([]);
@@ -141,7 +164,14 @@ const AdminDashboard = () => {
     try {
       const { data, error } = await supabase.from("hero_slides").select("*").order("sort_order", { ascending: true });
       if (error) throw error;
-      setHeroSlides((data as HeroSlide[]) || []);
+      setHeroSlides(
+        (data || []).map((d: any) => ({
+          ...d,
+          link_buttons: Array.isArray(d.link_buttons) ? d.link_buttons : [],
+          show_stats: d.show_stats ?? true,
+          show_default_buttons: d.show_default_buttons ?? true,
+        }))
+      );
     } catch (error) { console.error("Error fetching hero slides:", error); }
   };
 
@@ -246,8 +276,11 @@ const AdminDashboard = () => {
         text_position: heroFormData.text_position,
         text_color: heroFormData.text_color,
         highlight_color: heroFormData.highlight_color,
-        link_url: heroFormData.link_url || null,
-        link_text: heroFormData.link_text || null,
+        link_url: null,
+        link_text: null,
+        link_buttons: heroFormData.link_buttons as unknown as Json,
+        show_stats: heroFormData.show_stats,
+        show_default_buttons: heroFormData.show_default_buttons,
         sort_order: heroFormData.sort_order,
         is_active: heroFormData.is_active,
         created_by: user.id,
@@ -271,8 +304,9 @@ const AdminDashboard = () => {
   const resetHeroForm = () => {
     setHeroFormData({
       title: "", subtitle: "", highlight_words: "", text_position: "center-left",
-      text_color: "#FFFFFF", highlight_color: "#FFD700", link_url: "", link_text: "",
-      sort_order: 0, is_active: true,
+      text_color: "#FFFFFF", highlight_color: "#FFD700",
+      sort_order: 0, is_active: true, show_stats: true, show_default_buttons: true,
+      link_buttons: [],
     });
     setHeroImageFile(null);
     setEditingHeroSlide(null);
@@ -287,10 +321,11 @@ const AdminDashboard = () => {
       text_position: slide.text_position,
       text_color: slide.text_color,
       highlight_color: slide.highlight_color,
-      link_url: slide.link_url || "",
-      link_text: slide.link_text || "",
       sort_order: slide.sort_order,
       is_active: slide.is_active,
+      show_stats: slide.show_stats,
+      show_default_buttons: slide.show_default_buttons,
+      link_buttons: slide.link_buttons || [],
     });
   };
 
@@ -304,6 +339,27 @@ const AdminDashboard = () => {
     } catch (error: any) {
       toast({ title: "Error", description: error.message, variant: "destructive" });
     }
+  };
+
+  // ---- Link Button Handlers ----
+  const addLinkButton = () => {
+    setHeroFormData({
+      ...heroFormData,
+      link_buttons: [...heroFormData.link_buttons, { ...emptyLinkButton }],
+    });
+  };
+
+  const updateLinkButton = (index: number, field: keyof LinkButton, value: string) => {
+    const updated = [...heroFormData.link_buttons];
+    updated[index] = { ...updated[index], [field]: value };
+    setHeroFormData({ ...heroFormData, link_buttons: updated });
+  };
+
+  const removeLinkButton = (index: number) => {
+    setHeroFormData({
+      ...heroFormData,
+      link_buttons: heroFormData.link_buttons.filter((_, i) => i !== index),
+    });
   };
 
   if (loading) {
@@ -526,16 +582,94 @@ const AdminDashboard = () => {
                         </div>
                       </div>
                     </div>
+
+                    {/* Stats & Default Buttons Toggles */}
                     <div className="grid grid-cols-2 gap-4">
                       <div className="space-y-2">
-                        <Label>Link URL (web/form link)</Label>
-                        <Input value={heroFormData.link_url} onChange={(e) => setHeroFormData({ ...heroFormData, link_url: e.target.value })} placeholder="/services or https://..." />
+                        <Label>Show Stats Bar</Label>
+                        <Select value={heroFormData.show_stats ? "yes" : "no"} onValueChange={(v) => setHeroFormData({ ...heroFormData, show_stats: v === "yes" })}>
+                          <SelectTrigger><SelectValue /></SelectTrigger>
+                          <SelectContent>
+                            <SelectItem value="yes">Yes</SelectItem>
+                            <SelectItem value="no">No</SelectItem>
+                          </SelectContent>
+                        </Select>
                       </div>
                       <div className="space-y-2">
-                        <Label>Link Button Text</Label>
-                        <Input value={heroFormData.link_text} onChange={(e) => setHeroFormData({ ...heroFormData, link_text: e.target.value })} placeholder="Learn More" />
+                        <Label>Show Default Buttons</Label>
+                        <Select value={heroFormData.show_default_buttons ? "yes" : "no"} onValueChange={(v) => setHeroFormData({ ...heroFormData, show_default_buttons: v === "yes" })}>
+                          <SelectTrigger><SelectValue /></SelectTrigger>
+                          <SelectContent>
+                            <SelectItem value="yes">Yes</SelectItem>
+                            <SelectItem value="no">No</SelectItem>
+                          </SelectContent>
+                        </Select>
+                        <p className="text-xs text-muted-foreground">Explore Solutions & Schedule Consultation</p>
                       </div>
                     </div>
+
+                    {/* Link Buttons Section */}
+                    <div className="space-y-3 border rounded-md p-4 bg-muted/30">
+                      <div className="flex justify-between items-center">
+                        <Label className="text-base font-semibold">Link Buttons</Label>
+                        <Button type="button" variant="outline" size="sm" onClick={addLinkButton}>
+                          <Plus className="w-3 h-3 mr-1" /> Add Button
+                        </Button>
+                      </div>
+                      {heroFormData.link_buttons.length === 0 && (
+                        <p className="text-sm text-muted-foreground">No link buttons. Click "Add Button" to create one.</p>
+                      )}
+                      {heroFormData.link_buttons.map((btn, idx) => (
+                        <div key={idx} className="border rounded-md p-3 space-y-3 bg-background relative">
+                          <Button type="button" variant="destructive" size="sm" className="absolute top-2 right-2 h-6 w-6 rounded-full p-0" onClick={() => removeLinkButton(idx)}>
+                            <X className="h-3 w-3" />
+                          </Button>
+                          <p className="text-sm font-medium text-muted-foreground">Button {idx + 1}</p>
+                          <div className="grid grid-cols-2 gap-3">
+                            <div className="space-y-1">
+                              <Label className="text-xs">Button Text *</Label>
+                              <Input value={btn.text} onChange={(e) => updateLinkButton(idx, "text", e.target.value)} placeholder="Learn More" />
+                            </div>
+                            <div className="space-y-1">
+                              <Label className="text-xs">URL *</Label>
+                              <Input value={btn.url} onChange={(e) => updateLinkButton(idx, "url", e.target.value)} placeholder="/services or https://..." />
+                            </div>
+                          </div>
+                          <div className="space-y-1">
+                            <Label className="text-xs">Description Text</Label>
+                            <Input value={btn.description} onChange={(e) => updateLinkButton(idx, "description", e.target.value)} placeholder="Short text above the button" />
+                          </div>
+                          <div className="space-y-1">
+                            <Label className="text-xs">Button Position</Label>
+                            <Select value={btn.position} onValueChange={(v) => updateLinkButton(idx, "position", v)}>
+                              <SelectTrigger><SelectValue /></SelectTrigger>
+                              <SelectContent>
+                                {textPositionOptions.map((opt) => (
+                                  <SelectItem key={opt.value} value={opt.value}>{opt.label}</SelectItem>
+                                ))}
+                              </SelectContent>
+                            </Select>
+                          </div>
+                          <div className="grid grid-cols-2 gap-3">
+                            <div className="space-y-1">
+                              <Label className="text-xs">Button Color</Label>
+                              <div className="flex gap-2 items-center">
+                                <input type="color" value={btn.button_color} onChange={(e) => updateLinkButton(idx, "button_color", e.target.value)} className="w-8 h-8 rounded cursor-pointer border" />
+                                <Input value={btn.button_color} onChange={(e) => updateLinkButton(idx, "button_color", e.target.value)} className="flex-1" />
+                              </div>
+                            </div>
+                            <div className="space-y-1">
+                              <Label className="text-xs">Description Color</Label>
+                              <div className="flex gap-2 items-center">
+                                <input type="color" value={btn.description_color} onChange={(e) => updateLinkButton(idx, "description_color", e.target.value)} className="w-8 h-8 rounded cursor-pointer border" />
+                                <Input value={btn.description_color} onChange={(e) => updateLinkButton(idx, "description_color", e.target.value)} className="flex-1" />
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+
                     <div className="grid grid-cols-2 gap-4">
                       <div className="space-y-2">
                         <Label>Sort Order</Label>
@@ -591,6 +725,9 @@ const AdminDashboard = () => {
                                   <h3 className="font-semibold truncate">{slide.title}</h3>
                                   <p className="text-xs text-muted-foreground">
                                     Position: {slide.text_position} • Order: {slide.sort_order} {!slide.is_active && "• Inactive"}
+                                  </p>
+                                  <p className="text-xs text-muted-foreground">
+                                    Stats: {slide.show_stats ? "✓" : "✗"} • Buttons: {slide.show_default_buttons ? "✓" : "✗"} • Links: {slide.link_buttons?.length || 0}
                                   </p>
                                 </div>
                                 <div className="flex gap-1 shrink-0">

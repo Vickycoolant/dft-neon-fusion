@@ -12,6 +12,15 @@ import heroSlide3 from "@/assets/hero-slide-3.jpg";
 import heroSlide4 from "@/assets/hero-slide-4.jpg";
 import heroSlide5 from "@/assets/hero-slide-5.jpg";
 
+interface LinkButton {
+  text: string;
+  url: string;
+  description: string;
+  position: string;
+  button_color: string;
+  description_color: string;
+}
+
 interface HeroSlide {
   id: string;
   title: string;
@@ -23,6 +32,9 @@ interface HeroSlide {
   highlight_color: string;
   link_url: string | null;
   link_text: string | null;
+  link_buttons: LinkButton[];
+  show_stats: boolean;
+  show_default_buttons: boolean;
   sort_order: number;
 }
 
@@ -36,8 +48,11 @@ const defaultSlides: HeroSlide[] = [
     text_position: "center-left",
     text_color: "#FFFFFF",
     highlight_color: "#FFD700",
-    link_url: "/services",
-    link_text: "Explore Solutions",
+    link_url: null,
+    link_text: null,
+    link_buttons: [{ text: "Explore Solutions", url: "/services", description: "Discover our AI-powered services", position: "bottom-left", button_color: "#10B981", description_color: "#FFFFFF" }],
+    show_stats: true,
+    show_default_buttons: true,
     sort_order: 0,
   },
   {
@@ -49,8 +64,11 @@ const defaultSlides: HeroSlide[] = [
     text_position: "center-left",
     text_color: "#FFFFFF",
     highlight_color: "#00E5FF",
-    link_url: "/about",
-    link_text: "Meet Our Team",
+    link_url: null,
+    link_text: null,
+    link_buttons: [{ text: "Meet Our Team", url: "/about", description: "Learn about our experts", position: "bottom-left", button_color: "#3B82F6", description_color: "#FFFFFF" }],
+    show_stats: true,
+    show_default_buttons: true,
     sort_order: 1,
   },
   {
@@ -62,8 +80,11 @@ const defaultSlides: HeroSlide[] = [
     text_position: "center-right",
     text_color: "#FFFFFF",
     highlight_color: "#64FFDA",
-    link_url: "/services",
-    link_text: "View Analytics",
+    link_url: null,
+    link_text: null,
+    link_buttons: [{ text: "View Analytics", url: "/services", description: "See data in action", position: "bottom-right", button_color: "#8B5CF6", description_color: "#FFFFFF" }],
+    show_stats: true,
+    show_default_buttons: true,
     sort_order: 2,
   },
   {
@@ -75,8 +96,11 @@ const defaultSlides: HeroSlide[] = [
     text_position: "center-center",
     text_color: "#FFFFFF",
     highlight_color: "#76FF03",
-    link_url: "/industry",
-    link_text: "Learn More",
+    link_url: null,
+    link_text: null,
+    link_buttons: [{ text: "Learn More", url: "/industry", description: "Protect your assets", position: "bottom-center", button_color: "#EF4444", description_color: "#FFFFFF" }],
+    show_stats: true,
+    show_default_buttons: true,
     sort_order: 3,
   },
   {
@@ -88,24 +112,39 @@ const defaultSlides: HeroSlide[] = [
     text_position: "bottom-left",
     text_color: "#FFFFFF",
     highlight_color: "#FFD700",
-    link_url: "/partners",
-    link_text: "Our Partners",
+    link_url: null,
+    link_text: null,
+    link_buttons: [{ text: "Our Partners", url: "/partners", description: "See who we work with", position: "bottom-left", button_color: "#F59E0B", description_color: "#FFFFFF" }],
+    show_stats: true,
+    show_default_buttons: true,
     sort_order: 4,
   },
 ];
 
 const SLIDE_DURATION = 6000;
 
-const positionClasses: Record<string, string> = {
+const textPositionClasses: Record<string, string> = {
   "top-left": "items-start justify-start pt-32 pl-8 md:pl-16 text-left",
   "top-center": "items-start justify-center pt-32 text-center",
   "top-right": "items-start justify-end pt-32 pr-8 md:pr-16 text-right",
   "center-left": "items-center justify-start pl-8 md:pl-16 text-left",
   "center-center": "items-center justify-center text-center",
   "center-right": "items-center justify-end pr-8 md:pr-16 text-right",
-  "bottom-left": "items-end justify-start pb-32 pl-8 md:pl-16 text-left",
-  "bottom-center": "items-end justify-center pb-32 text-center",
-  "bottom-right": "items-end justify-end pb-32 pr-8 md:pr-16 text-right",
+  "bottom-left": "items-end justify-start pb-48 pl-8 md:pl-16 text-left",
+  "bottom-center": "items-end justify-center pb-48 text-center",
+  "bottom-right": "items-end justify-end pb-48 pr-8 md:pr-16 text-right",
+};
+
+const linkButtonPositionClasses: Record<string, string> = {
+  "top-left": "top-28 left-8 md:left-16",
+  "top-center": "top-28 left-1/2 -translate-x-1/2",
+  "top-right": "top-28 right-8 md:right-16",
+  "center-left": "top-1/2 -translate-y-1/2 left-8 md:left-16",
+  "center-center": "top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2",
+  "center-right": "top-1/2 -translate-y-1/2 right-8 md:right-16",
+  "bottom-left": "bottom-44 left-8 md:left-16",
+  "bottom-center": "bottom-44 left-1/2 -translate-x-1/2",
+  "bottom-right": "bottom-44 right-8 md:right-16",
 };
 
 const highlightText = (text: string, words: string | null, highlightColor: string) => {
@@ -141,7 +180,14 @@ const HeroSlider = () => {
         .order("sort_order", { ascending: true });
 
       if (!error && data && data.length > 0) {
-        setSlides(data as HeroSlide[]);
+        setSlides(
+          data.map((d: any) => ({
+            ...d,
+            link_buttons: Array.isArray(d.link_buttons) ? d.link_buttons : [],
+            show_stats: d.show_stats ?? true,
+            show_default_buttons: d.show_default_buttons ?? true,
+          }))
+        );
       }
     };
     fetchSlides();
@@ -174,7 +220,7 @@ const HeroSlider = () => {
   const nextSlide = () => goToSlide((currentIndex + 1) % slides.length);
 
   const slide = slides[currentIndex];
-  const posClass = positionClasses[slide.text_position] || positionClasses["center-left"];
+  const posClass = textPositionClasses[slide.text_position] || textPositionClasses["center-left"];
 
   return (
     <section className="relative w-full h-screen min-h-[600px] max-h-[900px] overflow-hidden">
@@ -198,7 +244,7 @@ const HeroSlider = () => {
         </div>
       ))}
 
-      {/* Text content overlay */}
+      {/* Text content overlay (title + subtitle only) */}
       <div className={`absolute inset-0 z-10 flex flex-col ${posClass} px-4 md:px-8`}>
         <div
           className={`max-w-3xl transition-all duration-700 ease-out ${
@@ -221,28 +267,69 @@ const HeroSlider = () => {
               }}
             />
           )}
+        </div>
+      </div>
 
-          {/* Stats bar */}
-          <div className="mb-6 md:mb-8 max-w-xl">
+      {/* Link buttons - positioned independently */}
+      {slide.link_buttons && slide.link_buttons.length > 0 && (
+        <>
+          {slide.link_buttons.map((btn, idx) => {
+            const btnPosClass = linkButtonPositionClasses[btn.position] || linkButtonPositionClasses["bottom-left"];
+            return (
+              <div
+                key={idx}
+                className={`absolute z-10 flex flex-col items-start gap-1 transition-all duration-700 ease-out ${btnPosClass} ${
+                  textVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+                }`}
+                style={{ transitionDelay: `${(idx + 1) * 150}ms` }}
+              >
+                {btn.description && (
+                  <p className="text-sm md:text-base drop-shadow-md mb-1" style={{ color: btn.description_color }}>
+                    {btn.description}
+                  </p>
+                )}
+                <Link to={btn.url}>
+                  <Button
+                    size="lg"
+                    className="group shadow-lg"
+                    style={{ backgroundColor: btn.button_color, color: "#FFFFFF", borderColor: btn.button_color }}
+                  >
+                    {btn.text}
+                    <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                  </Button>
+                </Link>
+              </div>
+            );
+          })}
+        </>
+      )}
+
+      {/* Static bottom bar: stats + default buttons */}
+      <div
+        className={`absolute bottom-12 left-1/2 -translate-x-1/2 z-10 w-full max-w-5xl px-4 transition-all duration-700 ease-out ${
+          textVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+        }`}
+      >
+        {slide.show_stats && (
+          <div className="mb-4">
             <AnimatedStats stats={statsData} />
           </div>
-
-          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
-            {slide.link_url && (
-              <Link to={slide.link_url}>
-                <Button variant="success" size="lg" className="group">
-                  {slide.link_text || "Learn More"}
-                  <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                </Button>
-              </Link>
-            )}
+        )}
+        {slide.show_default_buttons && (
+          <div className="flex flex-col sm:flex-row gap-3 justify-center">
+            <Link to="/services">
+              <Button variant="success" size="lg" className="group">
+                Explore Solutions
+                <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+              </Button>
+            </Link>
             <Link to="/contact">
               <Button variant="warning" size="lg">
                 Schedule Consultation
               </Button>
             </Link>
           </div>
-        </div>
+        )}
       </div>
 
       {/* Navigation arrows */}
@@ -262,7 +349,7 @@ const HeroSlider = () => {
       </button>
 
       {/* Dot indicators */}
-      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-20 flex gap-2">
+      <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-20 flex gap-2">
         {slides.map((_, i) => (
           <button
             key={i}
@@ -276,9 +363,6 @@ const HeroSlider = () => {
           />
         ))}
       </div>
-
-      {/* Image guidelines note (invisible, for reference) */}
-      {/* Recommended: 1920x1080 (16:9) for desktop, images auto-scale on mobile */}
 
       <style>{`
         @keyframes heroZoomOut {

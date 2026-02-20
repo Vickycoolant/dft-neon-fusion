@@ -23,8 +23,11 @@ export type Database = {
           id: string
           image_url: string
           is_active: boolean
+          link_buttons: Json
           link_text: string | null
           link_url: string | null
+          show_default_buttons: boolean
+          show_stats: boolean
           sort_order: number
           subtitle: string | null
           text_color: string
@@ -40,8 +43,11 @@ export type Database = {
           id?: string
           image_url: string
           is_active?: boolean
+          link_buttons?: Json
           link_text?: string | null
           link_url?: string | null
+          show_default_buttons?: boolean
+          show_stats?: boolean
           sort_order?: number
           subtitle?: string | null
           text_color?: string
@@ -57,8 +63,11 @@ export type Database = {
           id?: string
           image_url?: string
           is_active?: boolean
+          link_buttons?: Json
           link_text?: string | null
           link_url?: string | null
+          show_default_buttons?: boolean
+          show_stats?: boolean
           sort_order?: number
           subtitle?: string | null
           text_color?: string
