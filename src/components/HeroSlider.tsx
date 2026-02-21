@@ -36,6 +36,7 @@ interface HeroSlide {
   show_stats: boolean;
   show_default_buttons: boolean;
   sort_order: number;
+  font_size: string;
 }
 
 const defaultSlides: HeroSlide[] = [
@@ -54,6 +55,7 @@ const defaultSlides: HeroSlide[] = [
     show_stats: true,
     show_default_buttons: true,
     sort_order: 0,
+    font_size: "medium",
   },
   {
     id: "default-2",
@@ -70,6 +72,7 @@ const defaultSlides: HeroSlide[] = [
     show_stats: true,
     show_default_buttons: true,
     sort_order: 1,
+    font_size: "medium",
   },
   {
     id: "default-3",
@@ -86,6 +89,7 @@ const defaultSlides: HeroSlide[] = [
     show_stats: true,
     show_default_buttons: true,
     sort_order: 2,
+    font_size: "medium",
   },
   {
     id: "default-4",
@@ -102,6 +106,7 @@ const defaultSlides: HeroSlide[] = [
     show_stats: true,
     show_default_buttons: true,
     sort_order: 3,
+    font_size: "medium",
   },
   {
     id: "default-5",
@@ -118,6 +123,7 @@ const defaultSlides: HeroSlide[] = [
     show_stats: true,
     show_default_buttons: true,
     sort_order: 4,
+    font_size: "medium",
   },
 ];
 
@@ -159,6 +165,16 @@ const getLinkButtonPositionClasses = (position: string): string => {
   return map[position] || map["bottom-left"];
 };
 
+const getFontSizeClasses = (size: string) => {
+  const map: Record<string, { title: string; mobileTitleClass: string; subtitle: string; mobileSubtitleClass: string }> = {
+    small:  { title: "text-3xl md:text-4xl lg:text-5xl", mobileTitleClass: "text-2xl sm:text-3xl", subtitle: "text-base md:text-lg lg:text-xl", mobileSubtitleClass: "text-sm sm:text-base" },
+    medium: { title: "text-4xl md:text-6xl lg:text-7xl", mobileTitleClass: "text-3xl sm:text-4xl", subtitle: "text-lg md:text-xl lg:text-2xl", mobileSubtitleClass: "text-base sm:text-lg" },
+    large:  { title: "text-5xl md:text-7xl lg:text-8xl", mobileTitleClass: "text-4xl sm:text-5xl", subtitle: "text-xl md:text-2xl lg:text-3xl", mobileSubtitleClass: "text-lg sm:text-xl" },
+    xlarge: { title: "text-6xl md:text-8xl lg:text-9xl", mobileTitleClass: "text-5xl sm:text-6xl", subtitle: "text-2xl md:text-3xl lg:text-4xl", mobileSubtitleClass: "text-xl sm:text-2xl" },
+  };
+  return map[size] || map["medium"];
+};
+
 const highlightText = (text: string, words: string | null, highlightColor: string) => {
   if (!words) return text;
   const wordList = words.split(",").map((w) => w.trim()).filter(Boolean);
@@ -198,6 +214,7 @@ const HeroSlider = () => {
             link_buttons: Array.isArray(d.link_buttons) ? d.link_buttons : [],
             show_stats: d.show_stats ?? true,
             show_default_buttons: d.show_default_buttons ?? true,
+            font_size: d.font_size || "medium",
           }))
         );
       }
@@ -235,6 +252,7 @@ const HeroSlider = () => {
   const hasBottomBar = slide.show_stats || slide.show_default_buttons;
   const bottomCenterButtons = slide.link_buttons?.filter(b => b.position === "bottom-center") || [];
   const otherButtons = slide.link_buttons?.filter(b => b.position !== "bottom-center") || [];
+  const fontSizes = getFontSizeClasses(slide.font_size);
 
   // For bottom positions, add extra padding when bottom bar is visible
   const needsBottomPadding = slide.text_position.startsWith("bottom-") && hasBottomBar;
@@ -264,13 +282,13 @@ const HeroSlider = () => {
 
       {/* ===== MOBILE LAYOUT: stacked centered, ignoring positions ===== */}
       <div
-        className={`absolute inset-0 z-10 flex md:hidden flex-col items-center justify-start text-center px-6 gap-3 pt-20 pb-16 transition-all duration-700 ease-out ${
+        className={`absolute inset-0 z-10 flex md:hidden flex-col items-center justify-start text-center px-6 gap-5 pt-16 pb-20 transition-all duration-700 ease-out ${
           textVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
         }`}
       >
         {/* Title */}
         <h1
-          className="text-3xl sm:text-4xl font-bold leading-tight drop-shadow-lg"
+          className={`${fontSizes.mobileTitleClass} font-bold leading-snug drop-shadow-lg`}
           style={{ color: slide.text_color }}
           dangerouslySetInnerHTML={{
             __html: highlightText(slide.title, slide.highlight_words, slide.highlight_color),
@@ -279,7 +297,7 @@ const HeroSlider = () => {
         {/* Subtitle */}
         {slide.subtitle && (
           <p
-            className="text-base sm:text-lg leading-relaxed drop-shadow-md max-w-md"
+            className={`${fontSizes.mobileSubtitleClass} leading-relaxed drop-shadow-md max-w-md`}
             style={{ color: slide.text_color, opacity: 0.9 }}
             dangerouslySetInnerHTML={{
               __html: highlightText(slide.subtitle, slide.highlight_words, slide.highlight_color),
@@ -288,7 +306,7 @@ const HeroSlider = () => {
         )}
         {/* All link buttons */}
         {slide.link_buttons && slide.link_buttons.length > 0 && (
-          <div className="flex flex-col items-center gap-3 mt-2">
+          <div className="flex flex-col items-center gap-4 mt-4">
             {slide.link_buttons.map((btn, idx) => (
               <div key={idx} className="flex flex-col items-center gap-1">
                 {btn.description && (
@@ -312,13 +330,13 @@ const HeroSlider = () => {
         )}
         {/* Stats */}
         {slide.show_stats && (
-          <div className="mt-3 w-full max-w-md">
+          <div className="mt-6 w-full max-w-md">
             <AnimatedStats stats={statsData} />
           </div>
         )}
         {/* Default buttons */}
         {slide.show_default_buttons && (
-          <div className="flex flex-col gap-3 mt-2">
+          <div className="flex flex-col gap-4 mt-4">
             <Link to="/services">
               <Button variant="success" size="lg" className="group w-full">
                 Explore Solutions
@@ -346,7 +364,7 @@ const HeroSlider = () => {
           }`}
         >
           <h1
-            className="text-4xl md:text-6xl lg:text-7xl font-bold mb-4 md:mb-6 leading-tight drop-shadow-lg"
+            className={`${fontSizes.title} font-bold mb-4 md:mb-6 leading-tight drop-shadow-lg`}
             style={{ color: slide.text_color }}
             dangerouslySetInnerHTML={{
               __html: highlightText(slide.title, slide.highlight_words, slide.highlight_color),
@@ -354,7 +372,7 @@ const HeroSlider = () => {
           />
           {slide.subtitle && (
             <p
-              className={`text-lg md:text-xl lg:text-2xl mb-6 md:mb-8 leading-relaxed drop-shadow-md max-w-2xl ${slide.text_position.endsWith('-right') ? 'ml-auto' : slide.text_position.endsWith('-left') ? 'mr-auto' : ''}`}
+              className={`${fontSizes.subtitle} mb-6 md:mb-8 leading-relaxed drop-shadow-md max-w-2xl ${slide.text_position.endsWith('-right') ? 'ml-auto' : slide.text_position.endsWith('-left') ? 'mr-auto' : ''}`}
               style={{ color: slide.text_color, opacity: 0.9 }}
               dangerouslySetInnerHTML={{
                 __html: highlightText(slide.subtitle, slide.highlight_words, slide.highlight_color),

@@ -55,6 +55,7 @@ interface HeroSlide {
   sort_order: number;
   is_active: boolean;
   created_at: string;
+  font_size: string;
 }
 
 const categoryLabels: Record<PostCategory, string> = {
@@ -117,6 +118,7 @@ const AdminDashboard = () => {
     show_stats: true,
     show_default_buttons: true,
     link_buttons: [] as LinkButton[],
+    font_size: "medium",
   });
   const [thumbnailFile, setThumbnailFile] = useState<File | null>(null);
   const [additionalImageFiles, setAdditionalImageFiles] = useState<File[]>([]);
@@ -170,6 +172,7 @@ const AdminDashboard = () => {
           link_buttons: Array.isArray(d.link_buttons) ? d.link_buttons : [],
           show_stats: d.show_stats ?? true,
           show_default_buttons: d.show_default_buttons ?? true,
+          font_size: d.font_size || "medium",
         }))
       );
     } catch (error) { console.error("Error fetching hero slides:", error); }
@@ -283,6 +286,7 @@ const AdminDashboard = () => {
         show_default_buttons: heroFormData.show_default_buttons,
         sort_order: heroFormData.sort_order,
         is_active: heroFormData.is_active,
+        font_size: heroFormData.font_size,
         created_by: user.id,
       };
       if (editingHeroSlide) {
@@ -306,7 +310,7 @@ const AdminDashboard = () => {
       title: "", subtitle: "", highlight_words: "", text_position: "center-left",
       text_color: "#FFFFFF", highlight_color: "#FFD700",
       sort_order: 0, is_active: true, show_stats: true, show_default_buttons: true,
-      link_buttons: [],
+      link_buttons: [], font_size: "medium",
     });
     setHeroImageFile(null);
     setEditingHeroSlide(null);
@@ -326,6 +330,7 @@ const AdminDashboard = () => {
       show_stats: slide.show_stats,
       show_default_buttons: slide.show_default_buttons,
       link_buttons: slide.link_buttons || [],
+      font_size: slide.font_size || "medium",
     });
   };
 
@@ -563,6 +568,18 @@ const AdminDashboard = () => {
                           {textPositionOptions.map((opt) => (
                             <SelectItem key={opt.value} value={opt.value}>{opt.label}</SelectItem>
                           ))}
+                        </SelectContent>
+                      </Select>
+                    </div>
+                    <div className="space-y-2">
+                      <Label>Font Size</Label>
+                      <Select value={heroFormData.font_size} onValueChange={(v) => setHeroFormData({ ...heroFormData, font_size: v })}>
+                        <SelectTrigger><SelectValue /></SelectTrigger>
+                        <SelectContent>
+                          <SelectItem value="small">Small</SelectItem>
+                          <SelectItem value="medium">Medium (Default)</SelectItem>
+                          <SelectItem value="large">Large</SelectItem>
+                          <SelectItem value="xlarge">Extra Large</SelectItem>
                         </SelectContent>
                       </Select>
                     </div>
