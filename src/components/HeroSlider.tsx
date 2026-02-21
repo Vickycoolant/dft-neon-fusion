@@ -264,7 +264,7 @@ const HeroSlider = () => {
 
       {/* ===== MOBILE LAYOUT: stacked centered, ignoring positions ===== */}
       <div
-        className={`absolute inset-0 z-10 flex md:hidden flex-col items-center justify-center text-center px-6 gap-4 transition-all duration-700 ease-out ${
+        className={`absolute inset-0 z-10 flex md:hidden flex-col items-center justify-start text-center px-6 gap-3 pt-20 pb-16 transition-all duration-700 ease-out ${
           textVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
         }`}
       >
@@ -354,7 +354,7 @@ const HeroSlider = () => {
           />
           {slide.subtitle && (
             <p
-              className="text-lg md:text-xl lg:text-2xl mb-6 md:mb-8 leading-relaxed drop-shadow-md max-w-2xl"
+              className={`text-lg md:text-xl lg:text-2xl mb-6 md:mb-8 leading-relaxed drop-shadow-md max-w-2xl ${slide.text_position.endsWith('-right') ? 'ml-auto' : slide.text_position.endsWith('-left') ? 'mr-auto' : ''}`}
               style={{ color: slide.text_color, opacity: 0.9 }}
               dangerouslySetInnerHTML={{
                 __html: highlightText(slide.subtitle, slide.highlight_words, slide.highlight_color),
