@@ -1,20 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { ArrowRight, TrendingUp, Shield, Users, Building2, FileText, BarChart3, Zap, Brain, Cpu, Target, Award } from "lucide-react";
+import { ArrowRight, Brain, Cpu, Shield, GraduationCap, Lightbulb, CheckCircle, Building2, TrendingUp, Handshake, Award, Target } from "lucide-react";
 import { Link } from "react-router-dom";
-import documentAnalysisImg from "@/assets/document-analysis.jpg";
-import bankStatementImg from "@/assets/bank-statement.jpg";
-import analyticsImg from "@/assets/analytics.jpg";
-import cybersecurityImg from "@/assets/cybersecurity.jpg";
-import cloudSolutionsImg from "@/assets/cloud-solutions.jpg";
-import aiWorkflowInputImg from "@/assets/image-9.jpg";
-import aiWorkflowAnalysisImg from "@/assets/ai-workflow-analysis.jpg";
-import aiWorkflowOutputImg from "@/assets/ai-workflow-output.jpg";
-import bankingIndustryImg from "@/assets/image-3.jpg";
-import financeIndustryImg from "@/assets/image-10.jpg";
-import insuranceIndustryImg from "@/assets/insurance-industry.jpg";
-import dashboardAnalyticsImg from "@/assets/dashboard-analytics.jpg";
 import PartnersCarousel from "@/components/PartnersCarousel";
 import AnimatedDashboard from "@/components/AnimatedDashboard";
 import FAQSection from "@/components/FAQSection";
@@ -23,28 +10,86 @@ import HeroSlider from "@/components/HeroSlider";
 const Index = () => {
   const homeFAQs = [
     {
-      question: "What services does DFT Group provide?",
-      answer: "DFT Consult offers three major service categories: Data Analysis (AI-driven analytics and forecasting), Digital Forensics (security solutions and fraud detection), and Technology Consulting (strategic guidance and custom AI solutions for fintech applications)."
+      question: "Are DFT solutions fully compliant with Kenya's Data Protection Act and regulatory guidelines?",
+      answer: "Yes. Compliance is built into every solution we design and implement. Our systems align with the Kenya Data Protection Act, Central Bank of Kenya (CBK) guidelines, and relevant regulatory frameworks. We enforce strict data governance, encryption, and access controls to ensure your data remains secure, private, and fully compliant at all times."
     },
     {
-      question: "Which industries does DFT Droup specialize in?",
-      answer: "We specialize in the Banking & Financial Services, Finance & Investment, and Insurance & Risk Management sectors. Our AI-powered solutions are specifically tailored for these industries to enhance operations, reduce risk, and improve decision-making."
+      question: "How does DFT ensure data privacy and regulatory compliance in AI-driven environments?",
+      answer: "We embed compliance into the full lifecycle of our engagements — from design to deployment and ongoing monitoring. This includes privacy impact assessments, secure data handling protocols, and continuous regulatory alignment. Our approach ensures that AI adoption enhances performance without exposing the organization to legal or compliance risk."
     },
     {
-      question: "How does DFT Group's AI technology work?",
-      answer: "Our AI workflow follows three stages: Input (raw documents and financial data), AI Analysis (advanced machine learning algorithms process and extract insights), and Output (comprehensive reports, risk assessments, credit scores, and actionable recommendations)."
+      question: "Are DFT Academy programs accredited and recognized?",
+      answer: "Yes. Our training programs are registered with the National Industrial Training Authority (NITA). Participants receive recognized certifications, ensuring that teams build practical, industry-relevant skills in AI, fraud risk management, cybersecurity, and governance within an approved regulatory framework."
     },
     {
-      question: "What makes DFT Group's solutions reliable?",
-      answer: "We guarantee 99.9999% quality assurance in data handling and analytics. Our solutions are built on cutting-edge AI innovation, designed for scalability to grow with your business, and backed by robust architecture for uninterrupted, consistent performance."
+      question: "What tangible business value can institutions expect from DFT solutions?",
+      answer: "DFT delivers measurable outcomes. Our solutions improve decision quality, reduce fraud and operational risk, and enhance efficiency through AI and analytics. By combining global technology capability with local industry expertise, we enable institutions to realize faster results, stronger controls, and sustainable, value-driven transformation."
+    }
+  ];
+
+  const services = [
+    {
+      icon: Brain,
+      title: "AI & Data-Driven Decision Intelligence",
+      description: "We enable organizations to make faster, more accurate, and risk-informed decisions using AI and advanced analytics.",
+      detail: "By embedding predictive models and structured data frameworks into core operations, we help institutions proactively identify risks, optimize performance, and unlock new growth opportunities — while maintaining strong governance and compliance.",
+      outcome: "Better decisions, reduced risk exposure, and improved operational visibility."
     },
     {
-      question: "Can DFT Group integrate with our existing systems?",
-      answer: "Yes, our solutions are designed for seamless integration with existing systems. We work with cloud platforms like Microsoft Azure and AWS, and our technology consulting services include custom API development and system integration tailored to your specific infrastructure."
+      icon: Cpu,
+      title: "Digital Transformation & Operational Efficiency",
+      description: "We support end-to-end transformation by aligning technology, processes, and people into a cohesive, high-performing operating model.",
+      detail: "Our approach focuses on simplifying complexity, automating key processes, and ensuring that transformation initiatives translate into real operational gains — not just system deployments.",
+      outcome: "Streamlined operations, improved efficiency, and scalable digital capabilities."
     },
     {
-      question: "How can we get started with DFT Group?",
-      answer: "Simply schedule a consultation with our team. We'll discuss your specific business needs, demonstrate relevant solutions, and create a customized implementation plan. Contact us through our website or reach out to our business development team directly."
+      icon: Shield,
+      title: "Governance, Risk & Compliance",
+      description: "We strengthen institutional integrity by embedding governance frameworks and control mechanisms into everyday operations.",
+      detail: "From fraud risk management to regulatory alignment and ethical oversight, we ensure that organizations operate with transparency, accountability, and resilience in a rapidly evolving risk landscape.",
+      outcome: "Stronger controls, enhanced compliance, and increased stakeholder trust."
+    },
+    {
+      icon: GraduationCap,
+      title: "Capability Building & Workforce Enablement",
+      description: "We equip leadership teams and operational staff with the knowledge and skills required to adopt AI and digital technologies responsibly.",
+      detail: "Through targeted training and structured learning programs, we build internal capacity that supports sustainable transformation and long-term value creation.",
+      outcome: "A skilled workforce capable of driving and sustaining digital and AI-led initiatives."
+    },
+    {
+      icon: Lightbulb,
+      title: "Strategic Advisory & Transformation Support",
+      description: "We provide practical, execution-focused advisory that bridges strategy and implementation.",
+      detail: "Our engagements are grounded in industry context, regulatory realities, and technology expertise — ensuring that transformation initiatives are both viable and impactful.",
+      outcome: "Clear strategic direction, accelerated execution, and measurable business impact."
+    }
+  ];
+
+  const whyChooseUs = [
+    {
+      icon: Award,
+      title: "Deep Industry Expertise",
+      description: "Extensive experience across banking, insurance, fintech, and AI-driven transformation, enabling us to address complex challenges in regulated environments."
+    },
+    {
+      icon: Target,
+      title: "Proven Impact",
+      description: "We deliver measurable outcomes — reduced risk, improved decision accuracy, and increased operational efficiency."
+    },
+    {
+      icon: Cpu,
+      title: "End-to-End Delivery",
+      description: "From strategy to implementation and capability building, we ensure solutions are adopted and sustained."
+    },
+    {
+      icon: Shield,
+      title: "Governance-First Approach",
+      description: "All solutions are aligned to regulatory requirements, ethical standards, and strong risk management frameworks."
+    },
+    {
+      icon: Handshake,
+      title: "Long-Term Partnership",
+      description: "We work alongside institutions to drive lasting transformation — not just deliver projects."
     }
   ];
 
@@ -53,179 +98,121 @@ const Index = () => {
       {/* Hero Section */}
       <HeroSlider />
 
-     {/* Company Introduction Section */}
-<section className="relative section-padding bg-gradient-to-br from-background via-muted/20 to-background">
-  <div className="container-max text-center">
-    {/* Centered headline */}
-    <h2 className="text-4xl md:text-6xl font-bold mb-10 text-primary">
-      Your Strategic Partner in AI-Powered Solutions
-    </h2>
+      {/* About Us Brief Section */}
+      <section className="relative section-padding bg-gradient-to-br from-background via-muted/20 to-background">
+        <div className="container-max">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-5xl font-bold mb-4 text-primary">
+              About DFT Group
+            </h2>
+          </div>
 
-    <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-      {/* Left side - Dashboard illustration */}
-      <div className="relative">
-        <AnimatedDashboard />
-        
-        {/* Floating abstract wave shapes */}
-        <div className="absolute -top-8 -left-8 w-32 h-32 bg-gradient-to-br from-gray-200/40 to-gray-300/40 rounded-full blur-xl"></div>
-        <div className="absolute -bottom-12 -right-12 w-40 h-40 bg-gradient-to-br from-gray-100/40 to-gray-200/40 rounded-full blur-xl"></div>
-      </div>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            {/* Left side - Dashboard illustration */}
+            <div className="relative">
+              <AnimatedDashboard />
+              <div className="absolute -top-8 -left-8 w-32 h-32 bg-gradient-to-br from-muted/40 to-muted/20 rounded-full blur-xl"></div>
+              <div className="absolute -bottom-12 -right-12 w-40 h-40 bg-gradient-to-br from-muted/30 to-muted/10 rounded-full blur-xl"></div>
+            </div>
 
-      {/* Right side - Company introduction */}
-      <div className="space-y-8 text-left">
-        <div className="prose prose-lg max-w-none text-muted-foreground leading-relaxed">
-          <p className="mb-6">
-           DFT Group bridges the gap between global innovation and local impact. Working alongside our technology
-            partners — <span className="text-success font-semibold">Perfios</span> and <span className="text-success font-semibold">iNube</span> — we have
-           <span className="text-success font-semibold"> we have localized world-class, AI-ready technology solutions</span> to meet the unique needs of the <span className="text-success font-semibold"> East African BFSI market.
-            </span>
+            {/* Right side - Company introduction */}
+            <div className="space-y-6 text-left">
+              <div className="prose prose-lg max-w-none text-muted-foreground leading-relaxed">
+                <p className="mb-4">
+                  DFT Group is a Kenyan advisory and professional services organization that helps financial institutions and regulated organizations unlock measurable business value through AI, data, and forensic intelligence.
+                </p>
+                <p className="mb-4">
+                  We work primarily with banks, insurers, and healthcare organizations to strengthen governance, manage risk, and modernize operations. Our approach combines deep local industry expertise with leading global technology platforms, enabling the delivery of practical, scalable solutions that improve decision-making, enhance operational efficiency, and build digital trust.
+                </p>
+                <p className="mb-4">
+                  DFT's core focus areas include artificial intelligence adoption and governance, data analytics, fraud risk management, and digital transformation.
+                </p>
+                <p className="mb-4 font-medium text-foreground">
+                  The Group operates through three complementary entities:
+                </p>
+                <ul className="space-y-2 mb-4">
+                  <li className="flex items-start gap-2">
+                    <CheckCircle className="w-5 h-5 text-success mt-0.5 shrink-0" />
+                    <span><strong className="text-primary">DFT Consulting LLP</strong> – Technology advisory, data analytics, and forensic services</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle className="w-5 h-5 text-success mt-0.5 shrink-0" />
+                    <span><strong className="text-primary">DFT Health Services Ltd</strong> – Health insurance technology and TPA services</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle className="w-5 h-5 text-success mt-0.5 shrink-0" />
+                    <span><strong className="text-primary">DFT Academy</strong> – Training and capacity development</span>
+                  </li>
+                </ul>
+                <p className="text-foreground font-medium italic">
+                  Our purpose is unlocking business value through AI for safer, smarter organizations.
+                </p>
+              </div>
 
-          </p>
-          <p className="mb-6">
-            We go beyond technology reselling to deliver <span className="text-primary font-semibold">fit-for-purpose implementations</span> that align with business realities, 
-            shorten deployment timelines, and unlock <span className="text-primary font-semibold">tangible value</span>. With deep domain expertise in <span className="text-primary font-semibold">banking and insurance</span>, we 
-            ensure AI moves from <span className="text-primary font-semibold">boardroom buzzword to tangible business outcome</span> — because without DFT, even the best technology rarely delivers its full potential.
-          </p>
-         
+              <div className="pt-4">
+                <Link to="/about">
+                  <Button variant="warning" size="lg" className="transition-transform transform hover:scale-105">
+                    Read More About Us
+                    <ArrowRight className="ml-2 h-4 w-4" />
+                  </Button>
+                </Link>
+              </div>
+            </div>
+          </div>
         </div>
+      </section>
 
-        {/* Feature badges */}
-        <div className="flex flex-wrap gap-4">
-          <div className="flex items-center space-x-3 bg-white/80 rounded-lg px-4 py-3 shadow-sm border border-gray-100">
-            <Building2 className="w-6 h-6 text-primary" />
-            <span className="text-sm font-medium text-muted-foreground">Banking Solutions</span>
-          </div>
-          <div className="flex items-center space-x-3 bg-white/80 rounded-lg px-4 py-3 shadow-sm border border-gray-100">
-            <TrendingUp className="w-6 h-6 text-primary" />
-            <span className="text-sm font-medium text-muted-foreground">Financial Analytics</span>
-          </div>
-          <div className="flex items-center space-x-3 bg-white/80 rounded-lg px-4 py-3 shadow-sm border border-gray-100">
-            <Shield className="w-6 h-6 text-primary" />
-            <span className="text-sm font-medium text-muted-foreground">Insurance Tech</span>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    {/* Centered CTA button */}
-    <div className="pt-10 flex justify-center">
-      <Link to="/about">
-        <Button 
-          variant="warning"
-          size="lg" 
-          className="transition-transform transform hover:scale-105"
-        >
-          Learn More About Our Approach
-          <ArrowRight className="ml-2 h-4 w-4" />
-        </Button>
-      </Link>
-    </div>
-  </div>
-</section>
-
-
-      {/* Industries We Serve Section */}
+      {/* Our Services Section */}
       <section className="section-padding bg-gradient-to-br from-primary/5 to-accent/5">
         <div className="container-max">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-5xl font-bold mb-4 text-primary">
-              Industries We Serve
+              Our Services
             </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Specialized AI solutions tailored for Banking, Finance, and Insurance sectors
+            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+              At DFT Group, our services are designed to deliver one outcome: measurable business value through AI for safer, smarter organizations. We focus on strengthening decision-making, reducing risk, and improving operational efficiency across regulated industries.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <Card className="group hover:shadow-lg transition-all duration-300 border-gray-200">
-              <div className="aspect-video w-full overflow-hidden rounded-t-lg">
-                <img 
-                  src={bankingIndustryImg} 
-                  alt="Banking Industry"
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                />
-              </div>
-              <CardHeader>
-                <div className="flex items-center mb-3">
-                  <Building2 className="w-6 h-6 text-primary mr-2" />
-                  <CardTitle className="text-xl font-semibold text-primary">Banking & Financial Services</CardTitle>
-                </div>
-                <CardDescription className="text-base">
-                  Comprehensive AI-powered solutions for modern banking operations. 
-                  From automated credit underwriting to real-time fraud detection, 
-                  transforming traditional banking processes.
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <Link to="/industry#banking">
-                  <Button variant="ghost" size="sm" className="p-0 h-auto text-primary">
-                    Explore Banking Solutions <ArrowRight className="ml-1 h-3 w-3" />
-                  </Button>
-                </Link>
-              </CardContent>
-            </Card>
-
-            <Card className="group hover:shadow-lg transition-all duration-300 border-gray-200">
-              <div className="aspect-video w-full overflow-hidden rounded-t-lg">
-                <img 
-                  src={financeIndustryImg} 
-                  alt="Finance Industry"
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                />
-              </div>
-              <CardHeader>
-                <div className="flex items-center mb-3">
-                  <TrendingUp className="w-6 h-6 text-primary mr-2" />
-                  <CardTitle className="text-xl font-semibold text-primary">Finance & Investment</CardTitle>
-                </div>
-                <CardDescription className="text-base">
-                  Advanced analytics and AI solutions for investment and financial planning. 
-                  Sophisticated tools for portfolio optimization, market analysis, 
-                  and risk management.
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <Link to="/industry#finance">
-                  <Button variant="ghost" size="sm" className="p-0 h-auto text-primary">
-                    Explore Finance Solutions <ArrowRight className="ml-1 h-3 w-3" />
-                  </Button>
-                </Link>
-              </CardContent>
-            </Card>
-
-            <Card className="group hover:shadow-lg transition-all duration-300 border-gray-200">
-              <div className="aspect-video w-full overflow-hidden rounded-t-lg">
-                <img 
-                  src={insuranceIndustryImg} 
-                  alt="Insurance Industry"
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                />
-              </div>
-              <CardHeader>
-                <div className="flex items-center mb-3">
-                  <Shield className="w-6 h-6 text-primary mr-2" />
-                  <CardTitle className="text-xl font-semibold text-primary">Insurance & Risk Management</CardTitle>
-                </div>
-                <CardDescription className="text-base">
-                  Intelligent insurance solutions powered by machine learning and AI. 
-                  From claims processing to risk assessment, enhancing efficiency 
-                  and customer satisfaction.
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <Link to="/industry#insurance">
-                  <Button variant="ghost" size="sm" className="p-0 h-auto text-primary">
-                    Explore Insurance Solutions <ArrowRight className="ml-1 h-3 w-3" />
-                  </Button>
-                </Link>
-              </CardContent>
-            </Card>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {services.map((service, index) => {
+              const Icon = service.icon;
+              return (
+                <Card key={index} className="group hover:shadow-xl transition-all duration-300 border-border/50 hover:border-primary/30 bg-card">
+                  <CardHeader>
+                    <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
+                      <Icon className="w-7 h-7 text-primary" />
+                    </div>
+                    <CardTitle className="text-lg font-semibold text-foreground">
+                      {service.title}
+                    </CardTitle>
+                    <CardDescription className="text-base text-muted-foreground">
+                      {service.description}
+                    </CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-sm text-muted-foreground mb-4 leading-relaxed">
+                      {service.detail}
+                    </p>
+                    <div className="flex items-start gap-2 bg-success/10 rounded-lg p-3">
+                      <CheckCircle className="w-4 h-4 text-success mt-0.5 shrink-0" />
+                      <p className="text-sm font-medium text-success">
+                        <span className="font-semibold">Outcome:</span> {service.outcome}
+                      </p>
+                    </div>
+                  </CardContent>
+                </Card>
+              );
+            })}
           </div>
 
-          <div className="text-center mt-12">
-            <Link to="/industry">
-              <Button variant="outline" size="lg" className="border-gray-300">
-                View All Industries
+          <div className="text-center mt-6">
+            <p className="text-muted-foreground italic max-w-3xl mx-auto mb-8">
+              Across all our services, DFT integrates AI, forensic discipline, and governance to ensure that innovation delivers control, and transformation delivers value.
+            </p>
+            <Link to="/services">
+              <Button variant="default" size="lg">
+                View All Services
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
             </Link>
@@ -233,186 +220,36 @@ const Index = () => {
         </div>
       </section>
 
-      {/* AI Showcase Section */}
-      <section className="section-padding bg-gradient-to-br from-accent/5 to-primary/5">
+      {/* Why Choose Us Section */}
+      <section className="section-padding bg-background">
         <div className="container-max">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-5xl font-bold mb-4 gradient-text">
-              AI Technology Workflow
+            <h2 className="text-3xl md:text-5xl font-bold mb-4 text-primary">
+              Why Choose Us?
             </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              See how our sophisticated AI-powered solutions transform your data into actionable insights
-            </p>
           </div>
 
-          <div className="flex flex-col lg:flex-row items-center justify-center space-y-12 lg:space-y-0 lg:space-x-12">
-            <div className="flex flex-col items-center max-w-sm">
-              <div className="w-32 h-32 rounded-2xl overflow-hidden mb-6 neon-glow">
-                <img 
-                  src={aiWorkflowInputImg} 
-                  alt="Data Input"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <h3 className="text-2xl font-semibold mb-3 gradient-text">Input</h3>
-              <p className="text-center text-muted-foreground leading-relaxed">
-                Raw documents, bank statements, financial data, and unstructured information 
-                from multiple sources
-              </p>
-            </div>
-
-            <div className="flex items-center">
-              <div className="w-20 h-1 lg:w-1 lg:h-20 bg-gradient-to-r lg:bg-gradient-to-b from-primary to-accent rounded-full neon-glow"></div>
-            </div>
-
-            <div className="flex flex-col items-center max-w-sm">
-              <div className="w-32 h-32 rounded-2xl overflow-hidden mb-6 bg-success/20 flex items-center justify-center">
-                <img 
-                  src={aiWorkflowAnalysisImg} 
-                  alt="AI Analysis"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <h3 className="text-2xl font-semibold mb-3 text-success">AI Analysis</h3>
-              <p className="text-center text-muted-foreground leading-relaxed">
-                Advanced machine learning algorithms process, validate, and extract 
-                meaningful patterns and insights
-              </p>
-            </div>
-
-            <div className="flex items-center">
-              <div className="w-20 h-1 lg:w-1 lg:h-20 bg-gradient-to-r lg:bg-gradient-to-b from-accent to-primary rounded-full neon-glow"></div>
-            </div>
-
-            <div className="flex flex-col items-center max-w-sm">
-              <div className="w-32 h-32 rounded-2xl overflow-hidden mb-6 bg-warning/20 flex items-center justify-center">
-                <img 
-                  src={aiWorkflowOutputImg} 
-                  alt="Intelligent Output"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <h3 className="text-2xl font-semibold mb-3 text-warning">Output</h3>
-              <p className="text-center text-muted-foreground leading-relaxed">
-                Comprehensive reports, risk assessments, credit scores, and 
-                actionable business recommendations
-              </p>
-            </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+            {whyChooseUs.map((item, index) => {
+              const Icon = item.icon;
+              return (
+                <div key={index} className="flex items-start gap-4 p-6 rounded-xl bg-card border border-border/50 hover:shadow-lg transition-all duration-300">
+                  <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
+                    <Icon className="w-6 h-6 text-primary" />
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-semibold text-foreground mb-2">{item.title}</h3>
+                    <p className="text-muted-foreground text-sm leading-relaxed">{item.description}</p>
+                  </div>
+                </div>
+              );
+            })}
           </div>
+
+          {/* Partners Carousel */}
+          <PartnersCarousel />
         </div>
       </section>
-
-{/* Advantage Section */}
-<section className="relative w-full py-24 bg-white overflow-x-hidden">
-  <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 text-[#0047BA]">
-    The DFT Advantage
-  </h2>
-
-  <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-start justify-between gap-12 px-4 overflow-x-hidden">
-    {/* Left Text Section */}
-    <div className="flex-1 text-gray-700 text-lg leading-relaxed pl-6 space-y-6">
-      <p className="flex items-start gap-2">
-        <span className="text-[#4169E1] font-bold">✔</span>
-        <strong className="text-[#0047BA]">99.9999% Quality:</strong> Our AI solutions guarantee the highest reliability and precision and assurance in data handling and analytics, ensuring top-tier service for our clients.
-      </p>
-      <p className="flex items-start gap-2">
-        <span className="text-[#9400D3] font-bold">✔</span>
-        <strong className="text-[#FFD400]">AI Innovation:</strong> Constantly innovating, we implement cutting-edge AI technologies that give businesses a competitive advantage.
-      </p>
-      <p className="flex items-start gap-2">
-        <span className="text-[#00FF7F] font-bold">✔</span>
-        <strong className="text-[#009739]">Scalability:</strong> Our solutions are designed to grow seamlessly with your business, accommodating increasing data and operational complexity.
-      </p>
-      <p className="flex items-start gap-2">
-        <span className="text-[#8A2BE2] font-bold">✔</span>
-        <strong className="text-[#8A2BE2]">Reliability:</strong> With robust architecture and vigilant monitoring, we ensure uninterrupted service and consistent performance.
-      </p>
-    </div>
-
-    {/* Diamond Visual Section — Hidden on mobile */}
-    <div className="hidden md:flex flex-1 relative items-center justify-center min-h-[400px] md:min-h-[500px] overflow-hidden px-4">
-      {/* Faded hollow circles in background */}
-      {[...Array(5)].map((_, i) => (
-        <div
-          key={`hollow-${i}`}
-          className="absolute rounded-full border-2 opacity-20"
-          style={{
-            width: `${80 + i * 40}px`,
-            height: `${80 + i * 40}px`,
-            borderColor: ["#4169E1", "#9400D3", "#8A2BE2"][i % 3],
-            top: `${Math.random() * 80}%`,
-            left: `${Math.random() * 80}%`,
-            animation: `float ${6 + i * 2}s ease-in-out infinite alternate`,
-          }}
-        />
-      ))}
-
-      <div className="relative w-64 h-64 md:w-[450px] md:h-[450px] mx-auto">
-        {/* Top Diamond */}
-        <div
-          className="absolute w-28 h-28 md:w-52 md:h-52 flex items-center justify-center text-center text-white font-bold text-xs md:text-lg rounded-lg hover:scale-105 transition-transform"
-          style={{
-            top: 0,
-            left: "50%",
-            transform: "translate(-50%, -50%) rotate(45deg)",
-            background: "linear-gradient(135deg, rgba(0, 71, 186), rgba(0, 71, 186))",
-          }}
-        >
-          <div className="-rotate-45 px-2 md:px-4 leading-tight">99.9999% Quality Assurance</div>
-        </div>
-
-        {/* Right Diamond */}
-        <div
-          className="absolute w-28 h-28 md:w-52 md:h-52 flex items-center justify-center text-center text-white font-bold text-xs md:text-lg rounded-lg hover:scale-105 transition-transform"
-          style={{
-            top: "50%",
-            right: 0,
-            transform: "translate(50%, -50%) rotate(45deg)",
-            background: "linear-gradient(135deg, rgba(255, 212, 0), rgba(255, 212, 0))",
-          }}
-        >
-          <div className="-rotate-45 px-2 md:px-4 leading-tight">AI Innovation</div>
-        </div>
-
-        {/* Bottom Diamond */}
-        <div
-          className="absolute w-28 h-28 md:w-52 md:h-52 flex items-center justify-center text-center text-white font-bold text-xs md:text-lg rounded-lg hover:scale-105 transition-transform"
-          style={{
-            bottom: 0,
-            left: "50%",
-            transform: "translate(-50%, 50%) rotate(45deg)",
-            background: "linear-gradient(135deg, rgba(0, 151, 57), rgba(0, 151, 57))",
-          }}
-        >
-          <div className="-rotate-45 px-2 md:px-4 leading-tight">Scalability</div>
-        </div>
-
-        {/* Left Diamond */}
-        <div
-          className="absolute w-28 h-28 md:w-52 md:h-52 flex items-center justify-center text-center text-white font-bold text-xs md:text-lg rounded-lg hover:scale-105 transition-transform"
-          style={{
-            top: "50%",
-            left: 0,
-            transform: "translate(-50%, -50%) rotate(45deg)",
-            background: "linear-gradient(135deg, rgba(138,43,226,1), rgba(138,43,226,0.6))",
-          }}
-        >
-          <div className="-rotate-45 px-2 md:px-4 leading-tight">Reliability</div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  {/* Floating animation keyframes */}
-  <style>{`
-    @keyframes float {
-      0% { transform: translateY(0px); opacity: 0.4; }
-      50% { transform: translateY(-15px); opacity: 0.6; }
-      100% { transform: translateY(0px); opacity: 0.4; }
-    }
-  `}</style>
-</section>
-
 
       {/* FAQ Section */}
       <FAQSection faqs={homeFAQs} variant="home" />
@@ -422,21 +259,18 @@ const Index = () => {
         <div className="container-max text-center">
           <div className="max-w-3xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold mb-6 text-white">
-              Ready to Transform Your Business?
+              Let's discuss how AI can transform your organization.
             </h2>
             <p className="text-lg text-white/90 mb-8">
-              Discover how our AI-powered solutions can streamline your operations 
-              and provide competitive advantages in today's digital landscape.
+              Contact us today to explore how DFT Group can help you make smarter, safer decisions.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link to="/contact">
                 <Button variant="warning" size="lg">
-                  Schedule Consultation
+                  Contact Us Today
+                  <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
               </Link>
-              {/* <Button variant="outline" size="lg" className="neon-border">
-                View Case Studies
-              </Button> */}
             </div>
           </div>
         </div>
