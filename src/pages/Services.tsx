@@ -261,11 +261,13 @@ const Services = () => {
 
             {solutionCategories.map((category) => (
               <TabsContent key={category.id} value={category.id} className="mt-8">
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                  {category.subcategories.map((subcategory, index) => (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                  {category.subcategories.map((subcategory, index) => {
+                    const borderAccents = ["border-t-primary", "border-t-success", "border-t-warning"];
+                    return (
                     <Card 
                       key={index}
-                      className="bg-card border-0 shadow-md hover:shadow-xl transition-all duration-300 group"
+                      className={`bg-card border-0 border-t-4 ${borderAccents[index % 3]} shadow-md hover:shadow-xl transition-all duration-300 group`}
                     >
                       <div className="aspect-video w-full overflow-hidden">
                         <img 
