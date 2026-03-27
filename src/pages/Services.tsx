@@ -289,7 +289,7 @@ const Services = () => {
                         <ul className="space-y-2 mb-4">
                           {subcategory.features.map((feature, idx) => (
                             <li key={idx} className="flex items-center gap-2 text-xs text-muted-foreground">
-                              <div className="w-1.5 h-1.5 bg-primary rounded-full flex-shrink-0"></div>
+                              <div className={`w-1.5 h-1.5 rounded-full flex-shrink-0 ${idx % 3 === 0 ? 'bg-primary' : idx % 3 === 1 ? 'bg-success' : 'bg-warning'}`}></div>
                               {feature}
                             </li>
                           ))}
