@@ -3,9 +3,9 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { ArrowRight, Brain, Cpu, Shield, GraduationCap, Lightbulb, CheckCircle, Building2, TrendingUp, Handshake, Award, Target } from "lucide-react";
 import { Link } from "react-router-dom";
 import PartnersCarousel from "@/components/PartnersCarousel";
-import AnimatedDashboard from "@/components/AnimatedDashboard";
 import FAQSection from "@/components/FAQSection";
 import HeroSlider from "@/components/HeroSlider";
+import whyChooseUsBg from "@/assets/why-choose-us-bg.jpg";
 
 const Index = () => {
   const homeFAQs = [
@@ -108,11 +108,28 @@ const Index = () => {
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            {/* Left side - Dashboard illustration */}
-            <div className="relative">
-              <AnimatedDashboard />
-              <div className="absolute -top-8 -left-8 w-32 h-32 bg-gradient-to-br from-muted/40 to-muted/20 rounded-full blur-xl"></div>
-              <div className="absolute -bottom-12 -right-12 w-40 h-40 bg-gradient-to-br from-muted/30 to-muted/10 rounded-full blur-xl"></div>
+            {/* Left side - Visual element */}
+            <div className="relative flex items-center justify-center">
+              <div className="w-full max-w-md mx-auto">
+                <div className="grid grid-cols-2 gap-4">
+                  <div className="bg-primary/10 rounded-2xl p-6 text-center border border-primary/20">
+                    <Building2 className="w-8 h-8 text-primary mx-auto mb-2" />
+                    <span className="text-sm font-medium text-foreground">Banking Solutions</span>
+                  </div>
+                  <div className="bg-success/10 rounded-2xl p-6 text-center border border-success/20">
+                    <Shield className="w-8 h-8 text-success mx-auto mb-2" />
+                    <span className="text-sm font-medium text-foreground">Insurance Tech</span>
+                  </div>
+                  <div className="bg-warning/10 rounded-2xl p-6 text-center border border-warning/20">
+                    <Brain className="w-8 h-8 text-warning mx-auto mb-2" />
+                    <span className="text-sm font-medium text-foreground">AI & Analytics</span>
+                  </div>
+                  <div className="bg-primary/10 rounded-2xl p-6 text-center border border-primary/20">
+                    <TrendingUp className="w-8 h-8 text-primary mx-auto mb-2" />
+                    <span className="text-sm font-medium text-foreground">Financial Analytics</span>
+                  </div>
+                </div>
+              </div>
             </div>
 
             {/* Right side - Company introduction */}
@@ -163,7 +180,7 @@ const Index = () => {
       </section>
 
       {/* Our Services Section */}
-      <section className="section-padding bg-gradient-to-br from-primary/5 to-accent/5">
+      <section className="section-padding bg-gradient-to-br from-primary/5 to-success/5">
         <div className="container-max">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-5xl font-bold mb-4 text-primary">
@@ -177,11 +194,19 @@ const Index = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {services.map((service, index) => {
               const Icon = service.icon;
+              const accentColors = [
+                { iconBg: "bg-primary/10", iconColor: "text-primary", hoverBg: "hover:border-primary/30" },
+                { iconBg: "bg-success/10", iconColor: "text-success", hoverBg: "hover:border-success/30" },
+                { iconBg: "bg-warning/10", iconColor: "text-warning", hoverBg: "hover:border-warning/30" },
+                { iconBg: "bg-success/10", iconColor: "text-success", hoverBg: "hover:border-success/30" },
+                { iconBg: "bg-warning/10", iconColor: "text-warning", hoverBg: "hover:border-warning/30" },
+              ];
+              const colors = accentColors[index];
               return (
-                <Card key={index} className="group hover:shadow-xl transition-all duration-300 border-border/50 hover:border-primary/30 bg-card">
+                <Card key={index} className={`group hover:shadow-xl transition-all duration-300 border-border/50 ${colors.hoverBg} bg-card`}>
                   <CardHeader>
-                    <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
-                      <Icon className="w-7 h-7 text-primary" />
+                    <div className={`w-14 h-14 rounded-xl ${colors.iconBg} flex items-center justify-center mb-4 transition-colors`}>
+                      <Icon className={`w-7 h-7 ${colors.iconColor}`} />
                     </div>
                     <CardTitle className="text-lg font-semibold text-foreground">
                       {service.title}
@@ -211,7 +236,7 @@ const Index = () => {
               Across all our services, DFT integrates AI, forensic discipline, and governance to ensure that innovation delivers control, and transformation delivers value.
             </p>
             <Link to="/services">
-              <Button variant="default" size="lg">
+              <Button variant="success" size="lg">
                 View All Services
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
@@ -220,33 +245,177 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Why Choose Us Section */}
-      <section className="section-padding bg-background">
-        <div className="container-max">
+      {/* Why Choose Us Section - with background image */}
+      <section className="relative section-padding overflow-hidden">
+        <div className="absolute inset-0 z-0">
+          <img 
+            src={whyChooseUsBg} 
+            alt="" 
+            className="w-full h-full object-cover"
+            loading="lazy"
+            width={1920}
+            height={1080}
+          />
+          <div className="absolute inset-0 bg-primary/80"></div>
+        </div>
+        <div className="container-max relative z-10">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-5xl font-bold mb-4 text-primary">
+            <h2 className="text-3xl md:text-5xl font-bold mb-4 text-white">
               Why Choose Us?
             </h2>
+            <div className="w-24 h-1 bg-warning mx-auto rounded-full"></div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {whyChooseUs.map((item, index) => {
               const Icon = item.icon;
+              const borderColors = [
+                "border-l-warning",
+                "border-l-success",
+                "border-l-warning",
+                "border-l-success",
+                "border-l-warning",
+              ];
               return (
-                <div key={index} className="flex items-start gap-4 p-6 rounded-xl bg-card border border-border/50 hover:shadow-lg transition-all duration-300">
-                  <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
-                    <Icon className="w-6 h-6 text-primary" />
+                <div key={index} className={`flex items-start gap-4 p-6 rounded-xl bg-white/10 backdrop-blur-sm border border-white/20 border-l-4 ${borderColors[index]} hover:bg-white/20 transition-all duration-300`}>
+                  <div className="w-12 h-12 rounded-lg bg-warning/20 flex items-center justify-center shrink-0">
+                    <Icon className="w-6 h-6 text-warning" />
                   </div>
                   <div>
-                    <h3 className="text-lg font-semibold text-foreground mb-2">{item.title}</h3>
-                    <p className="text-muted-foreground text-sm leading-relaxed">{item.description}</p>
+                    <h3 className="text-lg font-semibold text-white mb-2">{item.title}</h3>
+                    <p className="text-white/80 text-sm leading-relaxed">{item.description}</p>
                   </div>
                 </div>
               );
             })}
           </div>
+        </div>
+      </section>
 
-          {/* Partners Carousel */}
+      {/* DFT Advantage Section */}
+      <section className="relative w-full py-24 bg-card overflow-x-hidden">
+        <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 text-primary">
+          The DFT Advantage
+        </h2>
+
+        <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-start justify-between gap-12 px-4 sm:px-6 lg:px-8 overflow-x-hidden">
+          {/* Left Text Section */}
+          <div className="flex-1 text-muted-foreground text-lg leading-relaxed space-y-6">
+            <p className="flex items-start gap-2">
+              <span className="text-primary font-bold">✔</span>
+              <span><strong className="text-primary">99.9999% Quality:</strong> Our AI solutions guarantee the highest reliability and precision in data handling and analytics, ensuring top-tier service for our clients.</span>
+            </p>
+            <p className="flex items-start gap-2">
+              <span className="text-warning font-bold">✔</span>
+              <span><strong className="text-warning">AI Innovation:</strong> Constantly innovating, we implement cutting-edge AI technologies that give businesses a competitive advantage.</span>
+            </p>
+            <p className="flex items-start gap-2">
+              <span className="text-success font-bold">✔</span>
+              <span><strong className="text-success">Scalability:</strong> Our solutions are designed to grow seamlessly with your business, accommodating increasing data and operational complexity.</span>
+            </p>
+            <p className="flex items-start gap-2">
+              <span className="text-primary font-bold">✔</span>
+              <span><strong className="text-primary">Reliability:</strong> With robust architecture and vigilant monitoring, we ensure uninterrupted service and consistent performance.</span>
+            </p>
+          </div>
+
+          {/* Diamond Visual Section — Hidden on mobile */}
+          <div className="hidden md:flex flex-1 relative items-center justify-center min-h-[400px] md:min-h-[500px] overflow-hidden px-4">
+            {/* Faded hollow circles in background */}
+            {[...Array(5)].map((_, i) => (
+              <div
+                key={`hollow-${i}`}
+                className="absolute rounded-full border-2 opacity-20"
+                style={{
+                  width: `${80 + i * 40}px`,
+                  height: `${80 + i * 40}px`,
+                  borderColor: ["hsl(225,85%,35%)", "hsl(48,100%,50%)", "hsl(146,100%,30%)"][i % 3],
+                  top: `${Math.random() * 80}%`,
+                  left: `${Math.random() * 80}%`,
+                  animation: `float ${6 + i * 2}s ease-in-out infinite alternate`,
+                }}
+              />
+            ))}
+
+            <div className="relative w-64 h-64 md:w-[450px] md:h-[450px] mx-auto">
+              {/* Top Diamond - Primary Blue */}
+              <div
+                className="absolute w-28 h-28 md:w-52 md:h-52 flex items-center justify-center text-center text-white font-bold text-xs md:text-lg rounded-lg hover:scale-105 transition-transform"
+                style={{
+                  top: 0,
+                  left: "50%",
+                  transform: "translate(-50%, -50%) rotate(45deg)",
+                  background: "hsl(225, 85%, 35%)",
+                }}
+              >
+                <div className="-rotate-45 px-2 md:px-4 leading-tight">99.9999% Quality Assurance</div>
+              </div>
+
+              {/* Right Diamond - Yellow */}
+              <div
+                className="absolute w-28 h-28 md:w-52 md:h-52 flex items-center justify-center text-center font-bold text-xs md:text-lg rounded-lg hover:scale-105 transition-transform"
+                style={{
+                  top: "50%",
+                  right: 0,
+                  transform: "translate(50%, -50%) rotate(45deg)",
+                  background: "hsl(48, 100%, 50%)",
+                  color: "hsl(0, 0%, 0%)",
+                }}
+              >
+                <div className="-rotate-45 px-2 md:px-4 leading-tight">AI Innovation</div>
+              </div>
+
+              {/* Bottom Diamond - Green */}
+              <div
+                className="absolute w-28 h-28 md:w-52 md:h-52 flex items-center justify-center text-center text-white font-bold text-xs md:text-lg rounded-lg hover:scale-105 transition-transform"
+                style={{
+                  bottom: 0,
+                  left: "50%",
+                  transform: "translate(-50%, 50%) rotate(45deg)",
+                  background: "hsl(146, 100%, 30%)",
+                }}
+              >
+                <div className="-rotate-45 px-2 md:px-4 leading-tight">Scalability</div>
+              </div>
+
+              {/* Left Diamond - Primary Blue */}
+              <div
+                className="absolute w-28 h-28 md:w-52 md:h-52 flex items-center justify-center text-center text-white font-bold text-xs md:text-lg rounded-lg hover:scale-105 transition-transform"
+                style={{
+                  top: "50%",
+                  left: 0,
+                  transform: "translate(-50%, -50%) rotate(45deg)",
+                  background: "hsl(225, 85%, 35%)",
+                }}
+              >
+                <div className="-rotate-45 px-2 md:px-4 leading-tight">Reliability</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Floating animation keyframes */}
+        <style>{`
+          @keyframes float {
+            0% { transform: translateY(0px); opacity: 0.4; }
+            50% { transform: translateY(-15px); opacity: 0.6; }
+            100% { transform: translateY(0px); opacity: 0.4; }
+          }
+        `}</style>
+      </section>
+
+      {/* Partners Section */}
+      <section className="section-padding bg-gradient-to-br from-muted/30 to-background">
+        <div className="container-max">
+          <div className="text-center mb-8">
+            <h2 className="text-3xl md:text-5xl font-bold mb-4 text-primary">
+              Our Partners
+            </h2>
+            <div className="w-24 h-1 bg-warning mx-auto rounded-full mb-4"></div>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              We collaborate with industry leaders to deliver world-class solutions across banking and insurance.
+            </p>
+          </div>
           <PartnersCarousel />
         </div>
       </section>

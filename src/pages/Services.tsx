@@ -261,11 +261,13 @@ const Services = () => {
 
             {solutionCategories.map((category) => (
               <TabsContent key={category.id} value={category.id} className="mt-8">
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                  {category.subcategories.map((subcategory, index) => (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                  {category.subcategories.map((subcategory, index) => {
+                    const borderAccents = ["border-t-primary", "border-t-success", "border-t-warning"];
+                    return (
                     <Card 
                       key={index}
-                      className="bg-card border-0 shadow-md hover:shadow-xl transition-all duration-300 group"
+                      className={`bg-card border-0 border-t-4 ${borderAccents[index % 3]} shadow-md hover:shadow-xl transition-all duration-300 group`}
                     >
                       <div className="aspect-video w-full overflow-hidden">
                         <img 
@@ -287,7 +289,7 @@ const Services = () => {
                         <ul className="space-y-2 mb-4">
                           {subcategory.features.map((feature, idx) => (
                             <li key={idx} className="flex items-center gap-2 text-xs text-muted-foreground">
-                              <div className="w-1.5 h-1.5 bg-primary rounded-full flex-shrink-0"></div>
+                              <div className={`w-1.5 h-1.5 rounded-full flex-shrink-0 ${idx % 3 === 0 ? 'bg-primary' : idx % 3 === 1 ? 'bg-success' : 'bg-warning'}`}></div>
                               {feature}
                             </li>
                           ))}
@@ -301,8 +303,9 @@ const Services = () => {
                           <ChevronRight className="ml-2 w-4 h-4" />
                         </Button>
                       </CardContent>
-                    </Card>
-                  ))}
+                  </Card>
+                    );
+                  })}
                 </div>
               </TabsContent>
             ))}
@@ -347,9 +350,9 @@ const Services = () => {
                     </div>
                   </div>
                   <div className="w-full md:w-1/2 space-y-4">
-                    <div className="flex items-center gap-3">
-                      <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
-                        <IconComponent className="w-6 h-6 text-primary" />
+                     <div className="flex items-center gap-3">
+                       <div className={`w-12 h-12 rounded-xl flex items-center justify-center ${index % 2 === 0 ? 'bg-success/10' : 'bg-warning/10'}`}>
+                         <IconComponent className={`w-6 h-6 ${index % 2 === 0 ? 'text-success' : 'text-warning'}`} />
                       </div>
                       <h3 className="text-2xl font-bold text-foreground">{sector.title}</h3>
                     </div>
