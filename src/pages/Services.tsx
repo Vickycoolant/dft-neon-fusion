@@ -350,9 +350,9 @@ const Services = () => {
                     </div>
                   </div>
                   <div className="w-full md:w-1/2 space-y-4">
-                    <div className="flex items-center gap-3">
-                      <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
-                        <IconComponent className="w-6 h-6 text-primary" />
+                     <div className="flex items-center gap-3">
+                       <div className={`w-12 h-12 rounded-xl flex items-center justify-center ${index % 2 === 0 ? 'bg-success/10' : 'bg-warning/10'}`}>
+                         <IconComponent className={`w-6 h-6 ${index % 2 === 0 ? 'text-success' : 'text-warning'}`} />
                       </div>
                       <h3 className="text-2xl font-bold text-foreground">{sector.title}</h3>
                     </div>
