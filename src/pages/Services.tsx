@@ -303,8 +303,9 @@ const Services = () => {
                           <ChevronRight className="ml-2 w-4 h-4" />
                         </Button>
                       </CardContent>
-                    </Card>
-                  ))}
+                  </Card>
+                    );
+                  })}
                 </div>
               </TabsContent>
             ))}
