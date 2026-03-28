@@ -1,27 +1,13 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Link } from "react-router-dom";
-import { useState } from "react";
 import heroImg from "@/assets/dft-solutions-hero.jpg";
-import dataIntelligenceImg from "@/assets/data-intelligence.jpg";
-import forensicsRiskImg from "@/assets/forensics-risk.jpg";
-import techSolutionsImg from "@/assets/tech-solutions.jpg";
-import securityComplianceImg from "@/assets/security-compliance.jpg";
-import aiAutomationImg from "@/assets/ai-automation.jpg";
-import bankStatementImg from "@/assets/bank-statement.jpg";
-import documentAnalysisImg from "@/assets/document-analysis.jpg";
-import analyticsImg from "@/assets/analytics.jpg";
-import predictiveAnalyticsImg from "@/assets/image-10.jpg";
-import customerSegmentationImg from "@/assets/image-9.jpg";
 import bankingSectorImg from "@/assets/banking-sector.jpg";
 import insuranceSectorImg from "@/assets/insurance-sector.jpg";
 import publicSectorImg from "@/assets/public-sector.jpg";
 import capabilityBuildingImg from "@/assets/capability-building.jpg";
+import ServicesSection from "@/components/ServicesSection";
 import { 
-  Database, 
-  Shield, 
-  Code, 
   ChevronRight,
   Phone,
   Landmark,
@@ -31,7 +17,6 @@ import {
 } from "lucide-react";
 
 const Services = () => {
-  const [selectedCategory, setSelectedCategory] = useState("data-intelligence");
 
   const solutionCategories = [
     {
