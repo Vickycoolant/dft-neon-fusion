@@ -366,58 +366,6 @@ const About = () => {
         </div>
       </section>
 
-      {/* Our Expertise & Specialized Services - 3 Tiles */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-[#4169E1] mb-6">
-              Our Expertise & Specialized Services
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Comprehensive solutions tailored for the financial sector
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {services.map((service, index) => (
-              <Card key={index} className="bg-white hover:shadow-xl transition-all duration-300 group overflow-hidden">
-                <div className="aspect-video overflow-hidden">
-                  <img 
-                    src={service.image} 
-                    alt={service.title}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
-                  />
-                </div>
-                <CardHeader>
-                  <CardTitle className="text-xl font-bold text-gray-900 group-hover:text-[#4169E1] transition-colors">
-                    {service.title}
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-gray-600 leading-relaxed mb-4">
-                    {service.description}
-                  </p>
-                  <Link 
-                    to={
-                      service.title.includes("Data Intelligence") 
-                        ? "/services#data-intelligence" 
-                        : service.title.includes("Digital Forensics") 
-                        ? "/services#forensics-risk" 
-                        : "/services#technology-solutions"
-                    }
-                  >
-                    <Button variant="outline" className="w-full border-[#4169E1] text-[#4169E1] hover:bg-[#4169E1] hover:text-white">
-                      Learn More
-                      <ArrowRight className="ml-2 w-4 h-4" />
-                    </Button>
-                  </Link>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Partnerships & Global Reach */}
       <section className="py-20 bg-gradient-to-br from-[#4169E1]/5 to-white">
         <div className="max-w-7xl mx-auto px-6">
