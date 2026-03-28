@@ -27,43 +27,7 @@ const Index = () => {
     }
   ];
 
-  const services = [
-    {
-      icon: Brain,
-      title: "AI & Data-Driven Decision Intelligence",
-      description: "We enable organizations to make faster, more accurate, and risk-informed decisions using AI and advanced analytics.",
-      detail: "By embedding predictive models and structured data frameworks into core operations, we help institutions proactively identify risks, optimize performance, and unlock new growth opportunities — while maintaining strong governance and compliance.",
-      outcome: "Better decisions, reduced risk exposure, and improved operational visibility."
-    },
-    {
-      icon: Cpu,
-      title: "Digital Transformation & Operational Efficiency",
-      description: "We support end-to-end transformation by aligning technology, processes, and people into a cohesive, high-performing operating model.",
-      detail: "Our approach focuses on simplifying complexity, automating key processes, and ensuring that transformation initiatives translate into real operational gains — not just system deployments.",
-      outcome: "Streamlined operations, improved efficiency, and scalable digital capabilities."
-    },
-    {
-      icon: Shield,
-      title: "Governance, Risk & Compliance",
-      description: "We strengthen institutional integrity by embedding governance frameworks and control mechanisms into everyday operations.",
-      detail: "From fraud risk management to regulatory alignment and ethical oversight, we ensure that organizations operate with transparency, accountability, and resilience in a rapidly evolving risk landscape.",
-      outcome: "Stronger controls, enhanced compliance, and increased stakeholder trust."
-    },
-    {
-      icon: GraduationCap,
-      title: "Capability Building & Workforce Enablement",
-      description: "We equip leadership teams and operational staff with the knowledge and skills required to adopt AI and digital technologies responsibly.",
-      detail: "Through targeted training and structured learning programs, we build internal capacity that supports sustainable transformation and long-term value creation.",
-      outcome: "A skilled workforce capable of driving and sustaining digital and AI-led initiatives."
-    },
-    {
-      icon: Lightbulb,
-      title: "Strategic Advisory & Transformation Support",
-      description: "We provide practical, execution-focused advisory that bridges strategy and implementation.",
-      detail: "Our engagements are grounded in industry context, regulatory realities, and technology expertise — ensuring that transformation initiatives are both viable and impactful.",
-      outcome: "Clear strategic direction, accelerated execution, and measurable business impact."
-    }
-  ];
+  // services data moved to ServicesSection component
 
   const whyChooseUs = [
     {
