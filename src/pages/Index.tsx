@@ -1,10 +1,10 @@
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { ArrowRight, Brain, Cpu, Shield, GraduationCap, Lightbulb, CheckCircle, Building2, TrendingUp, Handshake, Award, Target } from "lucide-react";
+import { ArrowRight, Brain, Cpu, Shield, Building2, TrendingUp, Handshake, Award, Target, CheckCircle } from "lucide-react";
 import { Link } from "react-router-dom";
 import PartnersCarousel from "@/components/PartnersCarousel";
 import FAQSection from "@/components/FAQSection";
 import HeroSlider from "@/components/HeroSlider";
+import ServicesSection from "@/components/ServicesSection";
 import whyChooseUsBg from "@/assets/why-choose-us-bg.jpg";
 
 const Index = () => {
@@ -27,43 +27,7 @@ const Index = () => {
     }
   ];
 
-  const services = [
-    {
-      icon: Brain,
-      title: "AI & Data-Driven Decision Intelligence",
-      description: "We enable organizations to make faster, more accurate, and risk-informed decisions using AI and advanced analytics.",
-      detail: "By embedding predictive models and structured data frameworks into core operations, we help institutions proactively identify risks, optimize performance, and unlock new growth opportunities — while maintaining strong governance and compliance.",
-      outcome: "Better decisions, reduced risk exposure, and improved operational visibility."
-    },
-    {
-      icon: Cpu,
-      title: "Digital Transformation & Operational Efficiency",
-      description: "We support end-to-end transformation by aligning technology, processes, and people into a cohesive, high-performing operating model.",
-      detail: "Our approach focuses on simplifying complexity, automating key processes, and ensuring that transformation initiatives translate into real operational gains — not just system deployments.",
-      outcome: "Streamlined operations, improved efficiency, and scalable digital capabilities."
-    },
-    {
-      icon: Shield,
-      title: "Governance, Risk & Compliance",
-      description: "We strengthen institutional integrity by embedding governance frameworks and control mechanisms into everyday operations.",
-      detail: "From fraud risk management to regulatory alignment and ethical oversight, we ensure that organizations operate with transparency, accountability, and resilience in a rapidly evolving risk landscape.",
-      outcome: "Stronger controls, enhanced compliance, and increased stakeholder trust."
-    },
-    {
-      icon: GraduationCap,
-      title: "Capability Building & Workforce Enablement",
-      description: "We equip leadership teams and operational staff with the knowledge and skills required to adopt AI and digital technologies responsibly.",
-      detail: "Through targeted training and structured learning programs, we build internal capacity that supports sustainable transformation and long-term value creation.",
-      outcome: "A skilled workforce capable of driving and sustaining digital and AI-led initiatives."
-    },
-    {
-      icon: Lightbulb,
-      title: "Strategic Advisory & Transformation Support",
-      description: "We provide practical, execution-focused advisory that bridges strategy and implementation.",
-      detail: "Our engagements are grounded in industry context, regulatory realities, and technology expertise — ensuring that transformation initiatives are both viable and impactful.",
-      outcome: "Clear strategic direction, accelerated execution, and measurable business impact."
-    }
-  ];
+  // services data moved to ServicesSection component
 
   const whyChooseUs = [
     {
@@ -109,28 +73,39 @@ const Index = () => {
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             {/* Left side - Visual element */}
-            <div className="relative flex items-center justify-center">
-              {/* AI-patterned background */}
-              <div className="absolute inset-0 rounded-3xl overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-success/5 to-warning/10"></div>
-                {/* Circuit / AI pattern lines */}
-                <svg className="absolute inset-0 w-full h-full opacity-[0.07]" xmlns="http://www.w3.org/2000/svg">
+            <div className="relative flex items-center justify-center min-h-[420px] lg:min-h-[520px]">
+              {/* AI-patterned background - larger with better patterns */}
+              <div className="absolute inset-0 rounded-3xl overflow-hidden" style={{ minHeight: '480px' }}>
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/15 via-success/8 to-warning/12"></div>
+                {/* Hexagonal AI pattern */}
+                <svg className="absolute inset-0 w-full h-full opacity-[0.08]" xmlns="http://www.w3.org/2000/svg">
                   <defs>
-                    <pattern id="circuit" x="0" y="0" width="60" height="60" patternUnits="userSpaceOnUse">
-                      <circle cx="30" cy="30" r="2" fill="currentColor" className="text-primary" />
-                      <path d="M30 0 V28 M30 32 V60 M0 30 H28 M32 30 H60" stroke="currentColor" strokeWidth="0.5" className="text-primary" />
-                      <circle cx="0" cy="0" r="1.5" fill="currentColor" className="text-success" />
-                      <circle cx="60" cy="60" r="1.5" fill="currentColor" className="text-success" />
-                      <circle cx="60" cy="0" r="1" fill="currentColor" className="text-warning" />
-                      <circle cx="0" cy="60" r="1" fill="currentColor" className="text-warning" />
+                    <pattern id="ai-hex" x="0" y="0" width="60" height="70" patternUnits="userSpaceOnUse">
+                      <path d="M30 0 L60 17.5 L60 52.5 L30 70 L0 52.5 L0 17.5 Z" fill="none" stroke="currentColor" strokeWidth="0.5" className="text-primary" />
+                      <circle cx="30" cy="35" r="2.5" fill="currentColor" className="text-primary" />
+                      <path d="M0 17.5 L30 35 L60 17.5" fill="none" stroke="currentColor" strokeWidth="0.3" className="text-success" />
+                      <path d="M0 52.5 L30 35 L60 52.5" fill="none" stroke="currentColor" strokeWidth="0.3" className="text-warning" />
+                    </pattern>
+                    <pattern id="ai-dots" x="0" y="0" width="30" height="30" patternUnits="userSpaceOnUse">
+                      <circle cx="15" cy="15" r="1" fill="currentColor" className="text-warning" opacity="0.4" />
                     </pattern>
                   </defs>
-                  <rect width="100%" height="100%" fill="url(#circuit)" />
+                  <rect width="100%" height="100%" fill="url(#ai-hex)" />
+                  <rect width="100%" height="100%" fill="url(#ai-dots)" />
+                </svg>
+                {/* Connection lines */}
+                <svg className="absolute inset-0 w-full h-full opacity-[0.06]" xmlns="http://www.w3.org/2000/svg">
+                  <line x1="10%" y1="20%" x2="90%" y2="80%" stroke="currentColor" strokeWidth="0.5" className="text-primary" />
+                  <line x1="90%" y1="20%" x2="10%" y2="80%" stroke="currentColor" strokeWidth="0.5" className="text-success" />
+                  <line x1="50%" y1="0%" x2="50%" y2="100%" stroke="currentColor" strokeWidth="0.3" className="text-warning" />
+                  <line x1="0%" y1="50%" x2="100%" y2="50%" stroke="currentColor" strokeWidth="0.3" className="text-primary" />
                 </svg>
                 {/* Glowing orbs */}
-                <div className="absolute top-8 left-8 w-32 h-32 bg-primary/15 rounded-full blur-2xl"></div>
-                <div className="absolute bottom-8 right-8 w-40 h-40 bg-success/15 rounded-full blur-2xl"></div>
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 bg-warning/10 rounded-full blur-3xl"></div>
+                <div className="absolute top-4 left-4 w-40 h-40 bg-primary/20 rounded-full blur-3xl"></div>
+                <div className="absolute bottom-4 right-4 w-48 h-48 bg-success/18 rounded-full blur-3xl"></div>
+                <div className="absolute top-1/3 right-1/4 w-36 h-36 bg-warning/15 rounded-full blur-2xl"></div>
+                <div className="absolute bottom-1/3 left-1/4 w-32 h-32 bg-primary/12 rounded-full blur-2xl"></div>
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-56 h-56 bg-warning/10 rounded-full blur-3xl"></div>
               </div>
 
               <div className="w-full max-w-md mx-auto relative z-10 p-8">
@@ -203,70 +178,7 @@ const Index = () => {
       </section>
 
       {/* Our Services Section */}
-      <section className="section-padding bg-gradient-to-br from-primary/5 to-success/5">
-        <div className="container-max">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-5xl font-bold mb-4 text-primary">
-              Our Services
-            </h2>
-            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-              At DFT Group, our services are designed to deliver one outcome: measurable business value through AI for safer, smarter organizations. We focus on strengthening decision-making, reducing risk, and improving operational efficiency across regulated industries.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {services.map((service, index) => {
-              const Icon = service.icon;
-              const accentColors = [
-                { iconBg: "bg-primary/10", iconColor: "text-primary", hoverBg: "hover:border-primary/30" },
-                { iconBg: "bg-success/10", iconColor: "text-success", hoverBg: "hover:border-success/30" },
-                { iconBg: "bg-warning/10", iconColor: "text-warning", hoverBg: "hover:border-warning/30" },
-                { iconBg: "bg-success/10", iconColor: "text-success", hoverBg: "hover:border-success/30" },
-                { iconBg: "bg-warning/10", iconColor: "text-warning", hoverBg: "hover:border-warning/30" },
-              ];
-              const colors = accentColors[index];
-              return (
-                <Card key={index} className={`group hover:shadow-xl transition-all duration-300 border-border/50 ${colors.hoverBg} bg-card`}>
-                  <CardHeader className="flex flex-col items-center text-center">
-                    <div className={`w-20 h-20 rounded-2xl ${colors.iconBg} flex items-center justify-center mb-5 transition-colors group-hover:scale-110 transition-transform duration-300`}>
-                      <Icon className={`w-10 h-10 ${colors.iconColor}`} />
-                    </div>
-                    <CardTitle className="text-lg font-semibold text-foreground">
-                      {service.title}
-                    </CardTitle>
-                    <CardDescription className="text-base text-muted-foreground">
-                      {service.description}
-                    </CardDescription>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-sm text-muted-foreground mb-4 leading-relaxed">
-                      {service.detail}
-                    </p>
-                    <div className="flex items-start gap-2 bg-success/10 rounded-lg p-3">
-                      <CheckCircle className="w-4 h-4 text-success mt-0.5 shrink-0" />
-                      <p className="text-sm font-medium text-success">
-                        <span className="font-semibold">Outcome:</span> {service.outcome}
-                      </p>
-                    </div>
-                  </CardContent>
-                </Card>
-              );
-            })}
-          </div>
-
-          <div className="text-center mt-6">
-            <p className="text-muted-foreground italic max-w-3xl mx-auto mb-8">
-              Across all our services, DFT integrates AI, forensic discipline, and governance to ensure that innovation delivers control, and transformation delivers value.
-            </p>
-            <Link to="/services">
-              <Button variant="success" size="lg">
-                View All Services
-                <ArrowRight className="ml-2 h-4 w-4" />
-              </Button>
-            </Link>
-          </div>
-        </div>
-      </section>
+      <ServicesSection />
 
       {/* Why Choose Us Section - with background image */}
       <section className="relative section-padding overflow-hidden">

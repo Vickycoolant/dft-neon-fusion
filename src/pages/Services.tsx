@@ -1,27 +1,12 @@
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Link } from "react-router-dom";
-import { useState } from "react";
 import heroImg from "@/assets/dft-solutions-hero.jpg";
-import dataIntelligenceImg from "@/assets/data-intelligence.jpg";
-import forensicsRiskImg from "@/assets/forensics-risk.jpg";
-import techSolutionsImg from "@/assets/tech-solutions.jpg";
-import securityComplianceImg from "@/assets/security-compliance.jpg";
-import aiAutomationImg from "@/assets/ai-automation.jpg";
-import bankStatementImg from "@/assets/bank-statement.jpg";
-import documentAnalysisImg from "@/assets/document-analysis.jpg";
-import analyticsImg from "@/assets/analytics.jpg";
-import predictiveAnalyticsImg from "@/assets/image-10.jpg";
-import customerSegmentationImg from "@/assets/image-9.jpg";
 import bankingSectorImg from "@/assets/banking-sector.jpg";
 import insuranceSectorImg from "@/assets/insurance-sector.jpg";
 import publicSectorImg from "@/assets/public-sector.jpg";
 import capabilityBuildingImg from "@/assets/capability-building.jpg";
+import ServicesSection from "@/components/ServicesSection";
 import { 
-  Database, 
-  Shield, 
-  Code, 
   ChevronRight,
   Phone,
   Landmark,
@@ -31,128 +16,6 @@ import {
 } from "lucide-react";
 
 const Services = () => {
-  const [selectedCategory, setSelectedCategory] = useState("data-intelligence");
-
-  const solutionCategories = [
-    {
-      id: "data-intelligence",
-      title: "Data Intelligence",
-      summary: "Harness financial documents and analytics for smarter decisions.",
-      image: dataIntelligenceImg,
-      icon: Database,
-      subcategories: [
-        {
-          title: "Bank Statement Analysis",
-          description: "AI-powered analysis of bank statements to extract insights, detect patterns, and assess financial health for lending decisions.",
-          image: bankStatementImg,
-          features: ["Transaction categorization", "Income/expense analysis", "Fraud detection"]
-        },
-        {
-          title: "Financial Statement Analysis",
-          description: "Deep dive into balance sheets, P&L statements, and cash flow statements for comprehensive business evaluation.",
-          image: customerSegmentationImg,
-          features: ["Ratio analysis", "Trend identification", "Financial health scoring"]
-        },
-        {
-          title: "Payslip & Credit Card Analysis",
-          description: "Comprehensive analysis of salary slips and credit card statements for accurate income verification and spending behavior.",
-          image: analyticsImg,
-          features: ["Income verification", "Spending patterns", "Credit behavior analysis"]
-        },
-        {
-          title: "Data Governance",
-          description: "AI-driven framework ensuring data accuracy, consistency, and compliance across financial systems.",
-          image: documentAnalysisImg,
-          features: ["Data quality management", "Policy enforcement", "Regulatory compliance"]
-        },
-        {
-          title: "Predictive Analytics",
-          description: "Machine learning models that forecast customer behavior, payment likelihood, and business performance trends.",
-          image: predictiveAnalyticsImg,
-          features: ["Churn prediction", "Default probability", "Revenue forecasting"]
-        },
-        {
-          title: "Customer Segmentation",
-          description: "Advanced clustering and profiling techniques to group customers for targeted marketing and personalized services.",
-          image: customerSegmentationImg,
-          features: ["Behavioral segmentation", "Value-based grouping", "Persona creation"]
-        }
-      ]
-    },
-    {
-      id: "forensics-risk",
-      title: "Digital Forensics",
-      summary: "Detect fraud, investigate misconduct, and protect digital assets.",
-      image: forensicsRiskImg,
-      icon: Shield,
-      subcategories: [
-        {
-          title: "Digital Forensics Investigation",
-          description: "Expert digital evidence collection and analysis for cyber incident response and legal proceedings.",
-          image: forensicsRiskImg,
-          features: ["Evidence preservation", "Data recovery", "Chain of custody"]
-        },
-        {
-          title: "Financial Fraud Detection",
-          description: "AI-powered detection of document tampering, behavioral anomalies, and sophisticated fraud schemes.",
-          image: documentAnalysisImg,
-          features: ["Document forensics", "Anomaly detection", "Pattern recognition"]
-        },
-        {
-          title: "Employee Misconduct Investigation",
-          description: "Comprehensive investigation services for internal fraud, data theft, and policy violations.",
-          image: forensicsRiskImg,
-          features: ["Email forensics", "Access log analysis", "Timeline reconstruction"]
-        },
-        {
-          title: "Deepfake Detection",
-          description: "Advanced AI models to detect synthetic media and fraudulent identity verification attempts.",
-          image: aiAutomationImg,
-          features: ["Face manipulation detection", "Voice synthesis detection", "Media authenticity"]
-        },
-        {
-          title: "Insurance Fraud Detection",
-          description: "Specialized fraud detection for health and general insurance claims using ML and behavioral analytics.",
-          image: documentAnalysisImg,
-          features: ["Claims pattern analysis", "Provider fraud detection", "Network analysis"]
-        },
-        {
-          title: "AML/KYC Compliance",
-          description: "Automated screening for anti-money laundering, politically exposed persons, and beneficial ownership.",
-          image: securityComplianceImg,
-          features: ["PEP screening", "Sanctions checking", "UBO identification"]
-        }
-      ]
-    },
-    {
-      id: "technology-solutions",
-      title: "Tech Solutions",
-      summary: "Deploy cutting-edge software, cloud, and embedded finance tools.",
-      image: techSolutionsImg,
-      icon: Code,
-      subcategories: [
-        {
-          title: "Insurtech & Embedded Finance",
-          description: "Complete insurance and financial service integrations including PCG, FIU++, and FIP++ implementations.",
-          image: techSolutionsImg,
-          features: ["Policy management", "Claims processing", "Financial data exchange"]
-        },
-        {
-          title: "Data Management Solutions",
-          description: "Comprehensive data warehousing, ETL pipelines, and master data management for financial institutions.",
-          image: dataIntelligenceImg,
-          features: ["Data lakes", "ETL automation", "Data governance"]
-        },
-        {
-          title: "Cybersecurity Solutions",
-          description: "Enterprise-grade security including SIEM, vulnerability assessment, and penetration testing services.",
-          image: securityComplianceImg,
-          features: ["Security audits", "Threat monitoring", "Incident response"]
-        },
-      ]
-    }
-  ];
-
   const sectors = [
     {
       title: "Banking, SACCOs & Microfinance",
@@ -184,8 +47,8 @@ const Services = () => {
     },
   ];
 
-  const scrollToCategories = () => {
-    document.getElementById('solution-categories')?.scrollIntoView({ behavior: 'smooth' });
+  const scrollToServices = () => {
+    document.getElementById('services-section')?.scrollIntoView({ behavior: 'smooth' });
   };
 
   return (
@@ -212,7 +75,7 @@ const Services = () => {
             finance platforms to empower financial institutions and businesses.
           </p>
           <Button 
-            onClick={scrollToCategories}
+            onClick={scrollToServices}
             variant="warning"
             size="lg"
           >
@@ -222,96 +85,10 @@ const Services = () => {
         </div>
       </section>
 
-      {/* Solutions Categories with Tabs */}
-      <section id="solution-categories" className="py-20 bg-muted/30">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl md:text-5xl font-bold text-primary mb-6">
-              DFT Solutions
-            </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
-              Comprehensive AI-driven solutions designed for the modern financial ecosystem
-            </p>
-          </div>
-
-          <Tabs value={selectedCategory} onValueChange={setSelectedCategory} className="w-full">
-            <TabsList className="grid w-full max-w-4xl mx-auto grid-cols-3 mb-12 h-auto bg-card border border-border">
-              {solutionCategories.map((category) => {
-                const IconComponent = category.icon;
-                const isDigitalForensics = category.id === "forensics-risk";
-                const isTechSolutions = category.id === "technology-solutions";
-                return (
-                  <TabsTrigger 
-                    key={category.id} 
-                    value={category.id}
-                    className={`flex flex-col items-center gap-2 py-4 ${
-                      isDigitalForensics 
-                        ? "data-[state=active]:bg-success data-[state=active]:text-success-foreground" 
-                        : isTechSolutions
-                        ? "data-[state=active]:bg-warning data-[state=active]:text-warning-foreground"
-                        : "data-[state=active]:bg-primary data-[state=active]:text-primary-foreground"
-                    }`}
-                  >
-                    <IconComponent className="w-5 h-5" />
-                    <span className="font-semibold text-sm">{category.title}</span>
-                  </TabsTrigger>
-                );
-              })}
-            </TabsList>
-
-            {solutionCategories.map((category) => (
-              <TabsContent key={category.id} value={category.id} className="mt-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                  {category.subcategories.map((subcategory, index) => {
-                    const borderAccents = ["border-t-primary", "border-t-success", "border-t-warning"];
-                    return (
-                    <Card 
-                      key={index}
-                      className={`bg-card border-0 border-t-4 ${borderAccents[index % 3]} shadow-md hover:shadow-xl transition-all duration-300 group`}
-                    >
-                      <div className="aspect-video w-full overflow-hidden">
-                        <img 
-                          src={subcategory.image} 
-                          alt={subcategory.title}
-                          loading="lazy"
-                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                        />
-                      </div>
-                      <CardHeader className="pb-4">
-                        <CardTitle className="text-lg font-bold text-foreground group-hover:text-primary transition-colors">
-                          {subcategory.title}
-                        </CardTitle>
-                        <p className="text-muted-foreground text-sm">
-                          {subcategory.description}
-                        </p>
-                      </CardHeader>
-                      <CardContent className="pt-0">
-                        <ul className="space-y-2 mb-4">
-                          {subcategory.features.map((feature, idx) => (
-                            <li key={idx} className="flex items-center gap-2 text-xs text-muted-foreground">
-                              <div className={`w-1.5 h-1.5 rounded-full flex-shrink-0 ${idx % 3 === 0 ? 'bg-primary' : idx % 3 === 1 ? 'bg-success' : 'bg-warning'}`}></div>
-                              {feature}
-                            </li>
-                          ))}
-                        </ul>
-                        <Button 
-                          variant="outline" 
-                          size="sm"
-                          className="w-full border-primary text-primary hover:bg-primary hover:text-primary-foreground"
-                        >
-                          Learn More
-                          <ChevronRight className="ml-2 w-4 h-4" />
-                        </Button>
-                      </CardContent>
-                  </Card>
-                    );
-                  })}
-                </div>
-              </TabsContent>
-            ))}
-          </Tabs>
-        </div>
-      </section>
+      {/* Services Section - shared component */}
+      <div id="services-section">
+        <ServicesSection showCTA={false} />
+      </div>
 
       {/* Sectors We Serve */}
       <section className="py-20 bg-background">
