@@ -110,23 +110,46 @@ const Index = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             {/* Left side - Visual element */}
             <div className="relative flex items-center justify-center">
-              <div className="w-full max-w-md mx-auto">
-                <div className="grid grid-cols-2 gap-4">
-                  <div className="bg-primary/10 rounded-2xl p-6 text-center border border-primary/20">
-                    <Building2 className="w-8 h-8 text-primary mx-auto mb-2" />
-                    <span className="text-sm font-medium text-foreground">Banking Solutions</span>
+              {/* AI-patterned background */}
+              <div className="absolute inset-0 rounded-3xl overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-success/5 to-warning/10"></div>
+                {/* Circuit / AI pattern lines */}
+                <svg className="absolute inset-0 w-full h-full opacity-[0.07]" xmlns="http://www.w3.org/2000/svg">
+                  <defs>
+                    <pattern id="circuit" x="0" y="0" width="60" height="60" patternUnits="userSpaceOnUse">
+                      <circle cx="30" cy="30" r="2" fill="currentColor" className="text-primary" />
+                      <path d="M30 0 V28 M30 32 V60 M0 30 H28 M32 30 H60" stroke="currentColor" strokeWidth="0.5" className="text-primary" />
+                      <circle cx="0" cy="0" r="1.5" fill="currentColor" className="text-success" />
+                      <circle cx="60" cy="60" r="1.5" fill="currentColor" className="text-success" />
+                      <circle cx="60" cy="0" r="1" fill="currentColor" className="text-warning" />
+                      <circle cx="0" cy="60" r="1" fill="currentColor" className="text-warning" />
+                    </pattern>
+                  </defs>
+                  <rect width="100%" height="100%" fill="url(#circuit)" />
+                </svg>
+                {/* Glowing orbs */}
+                <div className="absolute top-8 left-8 w-32 h-32 bg-primary/15 rounded-full blur-2xl"></div>
+                <div className="absolute bottom-8 right-8 w-40 h-40 bg-success/15 rounded-full blur-2xl"></div>
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 bg-warning/10 rounded-full blur-3xl"></div>
+              </div>
+
+              <div className="w-full max-w-md mx-auto relative z-10 p-8">
+                <div className="grid grid-cols-2 gap-5">
+                  <div className="bg-card/90 backdrop-blur-sm rounded-2xl p-6 text-center border border-primary/30 shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300">
+                    <Building2 className="w-10 h-10 text-primary mx-auto mb-3" />
+                    <span className="text-sm font-semibold text-foreground">Banking Solutions</span>
                   </div>
-                  <div className="bg-success/10 rounded-2xl p-6 text-center border border-success/20">
-                    <Shield className="w-8 h-8 text-success mx-auto mb-2" />
-                    <span className="text-sm font-medium text-foreground">Insurance Tech</span>
+                  <div className="bg-card/90 backdrop-blur-sm rounded-2xl p-6 text-center border border-success/30 shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300">
+                    <Shield className="w-10 h-10 text-success mx-auto mb-3" />
+                    <span className="text-sm font-semibold text-foreground">Insurance Tech</span>
                   </div>
-                  <div className="bg-warning/10 rounded-2xl p-6 text-center border border-warning/20">
-                    <Brain className="w-8 h-8 text-warning mx-auto mb-2" />
-                    <span className="text-sm font-medium text-foreground">AI & Analytics</span>
+                  <div className="bg-card/90 backdrop-blur-sm rounded-2xl p-6 text-center border border-warning/30 shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300">
+                    <Brain className="w-10 h-10 text-warning mx-auto mb-3" />
+                    <span className="text-sm font-semibold text-foreground">AI & Analytics</span>
                   </div>
-                  <div className="bg-primary/10 rounded-2xl p-6 text-center border border-primary/20">
-                    <TrendingUp className="w-8 h-8 text-primary mx-auto mb-2" />
-                    <span className="text-sm font-medium text-foreground">Financial Analytics</span>
+                  <div className="bg-card/90 backdrop-blur-sm rounded-2xl p-6 text-center border border-primary/30 shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300">
+                    <TrendingUp className="w-10 h-10 text-primary mx-auto mb-3" />
+                    <span className="text-sm font-semibold text-foreground">Financial Analytics</span>
                   </div>
                 </div>
               </div>
@@ -204,9 +227,9 @@ const Index = () => {
               const colors = accentColors[index];
               return (
                 <Card key={index} className={`group hover:shadow-xl transition-all duration-300 border-border/50 ${colors.hoverBg} bg-card`}>
-                  <CardHeader>
-                    <div className={`w-14 h-14 rounded-xl ${colors.iconBg} flex items-center justify-center mb-4 transition-colors`}>
-                      <Icon className={`w-7 h-7 ${colors.iconColor}`} />
+                  <CardHeader className="flex flex-col items-center text-center">
+                    <div className={`w-20 h-20 rounded-2xl ${colors.iconBg} flex items-center justify-center mb-5 transition-colors group-hover:scale-110 transition-transform duration-300`}>
+                      <Icon className={`w-10 h-10 ${colors.iconColor}`} />
                     </div>
                     <CardTitle className="text-lg font-semibold text-foreground">
                       {service.title}
