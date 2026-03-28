@@ -73,7 +73,7 @@ const Index = () => {
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             {/* Left side - Visual element */}
-            <div className="relative flex items-center justify-center">
+            <div className="relative flex items-center justify-center min-h-[420px] lg:min-h-[520px]">
               {/* AI-patterned background - larger with better patterns */}
               <div className="absolute inset-0 rounded-3xl overflow-hidden" style={{ minHeight: '480px' }}>
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/15 via-success/8 to-warning/12"></div>
