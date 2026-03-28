@@ -263,53 +263,57 @@ const About = () => {
         </div>
       </section>
 
-      {/* Mission & Vision Side by Side */}
+      {/* Mission, Vision & Purpose */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold text-[#4169E1] mb-6">
+              Mission, Vision & Purpose
+            </h2>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {/* Mission */}
             <Card className="bg-gradient-to-br from-[#4169E1]/5 to-[#4169E1]/10 border-success border-2 hover:shadow-xl transition-shadow">
               <CardHeader>
                 <div className="w-16 h-16 bg-success rounded-full flex items-center justify-center mb-4">
                   <Target className="w-8 h-8 text-white" />
                 </div>
-                <CardTitle className="text-3xl font-bold text-[#4169E1]">Our Mission</CardTitle>
+                <CardTitle className="text-3xl font-bold text-[#4169E1]">Mission</CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-lg text-gray-700 leading-relaxed mb-6">
-                  To empower financial institutions with intelligent, reliable, and secure technology solutions 
-                  that enhance decision-making, reduce risk, and drive sustainable growth across African markets.
+                <p className="text-lg text-gray-700 leading-relaxed">
+                  To empower financial institutions with AI-driven solutions that enhance decision-making, efficiency, and digital trust.
                 </p>
-                <div className="h-40 rounded-lg overflow-hidden">
-                  <img 
-                    src={missionVision1} 
-                    alt="Our Mission - Empowering Financial Institutions" 
-                    className="w-full h-full object-cover"
-                  />
-                </div>
               </CardContent>
             </Card>
 
             {/* Vision */}
-            <Card className="bg-gradient-to-br from-[#4169E1]/5 to-[#4169E1]/10 border-success border-2 hover:shadow-xl transition-shadow">
+            <Card className="bg-gradient-to-br from-[#4169E1]/5 to-[#4169E1]/10 border-warning border-2 hover:shadow-xl transition-shadow">
               <CardHeader>
                 <div className="w-16 h-16 bg-warning rounded-full flex items-center justify-center mb-4">
                   <Eye className="w-8 h-8 text-black" />
                 </div>
-                <CardTitle className="text-3xl font-bold text-[#4169E1]">Our Vision</CardTitle>
+                <CardTitle className="text-3xl font-bold text-[#4169E1]">Vision</CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-lg text-gray-700 leading-relaxed mb-6">
-                  To be the leading African hub for AI-driven financial solutions, recognized globally for innovation, 
-                  excellence, and transformative impact on the continent's financial services ecosystem.
+                <p className="text-lg text-gray-700 leading-relaxed">
+                  To be the most trusted AI partner transforming financial services in East Africa.
                 </p>
-                <div className="h-40 rounded-lg overflow-hidden">
-                  <img 
-                    src={missionVision2} 
-                    alt="Our Vision - Leading Innovation in Africa" 
-                    className="w-full h-full object-cover"
-                  />
+              </CardContent>
+            </Card>
+
+            {/* Purpose */}
+            <Card className="bg-gradient-to-br from-[#4169E1]/5 to-[#4169E1]/10 border-primary border-2 hover:shadow-xl transition-shadow">
+              <CardHeader>
+                <div className="w-16 h-16 bg-primary rounded-full flex items-center justify-center mb-4">
+                  <Lightbulb className="w-8 h-8 text-white" />
                 </div>
+                <CardTitle className="text-3xl font-bold text-[#4169E1]">Purpose</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-lg text-gray-700 leading-relaxed">
+                  Unlocking business value through AI for safer, smarter organizations.
+                </p>
               </CardContent>
             </Card>
           </div>
@@ -362,58 +366,6 @@ const About = () => {
                 );
               })}
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Our Expertise & Specialized Services - 3 Tiles */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-[#4169E1] mb-6">
-              Our Expertise & Specialized Services
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Comprehensive solutions tailored for the financial sector
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {services.map((service, index) => (
-              <Card key={index} className="bg-white hover:shadow-xl transition-all duration-300 group overflow-hidden">
-                <div className="aspect-video overflow-hidden">
-                  <img 
-                    src={service.image} 
-                    alt={service.title}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
-                  />
-                </div>
-                <CardHeader>
-                  <CardTitle className="text-xl font-bold text-gray-900 group-hover:text-[#4169E1] transition-colors">
-                    {service.title}
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-gray-600 leading-relaxed mb-4">
-                    {service.description}
-                  </p>
-                  <Link 
-                    to={
-                      service.title.includes("Data Intelligence") 
-                        ? "/services#data-intelligence" 
-                        : service.title.includes("Digital Forensics") 
-                        ? "/services#forensics-risk" 
-                        : "/services#technology-solutions"
-                    }
-                  >
-                    <Button variant="outline" className="w-full border-[#4169E1] text-[#4169E1] hover:bg-[#4169E1] hover:text-white">
-                      Learn More
-                      <ArrowRight className="ml-2 w-4 h-4" />
-                    </Button>
-                  </Link>
-                </CardContent>
-              </Card>
-            ))}
           </div>
         </div>
       </section>
