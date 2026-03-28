@@ -227,9 +227,9 @@ const Index = () => {
               const colors = accentColors[index];
               return (
                 <Card key={index} className={`group hover:shadow-xl transition-all duration-300 border-border/50 ${colors.hoverBg} bg-card`}>
-                  <CardHeader>
-                    <div className={`w-14 h-14 rounded-xl ${colors.iconBg} flex items-center justify-center mb-4 transition-colors`}>
-                      <Icon className={`w-7 h-7 ${colors.iconColor}`} />
+                  <CardHeader className="flex flex-col items-center text-center">
+                    <div className={`w-20 h-20 rounded-2xl ${colors.iconBg} flex items-center justify-center mb-5 transition-colors group-hover:scale-110 transition-transform duration-300`}>
+                      <Icon className={`w-10 h-10 ${colors.iconColor}`} />
                     </div>
                     <CardTitle className="text-lg font-semibold text-foreground">
                       {service.title}
