@@ -178,70 +178,7 @@ const Index = () => {
       </section>
 
       {/* Our Services Section */}
-      <section className="section-padding bg-gradient-to-br from-primary/5 to-success/5">
-        <div className="container-max">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-5xl font-bold mb-4 text-primary">
-              Our Services
-            </h2>
-            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-              At DFT Group, our services are designed to deliver one outcome: measurable business value through AI for safer, smarter organizations. We focus on strengthening decision-making, reducing risk, and improving operational efficiency across regulated industries.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {services.map((service, index) => {
-              const Icon = service.icon;
-              const accentColors = [
-                { iconBg: "bg-primary/10", iconColor: "text-primary", hoverBg: "hover:border-primary/30" },
-                { iconBg: "bg-success/10", iconColor: "text-success", hoverBg: "hover:border-success/30" },
-                { iconBg: "bg-warning/10", iconColor: "text-warning", hoverBg: "hover:border-warning/30" },
-                { iconBg: "bg-success/10", iconColor: "text-success", hoverBg: "hover:border-success/30" },
-                { iconBg: "bg-warning/10", iconColor: "text-warning", hoverBg: "hover:border-warning/30" },
-              ];
-              const colors = accentColors[index];
-              return (
-                <Card key={index} className={`group hover:shadow-xl transition-all duration-300 border-border/50 ${colors.hoverBg} bg-card`}>
-                  <CardHeader className="flex flex-col items-center text-center">
-                    <div className={`w-20 h-20 rounded-2xl ${colors.iconBg} flex items-center justify-center mb-5 transition-colors group-hover:scale-110 transition-transform duration-300`}>
-                      <Icon className={`w-10 h-10 ${colors.iconColor}`} />
-                    </div>
-                    <CardTitle className="text-lg font-semibold text-foreground">
-                      {service.title}
-                    </CardTitle>
-                    <CardDescription className="text-base text-muted-foreground">
-                      {service.description}
-                    </CardDescription>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-sm text-muted-foreground mb-4 leading-relaxed">
-                      {service.detail}
-                    </p>
-                    <div className="flex items-start gap-2 bg-success/10 rounded-lg p-3">
-                      <CheckCircle className="w-4 h-4 text-success mt-0.5 shrink-0" />
-                      <p className="text-sm font-medium text-success">
-                        <span className="font-semibold">Outcome:</span> {service.outcome}
-                      </p>
-                    </div>
-                  </CardContent>
-                </Card>
-              );
-            })}
-          </div>
-
-          <div className="text-center mt-6">
-            <p className="text-muted-foreground italic max-w-3xl mx-auto mb-8">
-              Across all our services, DFT integrates AI, forensic discipline, and governance to ensure that innovation delivers control, and transformation delivers value.
-            </p>
-            <Link to="/services">
-              <Button variant="success" size="lg">
-                View All Services
-                <ArrowRight className="ml-2 h-4 w-4" />
-              </Button>
-            </Link>
-          </div>
-        </div>
-      </section>
+      <ServicesSection />
 
       {/* Why Choose Us Section - with background image */}
       <section className="relative section-padding overflow-hidden">
