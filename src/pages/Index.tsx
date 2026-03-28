@@ -1,10 +1,10 @@
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { ArrowRight, Brain, Cpu, Shield, GraduationCap, Lightbulb, CheckCircle, Building2, TrendingUp, Handshake, Award, Target } from "lucide-react";
+import { ArrowRight, Brain, Cpu, Shield, Building2, TrendingUp, Handshake, Award, Target, CheckCircle } from "lucide-react";
 import { Link } from "react-router-dom";
 import PartnersCarousel from "@/components/PartnersCarousel";
 import FAQSection from "@/components/FAQSection";
 import HeroSlider from "@/components/HeroSlider";
+import ServicesSection from "@/components/ServicesSection";
 import whyChooseUsBg from "@/assets/why-choose-us-bg.jpg";
 
 const Index = () => {
