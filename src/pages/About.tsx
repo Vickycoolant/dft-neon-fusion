@@ -33,22 +33,6 @@ import logoBritam from "@/assets/logo-britam-new.png";
 import logoCentum from "@/assets/logo-centum-new.jpg";
 import logoDtb from "@/assets/logo-dtb.png";
 import FAQSection from "@/components/FAQSection";
-import dataIntelligenceImg from "@/assets/image-10.jpg";
-import forensicsRiskImg from "@/assets/forensics-risk.jpg";
-import techSolutionsImg from "@/assets/image-3.jpg";
-import simionRutto from "@/assets/simion-rutto.png";
-import missionVision1 from "@/assets/mission-vision-1.jpg";
-import missionVision2 from "@/assets/mission-vision-2.jpg";
-import coreValueIntegrity from "@/assets/core-value-integrity.jpg";
-import coreValueInnovation from "@/assets/core-value-innovation.jpg";
-import coreValueClient from "@/assets/core-value-client.jpg";
-import logoJubilee from "@/assets/logo-jubilee-new.png";
-import logoEquity from "@/assets/logo-equity.png";
-import logoKcb from "@/assets/logo-kcb-new.png";
-import logoBritam from "@/assets/logo-britam-new.png";
-import logoCentum from "@/assets/logo-centum-new.jpg";
-import logoDtb from "@/assets/logo-dtb.png";
-import FAQSection from "@/components/FAQSection";
 
 const About = () => {
   const coreValues = [
