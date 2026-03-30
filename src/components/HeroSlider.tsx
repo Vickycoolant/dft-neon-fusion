@@ -125,6 +125,7 @@ const HeroSlider = () => {
           }))
         );
       }
+      setIsLoading(false);
     };
     fetchSlides();
   }, []);
