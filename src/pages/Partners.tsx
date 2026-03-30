@@ -481,7 +481,54 @@ const Partners = () => {
         </div>
       </section>
 
-     
+      {/* Secondary Partners */}
+      <section className="py-20 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center mb-12">
+            <Badge className="bg-success text-white mb-4">
+              <Handshake className="w-4 h-4 mr-2" />
+              Ecosystem Partners
+            </Badge>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-primary">
+              Our Extended Partner Network
+            </h2>
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+              We collaborate with a broader ecosystem of technology and industry partners to deliver comprehensive solutions.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {[
+              { name: "TechCorp Solutions", description: "Leading provider of enterprise software solutions for financial institutions.", industry: "Fintech Software" },
+              { name: "DataVault Systems", description: "Secure data management and analytics platform for banks and insurance companies.", industry: "Data Security" },
+              { name: "CloudFirst Technologies", description: "Cloud infrastructure and migration services for financial services industry.", industry: "Cloud Solutions" },
+              { name: "AI Dynamics Ltd", description: "Artificial intelligence and machine learning solutions for credit scoring.", industry: "AI/ML" },
+              { name: "SecureNet Partners", description: "Cybersecurity solutions specializing in financial data protection.", industry: "Cybersecurity" },
+              { name: "InsureTech Innovation", description: "Digital transformation solutions for insurance companies and brokers.", industry: "Insurance Tech" },
+              { name: "BlockChain Ventures", description: "Blockchain and distributed ledger technology for financial transactions.", industry: "Blockchain" },
+              { name: "FinAnalytics Pro", description: "Advanced analytics and reporting tools for financial institutions.", industry: "Analytics" },
+            ].map((partner, idx) => {
+              const colors = ["primary", "success", "warning", "primary", "success", "warning", "primary", "success"];
+              const color = colors[idx % colors.length];
+              const initials = partner.name.split(" ").map(w => w[0]).join("").toUpperCase();
+              return (
+                <Card key={idx} className={`border-2 border-${color}/20 hover:shadow-lg transition-all duration-300 hover:-translate-y-1`}>
+                  <CardContent className="p-6 text-center">
+                    <div className={`w-16 h-16 mx-auto mb-3 rounded-xl bg-${color}/10 flex items-center justify-center text-lg font-bold text-${color}`}>
+                      {initials}
+                    </div>
+                    <h3 className="font-semibold text-gray-900 mb-1">{partner.name}</h3>
+                    <Badge variant="outline" className={`text-xs mb-2 border-${color}/30 text-${color}`}>
+                      {partner.industry}
+                    </Badge>
+                    <p className="text-sm text-gray-600 leading-snug">{partner.description}</p>
+                  </CardContent>
+                </Card>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
       {/* CTA Section */}
       <section className="py-20 bg-success relative overflow-hidden">
         <div className="absolute inset-0 opacity-10">
