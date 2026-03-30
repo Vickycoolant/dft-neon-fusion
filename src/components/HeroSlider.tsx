@@ -93,10 +93,11 @@ const highlightText = (text: string, words: string | null, highlightColor: strin
 };
 
 const HeroSlider = () => {
-  const [slides, setSlides] = useState<HeroSlide[]>(defaultSlides);
+  const [slides, setSlides] = useState<HeroSlide[]>([]);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isTransitioning, setIsTransitioning] = useState(false);
   const [textVisible, setTextVisible] = useState(true);
+  const [isLoading, setIsLoading] = useState(true);
 
   const statsData = [
     { value: 15, label: "Years Experience", suffix: "+" },
