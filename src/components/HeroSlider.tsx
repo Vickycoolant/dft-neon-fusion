@@ -5,13 +5,6 @@ import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import AnimatedStats from "@/components/AnimatedStats";
 
-// Default fallback images
-import heroSlide1 from "@/assets/hero-slide-1.jpg";
-import heroSlide2 from "@/assets/hero-slide-2.jpg";
-import heroSlide3 from "@/assets/hero-slide-3.jpg";
-import heroSlide4 from "@/assets/hero-slide-4.jpg";
-import heroSlide5 from "@/assets/hero-slide-5.jpg";
-import africanProfessionals from "@/assets/african-business-professionals.jpg";
 
 interface LinkButton {
   text: string;
