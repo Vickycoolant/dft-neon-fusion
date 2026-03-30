@@ -96,8 +96,8 @@ const PartnersCarousel = () => {
     >
       <div
         ref={scrollRef}
-        className="flex overflow-x-auto scrollbar-hide select-none"
-        style={{ cursor: "grab", scrollbarWidth: "none", msOverflowStyle: "none", WebkitOverflowScrolling: "touch" }}
+        className="flex overflow-x-auto scrollbar-hide select-none touch-pan-y"
+        style={{ cursor: "grab", scrollbarWidth: "none", msOverflowStyle: "none", WebkitOverflowScrolling: "touch", touchAction: "pan-y" }}
         onPointerDown={handlePointerDown}
         onPointerMove={handlePointerMove}
         onPointerUp={handlePointerUp}

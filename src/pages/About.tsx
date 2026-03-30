@@ -301,54 +301,6 @@ const About = () => {
         </div>
       </section>
 
-      {/* Brief Company Description with Image */}
-      <section className="py-20 bg-gradient-to-br from-gray-50 to-white">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div className="space-y-6">
-              <Badge className="bg-warning text-black">
-                <Globe className="w-4 h-4 mr-2" />
-                Your Strategic Partner
-              </Badge>
-              <h1 className="text-4xl md:text-5xl font-bold text-gray-900">
-                Empowering Finance with{" "}
-                <span className="text-[#4169E1]">AI Innovation</span>
-              </h1>
-              <p className="text-lg text-gray-700 leading-relaxed">
-                For over <strong>15 years</strong>, DFT Group has been at the forefront of AI-powered financial solutions. 
-                We partner with leading banks, insurance companies, and financial institutions across Africa to transform 
-                their operations through intelligent automation, advanced analytics, and cutting-edge technology.
-              </p>
-              <p className="text-lg text-gray-700 leading-relaxed">
-                Backed by international partnerships with industry leaders like <strong>Perfios</strong>, we combine 
-                global expertise with deep local market knowledge to deliver solutions that drive real business impact.
-              </p>
-              <div className="flex flex-wrap gap-4 pt-4">
-                <div className="flex items-center gap-2">
-                  <CheckCircle className="w-5 h-5 text-[#4169E1]" />
-                  <span className="text-gray-700 font-semibold">15+ Years Experience</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <CheckCircle className="w-5 h-5 text-[#4169E1]" />
-                  <span className="text-gray-700 font-semibold">200+ Clients Served</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <CheckCircle className="w-5 h-5 text-[#4169E1]" />
-                  <span className="text-gray-700 font-semibold">Global Partnerships</span>
-                </div>
-              </div>
-            </div>
-            <div className="rounded-2xl overflow-hidden shadow-2xl">
-              <img 
-                src={aboutHeroImg} 
-                alt="DFT Consult Team" 
-                className="w-full h-full object-cover"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Mission, Vision & Purpose */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-6">
