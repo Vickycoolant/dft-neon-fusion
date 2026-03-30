@@ -67,18 +67,23 @@ const PartnersCarousel = () => {
     setIsDragging(true);
     setStartX(e.clientX);
     setScrollLeft(scrollRef.current.scrollLeft);
+    scrollPosRef.current = scrollRef.current.scrollLeft;
     scrollRef.current.style.cursor = "grabbing";
     (e.target as HTMLElement).setPointerCapture(e.pointerId);
+    e.preventDefault();
   };
 
   const handlePointerMove = (e: React.PointerEvent) => {
     if (!isDragging || !scrollRef.current) return;
+    e.preventDefault();
     const dx = e.clientX - startX;
-    scrollRef.current.scrollLeft = scrollLeft - dx;
-    scrollPosRef.current = scrollRef.current.scrollLeft;
+    const newScrollLeft = scrollLeft - dx;
+    scrollRef.current.scrollLeft = newScrollLeft;
+    scrollPosRef.current = newScrollLeft;
   };
 
-  const handlePointerUp = () => {
+  const handlePointerUp = (e: React.PointerEvent) => {
+    if (!isDragging) return;
     setIsDragging(false);
     if (scrollRef.current) scrollRef.current.style.cursor = "grab";
   };
@@ -91,8 +96,8 @@ const PartnersCarousel = () => {
     >
       <div
         ref={scrollRef}
-        className="flex overflow-x-auto scrollbar-hide select-none"
-        style={{ cursor: "grab", scrollbarWidth: "none", msOverflowStyle: "none", WebkitOverflowScrolling: "touch" }}
+        className="flex overflow-x-auto scrollbar-hide select-none touch-pan-y"
+        style={{ cursor: "grab", scrollbarWidth: "none", msOverflowStyle: "none", WebkitOverflowScrolling: "touch", touchAction: "pan-y" }}
         onPointerDown={handlePointerDown}
         onPointerMove={handlePointerMove}
         onPointerUp={handlePointerUp}

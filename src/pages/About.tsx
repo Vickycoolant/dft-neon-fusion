@@ -12,7 +12,9 @@ import {
   ArrowRight,
   CheckCircle,
   TrendingUp,
-  Zap
+  Zap,
+  Building2,
+  Brain
 } from "lucide-react";
 import aboutHeroImg from "@/assets/image-3.jpg";
 import dataIntelligenceImg from "@/assets/image-10.jpg";
@@ -156,6 +158,74 @@ const About = () => {
         </div>
       </section>
 
+      {/* About DFT Group Section - Different design from home page */}
+      <section className="py-20 bg-gradient-to-br from-primary/5 via-white to-success/5 relative overflow-hidden">
+        <div className="absolute inset-0 opacity-5">
+          <div className="absolute top-10 right-10 w-96 h-96 bg-warning rounded-full blur-3xl"></div>
+          <div className="absolute bottom-10 left-10 w-72 h-72 bg-primary rounded-full blur-3xl"></div>
+        </div>
+        <div className="max-w-7xl mx-auto px-6 relative z-10">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl md:text-5xl font-bold text-[#4169E1] mb-4">
+              About DFT Group
+            </h2>
+            <div className="w-24 h-1 bg-warning mx-auto rounded-full"></div>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 items-start">
+            {/* Left: visual tiles */}
+            <div className="lg:col-span-2 grid grid-cols-2 gap-4">
+              <div className="bg-white rounded-2xl p-5 text-center border-2 border-primary/20 shadow-md hover:shadow-lg transition-all">
+                <Building2 className="w-10 h-10 text-primary mx-auto mb-2" />
+                <span className="text-sm font-semibold text-gray-800">Banking Solutions</span>
+              </div>
+              <div className="bg-white rounded-2xl p-5 text-center border-2 border-success/20 shadow-md hover:shadow-lg transition-all">
+                <Shield className="w-10 h-10 text-success mx-auto mb-2" />
+                <span className="text-sm font-semibold text-gray-800">Insurance Tech</span>
+              </div>
+              <div className="bg-white rounded-2xl p-5 text-center border-2 border-warning/20 shadow-md hover:shadow-lg transition-all">
+                <Brain className="w-10 h-10 text-warning mx-auto mb-2" />
+                <span className="text-sm font-semibold text-gray-800">AI & Analytics</span>
+              </div>
+              <div className="bg-white rounded-2xl p-5 text-center border-2 border-primary/20 shadow-md hover:shadow-lg transition-all">
+                <TrendingUp className="w-10 h-10 text-primary mx-auto mb-2" />
+                <span className="text-sm font-semibold text-gray-800">Financial Analytics</span>
+              </div>
+            </div>
+
+            {/* Right: text content */}
+            <div className="lg:col-span-3 space-y-5">
+              <p className="text-lg leading-relaxed text-gray-700">
+                DFT Group is a Kenyan advisory and professional services organization that helps financial institutions and regulated organizations unlock measurable business value through AI, data, and forensic intelligence.
+              </p>
+              <p className="text-lg leading-relaxed text-gray-700">
+                We work primarily with banks, insurers, and healthcare organizations to strengthen governance, manage risk, and modernize operations.
+              </p>
+              <p className="text-lg leading-relaxed text-gray-700 font-medium">
+                The Group operates through three complementary entities:
+              </p>
+              <ul className="space-y-3">
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-5 h-5 text-success mt-0.5 shrink-0" />
+                  <span className="text-gray-700"><strong className="text-primary">DFT Consulting LLP</strong> – Technology advisory, data analytics, and forensic services</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-5 h-5 text-success mt-0.5 shrink-0" />
+                  <span className="text-gray-700"><strong className="text-primary">DFT Health Services Ltd</strong> – Health insurance technology and TPA services</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-5 h-5 text-success mt-0.5 shrink-0" />
+                  <span className="text-gray-700"><strong className="text-primary">DFT Academy</strong> – Training and capacity development</span>
+                </li>
+              </ul>
+              <p className="text-gray-800 font-semibold italic border-l-4 border-warning pl-4">
+                Our purpose is unlocking business value through AI for safer, smarter organizations.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Who We Are Section */}
       <section className="py-20 bg-gradient-to-br from-gray-50 via-white to-success/5 relative overflow-hidden">
         {/* Decorative elements */}
@@ -210,54 +280,6 @@ const About = () => {
                   At DFT Group, we combine <span className="font-semibold text-success">strategic consulting</span>, <span className="font-semibold text-success">implementation oversight</span>, and <span className="font-semibold text-success">domain depth</span> to ensure technology works for you, not the other way around.
                 </p>
               </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Brief Company Description with Image */}
-      <section className="py-20 bg-gradient-to-br from-gray-50 to-white">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div className="space-y-6">
-              <Badge className="bg-warning text-black">
-                <Globe className="w-4 h-4 mr-2" />
-                Your Strategic Partner
-              </Badge>
-              <h1 className="text-4xl md:text-5xl font-bold text-gray-900">
-                Empowering Finance with{" "}
-                <span className="text-[#4169E1]">AI Innovation</span>
-              </h1>
-              <p className="text-lg text-gray-700 leading-relaxed">
-                For over <strong>15 years</strong>, DFT Group has been at the forefront of AI-powered financial solutions. 
-                We partner with leading banks, insurance companies, and financial institutions across Africa to transform 
-                their operations through intelligent automation, advanced analytics, and cutting-edge technology.
-              </p>
-              <p className="text-lg text-gray-700 leading-relaxed">
-                Backed by international partnerships with industry leaders like <strong>Perfios</strong>, we combine 
-                global expertise with deep local market knowledge to deliver solutions that drive real business impact.
-              </p>
-              <div className="flex flex-wrap gap-4 pt-4">
-                <div className="flex items-center gap-2">
-                  <CheckCircle className="w-5 h-5 text-[#4169E1]" />
-                  <span className="text-gray-700 font-semibold">15+ Years Experience</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <CheckCircle className="w-5 h-5 text-[#4169E1]" />
-                  <span className="text-gray-700 font-semibold">200+ Clients Served</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <CheckCircle className="w-5 h-5 text-[#4169E1]" />
-                  <span className="text-gray-700 font-semibold">Global Partnerships</span>
-                </div>
-              </div>
-            </div>
-            <div className="rounded-2xl overflow-hidden shadow-2xl">
-              <img 
-                src={aboutHeroImg} 
-                alt="DFT Consult Team" 
-                className="w-full h-full object-cover"
-              />
             </div>
           </div>
         </div>

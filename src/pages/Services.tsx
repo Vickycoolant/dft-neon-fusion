@@ -1,10 +1,10 @@
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import heroImg from "@/assets/dft-solutions-hero.jpg";
-import bankingSectorImg from "@/assets/banking-sector.jpg";
-import insuranceSectorImg from "@/assets/insurance-sector.jpg";
+import bankingSectorImg from "@/assets/banking-sector-new.png";
+import insuranceSectorImg from "@/assets/insurance-sector-new.jpg";
 import publicSectorImg from "@/assets/public-sector.jpg";
-import capabilityBuildingImg from "@/assets/capability-building.jpg";
+import capabilityBuildingImg from "@/assets/capability-building-new.jpg";
 import ServicesSection from "@/components/ServicesSection";
 import { 
   ChevronRight,

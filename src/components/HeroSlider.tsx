@@ -5,13 +5,6 @@ import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import AnimatedStats from "@/components/AnimatedStats";
 
-// Default fallback images
-import heroSlide1 from "@/assets/hero-slide-1.jpg";
-import heroSlide2 from "@/assets/hero-slide-2.jpg";
-import heroSlide3 from "@/assets/hero-slide-3.jpg";
-import heroSlide4 from "@/assets/hero-slide-4.jpg";
-import heroSlide5 from "@/assets/hero-slide-5.jpg";
-import africanProfessionals from "@/assets/african-business-professionals.jpg";
 
 interface LinkButton {
   text: string;
@@ -39,94 +32,6 @@ interface HeroSlide {
   sort_order: number;
   font_size: string;
 }
-
-const defaultSlides: HeroSlide[] = [
-  {
-    id: "default-1",
-    title: "Empowering Banks and Insurers to Make Smarter, Safer Decisions with AI",
-    subtitle: "AI-driven solutions that enhance decision-making, operational efficiency, and digital trust in financial services.",
-    highlight_words: "Smarter, Safer Decisions,AI",
-    image_url: africanProfessionals,
-    text_position: "center-left",
-    text_color: "#FFFFFF",
-    highlight_color: "#FFD700",
-    link_url: null,
-    link_text: null,
-    link_buttons: [{ text: "Explore Our Services", url: "/services", description: "Discover how AI can transform your organization", position: "bottom-center", button_color: "#10B981", description_color: "#FFFFFF" }],
-    show_stats: true,
-    show_default_buttons: true,
-    sort_order: 0,
-    font_size: "medium",
-  },
-  {
-    id: "default-2",
-    title: "Expert Team, Global Impact",
-    subtitle: "Collaborative innovation driving real results for banking, finance, and insurance sectors across East Africa.",
-    highlight_words: "Global Impact,East Africa",
-    image_url: heroSlide2,
-    text_position: "center-left",
-    text_color: "#FFFFFF",
-    highlight_color: "#00E5FF",
-    link_url: null,
-    link_text: null,
-    link_buttons: [{ text: "Meet Our Team", url: "/about", description: "Learn about our experts", position: "bottom-left", button_color: "#3B82F6", description_color: "#FFFFFF" }],
-    show_stats: true,
-    show_default_buttons: true,
-    sort_order: 1,
-    font_size: "medium",
-  },
-  {
-    id: "default-3",
-    title: "Intelligent Data Analytics",
-    subtitle: "Harness AI to transform raw data into actionable business intelligence and strategic insights.",
-    highlight_words: "Intelligent,actionable",
-    image_url: heroSlide3,
-    text_position: "center-right",
-    text_color: "#FFFFFF",
-    highlight_color: "#64FFDA",
-    link_url: null,
-    link_text: null,
-    link_buttons: [{ text: "View Analytics", url: "/services", description: "See data in action", position: "bottom-right", button_color: "#8B5CF6", description_color: "#FFFFFF" }],
-    show_stats: true,
-    show_default_buttons: true,
-    sort_order: 2,
-    font_size: "medium",
-  },
-  {
-    id: "default-4",
-    title: "Governance, Risk & Compliance",
-    subtitle: "Comprehensive governance frameworks and AI-driven risk management protecting your most critical assets.",
-    highlight_words: "Governance,Risk,Compliance",
-    image_url: heroSlide4,
-    text_position: "center-center",
-    text_color: "#FFFFFF",
-    highlight_color: "#76FF03",
-    link_url: null,
-    link_text: null,
-    link_buttons: [{ text: "Learn More", url: "/services", description: "Strengthen your controls", position: "bottom-center", button_color: "#EF4444", description_color: "#FFFFFF" }],
-    show_stats: true,
-    show_default_buttons: true,
-    sort_order: 3,
-    font_size: "medium",
-  },
-  {
-    id: "default-5",
-    title: "Connecting East Africa's Financial Future",
-    subtitle: "Bridging global innovation with local impact through localized, AI-ready technology solutions.",
-    highlight_words: "East Africa's,Financial Future",
-    image_url: heroSlide5,
-    text_position: "bottom-left",
-    text_color: "#FFFFFF",
-    highlight_color: "#FFD700",
-    link_url: null,
-    link_text: null,
-    link_buttons: [{ text: "Our Partners", url: "/partners", description: "See who we work with", position: "bottom-left", button_color: "#F59E0B", description_color: "#FFFFFF" }],
-    show_stats: true,
-    show_default_buttons: true,
-    sort_order: 4,
-    font_size: "medium",
-  },
-];
 
 const SLIDE_DURATION = 6000;
 
@@ -188,10 +93,11 @@ const highlightText = (text: string, words: string | null, highlightColor: strin
 };
 
 const HeroSlider = () => {
-  const [slides, setSlides] = useState<HeroSlide[]>(defaultSlides);
+  const [slides, setSlides] = useState<HeroSlide[]>([]);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isTransitioning, setIsTransitioning] = useState(false);
   const [textVisible, setTextVisible] = useState(true);
+  const [isLoading, setIsLoading] = useState(true);
 
   const statsData = [
     { value: 15, label: "Years Experience", suffix: "+" },
@@ -219,6 +125,7 @@ const HeroSlider = () => {
           }))
         );
       }
+      setIsLoading(false);
     };
     fetchSlides();
   }, []);
@@ -248,6 +155,17 @@ const HeroSlider = () => {
 
   const prevSlide = () => goToSlide((currentIndex - 1 + slides.length) % slides.length);
   const nextSlide = () => goToSlide((currentIndex + 1) % slides.length);
+
+  if (isLoading || slides.length === 0) {
+    return (
+      <section className="relative w-full h-screen min-h-[600px] max-h-[900px] overflow-hidden bg-primary/90 flex items-center justify-center">
+        <div className="text-center">
+          <div className="w-16 h-16 border-4 border-white/30 border-t-white rounded-full animate-spin mx-auto mb-4"></div>
+          <p className="text-white/80 text-lg">Loading...</p>
+        </div>
+      </section>
+    );
+  }
 
   const slide = slides[currentIndex];
   const hasBottomBar = slide.show_stats || slide.show_default_buttons;
