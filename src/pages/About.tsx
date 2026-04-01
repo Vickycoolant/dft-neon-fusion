@@ -227,59 +227,115 @@ const About = () => {
       </section>
 
       {/* Who We Are Section */}
-      <section className="py-20 bg-gradient-to-br from-gray-50 via-white to-success/5 relative overflow-hidden">
-        {/* Decorative elements */}
-        <div className="absolute inset-0 opacity-5">
-          <div className="absolute top-20 left-10 w-72 h-72 bg-success rounded-full blur-3xl"></div>
-          <div className="absolute bottom-20 right-10 w-96 h-96 bg-primary rounded-full blur-3xl"></div>
+      <section className="py-24 relative overflow-hidden">
+        {/* Rich layered background */}
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/[0.03] via-background to-success/[0.04]"></div>
+        <div className="absolute inset-0">
+          <svg className="absolute inset-0 w-full h-full opacity-[0.04]" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <pattern id="who-pattern" x="0" y="0" width="60" height="60" patternUnits="userSpaceOnUse">
+                <circle cx="30" cy="30" r="1" fill="currentColor" className="text-primary" />
+                <path d="M0 30 L60 30 M30 0 L30 60" stroke="currentColor" strokeWidth="0.3" className="text-primary" opacity="0.5" />
+              </pattern>
+            </defs>
+            <rect width="100%" height="100%" fill="url(#who-pattern)" />
+          </svg>
         </div>
+        <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-primary/[0.06] rounded-full blur-[120px]"></div>
+        <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-success/[0.06] rounded-full blur-[100px]"></div>
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-warning/[0.03] rounded-full blur-[150px]"></div>
         
         <div className="max-w-7xl mx-auto px-6 relative z-10">
-          <div className="max-w-5xl mx-auto">
-            <div className="text-center mb-16">
-              <div className="inline-block mb-4">
-                <span className="inline-block w-12 h-1 bg-success rounded-full mr-2"></span>
-                <span className="inline-block w-6 h-1 bg-success rounded-full mr-2"></span>
-                <span className="inline-block w-3 h-1 bg-success rounded-full"></span>
-              </div>
-              <h2 className="text-4xl md:text-5xl font-bold text-[#4169E1] mb-4">
-                Who We Are
-              </h2>
-              <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-                Your Strategic Technology Consulting Partner in Financial Services
-              </p>
+          {/* Section header */}
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center gap-2 mb-5">
+              <span className="w-10 h-[2px] bg-success rounded-full"></span>
+              <span className="text-sm font-semibold tracking-widest uppercase text-success">Who We Are</span>
+              <span className="w-10 h-[2px] bg-success rounded-full"></span>
             </div>
-            
-            <div className="space-y-8">
-              <div className="bg-white rounded-2xl p-8 shadow-lg border border-success/20 hover:shadow-xl transition-all duration-300 hover:border-success/40">
-                <p className="text-lg leading-relaxed text-gray-700">
-                  At <span className="font-bold text-success">DFT Group</span>, we are more than a <span className="font-semibold text-success">technology reseller</span> — we are a <span className="font-semibold text-success">technology consulting firm</span> dedicated to helping <span className="font-semibold text-success">financial institutions</span> turn <span className="font-semibold text-success">innovation</span> into <span className="font-semibold text-success">measurable business value</span>.
-                </p>
+            <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
+              Your Strategic <span className="gradient-text">Technology Partner</span>
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              Bridging great technology and real-world business needs in Financial Services
+            </p>
+          </div>
+
+          {/* Two-column layout */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
+            {/* Left - Main statement card */}
+            <div className="space-y-6">
+              <div className="relative rounded-2xl overflow-hidden bg-card p-8 shadow-lg border border-border group hover:shadow-xl transition-all duration-500">
+                <div className="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-primary via-success to-warning"></div>
+                <div className="pl-4">
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
+                      <Zap className="w-5 h-5 text-primary" />
+                    </div>
+                    <h3 className="text-xl font-bold text-foreground">More Than Technology</h3>
+                  </div>
+                  <p className="text-muted-foreground leading-relaxed">
+                    At <span className="font-bold text-primary">DFT Group</span>, we are more than a technology reseller — we are a <span className="font-semibold text-primary">technology consulting firm</span> dedicated to helping financial institutions turn innovation into measurable business value.
+                  </p>
+                </div>
               </div>
-              
-              <div className="bg-gradient-to-r from-success/5 to-transparent rounded-2xl p-8 border-l-4 border-success">
-                <p className="text-lg leading-relaxed text-gray-700">
-                  Positioned strategically between <span className="font-semibold text-success">technology providers</span> and their <span className="font-semibold text-success">Banking, Financial Services, and Insurance (BFSI)</span> clients, we bridge the gap between great technology and <span className="font-semibold text-success">real-world business needs</span>. Our role is to ensure that every solution deployed is <span className="font-semibold text-success">fit-for-purpose</span>, aligned to <span className="font-semibold text-success">business goals</span>, and delivered within the <span className="font-semibold text-success">shortest possible implementation timelines</span>.
-                </p>
+
+              <div className="relative rounded-2xl overflow-hidden bg-card p-8 shadow-lg border border-border group hover:shadow-xl transition-all duration-500">
+                <div className="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-success via-primary to-success"></div>
+                <div className="pl-4">
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="w-10 h-10 rounded-lg bg-success/10 flex items-center justify-center">
+                      <Globe className="w-5 h-5 text-success" />
+                    </div>
+                    <h3 className="text-xl font-bold text-foreground">Bridging the Gap</h3>
+                  </div>
+                  <p className="text-muted-foreground leading-relaxed">
+                    Positioned strategically between technology providers and their <span className="font-semibold text-primary">BFSI</span> clients, we ensure every solution is fit-for-purpose, aligned to business goals, and delivered within the shortest possible timelines.
+                  </p>
+                </div>
               </div>
-              
-              <div className="bg-white rounded-2xl p-8 shadow-lg border border-primary/20 hover:shadow-xl transition-all duration-300 hover:border-primary/40">
-                <p className="text-lg leading-relaxed text-gray-700">
-                  As <span className="font-semibold text-success">domain experts</span> within the banking and insurance sectors, we act as <span className="font-semibold text-success">agents of change</span> — guiding organizations through <span className="font-semibold text-success">digital transformation journeys</span> with clarity, discipline, and <span className="font-semibold text-success">measurable outcomes</span>.
-                </p>
+            </div>
+
+            {/* Right column */}
+            <div className="space-y-6">
+              <div className="relative rounded-2xl overflow-hidden bg-card p-8 shadow-lg border border-border group hover:shadow-xl transition-all duration-500">
+                <div className="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-warning via-primary to-warning"></div>
+                <div className="pl-4">
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="w-10 h-10 rounded-lg bg-warning/10 flex items-center justify-center">
+                      <TrendingUp className="w-5 h-5 text-warning" />
+                    </div>
+                    <h3 className="text-xl font-bold text-foreground">Agents of Change</h3>
+                  </div>
+                  <p className="text-muted-foreground leading-relaxed">
+                    As domain experts in banking and insurance, we guide organizations through digital transformation journeys with clarity, discipline, and <span className="font-semibold text-primary">measurable outcomes</span>.
+                  </p>
+                </div>
               </div>
-              
-              <div className="bg-gradient-to-l from-primary/5 to-transparent rounded-2xl p-8 border-r-4 border-primary">
-                <p className="text-lg leading-relaxed text-gray-700">
-                  We are <span className="font-semibold text-success">trusted AI partners</span>, translating <span className="font-semibold text-success">artificial intelligence</span> from a buzzword into <span className="font-semibold text-success">tangible business value</span>. Our consulting approach integrates <span className="font-semibold text-success">technology advisory</span>, <span className="font-semibold text-success">data-driven insights</span>, and <span className="font-semibold text-success">industry expertise</span> to help our clients deliver <span className="font-semibold text-success">faster decisions</span>, <span className="font-semibold text-success">lower risk</span>, and <span className="font-semibold text-success">better customer experiences</span>.
-                </p>
+
+              <div className="relative rounded-2xl overflow-hidden bg-card p-8 shadow-lg border border-border group hover:shadow-xl transition-all duration-500">
+                <div className="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-primary via-warning to-success"></div>
+                <div className="pl-4">
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
+                      <Brain className="w-5 h-5 text-primary" />
+                    </div>
+                    <h3 className="text-xl font-bold text-foreground">Trusted AI Partners</h3>
+                  </div>
+                  <p className="text-muted-foreground leading-relaxed">
+                    We translate artificial intelligence from a buzzword into <span className="font-semibold text-primary">tangible business value</span> — integrating technology advisory, data-driven insights, and industry expertise for faster decisions and lower risk.
+                  </p>
+                </div>
               </div>
-              
-              <div className="bg-white rounded-2xl p-8 shadow-lg border border-success/20 hover:shadow-xl transition-all duration-300 hover:border-success/40 text-center">
-                <p className="text-lg leading-relaxed text-gray-700">
-                  At DFT Group, we combine <span className="font-semibold text-success">strategic consulting</span>, <span className="font-semibold text-success">implementation oversight</span>, and <span className="font-semibold text-success">domain depth</span> to ensure technology works for you, not the other way around.
-                </p>
-              </div>
+            </div>
+          </div>
+
+          {/* Bottom highlight */}
+          <div className="max-w-3xl mx-auto mt-10">
+            <div className="relative rounded-2xl bg-gradient-to-r from-primary/[0.06] via-success/[0.04] to-warning/[0.06] p-8 text-center border border-primary/10">
+              <p className="text-lg text-foreground font-medium leading-relaxed">
+                We combine <span className="font-bold text-primary">strategic consulting</span>, <span className="font-bold text-success">implementation oversight</span>, and <span className="font-bold text-warning">domain depth</span> to ensure technology works for you — not the other way around.
+              </p>
             </div>
           </div>
         </div>

@@ -158,12 +158,7 @@ const HeroSlider = () => {
 
   if (isLoading || slides.length === 0) {
     return (
-      <section className="relative w-full h-screen min-h-[600px] max-h-[900px] overflow-hidden bg-primary/90 flex items-center justify-center">
-        <div className="text-center">
-          <div className="w-16 h-16 border-4 border-white/30 border-t-white rounded-full animate-spin mx-auto mb-4"></div>
-          <p className="text-white/80 text-lg">Loading...</p>
-        </div>
-      </section>
+      <section className="relative w-full h-screen min-h-[600px] max-h-[900px] overflow-hidden bg-primary/90" />
     );
   }
 
