@@ -456,7 +456,7 @@ const About = () => {
             </p>
           </div>
 
-          <CoreValuesCarousel coreValues={coreValues} valueImages={[coreValueIntegrity, coreValueInnovation, coreValueClient]} />
+          <CoreValuesCarouselInline coreValues={coreValues} valueImages={[coreValueIntegrity, coreValueInnovation, coreValueClient]} />
         </div>
       </section>
 
