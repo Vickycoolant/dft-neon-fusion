@@ -1,3 +1,4 @@
+import CoreValuesCarousel from "@/components/CoreValuesCarousel";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -367,8 +368,8 @@ const About = () => {
               <span className="text-sm font-semibold tracking-widest uppercase text-warning">Our Foundation</span>
               <span className="w-10 h-[2px] bg-warning rounded-full"></span>
             </div>
-            <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
-              Mission, Vision & <span className="gradient-text">Purpose</span>
+            <h2 className="text-4xl md:text-5xl font-bold mb-4">
+              <span className="gradient-text">Mission, Vision & Purpose</span>
             </h2>
           </div>
 
@@ -439,53 +440,24 @@ const About = () => {
         </div>
       </section>
 
-      {/* Core Values - Carousel */}
-      <section className="py-20 bg-gray-50 overflow-hidden">
+      {/* Core Values - Carousel (matching Partners carousel style) */}
+      <section className="py-20 bg-gradient-to-br from-primary/[0.03] via-background to-success/[0.03] overflow-hidden">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-[#4169E1] mb-6">
+          <div className="text-center mb-12">
+            <div className="inline-flex items-center gap-2 mb-5">
+              <span className="w-10 h-[2px] bg-primary rounded-full"></span>
+              <span className="text-sm font-semibold tracking-widest uppercase text-primary">What Guides Us</span>
+              <span className="w-10 h-[2px] bg-primary rounded-full"></span>
+            </div>
+            <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
               Our Core Values
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
               The principles that guide everything we do
             </p>
           </div>
 
-          <div className="relative">
-            <div className="flex animate-scroll-left pause-animation gap-8">
-              {[...coreValues, ...coreValues, ...coreValues].map((value, index) => {
-                const IconComponent = value.icon;
-                const valueImages = [coreValueIntegrity, coreValueInnovation, coreValueClient];
-                return (
-                  <Card 
-                    key={index} 
-                    className="flex-shrink-0 w-96 bg-white hover:shadow-2xl transition-all duration-300 group border-success border-2 relative overflow-hidden"
-                  >
-                    <div className="absolute inset-0 opacity-10">
-                      <img 
-                        src={valueImages[index % 3]}
-                        alt={value.title}
-                        className="w-full h-full object-cover"
-                      />
-                    </div>
-                    <CardHeader className="text-center pb-4 relative z-10">
-                      <div className="w-20 h-20 mx-auto bg-gradient-to-br from-[#4169E1] to-[#4169E1]/70 rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                        <IconComponent className="w-10 h-10 text-white" />
-                      </div>
-                      <CardTitle className="text-2xl font-bold text-gray-900">
-                        {value.title}
-                      </CardTitle>
-                    </CardHeader>
-                    <CardContent className="text-center relative z-10">
-                      <p className="text-gray-600 leading-relaxed">
-                        {value.description}
-                      </p>
-                    </CardContent>
-                  </Card>
-                );
-              })}
-            </div>
-          </div>
+          <CoreValuesCarousel coreValues={coreValues} />
         </div>
       </section>
 
