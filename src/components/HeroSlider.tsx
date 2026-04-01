@@ -157,9 +157,7 @@ const HeroSlider = () => {
   const nextSlide = () => goToSlide((currentIndex + 1) % slides.length);
 
   if (isLoading || slides.length === 0) {
-    return (
-      <section className="relative w-full h-screen min-h-[600px] max-h-[900px] overflow-hidden bg-primary/90" />
-    );
+    return null;
   }
 
   const slide = slides[currentIndex];
