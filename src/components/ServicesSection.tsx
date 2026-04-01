@@ -61,12 +61,12 @@ const ServicesSection = ({ showCTA = true, ctaLink = "/services", ctaText = "Vie
       {/* Pattern background */}
       <div className="absolute inset-0 z-0">
         <div className="absolute inset-0 bg-gradient-to-br from-primary/[0.06] via-background to-success/[0.06]"></div>
-        <svg className="absolute inset-0 w-full h-full opacity-[0.12]" xmlns="http://www.w3.org/2000/svg">
+        <svg className="absolute inset-0 w-full h-full opacity-[0.06]" xmlns="http://www.w3.org/2000/svg">
           <defs>
             <pattern id="services-hex" x="0" y="0" width="80" height="92" patternUnits="userSpaceOnUse">
-              <path d="M40 0 L80 23 L80 69 L40 92 L0 69 L0 23 Z" fill="none" stroke="currentColor" strokeWidth="1" className="text-primary" />
-              <circle cx="40" cy="46" r="4" fill="currentColor" className="text-success" opacity="0.7" />
-              <path d="M0 23 L40 46 L80 23" fill="none" stroke="currentColor" strokeWidth="0.6" className="text-warning" />
+              <path d="M40 0 L80 23 L80 69 L40 92 L0 69 L0 23 Z" fill="none" stroke="currentColor" strokeWidth="0.6" className="text-primary" />
+              <circle cx="40" cy="46" r="3" fill="currentColor" className="text-success" opacity="0.5" />
+              <path d="M0 23 L40 46 L80 23" fill="none" stroke="currentColor" strokeWidth="0.3" className="text-warning" />
             </pattern>
           </defs>
           <rect width="100%" height="100%" fill="url(#services-hex)" />
