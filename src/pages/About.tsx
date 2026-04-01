@@ -367,8 +367,8 @@ const About = () => {
               <span className="text-sm font-semibold tracking-widest uppercase text-warning">Our Foundation</span>
               <span className="w-10 h-[2px] bg-warning rounded-full"></span>
             </div>
-            <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
-              Mission, Vision & <span className="gradient-text">Purpose</span>
+            <h2 className="text-4xl md:text-5xl font-bold mb-4">
+              <span className="gradient-text">Mission, Vision & Purpose</span>
             </h2>
           </div>
 
