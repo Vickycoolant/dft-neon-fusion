@@ -342,58 +342,99 @@ const About = () => {
       </section>
 
       {/* Mission, Vision & Purpose */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-6">
+      <section className="py-24 relative overflow-hidden">
+        {/* Rich layered background */}
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/[0.06] via-background to-warning/[0.04]"></div>
+        <div className="absolute inset-0">
+          <svg className="absolute inset-0 w-full h-full opacity-[0.035]" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <pattern id="mvp-pattern" x="0" y="0" width="80" height="80" patternUnits="userSpaceOnUse">
+                <circle cx="40" cy="40" r="1.5" fill="currentColor" className="text-primary" />
+                <path d="M0 40 L80 40 M40 0 L40 80" stroke="currentColor" strokeWidth="0.2" className="text-primary" opacity="0.4" />
+              </pattern>
+            </defs>
+            <rect width="100%" height="100%" fill="url(#mvp-pattern)" />
+          </svg>
+        </div>
+        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/[0.05] rounded-full blur-[120px]"></div>
+        <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-warning/[0.06] rounded-full blur-[100px]"></div>
+        <div className="absolute top-1/2 left-1/3 w-[300px] h-[300px] bg-success/[0.04] rounded-full blur-[80px]"></div>
+
+        <div className="max-w-7xl mx-auto px-6 relative z-10">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-[#4169E1] mb-6">
-              Mission, Vision & Purpose
+            <div className="inline-flex items-center gap-2 mb-5">
+              <span className="w-10 h-[2px] bg-warning rounded-full"></span>
+              <span className="text-sm font-semibold tracking-widest uppercase text-warning">Our Foundation</span>
+              <span className="w-10 h-[2px] bg-warning rounded-full"></span>
+            </div>
+            <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
+              Mission, Vision & <span className="gradient-text">Purpose</span>
             </h2>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {/* Mission */}
-            <Card className="bg-gradient-to-br from-[#4169E1]/5 to-[#4169E1]/10 border-success border-2 hover:shadow-xl transition-shadow">
-              <CardHeader>
-                <div className="w-16 h-16 bg-success rounded-full flex items-center justify-center mb-4">
-                  <Target className="w-8 h-8 text-white" />
+            <div className="group relative">
+              <div className="absolute -inset-[1px] bg-gradient-to-b from-success via-success/40 to-transparent rounded-2xl opacity-70 group-hover:opacity-100 transition-opacity duration-500"></div>
+              <div className="relative bg-card rounded-2xl p-8 h-full flex flex-col shadow-lg group-hover:shadow-xl transition-all duration-500">
+                <div className="flex items-center gap-4 mb-6">
+                  <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-success to-success/70 flex items-center justify-center shadow-md group-hover:scale-110 transition-transform duration-500">
+                    <Target className="w-7 h-7 text-success-foreground" />
+                  </div>
+                  <h3 className="text-2xl font-bold text-foreground">Mission</h3>
                 </div>
-                <CardTitle className="text-3xl font-bold text-[#4169E1]">Mission</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-lg text-gray-700 leading-relaxed">
+                <div className="w-full h-[2px] bg-gradient-to-r from-success/60 via-success/20 to-transparent mb-6"></div>
+                <p className="text-muted-foreground leading-relaxed text-lg flex-1">
                   To empower financial institutions with AI-driven solutions that enhance decision-making, efficiency, and digital trust.
                 </p>
-              </CardContent>
-            </Card>
+                <div className="mt-6 flex items-center gap-2 text-success font-semibold text-sm">
+                  <Zap className="w-4 h-4" />
+                  <span>Driving Impact</span>
+                </div>
+              </div>
+            </div>
 
             {/* Vision */}
-            <Card className="bg-gradient-to-br from-[#4169E1]/5 to-[#4169E1]/10 border-warning border-2 hover:shadow-xl transition-shadow">
-              <CardHeader>
-                <div className="w-16 h-16 bg-warning rounded-full flex items-center justify-center mb-4">
-                  <Eye className="w-8 h-8 text-black" />
+            <div className="group relative md:-translate-y-4">
+              <div className="absolute -inset-[1px] bg-gradient-to-b from-warning via-warning/40 to-transparent rounded-2xl opacity-70 group-hover:opacity-100 transition-opacity duration-500"></div>
+              <div className="relative bg-card rounded-2xl p-8 h-full flex flex-col shadow-lg group-hover:shadow-xl transition-all duration-500">
+                <div className="flex items-center gap-4 mb-6">
+                  <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-warning to-warning/70 flex items-center justify-center shadow-md group-hover:scale-110 transition-transform duration-500">
+                    <Eye className="w-7 h-7 text-warning-foreground" />
+                  </div>
+                  <h3 className="text-2xl font-bold text-foreground">Vision</h3>
                 </div>
-                <CardTitle className="text-3xl font-bold text-[#4169E1]">Vision</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-lg text-gray-700 leading-relaxed">
+                <div className="w-full h-[2px] bg-gradient-to-r from-warning/60 via-warning/20 to-transparent mb-6"></div>
+                <p className="text-muted-foreground leading-relaxed text-lg flex-1">
                   To be the most trusted AI partner transforming financial services in East Africa.
                 </p>
-              </CardContent>
-            </Card>
+                <div className="mt-6 flex items-center gap-2 text-warning font-semibold text-sm">
+                  <Globe className="w-4 h-4" />
+                  <span>Leading Innovation</span>
+                </div>
+              </div>
+            </div>
 
             {/* Purpose */}
-            <Card className="bg-gradient-to-br from-[#4169E1]/5 to-[#4169E1]/10 border-primary border-2 hover:shadow-xl transition-shadow">
-              <CardHeader>
-                <div className="w-16 h-16 bg-primary rounded-full flex items-center justify-center mb-4">
-                  <Lightbulb className="w-8 h-8 text-white" />
+            <div className="group relative">
+              <div className="absolute -inset-[1px] bg-gradient-to-b from-primary via-primary/40 to-transparent rounded-2xl opacity-70 group-hover:opacity-100 transition-opacity duration-500"></div>
+              <div className="relative bg-card rounded-2xl p-8 h-full flex flex-col shadow-lg group-hover:shadow-xl transition-all duration-500">
+                <div className="flex items-center gap-4 mb-6">
+                  <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-primary to-primary/70 flex items-center justify-center shadow-md group-hover:scale-110 transition-transform duration-500">
+                    <Lightbulb className="w-7 h-7 text-primary-foreground" />
+                  </div>
+                  <h3 className="text-2xl font-bold text-foreground">Purpose</h3>
                 </div>
-                <CardTitle className="text-3xl font-bold text-[#4169E1]">Purpose</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-lg text-gray-700 leading-relaxed">
+                <div className="w-full h-[2px] bg-gradient-to-r from-primary/60 via-primary/20 to-transparent mb-6"></div>
+                <p className="text-muted-foreground leading-relaxed text-lg flex-1">
                   Unlocking business value through AI for safer, smarter organizations.
                 </p>
-              </CardContent>
-            </Card>
+                <div className="mt-6 flex items-center gap-2 text-primary font-semibold text-sm">
+                  <TrendingUp className="w-4 h-4" />
+                  <span>Creating Value</span>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
