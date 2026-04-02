@@ -227,116 +227,110 @@ const Index = () => {
         </div>
       </section>
 
-      {/* DFT Advantage Section */}
-      <section className="relative w-full py-24 bg-card overflow-x-hidden">
-        <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 text-primary">
-          The DFT Advantage
-        </h2>
+      {/* DFT Value Delivered Section */}
+      <section className="relative section-padding overflow-hidden">
+        {/* Background */}
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/[0.04] via-card to-success/[0.04]"></div>
+        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/[0.06] rounded-full blur-3xl"></div>
+        <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-success/[0.06] rounded-full blur-3xl"></div>
 
-        <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-start justify-between gap-12 px-4 sm:px-6 lg:px-8 overflow-x-hidden">
-          {/* Left Text Section */}
-          <div className="flex-1 text-muted-foreground text-lg leading-relaxed space-y-6">
-            <p className="flex items-start gap-2">
-              <span className="text-primary font-bold">✔</span>
-              <span><strong className="text-primary">99.9999% Quality:</strong> Our AI solutions guarantee the highest reliability and precision in data handling and analytics, ensuring top-tier service for our clients.</span>
-            </p>
-            <p className="flex items-start gap-2">
-              <span className="text-warning font-bold">✔</span>
-              <span><strong className="text-warning">AI Innovation:</strong> Constantly innovating, we implement cutting-edge AI technologies that give businesses a competitive advantage.</span>
-            </p>
-            <p className="flex items-start gap-2">
-              <span className="text-success font-bold">✔</span>
-              <span><strong className="text-success">Scalability:</strong> Our solutions are designed to grow seamlessly with your business, accommodating increasing data and operational complexity.</span>
-            </p>
-            <p className="flex items-start gap-2">
-              <span className="text-primary font-bold">✔</span>
-              <span><strong className="text-primary">Reliability:</strong> With robust architecture and vigilant monitoring, we ensure uninterrupted service and consistent performance.</span>
+        <div className="container-max relative z-10">
+          <div className="text-center mb-12">
+            <div className="inline-flex items-center gap-2 bg-primary/10 border border-primary/20 rounded-full px-5 py-2 mb-6">
+              <HeartPulse className="w-4 h-4 text-primary" />
+              <span className="text-sm font-semibold text-primary tracking-wide uppercase">Proven Impact</span>
+            </div>
+            <h2 className="text-3xl md:text-5xl font-bold mb-6">
+              <span className="gradient-text">DFT Value Delivered</span>
+              <br />
+              <span className="text-foreground text-2xl md:text-3xl font-medium">in Health Insurance Claims Processing</span>
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-4xl mx-auto leading-relaxed">
+              We are recognized as a leader in East Africa for transforming health insurance claims processing, leveraging AI-driven innovation to deliver faster, more accurate, and highly reliable outcomes for insurers and policyholders alike.
             </p>
           </div>
 
-          {/* Diamond Visual Section — Hidden on mobile */}
-          <div className="hidden md:flex flex-1 relative items-center justify-center min-h-[400px] md:min-h-[500px] overflow-hidden px-4">
-            {/* Faded hollow circles in background */}
-            {[...Array(5)].map((_, i) => (
-              <div
-                key={`hollow-${i}`}
-                className="absolute rounded-full border-2 opacity-20"
-                style={{
-                  width: `${80 + i * 40}px`,
-                  height: `${80 + i * 40}px`,
-                  borderColor: ["hsl(225,85%,35%)", "hsl(48,100%,50%)", "hsl(146,100%,30%)"][i % 3],
-                  top: `${Math.random() * 80}%`,
-                  left: `${Math.random() * 80}%`,
-                  animation: `float ${6 + i * 2}s ease-in-out infinite alternate`,
-                }}
-              />
-            ))}
+          {/* Value pillars */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto mb-12">
+            {[
+              {
+                icon: CheckCircle,
+                title: "Quality",
+                description: "Claims are accurately assessed with AI-driven adjudication, increasing efficiency, reducing cost/errors/fraud and minimizing manual intervention.",
+                color: "primary" as const,
+                metric: "99.9%",
+                metricLabel: "Accuracy"
+              },
+              {
+                icon: Brain,
+                title: "AI Innovation",
+                description: "Advanced AI automates claim assessment, detects fraud, and reduces processing time to just 10 minutes.",
+                color: "warning" as const,
+                metric: "10 min",
+                metricLabel: "Processing"
+              },
+              {
+                icon: TrendingUp,
+                title: "Scalability",
+                description: "Our platform handles growing claim volumes and multiple insurance products without compromising TAT.",
+                color: "success" as const,
+                metric: "∞",
+                metricLabel: "Scale"
+              },
+              {
+                icon: Shield,
+                title: "Reliability",
+                description: "Consistently monitored operations guarantee timely payouts and dependable service for insurers and policyholders.",
+                color: "primary" as const,
+                metric: "24/7",
+                metricLabel: "Monitoring"
+              }
+            ].map((item, index) => {
+              const Icon = item.icon;
+              const colorMap = {
+                primary: { bg: "from-primary/15 to-primary/5", border: "border-primary/20", text: "text-primary", iconBg: "bg-primary", metricBg: "bg-primary/10" },
+                warning: { bg: "from-warning/15 to-warning/5", border: "border-warning/20", text: "text-warning", iconBg: "bg-warning", metricBg: "bg-warning/10" },
+                success: { bg: "from-success/15 to-success/5", border: "border-success/20", text: "text-success", iconBg: "bg-success", metricBg: "bg-success/10" },
+              };
+              const c = colorMap[item.color];
+              return (
+                <div
+                  key={index}
+                  className={`group relative rounded-2xl border ${c.border} bg-gradient-to-br ${c.bg} p-6 hover:shadow-xl transition-all duration-500 hover:-translate-y-1`}
+                >
+                  <div className="flex items-start gap-5">
+                    {/* Metric badge */}
+                    <div className="flex flex-col items-center shrink-0">
+                      <div className={`w-14 h-14 rounded-xl ${c.iconBg} flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300`}>
+                        <Icon className="w-7 h-7 text-white" />
+                      </div>
+                      <div className={`mt-3 ${c.metricBg} rounded-lg px-3 py-1.5 text-center`}>
+                        <span className={`text-xl font-bold ${c.text} block leading-tight`}>{item.metric}</span>
+                        <span className="text-[10px] font-medium text-muted-foreground uppercase tracking-wider">{item.metricLabel}</span>
+                      </div>
+                    </div>
 
-            <div className="relative w-64 h-64 md:w-[450px] md:h-[450px] mx-auto">
-              {/* Top Diamond - Primary Blue */}
-              <div
-                className="absolute w-28 h-28 md:w-52 md:h-52 flex items-center justify-center text-center text-white font-bold text-xs md:text-lg rounded-lg hover:scale-105 transition-transform"
-                style={{
-                  top: 0,
-                  left: "50%",
-                  transform: "translate(-50%, -50%) rotate(45deg)",
-                  background: "hsl(225, 85%, 35%)",
-                }}
-              >
-                <div className="-rotate-45 px-2 md:px-4 leading-tight">99.9999% Quality Assurance</div>
-              </div>
+                    {/* Content */}
+                    <div className="flex-1 min-w-0">
+                      <h3 className={`text-xl font-bold ${c.text} mb-2`}>{item.title}</h3>
+                      <p className="text-muted-foreground leading-relaxed">{item.description}</p>
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
 
-              {/* Right Diamond - Yellow */}
-              <div
-                className="absolute w-28 h-28 md:w-52 md:h-52 flex items-center justify-center text-center font-bold text-xs md:text-lg rounded-lg hover:scale-105 transition-transform"
-                style={{
-                  top: "50%",
-                  right: 0,
-                  transform: "translate(50%, -50%) rotate(45deg)",
-                  background: "hsl(48, 100%, 50%)",
-                  color: "hsl(0, 0%, 0%)",
-                }}
-              >
-                <div className="-rotate-45 px-2 md:px-4 leading-tight">AI Innovation</div>
-              </div>
-
-              {/* Bottom Diamond - Green */}
-              <div
-                className="absolute w-28 h-28 md:w-52 md:h-52 flex items-center justify-center text-center text-white font-bold text-xs md:text-lg rounded-lg hover:scale-105 transition-transform"
-                style={{
-                  bottom: 0,
-                  left: "50%",
-                  transform: "translate(-50%, 50%) rotate(45deg)",
-                  background: "hsl(146, 100%, 30%)",
-                }}
-              >
-                <div className="-rotate-45 px-2 md:px-4 leading-tight">Scalability</div>
-              </div>
-
-              {/* Left Diamond - Primary Blue */}
-              <div
-                className="absolute w-28 h-28 md:w-52 md:h-52 flex items-center justify-center text-center text-white font-bold text-xs md:text-lg rounded-lg hover:scale-105 transition-transform"
-                style={{
-                  top: "50%",
-                  left: 0,
-                  transform: "translate(-50%, -50%) rotate(45deg)",
-                  background: "hsl(225, 85%, 35%)",
-                }}
-              >
-                <div className="-rotate-45 px-2 md:px-4 leading-tight">Reliability</div>
-              </div>
-            </div>
+          {/* CTA */}
+          <div className="text-center">
+            <Link to="/contact">
+              <Button variant="hero" size="lg" className="text-lg px-10 py-6">
+                Book a Demo
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </Button>
+            </Link>
           </div>
         </div>
-
-        {/* Floating animation keyframes */}
-        <style>{`
-          @keyframes float {
-            0% { transform: translateY(0px); opacity: 0.4; }
-            50% { transform: translateY(-15px); opacity: 0.6; }
-            100% { transform: translateY(0px); opacity: 0.4; }
-          }
-        `}</style>
       </section>
 
       {/* Partners Section */}
