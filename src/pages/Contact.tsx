@@ -12,10 +12,8 @@ import {
   Mail, 
   Clock, 
   Send,
-  Facebook,
   Twitter,
-  Linkedin,
-  Instagram
+  Linkedin
 } from "lucide-react";
 
 const Contact = () => {
