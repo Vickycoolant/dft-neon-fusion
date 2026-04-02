@@ -127,8 +127,9 @@ const ServicesSection = ({ showCTA = true, ctaLink = "/services", ctaText = "Vie
         </div>
 
         {/* Bottom row: 2 cards centered */}
+        {bottomRow.length > 0 && (
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-          {services.slice(3).map((service, sliceIndex) => {
+          {bottomRow.map((service, sliceIndex) => {
             const index = sliceIndex + 3;
             const Icon = service.icon;
             const colors = accentColors[index];
