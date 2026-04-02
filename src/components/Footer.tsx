@@ -39,17 +39,13 @@ const Footer = () => {
               and machine learning innovations.
             </p>
             <div className="flex space-x-3">
-              <Button size="sm" variant="ghost" className="p-2 hover:bg-primary/20">
-                <Facebook className="w-4 h-4" />
+              <Button size="sm" variant="ghost" className="p-2 hover:bg-primary/20" asChild>
+                <a href="https://www.linkedin.com/company/dftconsult/posts/?feedView=all" target="_blank" rel="noopener noreferrer">
+                  <Linkedin className="w-4 h-4" />
+                </a>
               </Button>
               <Button size="sm" variant="ghost" className="p-2 hover:bg-primary/20">
                 <Twitter className="w-4 h-4" />
-              </Button>
-              <Button size="sm" variant="ghost" className="p-2 hover:bg-primary/20">
-                <Linkedin className="w-4 h-4" />
-              </Button>
-              <Button size="sm" variant="ghost" className="p-2 hover:bg-primary/20">
-                <Instagram className="w-4 h-4" />
               </Button>
             </div>
           </div>
