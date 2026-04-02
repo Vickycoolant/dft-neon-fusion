@@ -18,7 +18,6 @@ const Footer = () => {
     { label: "Home", path: "/" },
     { label: "Services", path: "/services" },
     { label: "Industry", path: "/industry" },
-    { label: "Partners", path: "/partners" },
     { label: "About Us", path: "/about" },
     { label: "Contact", path: "/contact" },
     { label: "Events & Updates", path: "/events-updates" }
