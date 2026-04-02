@@ -12,10 +12,8 @@ import {
   Mail, 
   Clock, 
   Send,
-  Facebook,
   Twitter,
-  Linkedin,
-  Instagram
+  Linkedin
 } from "lucide-react";
 
 const Contact = () => {
@@ -38,7 +36,7 @@ const Contact = () => {
     
     // Prepare email content for Gmail
     const toEmail = "info@dftconsult.com";
-    const ccEmail = "simion.rutto@dftconsult.com";
+    
     const subject = encodeURIComponent(`Contact Form - ${formData.subject}`);
     const body = encodeURIComponent(
       `Name: ${formData.name}\n` +
@@ -48,7 +46,7 @@ const Contact = () => {
     );
     
     // Open Gmail compose with pre-filled content
-    const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${toEmail}&cc=${ccEmail}&su=${subject}&body=${body}`;
+    const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${toEmail}&su=${subject}&body=${body}`;
     window.open(gmailUrl, '_blank');
     
     toast({
@@ -84,7 +82,7 @@ const Contact = () => {
     {
       icon: Mail,
       title: "Email Addresses",
-      details: ["info@dftconsult.com", "simion.rutto@dftconsult.com"],
+      details: ["info@dftconsult.com"],
       bgColor: "bg-warning",
       textColor: "text-black"
     },
@@ -98,10 +96,8 @@ const Contact = () => {
   ];
 
   const socialMedia = [
-    { icon: Facebook, name: "Facebook", url: "#", color: "text-blue-600" },
-    { icon: Twitter, name: "Twitter", url: "#", color: "text-blue-400" },
-    { icon: Linkedin, name: "LinkedIn", url: "#", color: "text-blue-700" },
-    { icon: Instagram, name: "Instagram", url: "#", color: "text-pink-600" }
+    { icon: Linkedin, name: "LinkedIn", url: "https://www.linkedin.com/company/dftconsult/posts/?feedView=all", color: "text-blue-700" },
+    { icon: Twitter, name: "Twitter", url: "#", color: "text-blue-400" }
   ];
 
   return (

@@ -1,4 +1,4 @@
-import { MapPin, Phone, Mail, Facebook, Twitter, Linkedin, Instagram } from "lucide-react";
+import { MapPin, Phone, Mail, Twitter, Linkedin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import dftLogo from "@/assets/Screenshot_2025-10-28_183536-removebg-preview.png";
@@ -17,11 +17,9 @@ const Footer = () => {
   const quickLinks = [
     { label: "Home", path: "/" },
     { label: "Services", path: "/services" },
-    { label: "Industry", path: "/industry" },
-    { label: "Partners", path: "/partners" },
     { label: "About Us", path: "/about" },
     { label: "Contact", path: "/contact" },
-    { label: "Events & Updates", path: "/events-updates" }
+    { label: "Events & Updates", path: "/events" }
   ];
 
   return (
@@ -40,17 +38,13 @@ const Footer = () => {
               and machine learning innovations.
             </p>
             <div className="flex space-x-3">
-              <Button size="sm" variant="ghost" className="p-2 hover:bg-primary/20">
-                <Facebook className="w-4 h-4" />
+              <Button size="sm" variant="ghost" className="p-2 hover:bg-primary/20" asChild>
+                <a href="https://www.linkedin.com/company/dftconsult/posts/?feedView=all" target="_blank" rel="noopener noreferrer">
+                  <Linkedin className="w-4 h-4" />
+                </a>
               </Button>
               <Button size="sm" variant="ghost" className="p-2 hover:bg-primary/20">
                 <Twitter className="w-4 h-4" />
-              </Button>
-              <Button size="sm" variant="ghost" className="p-2 hover:bg-primary/20">
-                <Linkedin className="w-4 h-4" />
-              </Button>
-              <Button size="sm" variant="ghost" className="p-2 hover:bg-primary/20">
-                <Instagram className="w-4 h-4" />
               </Button>
             </div>
           </div>
@@ -110,10 +104,6 @@ const Footer = () => {
               <div className="flex items-center space-x-3">
                 <Mail className="w-4 h-4 text-primary flex-shrink-0" />
                 <p className="text-gray-300 text-sm">info@dftconsult.com</p>
-              </div>
-              <div className="flex items-center space-x-3">
-                <Mail className="w-4 h-4 text-primary flex-shrink-0" />
-                <p className="text-gray-300 text-sm">simion.rutto@dftconsult.com</p>
               </div>
             </div>
           </div>
