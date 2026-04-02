@@ -82,7 +82,7 @@ const Contact = () => {
     {
       icon: Mail,
       title: "Email Addresses",
-      details: ["info@dftconsult.com", "simion.rutto@dftconsult.com"],
+      details: ["info@dftconsult.com"],
       bgColor: "bg-warning",
       textColor: "text-black"
     },
