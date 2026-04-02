@@ -56,7 +56,10 @@ const accentColors = [
   { iconBg: "bg-warning/10", iconColor: "text-warning", border: "border-warning/20", hoverBorder: "hover:border-warning/40" },
 ];
 
-const ServicesSection = ({ showCTA = true, ctaLink = "/services", ctaText = "View All Services" }: ServicesSectionProps) => {
+const ServicesSection = ({ showCTA = true, ctaLink = "/services", ctaText = "View All Services", maxItems }: ServicesSectionProps) => {
+  const displayServices = maxItems ? services.slice(0, maxItems) : services;
+  const topRow = displayServices.slice(0, 3);
+  const bottomRow = displayServices.slice(3);
   return (
     <section className="relative section-padding overflow-hidden">
       {/* Pattern background */}
