@@ -17,10 +17,9 @@ const Footer = () => {
   const quickLinks = [
     { label: "Home", path: "/" },
     { label: "Services", path: "/services" },
-    { label: "Industry", path: "/industry" },
     { label: "About Us", path: "/about" },
     { label: "Contact", path: "/contact" },
-    { label: "Events & Updates", path: "/events-updates" }
+    { label: "Events & Updates", path: "/events" }
   ];
 
   return (
