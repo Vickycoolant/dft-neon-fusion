@@ -1,4 +1,4 @@
-import { MapPin, Phone, Mail, Facebook, Twitter, Linkedin, Instagram } from "lucide-react";
+import { MapPin, Phone, Mail, Twitter, Linkedin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import dftLogo from "@/assets/Screenshot_2025-10-28_183536-removebg-preview.png";
