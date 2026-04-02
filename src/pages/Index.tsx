@@ -178,7 +178,7 @@ const Index = () => {
       </section>
 
       {/* Our Services Section */}
-      <ServicesSection />
+      <ServicesSection maxItems={3} />
 
       {/* Why Choose Us Section - with background image */}
       <section className="relative section-padding overflow-hidden">

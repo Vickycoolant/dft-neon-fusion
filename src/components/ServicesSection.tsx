@@ -157,10 +157,11 @@ const ServicesSection = ({ showCTA = true, ctaLink = "/services", ctaText = "Vie
                     </p>
                   </div>
                 </CardContent>
-              </Card>
+            </Card>
             );
           })}
         </div>
+        )}
 
         <div className="text-center mt-10">
           <p className="text-muted-foreground italic max-w-3xl mx-auto mb-8">
