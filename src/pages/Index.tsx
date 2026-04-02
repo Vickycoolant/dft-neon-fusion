@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Brain, Cpu, Shield, Building2, TrendingUp, Handshake, Award, Target, CheckCircle } from "lucide-react";
+import { ArrowRight, Brain, Cpu, Shield, Building2, TrendingUp, Handshake, Award, Target, CheckCircle, HeartPulse } from "lucide-react";
 import { Link } from "react-router-dom";
 import PartnersCarousel from "@/components/PartnersCarousel";
 import FAQSection from "@/components/FAQSection";
