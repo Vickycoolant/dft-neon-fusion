@@ -36,7 +36,7 @@ const Contact = () => {
     
     // Prepare email content for Gmail
     const toEmail = "info@dftconsult.com";
-    const ccEmail = "simion.rutto@dftconsult.com";
+    
     const subject = encodeURIComponent(`Contact Form - ${formData.subject}`);
     const body = encodeURIComponent(
       `Name: ${formData.name}\n` +
