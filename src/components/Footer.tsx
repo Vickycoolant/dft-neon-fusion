@@ -7,12 +7,11 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   const majorServices = [
-    "Document Analysis",
-    "Bank Statement Analysis", 
-    "Predictive Analytics",
-    "Cybersecurity Solutions",
-    "Cloud Solutions",
-    "Custom Development"
+    "AI & Data-Driven Decision Intelligence",
+    "Digital Transformation & Operational Efficiency",
+    "Governance, Risk & Compliance",
+    "Capability Building & Workforce Enablement",
+    "Strategic Advisory & Transformation Support"
   ];
 
   const quickLinks = [

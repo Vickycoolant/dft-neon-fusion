@@ -7,6 +7,7 @@ interface ServicesSectionProps {
   showCTA?: boolean;
   ctaLink?: string;
   ctaText?: string;
+  maxItems?: number;
 }
 
 const services = [
@@ -55,7 +56,10 @@ const accentColors = [
   { iconBg: "bg-warning/10", iconColor: "text-warning", border: "border-warning/20", hoverBorder: "hover:border-warning/40" },
 ];
 
-const ServicesSection = ({ showCTA = true, ctaLink = "/services", ctaText = "View All Services" }: ServicesSectionProps) => {
+const ServicesSection = ({ showCTA = true, ctaLink = "/services", ctaText = "View All Services", maxItems }: ServicesSectionProps) => {
+  const displayServices = maxItems ? services.slice(0, maxItems) : services;
+  const topRow = displayServices.slice(0, 3);
+  const bottomRow = displayServices.slice(3);
   return (
     <section className="relative section-padding overflow-hidden">
       {/* Pattern background */}
@@ -90,7 +94,7 @@ const ServicesSection = ({ showCTA = true, ctaLink = "/services", ctaText = "Vie
 
         {/* Top row: 3 cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-8">
-          {services.slice(0, 3).map((service, index) => {
+          {topRow.map((service, index) => {
             const Icon = service.icon;
             const colors = accentColors[index];
             return (
@@ -123,8 +127,9 @@ const ServicesSection = ({ showCTA = true, ctaLink = "/services", ctaText = "Vie
         </div>
 
         {/* Bottom row: 2 cards centered */}
+        {bottomRow.length > 0 && (
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-          {services.slice(3).map((service, sliceIndex) => {
+          {bottomRow.map((service, sliceIndex) => {
             const index = sliceIndex + 3;
             const Icon = service.icon;
             const colors = accentColors[index];
@@ -152,10 +157,11 @@ const ServicesSection = ({ showCTA = true, ctaLink = "/services", ctaText = "Vie
                     </p>
                   </div>
                 </CardContent>
-              </Card>
+            </Card>
             );
           })}
         </div>
+        )}
 
         <div className="text-center mt-10">
           <p className="text-muted-foreground italic max-w-3xl mx-auto mb-8">
