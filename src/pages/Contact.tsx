@@ -46,7 +46,7 @@ const Contact = () => {
     );
     
     // Open Gmail compose with pre-filled content
-    const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${toEmail}&cc=${ccEmail}&su=${subject}&body=${body}`;
+    const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${toEmail}&su=${subject}&body=${body}`;
     window.open(gmailUrl, '_blank');
     
     toast({
