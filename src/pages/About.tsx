@@ -396,7 +396,7 @@ const About = () => {
             </div>
 
             {/* Vision */}
-            <div className="group relative md:-translate-y-4">
+            <div className="group relative">
               <div className="absolute -inset-[1px] bg-gradient-to-b from-warning via-warning/40 to-transparent rounded-2xl opacity-70 group-hover:opacity-100 transition-opacity duration-500"></div>
               <div className="relative bg-card rounded-2xl p-8 h-full flex flex-col shadow-lg group-hover:shadow-xl transition-all duration-500">
                 <div className="flex items-center gap-4 mb-6">

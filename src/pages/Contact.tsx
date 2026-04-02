@@ -96,10 +96,8 @@ const Contact = () => {
   ];
 
   const socialMedia = [
-    { icon: Facebook, name: "Facebook", url: "#", color: "text-blue-600" },
-    { icon: Twitter, name: "Twitter", url: "#", color: "text-blue-400" },
-    { icon: Linkedin, name: "LinkedIn", url: "#", color: "text-blue-700" },
-    { icon: Instagram, name: "Instagram", url: "#", color: "text-pink-600" }
+    { icon: Linkedin, name: "LinkedIn", url: "https://www.linkedin.com/company/dftconsult/posts/?feedView=all", color: "text-blue-700" },
+    { icon: Twitter, name: "Twitter", url: "#", color: "text-blue-400" }
   ];
 
   return (

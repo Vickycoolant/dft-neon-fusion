@@ -106,10 +106,6 @@ const Footer = () => {
                 <Mail className="w-4 h-4 text-primary flex-shrink-0" />
                 <p className="text-gray-300 text-sm">info@dftconsult.com</p>
               </div>
-              <div className="flex items-center space-x-3">
-                <Mail className="w-4 h-4 text-primary flex-shrink-0" />
-                <p className="text-gray-300 text-sm">simion.rutto@dftconsult.com</p>
-              </div>
             </div>
           </div>
         </div>
