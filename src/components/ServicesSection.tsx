@@ -7,6 +7,7 @@ interface ServicesSectionProps {
   showCTA?: boolean;
   ctaLink?: string;
   ctaText?: string;
+  maxItems?: number;
 }
 
 const services = [
