@@ -1,8 +1,13 @@
+import { useState } from "react";
 import CoreValuesCarousel from "@/components/CoreValuesCarousel";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Label } from "@/components/ui/label";
 import { Link } from "react-router-dom";
+import { useToast } from "@/hooks/use-toast";
 import { 
   Target, 
   Eye, 
@@ -15,7 +20,8 @@ import {
   TrendingUp,
   Zap,
   Building2,
-  Brain
+  Brain,
+  Send
 } from "lucide-react";
 import aboutHeroImg from "@/assets/image-3.jpg";
 import dataIntelligenceImg from "@/assets/image-10.jpg";
@@ -36,6 +42,30 @@ import logoDtb from "@/assets/logo-dtb.png";
 import FAQSection from "@/components/FAQSection";
 
 const About = () => {
+  const { toast } = useToast();
+  const [showDemoForm, setShowDemoForm] = useState(false);
+  const [demoForm, setDemoForm] = useState({ name: "", email: "", company: "", message: "" });
+
+  const handleDemoChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setDemoForm(prev => ({ ...prev, [name]: value }));
+  };
+
+  const handleDemoSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    const toEmail = "info@dftconsult.com";
+    const subject = encodeURIComponent(`Demo Request from ${demoForm.name}`);
+    const body = encodeURIComponent(
+      `Name: ${demoForm.name}\nEmail: ${demoForm.email}\nCompany: ${demoForm.company || 'N/A'}\n\nMessage:\n${demoForm.message}`
+    );
+    const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${toEmail}&su=${subject}&body=${body}`;
+    window.open(gmailUrl, '_blank');
+    toast({ title: "Gmail Opened!", description: "Gmail has been opened with your message. Review and click send to submit." });
+    setDemoForm({ name: "", email: "", company: "", message: "" });
+    setShowDemoForm(false);
+  };
+
+  const coreValues = [
   const coreValues = [
     {
       icon: Shield,
