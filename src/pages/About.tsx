@@ -66,7 +66,6 @@ const About = () => {
   };
 
   const coreValues = [
-  const coreValues = [
     {
       icon: Shield,
       title: "Integrity",
