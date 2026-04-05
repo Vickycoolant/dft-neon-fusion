@@ -72,11 +72,11 @@ const BookDemoDialog = ({ children }: BookDemoDialogProps) => {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div className="space-y-1.5">
               <Label htmlFor="demo-name">Full Name *</Label>
-              <Input id="demo-name" value={formData.name} onChange={(e) => setFormData({ ...formData, name: e.target.value })} placeholder="John Doe" required />
+              <Input id="demo-name" value={formData.name} onChange={(e) => setFormData({ ...formData, name: e.target.value })} placeholder="Name" required />
             </div>
             <div className="space-y-1.5">
               <Label htmlFor="demo-email">Email *</Label>
-              <Input id="demo-email" type="email" value={formData.email} onChange={(e) => setFormData({ ...formData, email: e.target.value })} placeholder="john@company.com" required />
+              <Input id="demo-email" type="email" value={formData.email} onChange={(e) => setFormData({ ...formData, email: e.target.value })} placeholder="Your Email" required />
             </div>
           </div>
 
