@@ -10,6 +10,7 @@ import { Badge } from "@/components/ui/badge";
 import { supabase } from "@/integrations/supabase/client";
 import { format } from "date-fns";
 import whyChooseUsBg from "@/assets/why-choose-us-bg.jpg";
+import BookDemoDialog from "@/components/BookDemoDialog";
 
 type PostCategory = "industry_insights" | "events" | "company_updates";
 
@@ -348,12 +349,11 @@ const Index = () => {
 
           {/* CTA */}
           <div className="text-center">
-            <Link to="/contact">
+            <BookDemoDialog>
               <Button variant="hero" size="lg" className="text-lg px-10 py-6">
                 Book a Demo
-                <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
-            </Link>
+            </BookDemoDialog>
           </div>
         </div>
       </section>

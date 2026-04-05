@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import AnimatedStats from "@/components/AnimatedStats";
+import BookDemoDialog from "@/components/BookDemoDialog";
 
 
 interface LinkButton {
@@ -255,11 +256,11 @@ const HeroSlider = () => {
                 <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
               </Button>
             </Link>
-            <Link to="/contact">
+            <BookDemoDialog>
               <Button variant="warning" size="lg" className="w-full">
                 Schedule Consultation
               </Button>
-            </Link>
+            </BookDemoDialog>
           </div>
         )}
       </div>
@@ -371,11 +372,11 @@ const HeroSlider = () => {
                 <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
               </Button>
             </Link>
-            <Link to="/contact">
+            <BookDemoDialog>
               <Button variant="warning" size="lg">
                 Schedule Consultation
               </Button>
-            </Link>
+            </BookDemoDialog>
           </div>
         )}
       </div>
