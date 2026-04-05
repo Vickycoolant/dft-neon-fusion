@@ -134,7 +134,7 @@ const BookDemoDialog = ({ children }: BookDemoDialogProps) => {
           </div>
 
           <Button type="submit" variant="hero" size="lg" className="w-full">
-            Submit & Send via Gmail
+            Submit
           </Button>
         </form>
       </DialogContent>
