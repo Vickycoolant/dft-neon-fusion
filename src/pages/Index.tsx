@@ -1,31 +1,56 @@
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Brain, Cpu, Shield, Building2, TrendingUp, Handshake, Award, Target, CheckCircle, HeartPulse } from "lucide-react";
-import { Link } from "react-router-dom";
+import { ArrowRight, Brain, Cpu, Shield, Building2, TrendingUp, Handshake, Award, Target, CheckCircle, HeartPulse, Calendar } from "lucide-react";
+import { Link, useNavigate } from "react-router-dom";
 import PartnersCarousel from "@/components/PartnersCarousel";
-import FAQSection from "@/components/FAQSection";
 import HeroSlider from "@/components/HeroSlider";
 import ServicesSection from "@/components/ServicesSection";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { supabase } from "@/integrations/supabase/client";
+import { format } from "date-fns";
 import whyChooseUsBg from "@/assets/why-choose-us-bg.jpg";
 
+type PostCategory = "industry_insights" | "events" | "company_updates";
+
+interface Post {
+  id: string;
+  title: string;
+  description: string;
+  category: PostCategory;
+  image_url: string | null;
+  created_at: string;
+}
+
+const categoryConfig = {
+  industry_insights: { label: "Industry Insights", icon: TrendingUp, color: "bg-primary/10 text-primary" },
+  events: { label: "Events", icon: Calendar, color: "bg-accent/10 text-accent" },
+  company_updates: { label: "Company Updates", icon: Award, color: "bg-secondary text-secondary-foreground" },
+};
+
 const Index = () => {
-  const homeFAQs = [
-    {
-      question: "Are DFT solutions fully compliant with Kenya's Data Protection Act and regulatory guidelines?",
-      answer: "Yes. Compliance is built into every solution we design and implement. Our systems align with the Kenya Data Protection Act, Central Bank of Kenya (CBK) guidelines, and relevant regulatory frameworks. We enforce strict data governance, encryption, and access controls to ensure your data remains secure, private, and fully compliant at all times."
-    },
-    {
-      question: "How does DFT ensure data privacy and regulatory compliance in AI-driven environments?",
-      answer: "We embed compliance into the full lifecycle of our engagements — from design to deployment and ongoing monitoring. This includes privacy impact assessments, secure data handling protocols, and continuous regulatory alignment. Our approach ensures that AI adoption enhances performance without exposing the organization to legal or compliance risk."
-    },
-    {
-      question: "Are DFT Academy programs accredited and recognized?",
-      answer: "Yes. Our training programs are registered with the National Industrial Training Authority (NITA). Participants receive recognized certifications, ensuring that teams build practical, industry-relevant skills in AI, fraud risk management, cybersecurity, and governance within an approved regulatory framework."
-    },
-    {
-      question: "What tangible business value can institutions expect from DFT solutions?",
-      answer: "DFT delivers measurable outcomes. Our solutions improve decision quality, reduce fraud and operational risk, and enhance efficiency through AI and analytics. By combining global technology capability with local industry expertise, we enable institutions to realize faster results, stronger controls, and sustainable, value-driven transformation."
-    }
-  ];
+  const navigate = useNavigate();
+  const [latestPosts, setLatestPosts] = useState<Post[]>([]);
+  const [postsLoading, setPostsLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchPosts = async () => {
+      try {
+        const { data, error } = await supabase
+          .from("posts")
+          .select("id, title, description, category, image_url, created_at")
+          .order("created_at", { ascending: false })
+          .limit(6);
+        if (error) throw error;
+        setLatestPosts(data || []);
+      } catch (error) {
+        console.error("Error fetching posts:", error);
+      } finally {
+        setPostsLoading(false);
+      }
+    };
+    fetchPosts();
+  }, []);
 
   // services data moved to ServicesSection component
 
@@ -349,8 +374,74 @@ const Index = () => {
         </div>
       </section>
 
-      {/* FAQ Section */}
-      <FAQSection faqs={homeFAQs} variant="home" />
+      {/* Events & Updates Section */}
+      <section className="section-padding bg-gradient-to-br from-primary/5 to-accent/5">
+        <div className="container-max">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-5xl font-bold mb-4 gradient-text">
+              Events & Updates
+            </h2>
+            <div className="w-24 h-1 bg-warning mx-auto rounded-full mb-4"></div>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              Stay informed with the latest trends, events, and updates from DFT Group.
+            </p>
+          </div>
+
+          {postsLoading ? (
+            <div className="text-center py-12">
+              <p className="text-muted-foreground">Loading posts...</p>
+            </div>
+          ) : latestPosts.length === 0 ? (
+            <div className="text-center py-12">
+              <p className="text-muted-foreground">Check back soon for updates</p>
+            </div>
+          ) : (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {latestPosts.map((post) => {
+                const config = categoryConfig[post.category];
+                const Icon = config.icon;
+                return (
+                  <Card
+                    key={post.id}
+                    className="group overflow-hidden hover:shadow-lg transition-all duration-300 cursor-pointer"
+                    onClick={() => navigate(`/events/${post.id}`)}
+                  >
+                    {post.image_url && (
+                      <div className="relative h-48 overflow-hidden">
+                        <img src={post.image_url} alt={post.title} className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300" />
+                        <Badge className={`absolute top-4 left-4 ${config.color}`}>
+                          <Icon className="w-3 h-3 mr-1" />
+                          {config.label}
+                        </Badge>
+                      </div>
+                    )}
+                    <CardHeader>
+                      <CardTitle className="text-xl group-hover:text-primary transition-colors">{post.title}</CardTitle>
+                      <CardDescription className="flex items-center gap-2 text-sm">
+                        <Calendar className="w-4 h-4" />
+                        {format(new Date(post.created_at), "MMMM dd, yyyy")}
+                      </CardDescription>
+                    </CardHeader>
+                    <CardContent>
+                      <p className="text-muted-foreground line-clamp-3">{post.description}</p>
+                      <Button variant="link" className="mt-2 p-0 h-auto">Read more →</Button>
+                    </CardContent>
+                  </Card>
+                );
+              })}
+            </div>
+          )}
+
+          <div className="text-center mt-10">
+            <Link to="/events">
+              <Button variant="professional" size="lg">
+                View All Events & Updates
+                <ArrowRight className="ml-2 h-4 w-4" />
+              </Button>
+            </Link>
+          </div>
+        </div>
+      </section>
 
       {/* CTA Section */}
       <section className="section-padding bg-success">

@@ -75,7 +75,7 @@ const Contact = () => {
     {
       icon: Phone,
       title: "Phone Number",
-      details: ["+254-720856170", "24/7 Support Available"],
+      details: ["+254-704-453-592", "+254-704-451-160"],
       bgColor: "bg-success",
       textColor: "text-white"
     },

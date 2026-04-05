@@ -537,8 +537,60 @@ const About = () => {
               </div>
             </div>
           </div>
+
+          {/* Book a Demo CTA */}
+          <div className="text-center">
+            <Button 
+              variant="hero" 
+              size="lg" 
+              className="text-lg px-10 py-6"
+              onClick={() => setShowDemoForm(true)}
+            >
+              Book a Demo
+              <ArrowRight className="ml-2 h-5 w-5" />
+            </Button>
+          </div>
         </div>
       </section>
+
+      {/* Demo Form Dialog */}
+      {showDemoForm && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm" onClick={() => setShowDemoForm(false)}>
+          <div className="bg-white rounded-2xl shadow-2xl max-w-lg w-full mx-4 max-h-[90vh] overflow-y-auto" onClick={(e) => e.stopPropagation()}>
+            <div className="p-6 border-b border-gray-200">
+              <div className="flex items-center justify-between">
+                <h3 className="text-2xl font-bold gradient-text">Book a Demo</h3>
+                <button onClick={() => setShowDemoForm(false)} className="text-gray-400 hover:text-gray-600 text-2xl leading-none">&times;</button>
+              </div>
+              <p className="text-muted-foreground mt-1">Fill out the form and our team will get back to you within 24 hours.</p>
+            </div>
+            <form onSubmit={handleDemoSubmit} className="p-6 space-y-4">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="space-y-2">
+                  <Label htmlFor="demo-name">Full Name *</Label>
+                  <Input id="demo-name" name="name" value={demoForm.name} onChange={handleDemoChange} placeholder="Your full name" required />
+                </div>
+                <div className="space-y-2">
+                  <Label htmlFor="demo-email">Email *</Label>
+                  <Input id="demo-email" name="email" type="email" value={demoForm.email} onChange={handleDemoChange} placeholder="your.email@company.com" required />
+                </div>
+              </div>
+              <div className="space-y-2">
+                <Label htmlFor="demo-company">Company</Label>
+                <Input id="demo-company" name="company" value={demoForm.company} onChange={handleDemoChange} placeholder="Your company name" />
+              </div>
+              <div className="space-y-2">
+                <Label htmlFor="demo-message">Message *</Label>
+                <Textarea id="demo-message" name="message" value={demoForm.message} onChange={handleDemoChange} placeholder="Tell us about your requirements..." required rows={4} />
+              </div>
+              <Button type="submit" variant="success" size="lg" className="w-full">
+                <Send className="w-5 h-5 mr-2" />
+                Send Request
+              </Button>
+            </form>
+          </div>
+        </div>
+      )}
 
       {/* Our Leadership */}
       <section className="py-20 bg-gradient-to-br from-gray-50 to-white">
@@ -621,8 +673,29 @@ const About = () => {
         </div>
       </section>
 
-      {/* FAQ Section */}
-      <FAQSection faqs={aboutFAQs} variant="about" />
+      {/* FAQ Section - combined home + about FAQs */}
+      <FAQSection 
+        faqs={[
+          {
+            question: "Are DFT solutions fully compliant with Kenya's Data Protection Act and regulatory guidelines?",
+            answer: "Yes. Compliance is built into every solution we design and implement. Our systems align with the Kenya Data Protection Act, Central Bank of Kenya (CBK) guidelines, and relevant regulatory frameworks. We enforce strict data governance, encryption, and access controls to ensure your data remains secure, private, and fully compliant at all times."
+          },
+          {
+            question: "How does DFT ensure data privacy and regulatory compliance in AI-driven environments?",
+            answer: "We embed compliance into the full lifecycle of our engagements — from design to deployment and ongoing monitoring. This includes privacy impact assessments, secure data handling protocols, and continuous regulatory alignment. Our approach ensures that AI adoption enhances performance without exposing the organization to legal or compliance risk."
+          },
+          {
+            question: "Are DFT Academy programs accredited and recognized?",
+            answer: "Yes. Our training programs are registered with the National Industrial Training Authority (NITA). Participants receive recognized certifications, ensuring that teams build practical, industry-relevant skills in AI, fraud risk management, cybersecurity, and governance within an approved regulatory framework."
+          },
+          {
+            question: "What tangible business value can institutions expect from DFT solutions?",
+            answer: "DFT delivers measurable outcomes. Our solutions improve decision quality, reduce fraud and operational risk, and enhance efficiency through AI and analytics. By combining global technology capability with local industry expertise, we enable institutions to realize faster results, stronger controls, and sustainable, value-driven transformation."
+          },
+          ...aboutFAQs
+        ]} 
+        variant="about" 
+      />
 
       <style>{`
         @keyframes scroll-right {
