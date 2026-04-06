@@ -220,30 +220,46 @@ const Contact = () => {
                   <form onSubmit={handleSubmit} className="space-y-6">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                       <div className="space-y-2">
-                        <Label htmlFor="name">Full Name *</Label>
+                        <Label htmlFor="firstName">First Name *</Label>
                         <Input
-                          id="name"
-                          name="name"
-                          value={formData.name}
+                          id="firstName"
+                          name="firstName"
+                          value={formData.firstName}
                           onChange={handleInputChange}
-                          placeholder="Your full name"
+                          placeholder="First name"
                           required
                           className="neon-border"
                         />
+                        {errors.firstName && <p className="text-xs text-destructive">{errors.firstName}</p>}
                       </div>
                       <div className="space-y-2">
-                        <Label htmlFor="email">Email Address *</Label>
+                        <Label htmlFor="lastName">Last Name *</Label>
                         <Input
-                          id="email"
-                          name="email"
-                          type="email"
-                          value={formData.email}
+                          id="lastName"
+                          name="lastName"
+                          value={formData.lastName}
                           onChange={handleInputChange}
-                          placeholder="your.email@company.com"
+                          placeholder="Last name"
                           required
                           className="neon-border"
                         />
+                        {errors.lastName && <p className="text-xs text-destructive">{errors.lastName}</p>}
                       </div>
+                    </div>
+
+                    <div className="space-y-2">
+                      <Label htmlFor="email">Email Address *</Label>
+                      <Input
+                        id="email"
+                        name="email"
+                        type="email"
+                        value={formData.email}
+                        onChange={handleInputChange}
+                        placeholder="name@company.com"
+                        required
+                        className="neon-border"
+                      />
+                      {errors.email && <p className="text-xs text-destructive">{errors.email}</p>}
                     </div>
 
                     <div className="space-y-2">
