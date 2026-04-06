@@ -14,6 +14,7 @@ import { toast } from "sonner";
 
 interface BookDemoDialogProps {
   children: React.ReactNode;
+  title?: string;
 }
 
 const timeSlots = [
