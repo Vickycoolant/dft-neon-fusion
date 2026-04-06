@@ -19,33 +19,68 @@ import {
 const Contact = () => {
   const { toast } = useToast();
   const [formData, setFormData] = useState({
-    name: "",
+    firstName: "",
+    lastName: "",
     email: "",
     company: "",
     subject: "",
     message: ""
   });
+  const [errors, setErrors] = useState<Record<string, string>>({});
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
+  const validateForm = () => {
+    const newErrors: Record<string, string> = {};
+
+    if (!formData.firstName.trim()) {
+      newErrors.firstName = "First name is required";
+    } else if (formData.firstName.trim().length < 2) {
+      newErrors.firstName = "First name must be at least 2 characters";
+    }
+
+    if (!formData.lastName.trim()) {
+      newErrors.lastName = "Last name is required";
+    } else if (formData.lastName.trim().length < 2) {
+      newErrors.lastName = "Last name must be at least 2 characters";
+    }
+
+    if (!formData.email.trim()) {
+      newErrors.email = "Email is required";
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+      newErrors.email = "Please enter a valid email address";
+    }
+
+    if (!formData.subject.trim()) {
+      newErrors.subject = "Subject is required";
+    }
+
+    if (!formData.message.trim()) {
+      newErrors.message = "Message is required";
+    }
+
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    if (!validateForm()) return;
     
-    // Prepare email content for Gmail
+    const fullName = `${formData.firstName.trim()} ${formData.lastName.trim()}`;
     const toEmail = "info@dftconsult.com";
     
     const subject = encodeURIComponent(`Contact Form - ${formData.subject}`);
     const body = encodeURIComponent(
-      `Name: ${formData.name}\n` +
+      `Name: ${fullName}\n` +
       `Email: ${formData.email}\n` +
       `Company: ${formData.company || 'N/A'}\n\n` +
       `Message:\n${formData.message}`
     );
     
-    // Open Gmail compose with pre-filled content
     const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${toEmail}&su=${subject}&body=${body}`;
     window.open(gmailUrl, '_blank');
     
@@ -54,14 +89,15 @@ const Contact = () => {
       description: "Gmail has been opened with your message. Review and click send to submit.",
     });
     
-    // Clear form
     setFormData({
-      name: "",
+      firstName: "",
+      lastName: "",
       email: "",
       company: "",
       subject: "",
       message: ""
     });
+    setErrors({});
   };
 
   const contactInfo = [
