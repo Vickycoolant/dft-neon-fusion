@@ -28,7 +28,8 @@ const timeSlots = [
 const BookDemoDialog = ({ children, title = "Book a Demo" }: BookDemoDialogProps) => {
   const [open, setOpen] = useState(false);
   const [formData, setFormData] = useState({
-    name: "",
+    firstName: "",
+    lastName: "",
     email: "",
     company: "",
     phone: "",
@@ -36,28 +37,57 @@ const BookDemoDialog = ({ children, title = "Book a Demo" }: BookDemoDialogProps
   });
   const [preferredDate, setPreferredDate] = useState<Date>();
   const [preferredTime, setPreferredTime] = useState("");
+  const [errors, setErrors] = useState<Record<string, string>>({});
+
+  const validateForm = () => {
+    const newErrors: Record<string, string> = {};
+
+    if (!formData.firstName.trim()) {
+      newErrors.firstName = "First name is required";
+    } else if (formData.firstName.trim().length < 2) {
+      newErrors.firstName = "First name must be at least 2 characters";
+    }
+
+    if (!formData.lastName.trim()) {
+      newErrors.lastName = "Last name is required";
+    } else if (formData.lastName.trim().length < 2) {
+      newErrors.lastName = "Last name must be at least 2 characters";
+    }
+
+    if (!formData.email.trim()) {
+      newErrors.email = "Email is required";
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+      newErrors.email = "Please enter a valid email address";
+    }
+
+    if (formData.phone && !/^\+?\d{7,15}$/.test(formData.phone.replace(/[\s-]/g, ""))) {
+      newErrors.phone = "Please enter a valid phone number (7–15 digits)";
+    }
+
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (!formData.name || !formData.email) {
-      toast.error("Please fill in your name and email.");
-      return;
-    }
+    if (!validateForm()) return;
 
+    const fullName = `${formData.firstName.trim()} ${formData.lastName.trim()}`;
     const dateStr = preferredDate ? format(preferredDate, "PPP") : "Not specified";
     const timeStr = preferredTime || "Not specified";
 
-    const subject = encodeURIComponent(`${title} Request from ${formData.name}`);
+    const subject = encodeURIComponent(`${title} Request from ${fullName}`);
     const body = encodeURIComponent(
-      `Name: ${formData.name}\nEmail: ${formData.email}\nCompany: ${formData.company}\nPhone: ${formData.phone}\nPreferred Date: ${dateStr}\nPreferred Time: ${timeStr}\n\nMessage:\n${formData.message}`
+      `Name: ${fullName}\nEmail: ${formData.email}\nCompany: ${formData.company || "N/A"}\nPhone: ${formData.phone || "N/A"}\nPreferred Date: ${dateStr}\nPreferred Time: ${timeStr}\n\nMessage:\n${formData.message}`
     );
 
     window.open(`https://mail.google.com/mail/?view=cm&fs=1&to=info@dftconsult.com&su=${subject}&body=${body}`, "_blank");
     toast.success("Redirecting to Gmail to send your request!");
     setOpen(false);
-    setFormData({ name: "", email: "", company: "", phone: "", message: "" });
+    setFormData({ firstName: "", lastName: "", email: "", company: "", phone: "", message: "" });
     setPreferredDate(undefined);
     setPreferredTime("");
+    setErrors({});
   };
 
   return (
@@ -72,24 +102,33 @@ const BookDemoDialog = ({ children, title = "Book a Demo" }: BookDemoDialogProps
         <form onSubmit={handleSubmit} className="space-y-4 mt-2">
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div className="space-y-1.5">
-              <Label htmlFor="demo-name">Full Name *</Label>
-              <Input id="demo-name" value={formData.name} onChange={(e) => setFormData({ ...formData, name: e.target.value })} placeholder="John Doe" required />
+              <Label htmlFor="demo-firstName">First Name *</Label>
+              <Input id="demo-firstName" value={formData.firstName} onChange={(e) => setFormData({ ...formData, firstName: e.target.value })} placeholder="First name" required />
+              {errors.firstName && <p className="text-xs text-destructive">{errors.firstName}</p>}
             </div>
             <div className="space-y-1.5">
-              <Label htmlFor="demo-email">Email *</Label>
-              <Input id="demo-email" type="email" value={formData.email} onChange={(e) => setFormData({ ...formData, email: e.target.value })} placeholder="john@company.com" required />
+              <Label htmlFor="demo-lastName">Last Name *</Label>
+              <Input id="demo-lastName" value={formData.lastName} onChange={(e) => setFormData({ ...formData, lastName: e.target.value })} placeholder="Last name" required />
+              {errors.lastName && <p className="text-xs text-destructive">{errors.lastName}</p>}
             </div>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div className="space-y-1.5">
-              <Label htmlFor="demo-company">Company</Label>
-              <Input id="demo-company" value={formData.company} onChange={(e) => setFormData({ ...formData, company: e.target.value })} placeholder="DFT Consult Ltd" />
+              <Label htmlFor="demo-email">Email *</Label>
+              <Input id="demo-email" type="email" value={formData.email} onChange={(e) => setFormData({ ...formData, email: e.target.value })} placeholder="name@company.com" required />
+              {errors.email && <p className="text-xs text-destructive">{errors.email}</p>}
             </div>
             <div className="space-y-1.5">
               <Label htmlFor="demo-phone">Phone</Label>
-              <Input id="demo-phone" value={formData.phone} onChange={(e) => setFormData({ ...formData, phone: e.target.value })} placeholder="+254 7XX XXX XXX" />
+              <Input id="demo-phone" type="tel" value={formData.phone} onChange={(e) => setFormData({ ...formData, phone: e.target.value })} placeholder="+254 7XX XXX XXX" />
+              {errors.phone && <p className="text-xs text-destructive">{errors.phone}</p>}
             </div>
+          </div>
+
+          <div className="space-y-1.5">
+            <Label htmlFor="demo-company">Company / Organization</Label>
+            <Input id="demo-company" value={formData.company} onChange={(e) => setFormData({ ...formData, company: e.target.value })} placeholder="Your company or organization" />
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
