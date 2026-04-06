@@ -256,7 +256,7 @@ const HeroSlider = () => {
                 <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
               </Button>
             </Link>
-            <BookDemoDialog>
+            <BookDemoDialog title="Schedule Consultation">
               <Button variant="warning" size="lg" className="w-full">
                 Schedule Consultation
               </Button>
@@ -372,7 +372,7 @@ const HeroSlider = () => {
                 <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
               </Button>
             </Link>
-            <BookDemoDialog>
+            <BookDemoDialog title="Schedule Consultation">
               <Button variant="warning" size="lg">
                 Schedule Consultation
               </Button>
