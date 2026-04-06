@@ -301,7 +301,6 @@ const Contact = () => {
                         className="neon-border"
                       />
                       {errors.message && <p className="text-xs text-destructive">{errors.message}</p>}
-                      />
                     </div>
 
                     <Button type="submit" variant="success" size="lg" className="w-full">
