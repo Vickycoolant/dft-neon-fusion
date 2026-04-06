@@ -37,28 +37,6 @@ import logoDtb from "@/assets/logo-dtb.png";
 import FAQSection from "@/components/FAQSection";
 
 const About = () => {
-  const { toast } = useToast();
-  const [showDemoForm, setShowDemoForm] = useState(false);
-  const [demoForm, setDemoForm] = useState({ name: "", email: "", company: "", message: "" });
-
-  const handleDemoChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target;
-    setDemoForm(prev => ({ ...prev, [name]: value }));
-  };
-
-  const handleDemoSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    const toEmail = "info@dftconsult.com";
-    const subject = encodeURIComponent(`Demo Request from ${demoForm.name}`);
-    const body = encodeURIComponent(
-      `Name: ${demoForm.name}\nEmail: ${demoForm.email}\nCompany: ${demoForm.company || 'N/A'}\n\nMessage:\n${demoForm.message}`
-    );
-    const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${toEmail}&su=${subject}&body=${body}`;
-    window.open(gmailUrl, '_blank');
-    toast({ title: "Gmail Opened!", description: "Gmail has been opened with your message. Review and click send to submit." });
-    setDemoForm({ name: "", email: "", company: "", message: "" });
-    setShowDemoForm(false);
-  };
 
   const coreValues = [
     {
