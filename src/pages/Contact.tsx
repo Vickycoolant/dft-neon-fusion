@@ -269,7 +269,7 @@ const Contact = () => {
                         name="company"
                         value={formData.company}
                         onChange={handleInputChange}
-                        placeholder="Your company name"
+                        placeholder="Your company or organization"
                         className="neon-border"
                       />
                     </div>
@@ -281,10 +281,11 @@ const Contact = () => {
                         name="subject"
                         value={formData.subject}
                         onChange={handleInputChange}
-                        placeholder="What can we help you with?"
+                        placeholder="e.g. Partnership enquiry, Service request"
                         required
                         className="neon-border"
                       />
+                      {errors.subject && <p className="text-xs text-destructive">{errors.subject}</p>}
                     </div>
 
                     <div className="space-y-2">
@@ -294,10 +295,12 @@ const Contact = () => {
                         name="message"
                         value={formData.message}
                         onChange={handleInputChange}
-                        placeholder="Tell us more about your project or requirements..."
+                        placeholder="Describe your project or requirements in detail..."
                         required
                         rows={6}
                         className="neon-border"
+                      />
+                      {errors.message && <p className="text-xs text-destructive">{errors.message}</p>}
                       />
                     </div>
 
