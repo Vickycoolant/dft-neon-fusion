@@ -1,13 +1,10 @@
-import { useState } from "react";
 import CoreValuesCarousel from "@/components/CoreValuesCarousel";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { Label } from "@/components/ui/label";
 import { Link } from "react-router-dom";
-import { useToast } from "@/hooks/use-toast";
+import BookDemoDialog from "@/components/BookDemoDialog";
+import {
 import { 
   Target, 
   Eye, 
@@ -20,8 +17,7 @@ import {
   TrendingUp,
   Zap,
   Building2,
-  Brain,
-  Send
+  Brain
 } from "lucide-react";
 import aboutHeroImg from "@/assets/image-3.jpg";
 import dataIntelligenceImg from "@/assets/image-10.jpg";
