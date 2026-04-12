@@ -6,6 +6,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Badge } from "@/components/ui/badge";
 import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
+import { supabase } from "@/integrations/supabase/client";
 import { 
   MapPin, 
   Phone, 
@@ -27,6 +28,7 @@ const Contact = () => {
     message: ""
   });
   const [errors, setErrors] = useState<Record<string, string>>({});
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -66,38 +68,50 @@ const Contact = () => {
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!validateForm()) return;
     
-    const fullName = `${formData.firstName.trim()} ${formData.lastName.trim()}`;
-    const toEmail = "info@dftconsult.com";
-    
-    const subject = encodeURIComponent(`Contact Form - ${formData.subject}`);
-    const body = encodeURIComponent(
-      `Name: ${fullName}\n` +
-      `Email: ${formData.email}\n` +
-      `Company: ${formData.company || 'N/A'}\n\n` +
-      `Message:\n${formData.message}`
-    );
-    
-    const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${toEmail}&su=${subject}&body=${body}`;
-    window.open(gmailUrl, '_blank');
-    
-    toast({
-      title: "Gmail Opened!",
-      description: "Gmail has been opened with your message. Review and click send to submit.",
-    });
-    
-    setFormData({
-      firstName: "",
-      lastName: "",
-      email: "",
-      company: "",
-      subject: "",
-      message: ""
-    });
-    setErrors({});
+    setIsSubmitting(true);
+    try {
+      const { data, error } = await supabase.functions.invoke('send-email', {
+        body: {
+          firstName: formData.firstName.trim(),
+          lastName: formData.lastName.trim(),
+          email: formData.email.trim(),
+          company: formData.company.trim(),
+          subject: formData.subject.trim(),
+          message: formData.message.trim(),
+          formType: "Contact Form",
+        },
+      });
+
+      if (error) throw error;
+
+      toast({
+        title: "Message Sent!",
+        description: "Your message has been sent successfully. We'll get back to you within 24 hours.",
+      });
+      
+      setFormData({
+        firstName: "",
+        lastName: "",
+        email: "",
+        company: "",
+        subject: "",
+        message: ""
+      });
+      setErrors({});
+    } catch (err) {
+      console.error("Error sending email:", err);
+      toast({
+        title: "Error",
+        description: "Failed to send your message. Please try again or email us directly at info@dftconsult.com",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const contactInfo = [
@@ -303,9 +317,9 @@ const Contact = () => {
                       {errors.message && <p className="text-xs text-destructive">{errors.message}</p>}
                     </div>
 
-                    <Button type="submit" variant="success" size="lg" className="w-full">
+                    <Button type="submit" variant="success" size="lg" className="w-full" disabled={isSubmitting}>
                       <Send className="w-5 h-5 mr-2" />
-                      Send Message
+                      {isSubmitting ? "Sending..." : "Send Message"}
                     </Button>
                   </form>
                 </CardContent>

@@ -190,8 +190,8 @@ const BookDemoDialog = ({ children, title = "Book a Demo" }: BookDemoDialogProps
             <Textarea id="demo-message" value={formData.message} onChange={(e) => setFormData({ ...formData, message: e.target.value })} placeholder="Tell us about your requirements..." rows={3} />
           </div>
 
-          <Button type="submit" variant="hero" size="lg" className="w-full">
-            Submit
+          <Button type="submit" variant="hero" size="lg" className="w-full" disabled={isSubmitting}>
+            {isSubmitting ? "Sending..." : "Submit"}
           </Button>
         </form>
       </DialogContent>
