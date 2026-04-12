@@ -11,6 +11,7 @@ import { CalendarIcon } from "lucide-react";
 import { format } from "date-fns";
 import { cn } from "@/lib/utils";
 import { toast } from "sonner";
+import { supabase } from "@/integrations/supabase/client";
 
 interface BookDemoDialogProps {
   children: React.ReactNode;
@@ -68,26 +69,42 @@ const BookDemoDialog = ({ children, title = "Book a Demo" }: BookDemoDialogProps
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!validateForm()) return;
 
-    const fullName = `${formData.firstName.trim()} ${formData.lastName.trim()}`;
-    const dateStr = preferredDate ? format(preferredDate, "PPP") : "Not specified";
-    const timeStr = preferredTime || "Not specified";
+    setIsSubmitting(true);
+    try {
+      const { data, error } = await supabase.functions.invoke('send-email', {
+        body: {
+          firstName: formData.firstName.trim(),
+          lastName: formData.lastName.trim(),
+          email: formData.email.trim(),
+          company: formData.company.trim(),
+          phone: formData.phone.trim(),
+          message: formData.message.trim(),
+          preferredDate: preferredDate ? format(preferredDate, "PPP") : "",
+          preferredTime: preferredTime || "",
+          formType: title,
+        },
+      });
 
-    const subject = encodeURIComponent(`${title} Request from ${fullName}`);
-    const body = encodeURIComponent(
-      `Name: ${fullName}\nEmail: ${formData.email}\nCompany: ${formData.company || "N/A"}\nPhone: ${formData.phone || "N/A"}\nPreferred Date: ${dateStr}\nPreferred Time: ${timeStr}\n\nMessage:\n${formData.message}`
-    );
+      if (error) throw error;
 
-    window.open(`https://mail.google.com/mail/?view=cm&fs=1&to=info@dftconsult.com&su=${subject}&body=${body}`, "_blank");
-    toast.success("Redirecting to Gmail to send your request!");
-    setOpen(false);
-    setFormData({ firstName: "", lastName: "", email: "", company: "", phone: "", message: "" });
-    setPreferredDate(undefined);
-    setPreferredTime("");
-    setErrors({});
+      toast.success("Your request has been sent successfully! We'll get back to you soon.");
+      setOpen(false);
+      setFormData({ firstName: "", lastName: "", email: "", company: "", phone: "", message: "" });
+      setPreferredDate(undefined);
+      setPreferredTime("");
+      setErrors({});
+    } catch (err) {
+      console.error("Error sending email:", err);
+      toast.error("Failed to send your request. Please try again or email us directly at info@dftconsult.com");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -173,8 +190,8 @@ const BookDemoDialog = ({ children, title = "Book a Demo" }: BookDemoDialogProps
             <Textarea id="demo-message" value={formData.message} onChange={(e) => setFormData({ ...formData, message: e.target.value })} placeholder="Tell us about your requirements..." rows={3} />
           </div>
 
-          <Button type="submit" variant="hero" size="lg" className="w-full">
-            Submit
+          <Button type="submit" variant="hero" size="lg" className="w-full" disabled={isSubmitting}>
+            {isSubmitting ? "Sending..." : "Submit"}
           </Button>
         </form>
       </DialogContent>
