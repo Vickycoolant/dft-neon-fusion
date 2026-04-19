@@ -10,6 +10,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { CalendarIcon } from "lucide-react";
 import { format } from "date-fns";
 import { cn } from "@/lib/utils";
+import { getEdgeFunctionErrorMessage } from "@/lib/get-edge-function-error-message";
 import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
 
@@ -101,7 +102,11 @@ const BookDemoDialog = ({ children, title = "Book a Demo" }: BookDemoDialogProps
       setErrors({});
     } catch (err) {
       console.error("Error sending email:", err);
-      toast.error("Failed to send your request. Please try again or email us directly at info@dftconsult.com");
+      const errorMessage = await getEdgeFunctionErrorMessage(
+        err,
+        "Failed to send your request. Please try again or email us directly at info@dftconsult.com",
+      );
+      toast.error(errorMessage);
     } finally {
       setIsSubmitting(false);
     }
