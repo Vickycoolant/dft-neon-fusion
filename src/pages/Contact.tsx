@@ -5,6 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Badge } from "@/components/ui/badge";
 import { Label } from "@/components/ui/label";
+import { getEdgeFunctionErrorMessage } from "@/lib/get-edge-function-error-message";
 import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
 import { 
@@ -104,9 +105,13 @@ const Contact = () => {
       setErrors({});
     } catch (err) {
       console.error("Error sending email:", err);
+      const errorMessage = await getEdgeFunctionErrorMessage(
+        err,
+        "Failed to send your message. Please try again or email us directly at info@dftconsult.com",
+      );
       toast({
         title: "Error",
-        description: "Failed to send your message. Please try again or email us directly at info@dftconsult.com",
+        description: errorMessage,
         variant: "destructive",
       });
     } finally {

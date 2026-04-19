@@ -1,6 +1,6 @@
 const corsHeaders = {
   'Access-Control-Allow-Origin': '*',
-  'Access-Control-Allow-Headers': 'authorization, x-client-info, apikey, content-type',
+  'Access-Control-Allow-Headers': 'authorization, x-client-info, apikey, content-type, x-supabase-client-platform, x-supabase-client-platform-version, x-supabase-client-runtime, x-supabase-client-runtime-version',
 }
 import { z } from 'https://deno.land/x/zod@v3.22.4/mod.ts'
 
@@ -80,6 +80,25 @@ Deno.serve(async (req) => {
 
     const data = await response.json()
     if (!response.ok) {
+      console.error('Email provider error:', { status: response.status, data })
+
+      if (
+        response.status === 403 &&
+        data &&
+        typeof data === 'object' &&
+        'message' in data &&
+        typeof data.message === 'string' &&
+        data.message.includes('verify a domain')
+      ) {
+        return new Response(JSON.stringify({
+          success: false,
+          error: 'Email sending is still in testing mode. Verify the DFT Consult sending domain in Resend and use a domain-based From address before website forms can send directly to info@dftconsult.com.',
+        }), {
+          status: 403,
+          headers: { ...corsHeaders, 'Content-Type': 'application/json' },
+        })
+      }
+
       throw new Error(`Resend API error [${response.status}]: ${JSON.stringify(data)}`)
     }
 
