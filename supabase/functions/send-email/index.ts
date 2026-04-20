@@ -92,7 +92,7 @@ Deno.serve(async (req) => {
       ) {
         return new Response(JSON.stringify({
           success: false,
-          error: 'Email sending is still in testing mode. Verify the DFT Consult sending domain in Resend and use a domain-based From address before website forms can send directly to info@dftconsult.com.',
+          error: 'Failed to send request, email us directly @ info@dftconsult.com.',
         }), {
           status: 403,
           headers: { ...corsHeaders, 'Content-Type': 'application/json' },
